@@ -1,0 +1,135 @@
+---
+title             : "Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring"
+shorttitle        : "Arab Spring"
+
+author: 
+  - name          : "Megan Chiovaro"
+    affiliation   : "1, 2"
+    corresponding : yes    # Define only one corresponding author
+    address       : "406 Babbidg Road, Unit 1020, Storrs, CT 06269"
+    email         : "megan.chiovaro@uconn.edu"
+  - name          : "Alexandra Paxton"
+    affiliation   : "1,2,*"
+  - name          : "Lead C. Windsor"
+    affiliation   : "3,*"
+    
+affiliation:
+  - id            : "1"
+    institution   : "Center for the Ecological Study of Perception and Action"
+  - id            : "2"
+    institution   : "University of Connecticut"
+  - id            : "3"
+    institution   : "University of Memphis"
+  - id            : "*"
+    institution   : "Equal author contributions"
+
+abstract: |
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+
+# clear the workspace
+rm(list=ls())
+
+# install and load required packages
+source('./scripts/required_packages.r')
+source('./scripts/libraries_and_functions.r')
+
+# references file
+r_refs("references.bib")
+
+# create subdirectories
+# dir.create("./data/raw") # load three data files here
+# dir.create("./data/formatted/primary")
+# dir.create("./data/formatted/secondary")
+# dir.create("./results/primary/crqa")
+# dir.create("./results/primary/windowed-crqa")
+# dir.create("./results/secondary/icews/crqa/source_target")
+# dir.create("./results/secondary/icews/crqa/target")
+# dir.create("./results/secondary/icews/windowed-crqa/source_target")
+# dir.create("./results/secondary/icews/windowed-crqa/target")
+# dir.create("./results/secondary/pheonix/crqa/source_target")
+# dir.create("./results/secondary/pheonix/crqa/target")
+# dir.create("./results/secondary/pheonix/windowed-crqa/source_target")
+# dir.create("./results/secondary/pheonix/windowed-crqa/target")
+
+```
+
+```{r data-prep, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# format the data
+source('./scripts/primary-analyses/01_formatting_data.R')
+source('./scripts/secondary-analyses/icews/01_formatting_data.R')
+source('./scripts/secondary-analyses/pheonix/01_formatting_data.R')
+
+```
+
+# Introduction
+
+# Method
+
+## Data Collection
+
+## Data Preparation
+
+## Procedure
+
+## Data analysis
+
+# Results
+
+```{r analyses, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# primary analyses
+source('./scripts/primary-analyses/02_crqa.R')
+source('./scripts/primary-analyses/03_windowed_crqa.R')
+
+# secondary analyses
+source('./scripts/secondary-analyses/icews/02_crqa.R')
+source('./scripts/secondary-analyses/icews/03_windowed_crqa.R')
+source('./scripts/secondary-analyses/pheonix/02_crqa.R')
+source('./scripts/secondary-analyses/pheonix/03_windowed_crqa.R')
+
+```
+
+```{r images}
+# code block to insert an image
+
+
+
+```
+
+
+# Discussion
+
+### Acknowledgements
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup

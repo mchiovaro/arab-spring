@@ -1,0 +1,7 @@
+
+.DS_Store
+data/
+results/
+*.html
+.Rhistory
+.Rapp.history
