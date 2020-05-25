@@ -30,7 +30,7 @@
 \usepackage{hyperref}
 \hypersetup{
             pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
-            pdfkeywords={keywords},
+            pdfkeywords={Social cohesion, recurrence quantification analysis, complex systems, Twitter, nonlinear dynamics, Arab Spring},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -95,13 +95,10 @@
 \affiliation{
 \vspace{0.5cm}
 \textsuperscript{1} Center for the Ecological Study of Perception and Action\\\textsuperscript{2} University of Connecticut\\\textsuperscript{3} University of Memphis\\\textsuperscript{*} Equal author contributions}
-\authornote{Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+\authornote{
 
-Enter author note here.
-
-
-Correspondence concerning this article should be addressed to Megan Chiovaro, 406 Babbidg Road, Unit 1020, Storrs, CT 06269. E-mail: megan.chiovaro@uconn.edu}
-\keywords{keywords\newline\indent Word count: X}
+Correspondence concerning this article should be addressed to Megan Chiovaro, 406 Babbidge Road, Unit 1020, Storrs, CT 06269. E-mail: megan.chiovaro@uconn.edu}
+\keywords{Social cohesion, recurrence quantification analysis, complex systems, Twitter, nonlinear dynamics, Arab Spring\newline\indent Word count: X}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
 \DeclareDelayedFloatFlavor*{longtable}{table}
@@ -125,43 +122,113 @@ Correspondence concerning this article should be addressed to Megan Chiovaro, 40
 \date{}
 
 \abstract{
-One or two sentences providing a \textbf{basic introduction} to the field, comprehensible to a scientist in any discipline.
-
-Two to three sentences of \textbf{more detailed background}, comprehensible to scientists in related disciplines.
-
-One sentence clearly stating the \textbf{general problem} being addressed by this particular study.
-
-One sentence summarizing the main result (with the words ``\textbf{here we show}'' or their equivalent).
-
-Two or three sentences explaining what the \textbf{main result} reveals in direct comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.
-
-One or two sentences to put the results into a more \textbf{general context}.
-
-Two or three sentences to provide a \textbf{broader perspective}, readily comprehensible to a scientist in any discipline.
+Social mobilization requires effective collective coordination. In recent years, individuals involved in social movements have taken to social media platforms such as Twitter to reach broader audiences at rapid speeds. Effective virtual mobilization similarly requires social cohesion and coordination, yet it is still unclear if virtual mobilization reflects real-world movements. Here, we explore the dynamics of real-world events and social cohesion on Twitter in Syria during the Arab Spring. Using the nonlinear methods cross-recurrence quantification analysis and windowed cross-recurrence quantification analysis, we investigate if counts of all daily events, daily positive events, and daily negative events are coupled with social cohesion found in Syrian tweets. Results indicate that virtual social cohesion is coupled with the counts of all and negative events each day, but not with counts of positive events. This suggests that virtual mobilization does reflect real-world movements, but only for salient, frequent and negative events. We conclude with a discussion of implications and applications of nonlinear methods in political science research.
 }
 
 \begin{document}
 \maketitle
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+Social coordination has long been used both physically and virtually to start and carry out collective actions. These collective events bring individuals together and create emergent patterns of communication and action. Online communication has historically been used to document and communicate archival information about events, but it has been increasingly used to bring about social change. From a dynamical systems perspective, these different means of social coordination during times of turmoil can be considered two complementary components of a single system, mutually constrained and constantly interacting and influencing one another (Mahner \& Bunge, 1997). Investigation of the coupling of real-world mobilization and social cohesion could provide new insight into the power of social media during mobilization and the ways in which individuals utilize it to bring about, or respond to, social change. Increasingly, social media platforms are being utilized during social mobilization, but the relationship between virtual and real-world mobilization is still largely unknown. The present work aims to understand how physical and virtual movements coexist and interact from a dynamical systems perspective.
+
+\hypertarget{arab-spring}{%
+\subsection{Arab Spring}\label{arab-spring}}
+
+In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and unjustifiably stripped of his vendor cart by municipal officials. His humiliation led him to set himself on fire in protest to the authoritarian rule, ultimately leading to his death several days later. His actions served as a catalyst for the Tunisian Revolution, and one week after his death, the long-withstanding authoritarian president, Zine El Abidine Ben Ali, fled the country. The events of Tunisia rapidly spread to surrounding countries that were also subject to unjust authoritarian rule, such as Yemen, Egypt, Libya, and Syria. These mass movements would not have been possible without efficient interpersonal coordination, both physically and virtually on social media platforms, such as Twitter. The events of Arab Spring have been thoroughly discussed within the political science literature (e.g., Lutterbeck, 2013, @koehler2017political) but to our knowledge, the use of Twitter by Syrian citizens has not been investigated.
+
+\hypertarget{social-cohesion}{%
+\subsection{Social Cohesion}\label{social-cohesion}}
+
+Real-world collective action is known to bring about a sense of togetherness, also known as \enquote{collective effervescence} (Durkheim, 1995). This feeling of being a part of something larger than oneself leads individuals to act in ways that would not have on their own. Being overcome with this feeling is known to lead to violence (Collins, 2009, @spaaij2014sports). While feelings of social connection may lead to violence, increased exposure to violence can result in feelings of social cohesion. Gilligan, Pasquale, and Samii (2013) found that exposure to fatal wartime violence resulted in increased prosocial motivations, including cooperative behaviors, feelings of trust, and overall community-level social cohesion. Just as real-world social cohesion can be quantified, the same is true for online cohesion. Strategic communication on social media in the form of social cohesion of language can lead to real-world social change, and exposure to real-world violence could result in social cohesion in the virtual world. Increased social cohesion is thus potentially an indicator of increased social organization and mobilization on the ground.
+
+\hypertarget{social-media-as-a-platform-for-mobilization}{%
+\subsection{Social Media as a Platform for Mobilization}\label{social-media-as-a-platform-for-mobilization}}
+
+Social media platforms, such as Twitter, offer rapid real-time dissemination of information. Given its accessibility and proficiency as an information exchange tool, individuals involved in social movements have taken to them in conjunction, or in replacement, of real-world social mobilization. During the 2012 Italian protests for global economic change, the riots in Rome were mirrored by Twitter activity both on the same day and in the following days after the protests (Vicari, 2013). Tweeting was determined to be more effective locally in discussing real-world, real-time events than traditional mainstream media platforms. As more and more individuals rely on social media to obtain local news and information, it becomes increasingly important to understand just how these micro-blogs reflect real-world action.
+
+\hypertarget{use-of-nonlinear-methods-in-naturally-occurring-data}{%
+\subsection{Use of Nonlinear Methods in Naturally Occurring Data}\label{use-of-nonlinear-methods-in-naturally-occurring-data}}
+
+Traditional linear analyses have led to many notable discoveries in the domains of psychology and political science, but continuous data pose problems that are not easily overcome with these methods. Events have historically been conceptualized as linear chains of smaller, sequential events with one occurrence leading to the next. This notion has been increasingly replaced by ideas from dynamical systems theory. Rather than a chain of events, continuous data can be thought of as nested occurrences, where mutually constrained parts (e.g., citizens, governments, real-world events, social media platforms) are constantly interacting, leading to more global behaviors that are larger than the sum of the parts (Turvey, 2018). When analyzed as dynamical systems, many phenomena exhibit new nonlinear patterns that were formerly overlooked. Continuous data subject to linear analyses becomes flattened, and the variability that is fundamental to these systems and their evolution over time is ignored. Nonlinear methods provide means for capturing the rich temporal dynamics and variability that unfold in continuous data.
+The primary methods used in the current work is cross-recurrence quantification analysis (CRQA; Zbilut, Giuliani, \& Webber Jr, 1998) and it's off-shoot, windowed cross-recurrence quantification analysis (WCRQA; Webber Jr \& Zbilut, 2005). CRQA has successfully been used to gain a better understanding of many complex human phenomena, such as human social interactions (for a review, see Fusaroli, Konvalinka, \& Wallot, 2014) and interpersonal synchrony (Paxton \& Dale, 2017). We argue that the use of nonlinear methods in the investigation of political science phenomena will lead to new insights and development of more robust theories.
+
+\hypertarget{the-present-work}{%
+\subsection{The Present Work}\label{the-present-work}}
+
+Social media has become a primary platform for social movements and activism across the world, but the extent to which virtual activism reflects real-world mobilization is still largely unknown. We conceptualize the physical and virtual movements as a dynamical system, both constantly interacting and influencing the other. Both real- and virtual-world collective coordination were powerful tools in the events of Arab Spring, and are undeniably linked. This study aims to explore the dynamics of Syrian individuals who took to Twitter to raise awareness about the events of Arab Spring and bring about mass mobilization. Using cross-recurrence quantification analysis (CRQA; Zbilut et al., 1998) and windowed cross-recurrence quantification analysis (WCRQA; Webber Jr \& Zbilut, 2005), we analyzed the dynamics of social cohesion of tweets from March 30, 2012 to June 15, 2012 and the counts of all, positive, and negative real-world events on those respective days. We hypothesized that the count of all events and the count of negative events would show high levels of determinism, as this time period was marked by daily violence which often leads to increased salience. We also hypothesized that the count of positive events would not show patterns of determinism, as these events were likely overshadowed by the salient negative daily occurrences. Using WCRQA, we hoped to identify shifts in the dynamics of the systems that could then be linked to real world shifts in conflict frequency. As social cohesion has never been analyzed using nonlinear methods, the analyses contained herein are largely exploratory. The goal of this endeavor is to gain a better understanding of how events of different intensities during times of turmoil may enhance or deter social cohesion in social media communication, and how social mobilization may be evident in the dynamic coupling of cohesion and real-world events.
 
 \hypertarget{method}{%
 \section{Method}\label{method}}
 
-\hypertarget{data-collection}{%
-\subsection{Data Collection}\label{data-collection}}
+\hypertarget{materials}{%
+\subsection{Materials}\label{materials}}
+
+\hypertarget{tweet-corpus}{%
+\subsubsection{Tweet Corpus}\label{tweet-corpus}}
+
+The corpus of tweets used included 8,084,644 Syrian tweets occurring between March 1, 2012 and June 15, 2012. A server malfunction during data collection resulted in missing data from March 12, 2012 to March 29, 2012. For the current analyses, the data were truncated to remove missing data, making the final dataset from March 30, 2012 to June 15, 2012 (n = 78). The tweet corpus was scraped from Twitter by {[}insert search parameters here{]}.
+
+\hypertarget{event-data}{%
+\subsubsection{Event Data}\label{event-data}}
+
+Event data were obtained from the 2012 Integrated Crisis Early Warning System (ICEWS; Boschee et al., 2015). The event data were first filtered to remove incomplete and incorrectly formatted data. They were then filtered to include only events that were directed (i.e., target) at Syria (n = 6300). To explore the impact of outwardly directed Syrian events, the data were filtered again to include events that were both directed at (i.e., target) or directed by (i.e., source) Syria (n = 7990).
 
 \hypertarget{data-preparation}{%
 \subsection{Data Preparation}\label{data-preparation}}
 
-\hypertarget{procedure}{%
-\subsection{Procedure}\label{procedure}}
+\hypertarget{social-cohesion-metric}{%
+\subsubsection{Social Cohesion Metric}\label{social-cohesion-metric}}
 
-\hypertarget{data-analysis}{%
-\subsection{Data analysis}\label{data-analysis}}
+The social cohesion or linguistic similarity of daily tweets was calculated by quantifying the frequency of shared content words with respect to those words' frequencies in the entire tweet corpus. If a linguistic term has a high frequency in one tweet but has a low frequency in the whole tweet corpus, then it is more likely a content word and is this given more weight in calculating social cohesion.
+The tweets were first sorted into ascending order by timestamp. They were then grouped into successive sets of five tweets. Inverse frequency weighting for the overlap words and all words was conducted for each pair of two tweets in the group of five, then divided to get the social cohesion score for that pair (see Eq. 1-3). This resulted in ten social cohesion values for each group of five tweets, which were then averaged. Finally, the mean of all average cohesion values for all groups was taken to get a social cohesion score for each day.
 
-We used R (Version 3.6.1; R Core Team, 2019) and the R-package \emph{papaja} (Version 0.1.0.9942; Aust \& Barth, 2020) for all our analyses.
+(insert social cohesion equations here)
+
+The social cohesion calculation was performed on a subset of the corpus containing 3,855,743 English and 1,731,700 Arabic tweets. All hashtags and URLs were included in the analysis. This method is similar to that of inverse document frequency (IDF). For more information on IDF, see Sparck Jones (1972) and Robertson (2004).
+
+\hypertarget{icews-event-time-series}{%
+\subsubsection{ICEWS Event Time Series}\label{icews-event-time-series}}
+
+Using the Integrated Crisis Early Warning System (ICEWS) developed at the Defense Advanced Research Project Agency, the daily events in Syria were scored with an intensity rating ranging from -10 to 10. Negative events, such as riots and attacks, are coded with low negative numbers while positive, peaceful events are coded with high positive numbers. This well-validated coding scheme allows for numerical quantification of different event types.
+For both the target only and the target and source data, time series of the count of all events were generated by summing the total number of events on each day, irrespective of ICEWS score (M = , SD = ). Similarly, time series of count of positive events were generated by summing the number of ICEWS events for each day that had an intensity rating greater than zero (M = , SD = ). Lastly, time series of count of negative events were generated by summing the number of ICEWS events for each day that had an intensity rating less than zero (M = , SD = ).
+
+\hypertarget{analyses}{%
+\subsection{Analyses}\label{analyses}}
+
+\hypertarget{cross-recurrence-quantification-analysis}{%
+\subsubsection{Cross-Recurrence Quantification Analysis}\label{cross-recurrence-quantification-analysis}}
+
+We first used cross-recurrence quantification analysis (CRQA; Zbilut et al., 1998) to investigate the temporal patterns of social cohesion and real-world events in Syria during Arab Spring. As an extension of RQA, which captures the patterns of revisited states of a single time series (Webber Jr \& Zbilut, 1994; Zbilut \& Webber Jr, 1992), CRQA allows for two time series to be projected onto one another to investigate shared states and trajectories. Nonlinear analyses such as CRQA can reveal dynamics that are not captured by traditional linear methods. In order to perform CRQA, the time series need to be converted to the same scale, while still preserving a sampling rate that respects the native timescale of the system (cf.~Nyquist frequency in signal processing; Grenander (1959)). We converted each time series (e.g., Figure \#) into deciles (e.g., Figure \#) to analyze the dynamics of different levels of social cohesion and counts of all, positive, and negative events on each day.
+In CRQA, a recurrent point is when two signals share the same state. These shared states can be at the same time or at later points in the time series. A recurrence plot (RP) is the visual representation of CRQA. To construct a recurrence plot, two time series are plotted against each other on the X and Y axes, and at every point where they share the same state, and point in placed on the plot to indicate recurrence. Visually analyzing these plots can help reveal patterns of structure and recurrence. The line y = x is known as the line of identity. This line falls where the time series match temporally, and a filled line would indicate perfect synchrony between the two time series. See Figures \#-\# for examples of RPs.
+
+\hypertarget{metrics}{%
+\paragraph{Metrics}\label{metrics}}
+
+The percentage of recurrent points to total possible points is a metric called recurrence rate (RR). This metrics gives a general description of how frequently the time series are sharing the same states. In the current study, a recurrent point would indicate that the level of social cohesion and frequency of events were at the same intensity.
+Recurrent points that occur in successive moments form line structures. These are conceptualized as shared trajectories, where the two time series are moving together across time in a shared state. The percentage of recurrent points that make up diagonal line structures (i.e., two or more consecutive points) is a metric called percent determinism (DET). For the current project, a high DET would indicate that not only are the levels of social cohesion and frequency of events occurring at similar intensities, but they are doing so across consecutive days.
+The average length of the line structures is called mean line (L). This can be conceptualized as the average amount of time that the two time series move together before one or both shift states. The longest line length is called max line (maxL). maxL indicates the longest instance of being \enquote{stuck} in a particular state together. The total number of lines is called NRLINE. The more lines there are, the more coordinated the system may be. The complexity or variability of line lengths is captured by a metric called entropy (ENTR) and entropy while accounting for the total number of lines in the plot is normalized entropy (rENTR). These entropy metrics help indicate the stability and predictability of the system. When one of the signals gets \enquote{stuck} in a state and the other moves on to other states, this results in vertical line structures. The proportion of points forming vertical line structures is a metric called laminarity (LAM) and the average length of the vertical trajectories is called trapping time (TT). For more detail on CRQA metrics, see Coco and Dale (2014).
+
+\hypertarget{parameters}{%
+\paragraph{Parameters}\label{parameters}}
+
+To conduct the analyses on the decile data, the parameters were set to those typically used in categorical CRQA. Delay was set to zero, embedding dimension was set to 1, and radius was set to .001 to allow for only exact recurrent matches. No normalization was done, and lines were considered two or more consecutive recurrent points. The Theiler window was set to zero to include points along the line of identity. For more details on the CRQA parameters and how they impact the analysis, see Coco and Dale (2014).
+
+\hypertarget{permutation-test}{%
+\paragraph{Permutation Test}\label{permutation-test}}
+
+Using the deciled, real time series of social cohesion, count of all events, count of positive events, and count of negative events, a permutation test was done to determine statistical difference from chance for each CRQA metric. Using the sample function in base R (R Core Team, 2019), 1000 permuted time series were created for each of the real time series. A permutation test is similar to bootstrapping, except that the sampling of observations is done without replacement. CRQA was then run 1000 times for social cohesion and count of all events, social cohesion and count of positive events, and social cohesion and count of negative events using the permuted time series. This resulted in 1000 results for each of the CRQA metrics for each combination of time series. Statistical significance from chance was set at the 95th and 99th percentiles of the metrics from the permuted CRQ analyses. Given that a permutation test is similar to bootstrapping but does not include replacement, all points were included in each CRQA analysis, leaving RR the same across all analyses. Thus, RR is not included in the inferential tests. For more information on permutation tests, see Good (2013).
+
+\hypertarget{windowed-cross-recurrence-quantification-analysis}{%
+\subsubsection{Windowed Cross-Recurrence Quantification Analysis}\label{windowed-cross-recurrence-quantification-analysis}}
+
+We used windowed cross-recurrence quantification analysis (WCRQA; Webber Jr \& Zbilut, 2005) to further investigate the evolution of the temporal dynamics of social cohesion and real-world events. In this analysis, a smaller \enquote{window} of time points is used to calculate CRQA and capture more fine-grain dynamics of two time series. The window remains the same size and \enquote{slides} diagonally up the line of identity. The changes in the CRQA metrics across the windows can reveal changes in dynamics that can then be linked to external, real-world events.
+\#\#\#\# Metrics
+Conducting WCRQA results in CRQA metrics (e.g., RR, DET, ENTR) for each respective window. These metrics can then be plotted as a time series to visualize their evolution over time. For these analyses, we decided to visualize recurrence rate and determinism.
+\#\#\#\# Parameters
+In addition to the CRQA parameters, two other parameters are required when conducting WCRQA. First, a window size must be decided on. The window size will determine how many observations are used in each CRQA analysis. We conducted WCRQA with a window size of 14 to investigate the dynamics over two weeks and allow for the capture of more structure and thus a more meaningful interpretation of DET. The second parameter to be chosen is a step size. Window step size is how far the window moves up the line of identity before conducting CRQA again. We chose 1 for the step size to understand how the metrics evolve from day to day. All other CRQA metrics remained the same as previously noted.
+\#\#\#\# Visualization
+To visualize WCRQA, the resulting metrics from each window can be plotted as a time series. This allows for visual interpretation of the pattern or fluctuation of the metrics across time. These dynamics can then be linked to other external events. See Figures \#\#-\#\# for examples.
+\#\#\#\# Permutation Test
+To visualize the differences in the WCRQA metrics from those obtained by chance, a permutation test was done to set upper and lower bounds for the 95th and 99th percentiles. Using a sample size of 14, one-thousand permuted time series were generated without replacement for each real time series. The upper and lower 95th and 99th percentiles were set based on the distribution of CRQA metrics from these one-thousand CRQ analyses.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -182,11 +249,56 @@ We used R (Version 3.6.1; R Core Team, 2019) and the R-package \emph{papaja} (Ve
 \setlength{\leftskip}{0.5in}
 
 \hypertarget{refs}{}
-\leavevmode\hypertarget{ref-R-papaja}{}%
-Aust, F., \& Barth, M. (2020). \emph{papaja: Create APA manuscripts with R Markdown}. Retrieved from \url{https://github.com/crsh/papaja}
+\leavevmode\hypertarget{ref-DVNux2f28075_2015}{}%
+Boschee, E., Lautenschlager, J., O'Brien, S., Shellman, S., Starz, J., \& Ward, M. (2015). \emph{ICEWS Coded Event Data} (Version V27) {[}Data set{]}. Harvard Dataverse. \url{https://doi.org/10.7910/DVN/28075}
+
+\leavevmode\hypertarget{ref-collins2009violence}{}%
+Collins, R. (2009). \emph{Violence: A micro-sociological theory}. Princeton University Press.
+
+\leavevmode\hypertarget{ref-durkheim1995elementary}{}%
+Durkheim, E. (1995). The elementary forms of religious life, terj. Karen e. Fields. \emph{New York: Free Press. East, ML, \& Hofer, H.(1991). Loud Calling in a Female Dominated Mammalian Society, II: Behavioural Contexts and Functions of Whooping of Spotted Hyenas, Crocuta Crocuta. Animal Behaviour}, \emph{42}, 651669.
+
+\leavevmode\hypertarget{ref-fusaroli2014analyzing}{}%
+Fusaroli, R., Konvalinka, I., \& Wallot, S. (2014). Analyzing social interactions: The promises and challenges of using cross recurrence quantification analysis. In \emph{Translational recurrences} (pp. 137--155). Springer.
+
+\leavevmode\hypertarget{ref-grenander1959probability}{}%
+Grenander, U. (1959). \emph{Probability and statistics: The harald cramer volume}. Alqvist \& Wiksell.
+
+\leavevmode\hypertarget{ref-koehler2017political}{}%
+Koehler, K. (2017). Political militaries in popular uprisings: A comparative perspective on the arab spring. \emph{International Political Science Review}, \emph{38}(3), 363--377.
+
+\leavevmode\hypertarget{ref-lutterbeck2013arab}{}%
+Lutterbeck, D. (2013). Arab uprisings, armed forces, and civil--military relations. \emph{Armed Forces \& Society}, \emph{39}(1), 28--52.
+
+\leavevmode\hypertarget{ref-mahner1997foundations}{}%
+Mahner, M., \& Bunge, M. (1997). \emph{Foundations of biophilosophy}. Springer Science \& Business Media.
+
+\leavevmode\hypertarget{ref-paxton2017interpersonal}{}%
+Paxton, A., \& Dale, R. (2017). Interpersonal movement synchrony responds to high-and low-level conversational constraints. \emph{Frontiers in Psychology}, \emph{8}, 1135.
 
 \leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2019). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-spaaij2014sports}{}%
+Spaaij, R. (2014). Sports crowd violence: An interdisciplinary synthesis. \emph{Aggression and Violent Behavior}, \emph{19}(2), 146--155.
+
+\leavevmode\hypertarget{ref-turvey2018lectures}{}%
+Turvey, M. T. (2018). \emph{Lectures on perception: An ecological perspective}. Routledge.
+
+\leavevmode\hypertarget{ref-vicari2013public}{}%
+Vicari, S. (2013). Public reasoning around social contention: A case study of twitter use in the italian mobilization for global change. \emph{Current Sociology}, \emph{61}(4), 474--490.
+
+\leavevmode\hypertarget{ref-webber1994dynamical}{}%
+Webber Jr, C. L., \& Zbilut, J. P. (1994). Dynamical assessment of physiological systems and states using recurrence plot strategies. \emph{Journal of Applied Physiology}, \emph{76}(2), 965--973.
+
+\leavevmode\hypertarget{ref-webber2005recurrence}{}%
+Webber Jr, C. L., \& Zbilut, J. P. (2005). Recurrence quantification analysis of nonlinear dynamical systems. \emph{Tutorials in Contemporary Nonlinear Methods for the Behavioral Sciences}, \emph{94}(2005), 26--94.
+
+\leavevmode\hypertarget{ref-zbilut1998detecting}{}%
+Zbilut, J. P., Giuliani, A., \& Webber Jr, C. L. (1998). Detecting deterministic signals in exceptionally noisy environments using cross-recurrence quantification. \emph{Physics Letters A}, \emph{246}(1-2), 122--128.
+
+\leavevmode\hypertarget{ref-zbilut1992embeddings}{}%
+Zbilut, J. P., \& Webber Jr, C. L. (1992). Embeddings and delays as derived from quantification of recurrence plots. \emph{Physics Letters A}, \emph{171}(3-4), 199--203.
 
 \endgroup
 
