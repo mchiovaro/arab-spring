@@ -10,14 +10,14 @@ author:
     email         : "megan.chiovaro@uconn.edu"
   - name          : "Alexandra Paxton"
     affiliation   : "1,2,*"
-  - name          : "Lead C. Windsor"
+  - name          : "Leah C. Windsor"
     affiliation   : "3,*"
     
 affiliation:
   - id            : "1"
-    institution   : "Center for the Ecological Study of Perception and Action"
+    institution   : "Center for the Ecological Study of Perception and Action, University of Connecticut"
   - id            : "2"
-    institution   : "University of Connecticut"
+    institution   : "Department of Psychological Sciences, University of Connecticut"
   - id            : "3"
     institution   : "University of Memphis"
   - id            : "*"
