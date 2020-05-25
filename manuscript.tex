@@ -1,39 +1,48 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[english,man]{apa6}
+\documentclass[
+  english,
+  man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\usepackage{hyperref}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-            pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
-            pdfkeywords={Social cohesion, recurrence quantification analysis, complex systems, Twitter, nonlinear dynamics, Arab Spring},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
+  pdflang={en-EN},
+  pdfkeywords={Social cohesion, recurrence quantification analysis, complex systems, Twitter, nonlinear dynamics, Arab Spring},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -43,16 +52,23 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-
-% set default figure placement to htbp
+% Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -91,10 +107,10 @@
   {}{\typeout{Failed to patch abstract.}}
 \makeatother
 \shorttitle{Arab Spring}
-\author{Megan Chiovaro\textsuperscript{1, 2}, Alexandra Paxton\textsuperscript{1,2,*}, \& Lead C. Windsor\textsuperscript{3,*}}
+\author{Megan Chiovaro\textsuperscript{1, 2}, Alexandra Paxton\textsuperscript{1,2,*}, \& Leah C. Windsor\textsuperscript{3,*}}
 \affiliation{
 \vspace{0.5cm}
-\textsuperscript{1} Center for the Ecological Study of Perception and Action\\\textsuperscript{2} University of Connecticut\\\textsuperscript{3} University of Memphis\\\textsuperscript{*} Equal author contributions}
+\textsuperscript{1} Center for the Ecological Study of Perception and Action, University of Connecticut\\\textsuperscript{2} Department of Psychological Sciences, University of Connecticut\\\textsuperscript{3} University of Memphis\\\textsuperscript{*} Equal author contributions}
 \authornote{
 
 Correspondence concerning this article should be addressed to Megan Chiovaro, 406 Babbidge Road, Unit 1020, Storrs, CT 06269. E-mail: megan.chiovaro@uconn.edu}
@@ -109,12 +125,12 @@ Correspondence concerning this article should be addressed to Megan Chiovaro, 40
 
 \linenumbers
 \usepackage{csquotes}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,main=english]{babel}
-\else
-  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
 \fi
 
 \title{Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring}
@@ -133,12 +149,12 @@ Social coordination has long been used both physically and virtually to start an
 \hypertarget{arab-spring}{%
 \subsection{Arab Spring}\label{arab-spring}}
 
-In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and unjustifiably stripped of his vendor cart by municipal officials. His humiliation led him to set himself on fire in protest to the authoritarian rule, ultimately leading to his death several days later. His actions served as a catalyst for the Tunisian Revolution, and one week after his death, the long-withstanding authoritarian president, Zine El Abidine Ben Ali, fled the country. The events of Tunisia rapidly spread to surrounding countries that were also subject to unjust authoritarian rule, such as Yemen, Egypt, Libya, and Syria. These mass movements would not have been possible without efficient interpersonal coordination, both physically and virtually on social media platforms, such as Twitter. The events of Arab Spring have been thoroughly discussed within the political science literature (e.g., Lutterbeck, 2013, @koehler2017political) but to our knowledge, the use of Twitter by Syrian citizens has not been investigated.
+In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and unjustifiably stripped of his vendor cart by municipal officials. His humiliation led him to set himself on fire in protest to the authoritarian rule, ultimately leading to his death several days later. His actions served as a catalyst for the Tunisian Revolution, and one week after his death, the long-withstanding authoritarian president, Zine El Abidine Ben Ali, fled the country. The events of Tunisia rapidly spread to surrounding countries that were also subject to unjust authoritarian rule, such as Yemen, Egypt, Libya, and Syria. These mass movements would not have been possible without efficient interpersonal coordination, both physically and virtually on social media platforms, such as Twitter. The events of Arab Spring have been thoroughly discussed within the political science literature (e.g., Lutterbeck, 2013, p. @koehler2017political) but to our knowledge, the use of Twitter by Syrian citizens has not been investigated.
 
 \hypertarget{social-cohesion}{%
 \subsection{Social Cohesion}\label{social-cohesion}}
 
-Real-world collective action is known to bring about a sense of togetherness, also known as \enquote{collective effervescence} (Durkheim, 1995). This feeling of being a part of something larger than oneself leads individuals to act in ways that would not have on their own. Being overcome with this feeling is known to lead to violence (Collins, 2009, @spaaij2014sports). While feelings of social connection may lead to violence, increased exposure to violence can result in feelings of social cohesion. Gilligan, Pasquale, and Samii (2013) found that exposure to fatal wartime violence resulted in increased prosocial motivations, including cooperative behaviors, feelings of trust, and overall community-level social cohesion. Just as real-world social cohesion can be quantified, the same is true for online cohesion. Strategic communication on social media in the form of social cohesion of language can lead to real-world social change, and exposure to real-world violence could result in social cohesion in the virtual world. Increased social cohesion is thus potentially an indicator of increased social organization and mobilization on the ground.
+Real-world collective action is known to bring about a sense of togetherness, also known as \enquote{collective effervescence} (Durkheim, 1995). This feeling of being a part of something larger than oneself leads individuals to act in ways that would not have on their own. Being overcome with this feeling is known to lead to violence (Collins, 2009, p. @spaaij2014sports). While feelings of social connection may lead to violence, increased exposure to violence can result in feelings of social cohesion. Gilligan, Pasquale, and Samii (2013) found that exposure to fatal wartime violence resulted in increased prosocial motivations, including cooperative behaviors, feelings of trust, and overall community-level social cohesion. Just as real-world social cohesion can be quantified, the same is true for online cohesion. Strategic communication on social media in the form of social cohesion of language can lead to real-world social change, and exposure to real-world violence could result in social cohesion in the virtual world. Increased social cohesion is thus potentially an indicator of increased social organization and mobilization on the ground.
 
 \hypertarget{social-media-as-a-platform-for-mobilization}{%
 \subsection{Social Media as a Platform for Mobilization}\label{social-media-as-a-platform-for-mobilization}}
@@ -183,7 +199,7 @@ The tweets were first sorted into ascending order by timestamp. They were then g
 
 (insert social cohesion equations here)
 
-The social cohesion calculation was performed on a subset of the corpus containing 3,855,743 English and 1,731,700 Arabic tweets. All hashtags and URLs were included in the analysis. This method is similar to that of inverse document frequency (IDF). For more information on IDF, see Sparck Jones (1972) and Robertson (2004).
+The social cohesion calculation was performed on a subset of the corpus containing (recalculate with new date span) English and (recalculate with new date span) Arabic tweets. All hashtags and URLs were included in the analysis. This method is similar to that of inverse document frequency (IDF). For more information on IDF, see Sparck Jones (1972) and Robertson (2004).
 
 \hypertarget{icews-event-time-series}{%
 \subsubsection{ICEWS Event Time Series}\label{icews-event-time-series}}
