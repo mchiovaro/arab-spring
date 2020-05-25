@@ -5,3 +5,4 @@ results/
 *.html
 .Rhistory
 .Rapp.history
+*_cache/
