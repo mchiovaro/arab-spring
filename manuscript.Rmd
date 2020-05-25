@@ -54,6 +54,9 @@ output            : papaja::apa6_pdf
 source('./scripts/required_packages.r')
 source('./scripts/libraries_and_functions.r')
 
+# turn on caching
+knitr::opts_chunk$set(cache=TRUE, autodep=TRUE, cache.lazy=FALSE)
+
 # references file
 #r_refs("references.bib")
 
