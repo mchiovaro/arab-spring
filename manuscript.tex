@@ -344,8 +344,69 @@ TT & 2.284 & 0.085 & . & 2.333 & 0.051 & . & 2.129 & 0.298 &\tabularnewline
 \hypertarget{windowed-cross-recurrence-quantification-analysis-1}{%
 \subsection{Windowed Cross-Recurrence Quantification Analysis}\label{windowed-cross-recurrence-quantification-analysis-1}}
 
-WCRQA was performed using the crqa package (Coco \& Dale, 2018) for R (R Core Team, 2019). Permutation tests were conducted for each WCRQA to establish upper and lower 95th and 99th percentiles. In the plots (see Figures \#-\#), the 95th percentiles are represented by horizontal red lines and the 99th percentiles are represented by horizontal orange lines.
-For social cohesion and counts of all and negative events, there appears to be an extended time period where RR and DET were greater than chance, from the 36th through 46th windows. These windows span from May 4th, 2012 to May 28th, 2012. We can see this string of highly violent events reflected in the mode ICEWS event for each day (Figure \#).
+WCRQA was performed using the crqa package (Coco \& Dale, 2018) for R (R Core Team, 2019). Permutation tests were conducted for each WCRQA to establish upper and lower 95th and 99th percentiles. In the plots (see Figures 9-14 and 16-21), the 95th percentiles are represented by horizontal red lines and the 99th percentiles are represented by horizontal orange lines. The trend lines are plotted in blue.
+
+\hypertarget{syria-as-target-1}{%
+\subsubsection{Syria as Target}\label{syria-as-target-1}}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/target/windowed_all_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.}\label{fig:plot-RR-targ-all}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/target/windowed_all_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.}\label{fig:plot-DET-targ-all}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/target/windowed_pos_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.}\label{fig:plot-RR-targ-pos}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/target/windowed_pos_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.}\label{fig:plot-DET-targ-pos}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/target/windowed_neg_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.}\label{fig:plot-RR-targ-neg}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/target/windowed_neg_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.}\label{fig:plot-DET-targ-neg}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=6.5in]{./results/primary/mode_ts_plot} \caption{Mode ICEWS event per day.}\label{fig:plot-mode-event}
+\end{figure}
+
+For social cohesion and count of all events, there is a consistent period of above chance recurrence rate from the 31st through 48th window (Figure 9). Determinism is also almost consistently above chance from the 39th window onwards (Figure 10). For social cohesion and count of positive events there is a downward trend in RR as the window moves (Figure 11) and determinism stays almost entirely within chance across windows (Figure 12). For social cohesion and count of negative events, recurrence rate stay above or almost above chance from the 36th through the 48th window (Figure 13) and determinism is also above or nearly above chance from the 38th through 43rd window (Figure 14).
+
+\hypertarget{syria-as-source-and-target-1}{%
+\subsubsection{Syria as Source and Target}\label{syria-as-source-and-target-1}}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target/windowed_all_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-RR-source-targ-all}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target/windowed_all_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-DET-source-targ-all}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target/windowed_pos_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-RR-source-targ-pos}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target/windowed_pos_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-DET-source-targ-pos}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target/windowed_neg_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-RR-source-targ-neg}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target/windowed_neg_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-DET-source-targ-neg}
+\end{figure}
+
+For social cohesion and count of all events, there is a consistent period of above or nearly above chance determinism from the 26th thorugh 46th window (Figure 16). Determinism also shows above or nearly above chance values in window spans 11-16 and 35-37 (Figure 17). For social cohesion and count of positive events, there is a downward trend in RR as the window moves (Figure 18) and determinism stays largely within chance with the exception of windows 13-19. For social cohesion and negative events, there appears to be an extended time period where RR (Figure 11) and DET (Figure 12) were greater than chance, from the 35th through 46th windows. These windows span from May 3rd, 2012 to May 14th, 2012. We can see this string of highly violent events reflected in the mode ICEWS event for each day (Figure 9), where from May 1st, 2020 to May 15th, 2020, the most frequntly occuring event was almost consistently -10, the most violent event in the coding system.
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
@@ -356,7 +417,7 @@ In the present study, we investigated the dynamics of real-world events and onli
 \subsection{Cross-Recurrence Quantification Analysis}\label{cross-recurrence-quantification-analysis-2}}
 
 The significant result of DET for social cohesion and both the all events and negative events time series confirms our hypothesis, that increased salience of events is reflected in social cohesion on Twitter. The frequency of all events and of negative events thus result in a significant number of shared trajectories that are statistically different from chance. The non-significant results for all metrics for positive event count also confirm our hypothesis, and gives support to the theory that positive events are less coupled to social cohesion than the more salient, negative events during times of turmoil. The inevitable increased salience of event frequency and event violence thus leads to increased coupling with Twitter social cohesion.
-By visual inspection of the recurrence plots (RPs; Figures 3-5), there appears to be a shift in the dynamics of these systems around observation 36, or May 4th, 2012. To further investigate these local dynamics, we performed a sliding window technique known as windowed cross-recurrence quantification analysis (WCRQA).
+By visual inspection of the recurrence plots (RPs; Figures 3-5), there appears to be a shift in the dynamics of these systems around observation 35, or May 3rd, 2012. To further investigate these local dynamics, we performed a sliding window technique known as windowed cross-recurrence quantification analysis (WCRQA).
 
 \hypertarget{windowed-recurrence-quantification-analysis}{%
 \subsection{Windowed-Recurrence Quantification Analysis}\label{windowed-recurrence-quantification-analysis}}
