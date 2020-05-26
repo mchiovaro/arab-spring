@@ -11,7 +11,10 @@ required_packages = c(
   'crqa',
   'tidyr',
   'modeest',
-  'papaja'
+  'papaja',
+  'pander',
+  'gtools',
+  'knitr'
 )
 
 # install missing packages (adapted from <http://stackoverflow.com/a/4090208> and a-paxton/perception-memory-coordination)

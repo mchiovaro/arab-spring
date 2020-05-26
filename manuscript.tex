@@ -1,48 +1,42 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[
-  english,
-  man]{apa6}
+\documentclass[english,man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
 \hypersetup{
-  pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
-  pdflang={en-EN},
-  pdfkeywords={Social cohesion, recurrence quantification analysis, complex systems, Twitter, nonlinear dynamics, Arab Spring},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+            pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
+            pdfkeywords={Social cohesion, recurrence quantification analysis, complex systems, Twitter, nonlinear dynamics, Arab Spring},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -52,23 +46,16 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-% Make \paragraph and \subparagraph free-standing
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
+
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -125,12 +112,12 @@ Correspondence concerning this article should be addressed to Megan Chiovaro, 40
 
 \linenumbers
 \usepackage{csquotes}
-\ifxetex
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=english]{babel}
+\else
+  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
-\else
-  \usepackage[shorthands=off,main=english]{babel}
 \fi
 
 \title{Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring}
@@ -149,12 +136,12 @@ Social coordination has long been used both physically and virtually to start an
 \hypertarget{arab-spring}{%
 \subsection{Arab Spring}\label{arab-spring}}
 
-In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and unjustifiably stripped of his vendor cart by municipal officials. His humiliation led him to set himself on fire in protest to the authoritarian rule, ultimately leading to his death several days later. His actions served as a catalyst for the Tunisian Revolution, and one week after his death, the long-withstanding authoritarian president, Zine El Abidine Ben Ali, fled the country. The events of Tunisia rapidly spread to surrounding countries that were also subject to unjust authoritarian rule, such as Yemen, Egypt, Libya, and Syria. These mass movements would not have been possible without efficient interpersonal coordination, both physically and virtually on social media platforms, such as Twitter. The events of Arab Spring have been thoroughly discussed within the political science literature (e.g., Lutterbeck, 2013, p. @koehler2017political) but to our knowledge, the use of Twitter by Syrian citizens has not been investigated.
+In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and unjustifiably stripped of his vendor cart by municipal officials. His humiliation led him to set himself on fire in protest to the authoritarian rule, ultimately leading to his death several days later. His actions served as a catalyst for the Tunisian Revolution, and one week after his death, the long-withstanding authoritarian president, Zine El Abidine Ben Ali, fled the country. The events of Tunisia rapidly spread to surrounding countries that were also subject to unjust authoritarian rule, such as Yemen, Egypt, Libya, and Syria. These mass movements would not have been possible without efficient interpersonal coordination, both physically and virtually on social media platforms, such as Twitter. The events of Arab Spring have been thoroughly discussed within the political science literature (e.g., Lutterbeck, 2013; Koehler, 2017) but to our knowledge, the use of Twitter by Syrian citizens has not been investigated.
 
 \hypertarget{social-cohesion}{%
 \subsection{Social Cohesion}\label{social-cohesion}}
 
-Real-world collective action is known to bring about a sense of togetherness, also known as \enquote{collective effervescence} (Durkheim, 1995). This feeling of being a part of something larger than oneself leads individuals to act in ways that would not have on their own. Being overcome with this feeling is known to lead to violence (Collins, 2009, p. @spaaij2014sports). While feelings of social connection may lead to violence, increased exposure to violence can result in feelings of social cohesion. Gilligan, Pasquale, and Samii (2013) found that exposure to fatal wartime violence resulted in increased prosocial motivations, including cooperative behaviors, feelings of trust, and overall community-level social cohesion. Just as real-world social cohesion can be quantified, the same is true for online cohesion. Strategic communication on social media in the form of social cohesion of language can lead to real-world social change, and exposure to real-world violence could result in social cohesion in the virtual world. Increased social cohesion is thus potentially an indicator of increased social organization and mobilization on the ground.
+Real-world collective action is known to bring about a sense of togetherness, also known as \enquote{collective effervescence} (Durkheim, 1995). This feeling of being a part of something larger than oneself leads individuals to act in ways that would not have on their own. Being overcome with this feeling is known to lead to violence (Collins, 2009; Spaaij, 2014). While feelings of social connection may lead to violence, increased exposure to violence can result in feelings of social cohesion. Gilligan, Pasquale, and Samii (2013) found that exposure to fatal wartime violence resulted in increased prosocial motivations, including cooperative behaviors, feelings of trust, and overall community-level social cohesion. Just as real-world social cohesion can be quantified, the same is true for online cohesion. Strategic communication on social media in the form of social cohesion of language can lead to real-world social change, and exposure to real-world violence could result in social cohesion in the virtual world. Increased social cohesion is thus potentially an indicator of increased social organization and mobilization on the ground.
 
 \hypertarget{social-media-as-a-platform-for-mobilization}{%
 \subsection{Social Media as a Platform for Mobilization}\label{social-media-as-a-platform-for-mobilization}}
@@ -199,13 +186,13 @@ The tweets were first sorted into ascending order by timestamp. They were then g
 
 (insert social cohesion equations here)
 
-The social cohesion calculation was performed on a subset of the corpus containing (recalculate with new date span) English and (recalculate with new date span) Arabic tweets. All hashtags and URLs were included in the analysis. This method is similar to that of inverse document frequency (IDF). For more information on IDF, see Sparck Jones (1972) and Robertson (2004).
+The social cohesion calculation was performed on a subset of the corpus containing (recalculate with new date span) English and (recalculate with new date span) Arabic tweets. All hashtags and URLs were included in the analysis. This method is similar to that of inverse document frequency (IDF). For more information on IDF, see Jones (1972) and Robertson (2004).
 
 \hypertarget{icews-event-time-series}{%
 \subsubsection{ICEWS Event Time Series}\label{icews-event-time-series}}
 
 Using the Integrated Crisis Early Warning System (ICEWS) developed at the Defense Advanced Research Project Agency, the daily events in Syria were scored with an intensity rating ranging from -10 to 10. Negative events, such as riots and attacks, are coded with low negative numbers while positive, peaceful events are coded with high positive numbers. This well-validated coding scheme allows for numerical quantification of different event types.
-For both the target only and the target and source data, time series of the count of all events were generated by summing the total number of events on each day, irrespective of ICEWS score (M = , SD = ). Similarly, time series of count of positive events were generated by summing the number of ICEWS events for each day that had an intensity rating greater than zero (M = , SD = ). Lastly, time series of count of negative events were generated by summing the number of ICEWS events for each day that had an intensity rating less than zero (M = , SD = ).
+For both the target only and the target and source data, time series of the count of all events were generated by summing the total number of events on each day, irrespective of ICEWS score. Similarly, time series of count of positive events were generated by summing the number of ICEWS events for each day that had an intensity rating greater than zero. Lastly, time series of count of negative events were generated by summing the number of ICEWS events for each day that had an intensity rating less than zero.
 
 \hypertarget{analyses}{%
 \subsection{Analyses}\label{analyses}}
@@ -213,20 +200,24 @@ For both the target only and the target and source data, time series of the coun
 \hypertarget{cross-recurrence-quantification-analysis}{%
 \subsubsection{Cross-Recurrence Quantification Analysis}\label{cross-recurrence-quantification-analysis}}
 
-We first used cross-recurrence quantification analysis (CRQA; Zbilut et al., 1998) to investigate the temporal patterns of social cohesion and real-world events in Syria during Arab Spring. As an extension of RQA, which captures the patterns of revisited states of a single time series (Webber Jr \& Zbilut, 1994; Zbilut \& Webber Jr, 1992), CRQA allows for two time series to be projected onto one another to investigate shared states and trajectories. Nonlinear analyses such as CRQA can reveal dynamics that are not captured by traditional linear methods. In order to perform CRQA, the time series need to be converted to the same scale, while still preserving a sampling rate that respects the native timescale of the system (cf.~Nyquist frequency in signal processing; Grenander (1959)). We converted each time series (e.g., Figure \#) into deciles (e.g., Figure \#) to analyze the dynamics of different levels of social cohesion and counts of all, positive, and negative events on each day.
-In CRQA, a recurrent point is when two signals share the same state. These shared states can be at the same time or at later points in the time series. A recurrence plot (RP) is the visual representation of CRQA. To construct a recurrence plot, two time series are plotted against each other on the X and Y axes, and at every point where they share the same state, and point in placed on the plot to indicate recurrence. Visually analyzing these plots can help reveal patterns of structure and recurrence. The line y = x is known as the line of identity. This line falls where the time series match temporally, and a filled line would indicate perfect synchrony between the two time series. See Figures \#-\# for examples of RPs.
+We first used cross-recurrence quantification analysis (CRQA; Zbilut et al., 1998) to investigate the temporal patterns of social cohesion and real-world events in Syria during Arab Spring. As an extension of RQA, which captures the patterns of revisited states of a single time series (Webber Jr \& Zbilut, 1994; Zbilut \& Webber Jr, 1992), CRQA allows for two time series to be projected onto one another to investigate shared states and trajectories. Nonlinear analyses such as CRQA can reveal dynamics that are not captured by traditional linear methods. In order to perform CRQA, the time series need to be converted to the same scale, while still preserving a sampling rate that respects the native timescale of the system (cf.~Nyquist frequency in signal processing; Grenander, 1959). We converted each time series (e.g., Figure 1) into deciles (e.g., Figure 2) to analyze the dynamics of different levels of social cohesion and counts of all, positive, and negative events on each day. In CRQA, a recurrent point is when two signals share the same state. These shared states can be at the same time or at later points in the time series.
+
+\hypertarget{visualization}{%
+\paragraph{Visualization}\label{visualization}}
+
+A recurrence plot (RP) is the visual representation of CRQA. To construct a recurrence plot, two time series are plotted against each other on the X and Y axes, and at every point where they share the same state, and point in placed on the plot to indicate recurrence. Visually analyzing these plots can help reveal patterns of structure and recurrence. The line y = x is known as the line of identity. This line falls where the time series match temporally, and a filled line would indicate perfect synchrony between the two time series. See Figures 3-5 for examples of RPs.
 
 \hypertarget{metrics}{%
 \paragraph{Metrics}\label{metrics}}
 
 The percentage of recurrent points to total possible points is a metric called recurrence rate (RR). This metrics gives a general description of how frequently the time series are sharing the same states. In the current study, a recurrent point would indicate that the level of social cohesion and frequency of events were at the same intensity.
 Recurrent points that occur in successive moments form line structures. These are conceptualized as shared trajectories, where the two time series are moving together across time in a shared state. The percentage of recurrent points that make up diagonal line structures (i.e., two or more consecutive points) is a metric called percent determinism (DET). For the current project, a high DET would indicate that not only are the levels of social cohesion and frequency of events occurring at similar intensities, but they are doing so across consecutive days.
-The average length of the line structures is called mean line (L). This can be conceptualized as the average amount of time that the two time series move together before one or both shift states. The longest line length is called max line (maxL). maxL indicates the longest instance of being \enquote{stuck} in a particular state together. The total number of lines is called NRLINE. The more lines there are, the more coordinated the system may be. The complexity or variability of line lengths is captured by a metric called entropy (ENTR) and entropy while accounting for the total number of lines in the plot is normalized entropy (rENTR). These entropy metrics help indicate the stability and predictability of the system. When one of the signals gets \enquote{stuck} in a state and the other moves on to other states, this results in vertical line structures. The proportion of points forming vertical line structures is a metric called laminarity (LAM) and the average length of the vertical trajectories is called trapping time (TT). For more detail on CRQA metrics, see Coco and Dale (2014).
+The average length of the line structures is called mean line (L). This can be conceptualized as the average amount of time that the two time series move together before one or both shift states. The longest line length is called max line (maxL). maxL indicates the longest instance of being \enquote{stuck} in a particular state together. The total number of lines is called NRLINE. The more lines there are, the more coordinated the system may be. The complexity or variability of line lengths is captured by a metric called entropy (ENTR) and entropy while accounting for the total number of lines in the plot is normalized entropy (rENTR). These entropy metrics help indicate the stability and predictability of the system. When one of the signals gets \enquote{stuck} in a state and the other moves on to other states, this results in vertical line structures. The proportion of points forming vertical line structures is a metric called laminarity (LAM) and the average length of the vertical trajectories is called trapping time (TT). For more detail on CRQA metrics, see Coco and Dale (2018).
 
 \hypertarget{parameters}{%
 \paragraph{Parameters}\label{parameters}}
 
-To conduct the analyses on the decile data, the parameters were set to those typically used in categorical CRQA. Delay was set to zero, embedding dimension was set to 1, and radius was set to .001 to allow for only exact recurrent matches. No normalization was done, and lines were considered two or more consecutive recurrent points. The Theiler window was set to zero to include points along the line of identity. For more details on the CRQA parameters and how they impact the analysis, see Coco and Dale (2014).
+To conduct the analyses on the decile data, the parameters were set to those typically used in categorical CRQA. Delay was set to zero, embedding dimension was set to 1, and radius was set to .001 to allow for only exact recurrent matches. No normalization was done, and lines were considered two or more consecutive recurrent points. The Theiler window was set to zero to include points along the line of identity. For more details on the CRQA parameters and how they impact the analysis, see Coco and Dale (2018).
 
 \hypertarget{permutation-test}{%
 \paragraph{Permutation Test}\label{permutation-test}}
@@ -248,8 +239,8 @@ Conducting WCRQA results in CRQA metrics (e.g., RR, DET, ENTR) for each respecti
 
 In addition to the CRQA parameters, two other parameters are required when conducting WCRQA. First, a window size must be decided on. The window size will determine how many observations are used in each CRQA analysis. We conducted WCRQA with a window size of 14 to investigate the dynamics over two weeks and allow for the capture of more structure and thus a more meaningful interpretation of DET. The second parameter to be chosen is a step size. Window step size is how far the window moves up the line of identity before conducting CRQA again. We chose 1 for the step size to understand how the metrics evolve from day to day. All other CRQA metrics remained the same as previously noted.
 
-\hypertarget{visualization}{%
-\paragraph{Visualization}\label{visualization}}
+\hypertarget{visualization-1}{%
+\paragraph{Visualization}\label{visualization-1}}
 
 To visualize WCRQA, the resulting metrics from each window can be plotted as a time series. This allows for visual interpretation of the pattern or fluctuation of the metrics across time. These dynamics can then be linked to other external events. See Figures \#\#-\#\# for examples.
 
@@ -261,8 +252,122 @@ To visualize the differences in the WCRQA metrics from those obtained by chance,
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
+\begin{figure}
+\includegraphics[width=6.5in]{./results/primary/tally_ts_example} \caption{Example of pre-processed data.}\label{fig:raw-ts}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=6.5in]{./results/primary/deciled_ts_example} \caption{Example of deciled data.}\label{fig:deciled-ts}
+\end{figure}
+
+\hypertarget{cross-recurrence-quantification-analysis-1}{%
+\subsection{Cross-Recurrence Quantification Analysis}\label{cross-recurrence-quantification-analysis-1}}
+
+CRQA was performed using the crqa package (Coco \& Dale, 2018) for R (R Core Team, 2019). We conducted a permutation test to check for statistical difference from chance for all analyses and metrics.
+
+\hypertarget{syria-as-target}{%
+\subsubsection{Syria as Target}\label{syria-as-target}}
+
+A permutation test for the CRQA of social cohesion and count of all events found a statistical difference from chance for DET, NRLINE, maxL, and LAM. All other metrics were non-significant (Figure 3; Table 1). A permutation test for the CRQA of social cohesion and count of positive events found no statistical difference from chance for any of the metrics (Figure 4; Table 1). A permutation test for the CRQA of social cohesion and count of negative events found a statistical difference from chance for DET, NRLINE, maxL, L, ENTR, and TT. All other metrics were non-significant (Figure 5; Table 1). Looking at the recurrence plots there appears, to be a shift in dynamics around the 36th observation which corresponds to May 4th, 2012.
+
+\begin{longtable}[]{@{}cccccccccc@{}}
+\caption{CRQA results for target only data.}\tabularnewline
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endhead
+DET & 30.130 & 0.000 & *** & 21.266 & 0.124 & & 25.081 & 0.002 & **\tabularnewline
+NRLINE & 85.000 & 0.000 & *** & 61.000 & 0.162 & & 70.000 & 0.008 & **\tabularnewline
+maxL & 4.000 & 0.046 & * & 4.000 & 0.057 & . & 5.000 & 0.004 & **\tabularnewline
+L & 2.176 & 0.073 & . & 2.148 & 0.193 & & 2.214 & 0.024 & *\tabularnewline
+ENTR & 0.493 & 0.058 & . & 0.438 & 0.154 & & 0.538 & 0.036 & *\tabularnewline
+rENTR & 0.449 & 0.326 & & 0.399 & 0.444 & & 0.388 & 0.527 &\tabularnewline
+LAM & 32.410 & 0.016 & * & 21.591 & 0.252 & & 26.052 & 0.102 &\tabularnewline
+TT & 2.187 & 0.186 & & 2.293 & 0.091 & . & 2.368 & 0.036 & *\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/crqa/target/rp-all_events} \caption{Recurrence plot (RP) for social cohesion and count of all events from target filtered data.}\label{fig:plot-rp-targ-all}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/crqa/target/rp-pos_events} \caption{Recurrence plot (RP) for social cohesion and count of positive events from target filtered data.}\label{fig:plot-rp-targ-pos}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/crqa/target/rp-neg_events} \caption{Recurrence plot (RP) for social cohesion and count of negative events from target filtered data.}\label{fig:plot-rp-targ-neg}
+\end{figure}
+
+\hypertarget{syria-as-source-and-target}{%
+\subsubsection{Syria as Source and Target}\label{syria-as-source-and-target}}
+
+A permutation test for the CRQA of social cohesion and count of all events found a statistical difference from chance for DET, NRLINE, and LAM. All other metrics were non-significant (Figure 6; Table 2). A permutation test for the CRQA of social cohesion and count of positive events found a statistical difference from chance for DET, NRLINE, maxL, and LAM (Figure 7; Table 2). A permutation test for the CRQA of social cohesion and count of negative events found a statistical difference from chance for DET, NRLINE, maxL, L, and ENTR. All other metrics were non-significant (Figure 8; Table 2). Looking at the recurrence plots there appears, to be a shift in dynamics around the 36th observation which corresponds to May 4th, 2012.
+
+\begin{longtable}[]{@{}cccccccccc@{}}
+\caption{CRQA results for source and target data.}\tabularnewline
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endhead
+DET & 28.222 & 0.000 & *** & 23.328 & 0.013 & * & 23.443 & 0.011 & *\tabularnewline
+NRLINE & 83.000 & 0.000 & *** & 66.000 & 0.021 & * & 65.000 & 0.023 & *\tabularnewline
+maxL & 3.000 & 0.429 & & 4.000 & 0.049 & * & 4.000 & 0.048 & *\tabularnewline
+L & 2.084 & 0.708 & & 2.167 & 0.127 & & 2.200 & 0.037 & *\tabularnewline
+ENTR & 0.289 & 0.700 & & 0.475 & 0.108 & & 0.523 & 0.033 & *\tabularnewline
+rENTR & 0.417 & 0.433 & & 0.432 & 0.381 & & 0.476 & 0.225 &\tabularnewline
+LAM & 32.790 & 0.008 & ** & 28.548 & 0.023 & * & 21.639 & 0.201 &\tabularnewline
+TT & 2.284 & 0.085 & . & 2.333 & 0.051 & . & 2.129 & 0.298 &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/crqa/source_target/rp-all_events} \caption{Recurrence plot (RP) for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-rp-source-targ-all}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/crqa/source_target/rp-pos_events} \caption{Recurrence plot (RP) for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-rp-source-targ-pos}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=4in]{./results/primary/crqa/source_target/rp-neg_events} \caption{Recurrence plot (RP) for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-rp-source-targ-neg}
+\end{figure}
+
+\hypertarget{windowed-cross-recurrence-quantification-analysis-1}{%
+\subsection{Windowed Cross-Recurrence Quantification Analysis}\label{windowed-cross-recurrence-quantification-analysis-1}}
+
+WCRQA was performed using the crqa package (Coco \& Dale, 2018) for R (R Core Team, 2019). Permutation tests were conducted for each WCRQA to establish upper and lower 95th and 99th percentiles. In the plots (see Figures \#-\#), the 95th percentiles are represented by horizontal red lines and the 99th percentiles are represented by horizontal orange lines.
+For social cohesion and counts of all and negative events, there appears to be an extended time period where RR and DET were greater than chance, from the 36th through 46th windows. These windows span from May 4th, 2012 to May 28th, 2012. We can see this string of highly violent events reflected in the mode ICEWS event for each day (Figure \#).
+
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
+
+In the present study, we investigated the dynamics of real-world events and online communication on Twitter in Syria during Arab Spring. We examined how social mobilization both virtually and physically evolve over time in tandem. Prior to now, the extent to which virtual mobilization on social media platforms such as Twitter has been largely unexplored. Using the nonlinear methods cross-recurrence quantification analysis and windowed cross-recurrence quantification analysis, we investigated the theory that virtual mobilization is increasingly reflective of real-world events during times of strife.
+
+\hypertarget{cross-recurrence-quantification-analysis-2}{%
+\subsection{Cross-Recurrence Quantification Analysis}\label{cross-recurrence-quantification-analysis-2}}
+
+The significant result of DET for social cohesion and both the all events and negative events time series confirms our hypothesis, that increased salience of events is reflected in social cohesion on Twitter. The frequency of all events and of negative events thus result in a significant number of shared trajectories that are statistically different from chance. The non-significant results for all metrics for positive event count also confirm our hypothesis, and gives support to the theory that positive events are less coupled to social cohesion than the more salient, negative events during times of turmoil. The inevitable increased salience of event frequency and event violence thus leads to increased coupling with Twitter social cohesion.
+By visual inspection of the recurrence plots (RPs; Figures 3-5), there appears to be a shift in the dynamics of these systems around observation 36, or May 4th, 2012. To further investigate these local dynamics, we performed a sliding window technique known as windowed cross-recurrence quantification analysis (WCRQA).
+
+\hypertarget{windowed-recurrence-quantification-analysis}{%
+\subsection{Windowed-Recurrence Quantification Analysis}\label{windowed-recurrence-quantification-analysis}}
+
+The time period of differing dynamics, from observation 36 through 46, appears to be captured by WCRQA of social cohesion and count of negative events with window size 14 for both RR (Figure 8) and DET (Figure 11). The amount of recurrence and determinism for these periods consistently lie above chance, suggesting that the intensity of negative events coincide with the degree of social cohesion found on Twitter, and that these states carry across multiple days in a way that is different from that of chance. During this time period, Syria underwent the \enquote{Siege of Homs} on May 5th, where fleets of tanks were sent into Homs and over 300 individuals were arrested. On May 6th, demonstrators began protesting after Friday prayers, leading to retaliation violence by the Syrian army, leaving sixteen civilians and eleven Syrian army men dead. That day, tens of thousands of individuals marched in an attempt to meet the army peacefully and bring supplies to Deraa, but were refused entrance. This day became known as the \enquote{Day of Defiance} or the \enquote{Friday of Challenge.} Syria also faced the \enquote{Siege of Baniyas} on May 7th, \enquote{Siege of Tafas} on May 8th, \enquote{Friday of Free Women} on May 13th, \enquote{Siege of Talkalakh} on May 14th, the \enquote{Israel border demonstrations} on May 15th, \enquote{Friday of Azady (freedom)} on May 20th, \enquote{Home Protectors' Friday} on May 27th, and the \enquote{Siege of Rastan and Talbiseh} on May 28th.
+The above-chance levels of determinism and recurrence rate are demonstrating the coupling of social cohesion and counts of all and negative events during times of strife. The frequency of negative events is also captured by the mode ICEWS rating for each day. In Figure 12, observed days from 33 to 47, or from May 1st, 2012 to May 15th, 2012, are largely overcome by extreme negative events of ICEWS rating -10. These directly correlate with the above chance RR and DET metrics for the WCRQA of social cohesion and count of negative events. Furthermore, for WCRQA of social cohesion and positive event count during this time period, RR (Figure 7) and DET (Figure 10) were both within chance. This supports our hypothesis, as the positive events are seemingly not coupled with the social cohesion on Twitter.
+
+\hypertarget{conclusion}{%
+\subsection{Conclusion}\label{conclusion}}
+
+Given the invasiveness of social media in our everyday lives, it is inevitable that individuals involved in real-world social mobilization have utilized these platforms to their advantage. If consistent across other civil wars, these results have serious implications for monitoring global movements. While traditional media in regions of authoritarian rule are often biased, the self-organized nature of Twitter poses a new avenue to gain insight into truths about up-risings and social mobilization. By conceptualizing Twitter and real-world events as two components of an inextricably linked dynamical system, the levels of social cohesion within the virtual platform could be monitored for fluctuations indicating global shifts in power and peace. Social media mobilization can thus help alert us to real-world mobilization not communicated in mainstream media and allow for faster intervention.
 
 \hypertarget{acknowledgements}{%
 \subsubsection{Acknowledgements}\label{acknowledgements}}
@@ -272,6 +377,11 @@ To visualize the differences in the WCRQA metrics from those obtained by chance,
 \hypertarget{references}{%
 \section{References}\label{references}}
 
+\hypertarget{appendix}{%
+\section{Appendix}\label{appendix}}
+
+Results for CRQA and Windowed CRQA on Pheonix data.
+
 \begingroup
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
@@ -280,17 +390,26 @@ To visualize the differences in the WCRQA metrics from those obtained by chance,
 \leavevmode\hypertarget{ref-DVNux2f28075_2015}{}%
 Boschee, E., Lautenschlager, J., O'Brien, S., Shellman, S., Starz, J., \& Ward, M. (2015). \emph{ICEWS Coded Event Data} (Version V27) {[}Data set{]}. Harvard Dataverse. \url{https://doi.org/10.7910/DVN/28075}
 
+\leavevmode\hypertarget{ref-R-crqa}{}%
+Coco, M. I., \& Dale, R. (2018). \emph{Crqa: Cross-recurrence quantification analysis for categorical and continuous time-series}. Retrieved from \url{https://CRAN.R-project.org/package=crqa}
+
 \leavevmode\hypertarget{ref-collins2009violence}{}%
 Collins, R. (2009). \emph{Violence: A micro-sociological theory}. Princeton University Press.
 
 \leavevmode\hypertarget{ref-durkheim1995elementary}{}%
-Durkheim, E. (1995). The elementary forms of religious life, terj. Karen e. Fields. \emph{New York: Free Press. East, ML, \& Hofer, H.(1991). Loud Calling in a Female Dominated Mammalian Society, II: Behavioural Contexts and Functions of Whooping of Spotted Hyenas, Crocuta Crocuta. Animal Behaviour}, \emph{42}, 651669.
+Durkheim, E. (1995). The elementary forms of religious life, terj. Karen e. Fields. \emph{New York: Free Press.}, \emph{42}, 651669.
 
 \leavevmode\hypertarget{ref-fusaroli2014analyzing}{}%
 Fusaroli, R., Konvalinka, I., \& Wallot, S. (2014). Analyzing social interactions: The promises and challenges of using cross recurrence quantification analysis. In \emph{Translational recurrences} (pp. 137--155). Springer.
 
+\leavevmode\hypertarget{ref-good2013permutation}{}%
+Good, P. (2013). \emph{Permutation tests: A practical guide to resampling methods for testing hypotheses}. Springer Science \& Business Media.
+
 \leavevmode\hypertarget{ref-grenander1959probability}{}%
 Grenander, U. (1959). \emph{Probability and statistics: The harald cramer volume}. Alqvist \& Wiksell.
+
+\leavevmode\hypertarget{ref-jones1972statistical}{}%
+Jones, K. S. (1972). A statistical interpretation of term specificity and its application in retrieval. \emph{Journal of Documentation}.
 
 \leavevmode\hypertarget{ref-koehler2017political}{}%
 Koehler, K. (2017). Political militaries in popular uprisings: A comparative perspective on the arab spring. \emph{International Political Science Review}, \emph{38}(3), 363--377.
@@ -306,6 +425,9 @@ Paxton, A., \& Dale, R. (2017). Interpersonal movement synchrony responds to hig
 
 \leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2019). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-robertson2004understanding}{}%
+Robertson, S. (2004). Understanding inverse document frequency: On theoretical arguments for idf. \emph{Journal of Documentation}.
 
 \leavevmode\hypertarget{ref-spaaij2014sports}{}%
 Spaaij, R. (2014). Sports crowd violence: An interdisciplinary synthesis. \emph{Aggression and Violent Behavior}, \emph{19}(2), 146--155.

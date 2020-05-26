@@ -48,7 +48,7 @@ output            : papaja::apa6_pdf
 ```{r setup, include = FALSE}
 
 # clear the workspace
-#rm(list=ls())
+rm(list=ls())
 
 # install and load required packages
 source('./scripts/required_packages.r')
@@ -57,42 +57,39 @@ source('./scripts/libraries_and_functions.r')
 # turn on caching
 knitr::opts_chunk$set(cache=TRUE, autodep=TRUE, cache.lazy=FALSE)
 
-# references file
-#r_refs("references.bib")
-
 # create subdirectories
-# dir.create("./data/raw") # load three data files here
-# dir.create("./data/formatted/primary")
-# dir.create("./data/formatted/secondary")
-# dir.create("./results/primary/crqa")
-# dir.create("./results/primary/windowed-crqa")
-# dir.create("./results/secondary/icews/crqa/source_target")
-# dir.create("./results/secondary/icews/crqa/target")
-# dir.create("./results/secondary/icews/windowed-crqa/source_target")
-# dir.create("./results/secondary/icews/windowed-crqa/target")
-# dir.create("./results/secondary/pheonix/crqa/source_target")
-# dir.create("./results/secondary/pheonix/crqa/target")
-# dir.create("./results/secondary/pheonix/windowed-crqa/source_target")
-# dir.create("./results/secondary/pheonix/windowed-crqa/target")
+dir.create("./data/raw") # load three data files here
+dir.create("./data/formatted/primary")
+dir.create("./data/formatted/secondary")
+dir.create("./results/primary/crqa")
+dir.create("./results/primary/windowed-crqa")
+dir.create("./results/secondary/icews/crqa/source_target")
+dir.create("./results/secondary/icews/crqa/target")
+dir.create("./results/secondary/icews/windowed-crqa/source_target")
+dir.create("./results/secondary/icews/windowed-crqa/target")
+dir.create("./results/secondary/pheonix/crqa/source_target")
+dir.create("./results/secondary/pheonix/crqa/target")
+dir.create("./results/secondary/pheonix/windowed-crqa/source_target")
+dir.create("./results/secondary/pheonix/windowed-crqa/target")
 
 ```
 
 ```{r data-prep, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
 
 # format the data
-#source('./scripts/primary-analyses/01_formatting_data.R')
-#source('./scripts/secondary-analyses/icews/01_formatting_data.R')
-#source('./scripts/secondary-analyses/pheonix/01_formatting_data.R')
+source('./scripts/primary-analyses/01_formatting_data.R')
+source('./scripts/secondary-analyses/icews/01_formatting_data.R')
+source('./scripts/secondary-analyses/pheonix/01_formatting_data.R')
 
 ```
 
 Social coordination has long been used both physically and virtually to start and carry out collective actions. These collective events bring individuals together and create emergent patterns of communication and action. Online communication has historically been used to document and communicate archival information about events, but it has been increasingly used to bring about social change. From a dynamical systems perspective, these different means of social coordination during times of turmoil can be considered two complementary components of a single system, mutually constrained and constantly interacting and influencing one another [@mahner1997foundations]. Investigation of the coupling of real-world mobilization and social cohesion could provide new insight into the power of social media during mobilization and the ways in which individuals utilize it to bring about, or respond to, social change. Increasingly, social media platforms are being utilized during social mobilization, but the relationship between virtual and real-world mobilization is still largely unknown. The present work aims to understand how physical and virtual movements coexist and interact from a dynamical systems perspective.
 
 ## Arab Spring
-In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and unjustifiably stripped of his vendor cart by municipal officials. His humiliation led him to set himself on fire in protest to the authoritarian rule, ultimately leading to his death several days later. His actions served as a catalyst for the Tunisian Revolution, and one week after his death, the long-withstanding authoritarian president, Zine El Abidine Ben Ali, fled the country. The events of Tunisia rapidly spread to surrounding countries that were also subject to unjust authoritarian rule, such as Yemen, Egypt, Libya, and Syria. These mass movements would not have been possible without efficient interpersonal coordination, both physically and virtually on social media platforms, such as Twitter. The events of Arab Spring have been thoroughly discussed within the political science literature [e.g., @lutterbeck2013arab, @koehler2017political] but to our knowledge, the use of Twitter by Syrian citizens has not been investigated.
+In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and unjustifiably stripped of his vendor cart by municipal officials. His humiliation led him to set himself on fire in protest to the authoritarian rule, ultimately leading to his death several days later. His actions served as a catalyst for the Tunisian Revolution, and one week after his death, the long-withstanding authoritarian president, Zine El Abidine Ben Ali, fled the country. The events of Tunisia rapidly spread to surrounding countries that were also subject to unjust authoritarian rule, such as Yemen, Egypt, Libya, and Syria. These mass movements would not have been possible without efficient interpersonal coordination, both physically and virtually on social media platforms, such as Twitter. The events of Arab Spring have been thoroughly discussed within the political science literature [e.g., @lutterbeck2013arab; @koehler2017political] but to our knowledge, the use of Twitter by Syrian citizens has not been investigated.
 
 ## Social Cohesion
-Real-world collective action is known to bring about a sense of togetherness, also known as “collective effervescence” [@durkheim1995elementary]. This feeling of being a part of something larger than oneself leads individuals to act in ways that would not have on their own. Being overcome with this feeling is known to lead to violence [@collins2009violence, @spaaij2014sports]. While feelings of social connection may lead to violence, increased exposure to violence can result in feelings of social cohesion. Gilligan, Pasquale, and Samii (2013) found that exposure to fatal wartime violence resulted in increased prosocial motivations, including cooperative behaviors, feelings of trust, and overall community-level social cohesion. Just as real-world social cohesion can be quantified, the same is true for online cohesion. Strategic communication on social media in the form of social cohesion of language can lead to real-world social change, and exposure to real-world violence could result in social cohesion in the virtual world. Increased social cohesion is thus potentially an indicator of increased social organization and mobilization on the ground.
+Real-world collective action is known to bring about a sense of togetherness, also known as “collective effervescence” [@durkheim1995elementary]. This feeling of being a part of something larger than oneself leads individuals to act in ways that would not have on their own. Being overcome with this feeling is known to lead to violence [@collins2009violence; @spaaij2014sports]. While feelings of social connection may lead to violence, increased exposure to violence can result in feelings of social cohesion. Gilligan, Pasquale, and Samii (2013) found that exposure to fatal wartime violence resulted in increased prosocial motivations, including cooperative behaviors, feelings of trust, and overall community-level social cohesion. Just as real-world social cohesion can be quantified, the same is true for online cohesion. Strategic communication on social media in the form of social cohesion of language can lead to real-world social change, and exposure to real-world violence could result in social cohesion in the virtual world. Increased social cohesion is thus potentially an indicator of increased social organization and mobilization on the ground.
 
 ## Social Media as a Platform for Mobilization
 Social media platforms, such as Twitter, offer rapid real-time dissemination of information. Given its accessibility and proficiency as an information exchange tool, individuals involved in social movements have taken to them in conjunction, or in replacement, of real-world social mobilization. During the 2012 Italian protests for global economic change, the riots in Rome were mirrored by Twitter activity both on the same day and in the following days after the protests [@vicari2013public]. Tweeting was determined to be more effective locally in discussing real-world, real-time events than traditional mainstream media platforms. As more and more individuals rely on social media to obtain local news and information, it becomes increasingly important to understand just how these micro-blogs reflect real-world action.
@@ -119,27 +116,29 @@ The tweets were first sorted into ascending order by timestamp. They were then g
  
 (insert social cohesion equations here)
  
-The social cohesion calculation was performed on a subset of the corpus containing (recalculate with new date span) English and (recalculate with new date span) Arabic tweets. All hashtags and URLs were included in the analysis. This method is similar to that of inverse document frequency (IDF). For more information on IDF, see Sparck Jones (1972) and Robertson (2004).
+The social cohesion calculation was performed on a subset of the corpus containing (recalculate with new date span) English and (recalculate with new date span) Arabic tweets. All hashtags and URLs were included in the analysis. This method is similar to that of inverse document frequency (IDF). For more information on IDF, see @jones1972statistical and @robertson2004understanding.
 
 ### ICEWS Event Time Series
 Using the Integrated Crisis Early Warning System (ICEWS) developed at the Defense Advanced Research Project Agency, the daily events in Syria were scored with an intensity rating ranging from -10 to 10. Negative events, such as riots and attacks, are coded with low negative numbers while positive, peaceful events are coded with high positive numbers. This well-validated coding scheme allows for numerical quantification of different event types. 
-For both the target only and the target and source data, time series of the count of all events were generated by summing the total number of events on each day, irrespective of ICEWS score (M = , SD = ). Similarly, time series of count of positive events were generated by summing the number of ICEWS events for each day that had an intensity rating greater than zero (M = , SD = ). Lastly, time series of count of negative events were generated by summing the number of ICEWS events for each day that had an intensity rating less than zero (M = , SD = ).
+For both the target only and the target and source data, time series of the count of all events were generated by summing the total number of events on each day, irrespective of ICEWS score. Similarly, time series of count of positive events were generated by summing the number of ICEWS events for each day that had an intensity rating greater than zero. Lastly, time series of count of negative events were generated by summing the number of ICEWS events for each day that had an intensity rating less than zero.
 
 ## Analyses
 ### Cross-Recurrence Quantification Analysis
-We first used cross-recurrence quantification analysis [CRQA; @zbilut1998detecting] to investigate the temporal patterns of social cohesion and real-world events in Syria during Arab Spring. As an extension of RQA, which captures the patterns of revisited states of a single time series [@zbilut1992embeddings; @webber1994dynamical], CRQA allows for two time series to be projected onto one another to investigate shared states and trajectories. Nonlinear analyses such as CRQA can reveal dynamics that are not captured by traditional linear methods. In order to perform CRQA, the time series need to be converted to the same scale, while still preserving a sampling rate that respects the native timescale of the system (cf. Nyquist frequency in signal processing; @grenander1959probability). We converted each time series (e.g., Figure #) into deciles (e.g., Figure #) to analyze the dynamics of different levels of social cohesion and counts of all, positive, and negative events on each day.
-In CRQA, a recurrent point is when two signals share the same state. These shared states can be at the same time or at later points in the time series. A recurrence plot (RP) is the visual representation of CRQA. To construct a recurrence plot, two time series are plotted against each other on the X and Y axes, and at every point where they share the same state, and point in placed on the plot to indicate recurrence. Visually analyzing these plots can help reveal patterns of structure and recurrence. The line y = x is known as the line of identity. This line falls where the time series match temporally, and a filled line would indicate perfect synchrony between the two time series. See Figures #-# for examples of RPs.
+We first used cross-recurrence quantification analysis [CRQA; @zbilut1998detecting] to investigate the temporal patterns of social cohesion and real-world events in Syria during Arab Spring. As an extension of RQA, which captures the patterns of revisited states of a single time series [@zbilut1992embeddings; @webber1994dynamical], CRQA allows for two time series to be projected onto one another to investigate shared states and trajectories. Nonlinear analyses such as CRQA can reveal dynamics that are not captured by traditional linear methods. In order to perform CRQA, the time series need to be converted to the same scale, while still preserving a sampling rate that respects the native timescale of the system [cf. Nyquist frequency in signal processing; @grenander1959probability]. We converted each time series (e.g., Figure 1) into deciles (e.g., Figure 2) to analyze the dynamics of different levels of social cohesion and counts of all, positive, and negative events on each day. In CRQA, a recurrent point is when two signals share the same state. These shared states can be at the same time or at later points in the time series. 
+
+#### Visualization
+A recurrence plot (RP) is the visual representation of CRQA. To construct a recurrence plot, two time series are plotted against each other on the X and Y axes, and at every point where they share the same state, and point in placed on the plot to indicate recurrence. Visually analyzing these plots can help reveal patterns of structure and recurrence. The line y = x is known as the line of identity. This line falls where the time series match temporally, and a filled line would indicate perfect synchrony between the two time series. See Figures 3-5 for examples of RPs.
 
 #### Metrics
 The percentage of recurrent points to total possible points is a metric called recurrence rate (RR). This metrics gives a general description of how frequently the time series are sharing the same states. In the current study, a recurrent point would indicate that the level of social cohesion and frequency of events were at the same intensity.
 Recurrent points that occur in successive moments form line structures. These are conceptualized as shared trajectories, where the two time series are moving together across time in a shared state. The percentage of recurrent points that make up diagonal line structures (i.e., two or more consecutive points) is a metric called percent determinism (DET). For the current project, a high DET would indicate that not only are the levels of social cohesion and frequency of events occurring at similar intensities, but they are doing so across consecutive days.
-The average length of the line structures is called mean line (L). This can be conceptualized as the average amount of time that the two time series move together before one or both shift states. The longest line length is called max line (maxL). maxL indicates the longest instance of being “stuck” in a particular state together. The total number of lines is called NRLINE. The more lines there are, the more coordinated the system may be. The complexity or variability of line lengths is captured by a metric called entropy (ENTR) and entropy while accounting for the total number of lines in the plot is normalized entropy (rENTR). These entropy metrics help indicate the stability and predictability of the system. When one of the signals gets “stuck” in a state and the other moves on to other states, this results in vertical line structures. The proportion of points forming vertical line structures is a metric called laminarity (LAM) and the average length of the vertical trajectories is called trapping time (TT). For more detail on CRQA metrics, see Coco and Dale (2014).
+The average length of the line structures is called mean line (L). This can be conceptualized as the average amount of time that the two time series move together before one or both shift states. The longest line length is called max line (maxL). maxL indicates the longest instance of being “stuck” in a particular state together. The total number of lines is called NRLINE. The more lines there are, the more coordinated the system may be. The complexity or variability of line lengths is captured by a metric called entropy (ENTR) and entropy while accounting for the total number of lines in the plot is normalized entropy (rENTR). These entropy metrics help indicate the stability and predictability of the system. When one of the signals gets “stuck” in a state and the other moves on to other states, this results in vertical line structures. The proportion of points forming vertical line structures is a metric called laminarity (LAM) and the average length of the vertical trajectories is called trapping time (TT). For more detail on CRQA metrics, see @R-crqa.
 
 #### Parameters
-To conduct the analyses on the decile data, the parameters were set to those typically used in categorical CRQA. Delay was set to zero, embedding dimension was set to 1, and radius was set to .001 to allow for only exact recurrent matches. No normalization was done, and lines were considered two or more consecutive recurrent points. The Theiler window was set to zero to include points along the line of identity. For more details on the CRQA parameters and how they impact the analysis, see Coco and Dale (2014).
+To conduct the analyses on the decile data, the parameters were set to those typically used in categorical CRQA. Delay was set to zero, embedding dimension was set to 1, and radius was set to .001 to allow for only exact recurrent matches. No normalization was done, and lines were considered two or more consecutive recurrent points. The Theiler window was set to zero to include points along the line of identity. For more details on the CRQA parameters and how they impact the analysis, see @R-crqa.
 
 #### Permutation Test
-Using the deciled, real time series of social cohesion, count of all events, count of positive events, and count of negative events, a permutation test was done to determine statistical difference from chance for each CRQA metric. Using the sample function in base R [@R-base], 1000 permuted time series were created for each of the real time series. A permutation test is similar to bootstrapping, except that the sampling of observations is done without replacement. CRQA was then run 1000 times for social cohesion and count of all events, social cohesion and count of positive events, and social cohesion and count of negative events using the permuted time series. This resulted in 1000 results for each of the CRQA metrics for each combination of time series. Statistical significance from chance was set at the 95th and 99th percentiles of the metrics from the permuted CRQ analyses. Given that a permutation test is similar to bootstrapping but does not include replacement, all points were included in each CRQA analysis, leaving RR the same across all analyses. Thus, RR is not included in the inferential tests. For more information on permutation tests, see Good (2013).
+Using the deciled, real time series of social cohesion, count of all events, count of positive events, and count of negative events, a permutation test was done to determine statistical difference from chance for each CRQA metric. Using the sample function in base R [@R-base], 1000 permuted time series were created for each of the real time series. A permutation test is similar to bootstrapping, except that the sampling of observations is done without replacement. CRQA was then run 1000 times for social cohesion and count of all events, social cohesion and count of positive events, and social cohesion and count of negative events using the permuted time series. This resulted in 1000 results for each of the CRQA metrics for each combination of time series. Statistical significance from chance was set at the 95th and 99th percentiles of the metrics from the permuted CRQ analyses. Given that a permutation test is similar to bootstrapping but does not include replacement, all points were included in each CRQA analysis, leaving RR the same across all analyses. Thus, RR is not included in the inferential tests. For more information on permutation tests, see @good2013permutation.
 
 ### Windowed Cross-Recurrence Quantification Analysis
 We used windowed cross-recurrence quantification analysis [WCRQA; @webber2005recurrence] to further investigate the evolution of the temporal dynamics of social cohesion and real-world events. In this analysis, a smaller “window” of time points is used to calculate CRQA and capture more fine-grain dynamics of two time series. The window remains the same size and “slides” diagonally up the line of identity. The changes in the CRQA metrics across the windows can reveal changes in dynamics that can then be linked to external, real-world events.
@@ -157,36 +156,250 @@ To visualize WCRQA, the resulting metrics from each window can be plotted as a t
 To visualize the differences in the WCRQA metrics from those obtained by chance, a permutation test was done to set upper and lower bounds for the 95th and 99th percentiles. Using a sample size of 14, one-thousand permuted time series were generated without replacement for each real time series. The upper and lower 95th and 99th percentiles were set based on the distribution of CRQA metrics from these one-thousand CRQ analyses.
 
 # Results
+```{r primary-crqa, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
 
-```{r analyses, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+# run primary crq analysis
+source('./scripts/primary-analyses/02_crqa.R')
 
-# primary analyses
-#source('./scripts/primary-analyses/02_crqa.R')
-#source('./scripts/primary-analyses/03_windowed_crqa.R')
+# read in metric names
+metrics <- t(read.csv("./results/primary/crqa/target/crqa_results-all_events.csv", header = FALSE)[-2,-1])
 
-# secondary analyses
-#source('./scripts/secondary-analyses/icews/02_crqa.R')
-#source('./scripts/secondary-analyses/icews/03_windowed_crqa.R')
-#source('./scripts/secondary-analyses/pheonix/02_crqa.R')
-#source('./scripts/secondary-analyses/pheonix/03_windowed_crqa.R')
+# read in metrics from crq analyses (target filtered)
+metrics_all_targ <- t(read.csv("./results/primary/crqa/target/crqa_results-all_events.csv", header = FALSE)[-1,-1])
+metrics_pos_targ <- t(read.csv("./results/primary/crqa/target/crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+metrics_neg_targ <- t(read.csv("./results/primary/crqa/target/crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (target filtered)
+sig_all_targ <- t(read.csv("./results/primary/crqa/target/metric_signif_all.csv", header = FALSE)[-1,-1])
+sig_pos_targ <- t(read.csv("./results/primary/crqa/target/metric_signif_pos.csv", header = FALSE)[-1,-1])
+sig_neg_targ <- t(read.csv("./results/primary/crqa/target/metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+# read in metrics from crq analyses (source and target filtered)
+metrics_all_source_targ <- t(read.csv("./results/primary/crqa/source_target/crqa_results-all_events.csv", header = FALSE)[-1,-1])
+metrics_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target/crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+metrics_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target/crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (source and target filtered)
+sig_all_source_targ <- t(read.csv("./results/primary/crqa/source_target/metric_signif_all.csv", header = FALSE)[-1,-1])
+sig_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target/metric_signif_pos.csv", header = FALSE)[-1,-1])
+sig_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target/metric_signif_neg.csv", header = FALSE)[-1,-1])
 
 ```
 
-```{r images}
-# code block to insert an image
+```{r raw-ts, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Example of pre-processed data.'}
 
+# read in processed data
+data <- read.csv("./data/formatted/primary/formatted_data.csv", header = TRUE)
 
+raw_ts_example <- ggplot(data, aes(x= as.Date(Date), y=all_events_target)) +
+  geom_point() +
+  geom_line() +
+  xlab("Date") +
+  ylab("Count of events")
+ggsave("./results/primary/tally_ts_example.png")
+
+# call the image
+knitr::include_graphics("./results/primary/tally_ts_example.png")
 
 ```
 
+```{r deciled-ts, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Example of deciled data.'}
+
+# plot the deciles time series and save
+deciled_ts_example <- ggplot(data, aes(x= as.Date(Date), y=all_deciles_target)) +
+  geom_point() +
+  geom_line() +
+  xlab("Date") +
+  ylab("Count of events (deciles)")
+ggsave("./results/primary/deciled_ts_example.png")
+
+# call the image
+knitr::include_graphics("./results/primary/deciled_ts_example.png")
+
+```
+
+## Cross-Recurrence Quantification Analysis
+CRQA was performed using the crqa package [@R-crqa] for R [@R-base]. We conducted a permutation test to check for statistical difference from chance for all analyses and metrics. 
+
+### Syria as Target
+A permutation test for the CRQA of social cohesion and count of all events found a statistical difference from chance for DET, NRLINE, maxL, and LAM. All other metrics were non-significant (Figure 3; Table 1). A permutation test for the CRQA of social cohesion and count of positive events found no statistical difference from chance for any of the metrics (Figure 4; Table 1). A permutation test for the CRQA of social cohesion and count of negative events found a statistical difference from chance for DET, NRLINE, maxL, L, ENTR, and TT. All other metrics were non-significant (Figure 5; Table 1). Looking at the recurrence plots there appears, to be a shift in dynamics around the 36th observation which corresponds to May 4th, 2012.
+
+```{r primary-crqa-table-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+target_results <- as.data.frame(cbind(metrics,
+                                      metrics_all_targ, 
+                                      sig_all_targ, 
+                                      metrics_pos_targ, 
+                                      sig_pos_targ, 
+                                      metrics_neg_targ, 
+                                      sig_neg_targ), stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+target_results[,numerics] <- sapply(target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(target_results[,7]))
+
+target_results <- cbind(target_results, stars_all, stars_pos, stars_neg)
+target_results <- target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf) 
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(target_results, caption = "CRQA results for target only data.")
+
+```
+
+```{r plot-rp-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/primary/crqa/target/rp-all_events.png")
+
+```
+
+```{r plot-rp-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of positive events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/primary/crqa/target/rp-pos_events.png")
+
+```
+
+```{r plot-rp-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of negative events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/primary/crqa/target/rp-neg_events.png")
+
+```
+
+### Syria as Source and Target
+A permutation test for the CRQA of social cohesion and count of all events found a statistical difference from chance for DET, NRLINE, and LAM. All other metrics were non-significant (Figure 6; Table 2). A permutation test for the CRQA of social cohesion and count of positive events found a statistical difference from chance for DET, NRLINE, maxL, and LAM (Figure 7; Table 2). A permutation test for the CRQA of social cohesion and count of negative events found a statistical difference from chance for DET, NRLINE, maxL, L, and ENTR. All other metrics were non-significant (Figure 8; Table 2). Looking at the recurrence plots there appears, to be a shift in dynamics around the 36th observation which corresponds to May 4th, 2012.
+
+```{r primary-table-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+source_target_results <- as.data.frame(cbind(metrics,
+                                      metrics_all_source_targ, 
+                                      sig_all_source_targ, 
+                                      metrics_pos_source_targ, 
+                                      sig_pos_source_targ, 
+                                      metrics_neg_source_targ, 
+                                      sig_neg_source_targ), stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+source_target_results[,numerics] <- sapply(source_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(source_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(source_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(source_target_results[,7]))
+
+source_target_results <- cbind(source_target_results, stars_all, stars_pos, stars_neg)
+source_target_results <- source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(source_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(source_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf) 
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(source_target_results, caption = "CRQA results for source and target data.")
+
+```
+
+```{r plot-rp-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/primary/crqa/source_target/rp-all_events.png")
+
+```
+
+```{r plot-rp-source-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of positive events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/primary/crqa/source_target/rp-pos_events.png")
+
+```
+
+```{r plot-rp-source-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of negative events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/primary/crqa/source_target/rp-neg_events.png")
+
+```
+
+## Windowed Cross-Recurrence Quantification Analysis
+WCRQA was performed using the crqa package [@R-crqa] for R [@R-base]. Permutation tests were conducted for each WCRQA to establish upper and lower 95th and 99th percentiles. In the plots (see Figures #-#), the 95th percentiles are represented by horizontal red lines and the 99th percentiles are represented by horizontal orange lines.
+For social cohesion and counts of all and negative events, there appears to be an extended time period where RR and DET were greater than chance, from the 36th through 46th windows. These windows span from May 4th, 2012 to May 28th, 2012. We can see this string of highly violent events reflected in the mode ICEWS event for each day (Figure #).
 
 # Discussion
+In the present study, we investigated the dynamics of real-world events and online communication on Twitter in Syria during Arab Spring. We examined how social mobilization both virtually and physically evolve over time in tandem. Prior to now, the extent to which virtual mobilization on social media platforms such as Twitter has been largely unexplored. Using the nonlinear methods cross-recurrence quantification analysis and windowed cross-recurrence quantification analysis, we investigated the theory that virtual mobilization is increasingly reflective of real-world events during times of strife.
+
+## Cross-Recurrence Quantification Analysis
+The significant result of DET for social cohesion and both the all events and negative events time series confirms our hypothesis, that increased salience of events is reflected in social cohesion on Twitter. The frequency of all events and of negative events thus result in a significant number of shared trajectories that are statistically different from chance. The non-significant results for all metrics for positive event count also confirm our hypothesis, and gives support to the theory that positive events are less coupled to social cohesion than the more salient, negative events during times of turmoil. The inevitable increased salience of event frequency and event violence thus leads to increased coupling with Twitter social cohesion.
+By visual inspection of the recurrence plots (RPs; Figures 3-5), there appears to be a shift in the dynamics of these systems around observation 36, or May 4th, 2012. To further investigate these local dynamics, we performed a sliding window technique known as windowed cross-recurrence quantification analysis (WCRQA).
+
+## Windowed-Recurrence Quantification Analysis
+The time period of differing dynamics, from observation 36 through 46, appears to be captured by WCRQA of social cohesion and count of negative events with window size 14 for both RR (Figure 8) and DET (Figure 11). The amount of recurrence and determinism for these periods consistently lie above chance, suggesting that the intensity of negative events coincide with the degree of social cohesion found on Twitter, and that these states carry across multiple days in a way that is different from that of chance. During this time period, Syria underwent the “Siege of Homs” on May 5th, where fleets of tanks were sent into Homs and over 300 individuals were arrested. On May 6th, demonstrators began protesting after Friday prayers, leading to retaliation violence by the Syrian army, leaving sixteen civilians and eleven Syrian army men dead. That day, tens of thousands of individuals marched in an attempt to meet the army peacefully and bring supplies to Deraa, but were refused entrance. This day became known as the “Day of Defiance” or the “Friday of Challenge.” Syria also faced the “Siege of Baniyas” on May 7th, “Siege of Tafas” on May 8th, “Friday of Free Women” on May 13th, “Siege of Talkalakh” on May 14th, the “Israel border demonstrations” on May 15th, “Friday of Azady (freedom)” on May 20th, “Home Protectors’ Friday” on May 27th, and the “Siege of Rastan and Talbiseh” on May 28th.
+The above-chance levels of determinism and recurrence rate are demonstrating the coupling of social cohesion and counts of all and negative events during times of strife. The frequency of negative events is also captured by the mode ICEWS rating for each day. In Figure 12, observed days from 33 to 47, or from May 1st, 2012 to May 15th, 2012, are largely overcome by extreme negative events of ICEWS rating -10. These directly correlate with the above chance RR and DET metrics for the WCRQA of social cohesion and count of negative events. Furthermore, for WCRQA of social cohesion and positive event count during this time period, RR (Figure 7) and DET (Figure 10) were both within chance. This supports our hypothesis, as the positive events are seemingly not coupled with the social cohesion on Twitter.
+
+## Conclusion
+Given the invasiveness of social media in our everyday lives, it is inevitable that individuals involved in real-world social mobilization have utilized these platforms to their advantage. If consistent across other civil wars, these results have serious implications for monitoring global movements. While traditional media in regions of authoritarian rule are often biased, the self-organized nature of Twitter poses a new avenue to gain insight into truths about up-risings and social mobilization. By conceptualizing Twitter and real-world events as two components of an inextricably linked dynamical system, the levels of social cohesion within the virtual platform could be monitored for fluctuations indicating global shifts in power and peace. Social media mobilization can thus help alert us to real-world mobilization not communicated in mainstream media and allow for faster intervention.
 
 ### Acknowledgements
 
 \newpage
 
 # References
+
+# Appendix
+Results for CRQA and Windowed CRQA on Pheonix data.
+```{r secondary-crqa}
+
+# run crqa on sextiled icews data
+# source('./scripts/secondary-analyses/icews/02_crqa.R')
+
+# run crqa on sextiled pheonix data
+# source('./scripts/secondary-analyses/pheonix/02_crqa.R')
+
+```
+
+```{r secondary-windowed-crqa}
+
+# run windowed crqa on sextiled icews data
+# source('./scripts/secondary-analyses/icews/03_windowed_crqa.R')
+
+# run windowed crqa on sextiled pheonix data
+# source('./scripts/secondary-analyses/pheonix/03_windowed_crqa.R')
+
+
+```
+
 
 \begingroup
 \setlength{\parindent}{-0.5in}

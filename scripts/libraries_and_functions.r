@@ -11,7 +11,10 @@ required_packages = c(
   'crqa',
   'tidyr',
   'modeest',
-  'papaja'
+  'papaja',
+  'pander',
+  'gtools',
+  'knitr'
 )
 
 # load required packages
