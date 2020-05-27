@@ -242,7 +242,7 @@ In addition to the CRQA parameters, two other parameters are required when condu
 \hypertarget{visualization-1}{%
 \paragraph{Visualization}\label{visualization-1}}
 
-To visualize WCRQA, the resulting metrics from each window can be plotted as a time series. This allows for visual interpretation of the pattern or fluctuation of the metrics across time. These dynamics can then be linked to other external events. See Figures \#\#-\#\# for examples.
+To visualize WCRQA, the resulting metrics from each window can be plotted as a time series. This allows for visual interpretation of the pattern or fluctuation of the metrics across time. These dynamics can then be linked to other external events. See Figures 9-14 and 16-21 for examples.
 
 \hypertarget{permutation-test-1}{%
 \paragraph{Permutation Test}\label{permutation-test-1}}
@@ -416,14 +416,27 @@ In the present study, we investigated the dynamics of real-world events and onli
 \hypertarget{cross-recurrence-quantification-analysis-2}{%
 \subsection{Cross-Recurrence Quantification Analysis}\label{cross-recurrence-quantification-analysis-2}}
 
+\hypertarget{syria-as-target-2}{%
+\subsubsection{Syria as Target}\label{syria-as-target-2}}
+
 The significant result of DET for social cohesion and both the all events and negative events time series confirms our hypothesis, that increased salience of events is reflected in social cohesion on Twitter. The frequency of all events and of negative events thus result in a significant number of shared trajectories that are statistically different from chance. The non-significant results for all metrics for positive event count also confirm our hypothesis, and gives support to the theory that positive events are less coupled to social cohesion than the more salient, negative events during times of turmoil. The inevitable increased salience of event frequency and event violence thus leads to increased coupling with Twitter social cohesion.
-By visual inspection of the recurrence plots (RPs; Figures 3-5), there appears to be a shift in the dynamics of these systems around observation 35, or May 3rd, 2012. To further investigate these local dynamics, we performed a sliding window technique known as windowed cross-recurrence quantification analysis (WCRQA).
+
+\hypertarget{syria-as-source-and-target-2}{%
+\subsubsection{Syria as Source and Target}\label{syria-as-source-and-target-2}}
+
+By visual inspection of the recurrence plots (RPs; Figures 3-8), there appears to be a shift in the dynamics of these systems around observation 35, or May 3rd, 2012. To further investigate these local dynamics, we performed a sliding window technique known as windowed cross-recurrence quantification analysis (WCRQA).
 
 \hypertarget{windowed-recurrence-quantification-analysis}{%
 \subsection{Windowed-Recurrence Quantification Analysis}\label{windowed-recurrence-quantification-analysis}}
 
+\hypertarget{syria-as-target-3}{%
+\subsubsection{Syria as Target}\label{syria-as-target-3}}
+
 The time period of differing dynamics, from observation 36 through 46, appears to be captured by WCRQA of social cohesion and count of negative events with window size 14 for both RR (Figure 8) and DET (Figure 11). The amount of recurrence and determinism for these periods consistently lie above chance, suggesting that the intensity of negative events coincide with the degree of social cohesion found on Twitter, and that these states carry across multiple days in a way that is different from that of chance. During this time period, Syria underwent the \enquote{Siege of Homs} on May 5th, where fleets of tanks were sent into Homs and over 300 individuals were arrested. On May 6th, demonstrators began protesting after Friday prayers, leading to retaliation violence by the Syrian army, leaving sixteen civilians and eleven Syrian army men dead. That day, tens of thousands of individuals marched in an attempt to meet the army peacefully and bring supplies to Deraa, but were refused entrance. This day became known as the \enquote{Day of Defiance} or the \enquote{Friday of Challenge.} Syria also faced the \enquote{Siege of Baniyas} on May 7th, \enquote{Siege of Tafas} on May 8th, \enquote{Friday of Free Women} on May 13th, \enquote{Siege of Talkalakh} on May 14th, the \enquote{Israel border demonstrations} on May 15th, \enquote{Friday of Azady (freedom)} on May 20th, \enquote{Home Protectors' Friday} on May 27th, and the \enquote{Siege of Rastan and Talbiseh} on May 28th.
 The above-chance levels of determinism and recurrence rate are demonstrating the coupling of social cohesion and counts of all and negative events during times of strife. The frequency of negative events is also captured by the mode ICEWS rating for each day. In Figure 12, observed days from 33 to 47, or from May 1st, 2012 to May 15th, 2012, are largely overcome by extreme negative events of ICEWS rating -10. These directly correlate with the above chance RR and DET metrics for the WCRQA of social cohesion and count of negative events. Furthermore, for WCRQA of social cohesion and positive event count during this time period, RR (Figure 7) and DET (Figure 10) were both within chance. This supports our hypothesis, as the positive events are seemingly not coupled with the social cohesion on Twitter.
+
+\hypertarget{syria-as-source-and-target-3}{%
+\subsubsection{Syria as Source and Target}\label{syria-as-source-and-target-3}}
 
 \hypertarget{conclusion}{%
 \subsection{Conclusion}\label{conclusion}}
@@ -438,16 +451,14 @@ Given the invasiveness of social media in our everyday lives, it is inevitable t
 \hypertarget{references}{%
 \section{References}\label{references}}
 
-\hypertarget{appendix}{%
-\section{Appendix}\label{appendix}}
-
-Results for CRQA and Windowed CRQA on Pheonix data.
-
 \begingroup
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
 
 \hypertarget{refs}{}
+\leavevmode\hypertarget{ref-illinoisdatabankIDB-2796521}{}%
+Althaus, S., Bajjalieh, J., Carter, J., Peyton, B., \& Shalmon, D. (2020). \emph{Cline center historical phoenix event data. Cline center for advanced social research. V1.3.0. May 4} {[}Data set{]}. University of Illinois at Urbana-Champaign. \url{https://doi.org/10.13012/B2IDB-0647142_V3}
+
 \leavevmode\hypertarget{ref-DVNux2f28075_2015}{}%
 Boschee, E., Lautenschlager, J., O'Brien, S., Shellman, S., Starz, J., \& Ward, M. (2015). \emph{ICEWS Coded Event Data} (Version V27) {[}Data set{]}. Harvard Dataverse. \url{https://doi.org/10.7910/DVN/28075}
 
@@ -499,6 +510,9 @@ Turvey, M. T. (2018). \emph{Lectures on perception: An ecological perspective}. 
 \leavevmode\hypertarget{ref-vicari2013public}{}%
 Vicari, S. (2013). Public reasoning around social contention: A case study of twitter use in the italian mobilization for global change. \emph{Current Sociology}, \emph{61}(4), 474--490.
 
+\leavevmode\hypertarget{ref-wang2016growing}{}%
+Wang, W., Kennedy, R., Lazer, D., \& Ramakrishnan, N. (2016). Growing pains for global monitoring of societal events. \emph{Science}, \emph{353}(6307), 1502--1503.
+
 \leavevmode\hypertarget{ref-webber1994dynamical}{}%
 Webber Jr, C. L., \& Zbilut, J. P. (1994). Dynamical assessment of physiological systems and states using recurrence plot strategies. \emph{Journal of Applied Physiology}, \emph{76}(2), 965--973.
 
@@ -512,5 +526,108 @@ Zbilut, J. P., Giuliani, A., \& Webber Jr, C. L. (1998). Detecting deterministic
 Zbilut, J. P., \& Webber Jr, C. L. (1992). Embeddings and delays as derived from quantification of recurrence plots. \emph{Physics Letters A}, \emph{171}(3-4), 199--203.
 
 \endgroup
+
+\newpage
+
+\hypertarget{appendix-a}{%
+\section{Appendix A}\label{appendix-a}}
+
+Given the inherent issues found in event data sets (Wang, Kennedy, Lazer, \& Ramakrishnan, 2016), we conducted the same analyses on the Cline Center Historical Pheonix Event Data (Althaus, Bajjalieh, Carter, Peyton, \& Shalmon, 2020). After filtering for Syria as the target country and creating the count variables for all, positive, and negative events each day, there was not enough variability to transform the data into deciles. As a results, sextiles were used for these analyses. For comparison, the filtered ICEWS data was also transformed into sextiles.
+
+\hypertarget{crqa-for-pheonix-data-in-sextiles}{%
+\subsection{CRQA for Pheonix data in sextiles}\label{crqa-for-pheonix-data-in-sextiles}}
+
+\begin{longtable}[]{@{}cccccccccc@{}}
+\caption{CRQA results for target only Pheonix data.}\tabularnewline
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endhead
+DET & 29.441 & 0.617 & & 38.232 & 0.000 & *** & 30.792 & 0.332 &\tabularnewline
+NRLINE & 140.000 & 0.457 & & 168.000 & 0.000 & *** & 141.000 & 0.450 &\tabularnewline
+maxL & 4.000 & 0.443 & & 5.000 & 0.088 & . & 4.000 & 0.454 &\tabularnewline
+L & 2.143 & 0.894 & & 2.292 & 0.014 & * & 2.234 & 0.165 &\tabularnewline
+ENTR & 0.420 & 0.904 & & 0.683 & 0.012 & * & 0.569 & 0.239 &\tabularnewline
+rENTR & 0.382 & 0.750 & & 0.492 & 0.171 & & 0.518 & 0.096 & .\tabularnewline
+LAM & 31.600 & 0.350 & & 42.105 & 0.042 & * & 29.619 & 0.625 &\tabularnewline
+TT & 2.252 & 0.247 & & 2.356 & 0.142 & & 2.295 & 0.314 &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}cccccccccc@{}}
+\caption{CRQA results for source and target Pheonix data.}\tabularnewline
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endhead
+DET & 32.677 & 0.069 & . & 37.313 & 0.000 & *** & 31.610 & 0.130 &\tabularnewline
+NRLINE & 152.000 & 0.047 & * & 160.000 & 0.000 & *** & 145.000 & 0.133 &\tabularnewline
+maxL & 4.000 & 0.465 & & 7.000 & 0.001 & *** & 4.000 & 0.448 &\tabularnewline
+L & 2.184 & 0.577 & & 2.344 & 0.000 & *** & 2.193 & 0.476 &\tabularnewline
+ENTR & 0.507 & 0.550 & & 0.751 & 0.000 & *** & 0.523 & 0.446 &\tabularnewline
+rENTR & 0.462 & 0.289 & & 0.466 & 0.247 & & 0.476 & 0.214 &\tabularnewline
+LAM & 40.453 & 0.051 & . & 50.746 & 0.001 & *** & 32.008 & 0.453 &\tabularnewline
+TT & 2.446 & 0.044 & * & 2.217 & 0.376 & & 2.284 & 0.327 &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{crqa-for-icews-data-in-sextiles}{%
+\subsection{CRQA for ICEWS data in sextiles}\label{crqa-for-icews-data-in-sextiles}}
+
+\begin{longtable}[]{@{}cccccccccc@{}}
+\caption{CRQA results for target only ICEWS data.}\tabularnewline
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endhead
+DET & 38.636 & 0.000 & *** & 36.759 & 0.001 & *** & 36.858 & 0.000 & ***\tabularnewline
+NRLINE & 175.000 & 0.000 & *** & 165.000 & 0.001 & *** & 161.000 & 0.002 & **\tabularnewline
+maxL & 5.000 & 0.079 & . & 4.000 & 0.438 & & 6.000 & 0.013 & *\tabularnewline
+L & 2.234 & 0.148 & & 2.255 & 0.086 & . & 2.317 & 0.003 & **\tabularnewline
+ENTR & 0.596 & 0.131 & & 0.623 & 0.088 & . & 0.723 & 0.002 & **\tabularnewline
+rENTR & 0.430 & 0.450 & & 0.567 & 0.047 & * & 0.449 & 0.394 &\tabularnewline
+LAM & 42.984 & 0.035 & * & 37.846 & 0.096 & . & 39.625 & 0.062 & .\tabularnewline
+TT & 2.254 & 0.228 & & 2.471 & 0.036 & * & 2.373 & 0.081 & .\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}cccccccccc@{}}
+\caption{CRQA results for source and target Pheonix data.}\tabularnewline
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
+\midrule
+\endhead
+DET & 32.840 & 0.061 & . & 37.451 & 0.000 & *** & 38.741 & 0.000 & ***\tabularnewline
+NRLINE & 145.000 & 0.208 & & 166.000 & 0.001 & *** & 173.000 & 0.000 & ***\tabularnewline
+maxL & 5.000 & 0.084 & . & 5.000 & 0.093 & . & 7.000 & 0.002 & **\tabularnewline
+L & 2.297 & 0.007 & ** & 2.283 & 0.017 & * & 2.277 & 0.026 & *\tabularnewline
+ENTR & 0.693 & 0.005 & ** & 0.667 & 0.016 & * & 0.632 & 0.058 & .\tabularnewline
+rENTR & 0.500 & 0.128 & & 0.481 & 0.180 & & 0.393 & 0.724 &\tabularnewline
+LAM & 34.221 & 0.208 & & 41.996 & 0.034 & * & 41.003 & 0.037 & *\tabularnewline
+TT & 2.239 & 0.276 & & 2.348 & 0.107 & & 2.279 & 0.231 &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{windowed-crqa-for-pheonix-data-in-sextiles}{%
+\subsection{Windowed CRQA for Pheonix data in sextiles}\label{windowed-crqa-for-pheonix-data-in-sextiles}}
+
+\hypertarget{windowed-crqa-for-icews-data-in-sextiles}{%
+\subsection{Windowed CRQA for ICEWS data in sextiles}\label{windowed-crqa-for-icews-data-in-sextiles}}
 
 \end{document}

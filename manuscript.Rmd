@@ -467,18 +467,26 @@ knitr::include_graphics("./results/primary/windowed-crqa/source_target/windowed_
 
 ```
 
-For social cohesion and count of all events, there is a consistent period of above or nearly above chance determinism from the 26th thorugh 46th window (Figure 16). Determinism also shows above or nearly above chance values in window spans 11-16 and 35-37 (Figure 17). For social cohesion and count of positive events, there is a downward trend in RR as the window moves (Figure 18) and determinism stays largely within chance with the exception of windows 13-19. For social cohesion and negative events, there appears to be an extended time period where RR (Figure 11) and DET (Figure 12) were greater than chance, from the 35th through 46th windows. These windows span from May 3rd, 2012 to May 14th, 2012. We can see this string of highly violent events reflected in the mode ICEWS event for each day (Figure 9), where from May 1st, 2020 to May 15th, 2020, the most frequntly occuring event was almost consistently -10, the most violent event in the coding system.
+For social cohesion and count of all events, there is a consistent period of above or nearly above chance determinism from the 26th thorugh 46th window (Figure 16). Determinism also shows above or nearly above chance values in window spans 11-16 and 35-37 (Figure 17). For social cohesion and count of positive events, there is a downward trend in RR as the window moves (Figure 18) and determinism stays largely within chance with the exception of windows 13-19. For social cohesion and negative events, there appears to be an extended time period where RR (Figure 11) and DET (Figure 12) were greater than chance, from the 35th through 46th windows. These windows span from May 3rd, 2012 to May 14th, 2012. 
 
 # Discussion
 In the present study, we investigated the dynamics of real-world events and online communication on Twitter in Syria during Arab Spring. We examined how social mobilization both virtually and physically evolve over time in tandem. Prior to now, the extent to which virtual mobilization on social media platforms such as Twitter has been largely unexplored. Using the nonlinear methods cross-recurrence quantification analysis and windowed cross-recurrence quantification analysis, we investigated the theory that virtual mobilization is increasingly reflective of real-world events during times of strife.
 
 ## Cross-Recurrence Quantification Analysis
+### Syria as Target
 The significant result of DET for social cohesion and both the all events and negative events time series confirms our hypothesis, that increased salience of events is reflected in social cohesion on Twitter. The frequency of all events and of negative events thus result in a significant number of shared trajectories that are statistically different from chance. The non-significant results for all metrics for positive event count also confirm our hypothesis, and gives support to the theory that positive events are less coupled to social cohesion than the more salient, negative events during times of turmoil. The inevitable increased salience of event frequency and event violence thus leads to increased coupling with Twitter social cohesion.
-By visual inspection of the recurrence plots (RPs; Figures 3-5), there appears to be a shift in the dynamics of these systems around observation 35, or May 3rd, 2012. To further investigate these local dynamics, we performed a sliding window technique known as windowed cross-recurrence quantification analysis (WCRQA).
+
+### Syria as Source and Target
+By adding Syria as a source in the data filtering, the dataset increased in size by 1,690 samples. These additional observations are times where Syria initiated an event with another country. Events initiated by Syria but directed internally within the country were already captured by the target only filtering. The increase in coupling between positive events and social cohesion is thus due to the inclusion of these externally directed events. Though CRQA metrics for count of all and count of negative events with social cohesion were largely unaffected, count of positive events and social cohesion showed significant levels of determinism, number of lines, max line length, and laminarity that were not present in the target filtered data. Given that the Syria during this time was still under Authoritarian rule, the government may have been initiating more positive external events to prevent intervention by other countries or try to cover up what was going on. We believe that the increased coupling of positive events is thus not reflective of actual social cohesion, but happened by chance. The inflation of the number of positive events when including source observations is causing increased coupling, but it is more likely that the Twitter users were using the platform to raise awareness of the violent, internal events that were being inflicted on them by their government officials and armies and not reporting on the positive external events that did not directly affect them or their saftey. 
+By visual inspection of the recurrence plots (RPs; Figures 3-8), there appears to be a shift in the dynamics of these systems around observation 35, or May 3rd, 2012. To further investigate these local dynamics, we performed a sliding window technique known as windowed cross-recurrence quantification analysis (WCRQA).
 
 ## Windowed-Recurrence Quantification Analysis
-The time period of differing dynamics, from observation 36 through 46, appears to be captured by WCRQA of social cohesion and count of negative events with window size 14 for both RR (Figure 8) and DET (Figure 11). The amount of recurrence and determinism for these periods consistently lie above chance, suggesting that the intensity of negative events coincide with the degree of social cohesion found on Twitter, and that these states carry across multiple days in a way that is different from that of chance. During this time period, Syria underwent the “Siege of Homs” on May 5th, where fleets of tanks were sent into Homs and over 300 individuals were arrested. On May 6th, demonstrators began protesting after Friday prayers, leading to retaliation violence by the Syrian army, leaving sixteen civilians and eleven Syrian army men dead. That day, tens of thousands of individuals marched in an attempt to meet the army peacefully and bring supplies to Deraa, but were refused entrance. This day became known as the “Day of Defiance” or the “Friday of Challenge.” Syria also faced the “Siege of Baniyas” on May 7th, “Siege of Tafas” on May 8th, “Friday of Free Women” on May 13th, “Siege of Talkalakh” on May 14th, the “Israel border demonstrations” on May 15th, “Friday of Azady (freedom)” on May 20th, “Home Protectors’ Friday” on May 27th, and the “Siege of Rastan and Talbiseh” on May 28th.
-The above-chance levels of determinism and recurrence rate are demonstrating the coupling of social cohesion and counts of all and negative events during times of strife. The frequency of negative events is also captured by the mode ICEWS rating for each day. In Figure 12, observed days from 33 to 47, or from May 1st, 2012 to May 15th, 2012, are largely overcome by extreme negative events of ICEWS rating -10. These directly correlate with the above chance RR and DET metrics for the WCRQA of social cohesion and count of negative events. Furthermore, for WCRQA of social cohesion and positive event count during this time period, RR (Figure 7) and DET (Figure 10) were both within chance. This supports our hypothesis, as the positive events are seemingly not coupled with the social cohesion on Twitter.
+### Syria as Target
+The time period of differing dynamics, from observation 38 through 43, appears to be captured by WCRQA of social cohesion and count of negative events for both RR (Figure 13) and DET (Figure 14). The amount of recurrence and determinism for these periods almost consistently lie above chance, suggesting that the intensity of negative events coincide with the degree of social cohesion found on Twitter, and that these states carry across multiple days in a way that is different from that of chance.
+The above-chance levels of determinism and recurrence rate are demonstrating the coupling of social cohesion and counts of all and negative events during times of strife. We can see this string of highly violent events reflected in the mode ICEWS event for each day (Figure 15), where from May 1st, 2020 to May 15th, 2020, the most frequntly occuring event was almost consistently -10, the most violent event in the coding system. These dates directly correlate with the above chance RR and DET metrics for the WCRQA of social cohesion and count of negative events. Furthermore, for WCRQA of social cohesion and positive event count during this time period, DET (Figure 12) was entirely within chance. This supports our hypothesis, as the positive events are seemingly not coupled with the social cohesion on Twitter during civil uprisings durig the Arab Spring.
+
+### Syria as Source and Target
+WCRQ analyses of recurrence rate on the source and target filtered data remained largely the same for count of all events and social cohesion, suggesting that large numbers on a given day will be reflective of increased levels of social cohesion. Determinism showed more frequent above-chance metrics for windows 39 and up, suggesting that the inclusion of externally directed events lead to higher event counts during these days and then was more reflective of the level of social cohesion on Twitter. WCRQA for count of positive events and social cohesion remained largely the same for RR and DET as the source only data. This again seems to support the idea that these two aren't actually coupled, but rather that the inflation of the positive counts lead to a spurious relationship. Count of negative events and social cohesion also showed similar trends for RR and DET, again attesting to the theory that negative events were coupled to social cohesion on Twitter while positive events happened by chance.
 
 ## Conclusion
 Given the invasiveness of social media in our everyday lives, it is inevitable that individuals involved in real-world social mobilization have utilized these platforms to their advantage. If consistent across other civil wars, these results have serious implications for monitoring global movements. While traditional media in regions of authoritarian rule are often biased, the self-organized nature of Twitter poses a new avenue to gain insight into truths about up-risings and social mobilization. By conceptualizing Twitter and real-world events as two components of an inextricably linked dynamical system, the levels of social cohesion within the virtual platform could be monitored for fluctuations indicating global shifts in power and peace. Social media mobilization can thus help alert us to real-world mobilization not communicated in mainstream media and allow for faster intervention.
@@ -489,31 +497,252 @@ Given the invasiveness of social media in our everyday lives, it is inevitable t
 
 # References
 
-# Appendix
-Results for CRQA and Windowed CRQA on Pheonix data.
-```{r secondary-crqa}
-
-# run crqa on sextiled icews data
-# source('./scripts/secondary-analyses/icews/02_crqa.R')
-
-# run crqa on sextiled pheonix data
-# source('./scripts/secondary-analyses/pheonix/02_crqa.R')
-
-```
-
-```{r secondary-windowed-crqa}
-
-# run windowed crqa on sextiled icews data
-# source('./scripts/secondary-analyses/icews/03_windowed_crqa.R')
-
-# run windowed crqa on sextiled pheonix data
-# source('./scripts/secondary-analyses/pheonix/03_windowed_crqa.R')
-
-```
-
 \begingroup
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
 
 <div id="refs" custom-style="Bibliography"></div>
 \endgroup
+
+\newpage
+
+# Appendix A
+
+Given the inherent issues found in event data sets [@wang2016growing], we conducted the same analyses on the Cline Center Historical Pheonix Event Data [@illinoisdatabankIDB-2796521]. After filtering the data and creating the count variables for all, positive, and negative events each day, there was not enough variability to transform the data into deciles for the target only Pheonix data. As a results, sextiles were used for these analyses. For comparison, the filtered ICEWS data was also transformed into sextiles. 
+
+## CRQA for Pheonix data in sextiles
+```{r secondary-crqa-phoenix, , echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run crqa on sextiled pheonix data
+source('./scripts/secondary-analyses/pheonix/02_crqa.R')
+
+# read in metric names
+pheonix_metrics <- t(read.csv("./results/secondary/pheonix/crqa/target/crqa_results-all_events.csv", header = FALSE)[-2,-1])
+
+# read in metrics from crq analyses (target filtered)
+pheonix_metrics_all_targ <- t(read.csv("./results/secondary/pheonix/crqa/target/crqa_results-all_events.csv", header = FALSE)[-1,-1])
+pheonix_metrics_pos_targ <- t(read.csv("./results/secondary/pheonix/crqa/target/crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+pheonix_metrics_neg_targ <- t(read.csv("./results/secondary/pheonix/crqa/target/crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (target filtered)
+pheonix_sig_all_targ <- t(read.csv("./results/secondary/pheonix/crqa/target/metric_signif_all.csv", header = FALSE)[-1,-1])
+pheonix_sig_pos_targ <- t(read.csv("./results/secondary/pheonix/crqa/target/metric_signif_pos.csv", header = FALSE)[-1,-1])
+pheonix_sig_neg_targ <- t(read.csv("./results/secondary/pheonix/crqa/target/metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+# read in metrics from crq analyses (source and target filtered)
+pheonix_metrics_all_source_targ <- t(read.csv("./results/secondary/pheonix/crqa/source_target/crqa_results-all_events.csv", header = FALSE)[-1,-1])
+pheonix_metrics_pos_source_targ <- t(read.csv("./results/secondary/pheonix/crqa/source_target/crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+pheonix_metrics_neg_source_targ <- t(read.csv("./results/secondary/pheonix/crqa/source_target/crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (source and target filtered)
+pheonix_sig_all_source_targ <- t(read.csv("./results/secondary/pheonix/crqa/source_target/metric_signif_all.csv", header = FALSE)[-1,-1])
+pheonix_sig_pos_source_targ <- t(read.csv("./results/secondary/pheonix/crqa/source_target/metric_signif_pos.csv", header = FALSE)[-1,-1])
+pheonix_sig_neg_source_targ <- t(read.csv("./results/secondary/pheonix/crqa/source_target/metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+```
+
+```{r secondary-crqa-table-pheonix-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+pheonix_target_results <- as.data.frame(cbind(pheonix_metrics,
+                                      pheonix_metrics_all_targ, 
+                                      pheonix_sig_all_targ, 
+                                      pheonix_metrics_pos_targ, 
+                                      pheonix_sig_pos_targ, 
+                                      pheonix_metrics_neg_targ, 
+                                      pheonix_sig_neg_targ), 
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+pheonix_target_results[,numerics] <- sapply(pheonix_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(pheonix_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(pheonix_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(pheonix_target_results[,7]))
+
+pheonix_target_results <- cbind(pheonix_target_results, stars_all, stars_pos, stars_neg)
+pheonix_target_results <- pheonix_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(pheonix_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(pheonix_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf) 
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(pheonix_target_results, caption = "CRQA results for target only Pheonix data.")
+
+```
+
+```{r primary-table-pheonix-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+pheonix_source_target_results <- as.data.frame(cbind(pheonix_metrics,
+                                      pheonix_metrics_all_source_targ, 
+                                      pheonix_sig_all_source_targ, 
+                                      pheonix_metrics_pos_source_targ, 
+                                      pheonix_sig_pos_source_targ, 
+                                      pheonix_metrics_neg_source_targ, 
+                                      pheonix_sig_neg_source_targ), 
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+pheonix_source_target_results[,numerics] <- sapply(pheonix_source_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(pheonix_source_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(pheonix_source_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(pheonix_source_target_results[,7]))
+
+pheonix_source_target_results <- cbind(pheonix_source_target_results, stars_all, stars_pos, stars_neg)
+pheonix_source_target_results <- pheonix_source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(pheonix_source_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(pheonix_source_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf) 
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(pheonix_source_target_results, caption = "CRQA results for source and target Pheonix data.")
+
+```
+CRQ analyses for sextiled Pheonix event data found increased levels of coupling between positive events and social cohesion, irrespective of target or source and target filtering. Negative events were not coupled with social cohesion irrepective of filtering. 
+
+## CRQA for ICEWS data in sextiles
+```{r secondary-crqa-icews, , echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run crqa on sextiled icews data
+source('./scripts/secondary-analyses/icews/02_crqa.R')
+
+# read in metric names
+icews_metrics <- t(read.csv("./results/secondary/icews/crqa/target/crqa_results-all_events.csv", header = FALSE)[-2,-1])
+
+# read in metrics from crq analyses (target filtered)
+icews_metrics_all_targ <- t(read.csv("./results/secondary/icews/crqa/target/crqa_results-all_events.csv", header = FALSE)[-1,-1])
+icews_metrics_pos_targ <- t(read.csv("./results/secondary/icews/crqa/target/crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+icews_metrics_neg_targ <- t(read.csv("./results/secondary/icews/crqa/target/crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (target filtered)
+icews_sig_all_targ <- t(read.csv("./results/secondary/icews/crqa/target/metric_signif_all.csv", header = FALSE)[-1,-1])
+icews_sig_pos_targ <- t(read.csv("./results/secondary/icews/crqa/target/metric_signif_pos.csv", header = FALSE)[-1,-1])
+icews_sig_neg_targ <- t(read.csv("./results/secondary/icews/crqa/target/metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+# read in metrics from crq analyses (source and target filtered)
+icews_metrics_all_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target/crqa_results-all_events.csv", header = FALSE)[-1,-1])
+icews_metrics_pos_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target/crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+icews_metrics_neg_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target/crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (source and target filtered)
+icews_sig_all_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target/metric_signif_all.csv", header = FALSE)[-1,-1])
+icews_sig_pos_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target/metric_signif_pos.csv", header = FALSE)[-1,-1])
+icews_sig_neg_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target/metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+```
+
+```{r secondary-crqa-table-icews-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+icews_target_results <- as.data.frame(cbind(icews_metrics,
+                                      icews_metrics_all_targ, 
+                                      icews_sig_all_targ, 
+                                      icews_metrics_pos_targ, 
+                                      icews_sig_pos_targ, 
+                                      icews_metrics_neg_targ, 
+                                      icews_sig_neg_targ), 
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+icews_target_results[,numerics] <- sapply(icews_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(icews_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(icews_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(icews_target_results[,7]))
+
+icews_target_results <- cbind(icews_target_results, stars_all, stars_pos, stars_neg)
+icews_target_results <- icews_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(icews_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(icews_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf) 
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(icews_target_results, caption = "CRQA results for target only ICEWS data.")
+
+```
+
+```{r primary-table-icews-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+icews_source_target_results <- as.data.frame(cbind(icews_metrics,
+                                      icews_metrics_all_source_targ, 
+                                      icews_sig_all_source_targ, 
+                                      icews_metrics_pos_source_targ, 
+                                      icews_sig_pos_source_targ, 
+                                      icews_metrics_neg_source_targ, 
+                                      icews_sig_neg_source_targ), 
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+icews_source_target_results[,numerics] <- sapply(icews_source_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(icews_source_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(icews_source_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(icews_source_target_results[,7]))
+
+icews_source_target_results <- cbind(icews_source_target_results, stars_all, stars_pos, stars_neg)
+icews_source_target_results <- icews_source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(icews_source_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(icews_source_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf) 
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(icews_source_target_results, caption = "CRQA results for source and target ICEWS data.")
+
+```
+CRQ analyses for sextiled ICEWS event data found coupling between both positive and negative events with social cohesion, irrespective of target or source and target filtering. Negative events were more stongly coupled with social cohesion than positive events for the target only analyses. 
+The abscence of coupling between negative events and social cohesion in the Pheonix CRQ analyses speaks to the unreliability of event data, and that nonlinear analyses in general are only as valuable as the quality of the data being used. 
