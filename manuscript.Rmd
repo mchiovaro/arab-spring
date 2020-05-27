@@ -59,18 +59,19 @@ knitr::opts_chunk$set(cache=TRUE, autodep=TRUE, cache.lazy=FALSE)
 
 # create subdirectories
 dir.create("./data/raw") # load three data files here
-dir.create("./data/formatted/primary")
-dir.create("./data/formatted/secondary")
-dir.create("./results/primary/crqa")
-dir.create("./results/primary/windowed-crqa")
-dir.create("./results/secondary/icews/crqa/source_target")
-dir.create("./results/secondary/icews/crqa/target")
-dir.create("./results/secondary/icews/windowed-crqa/source_target")
-dir.create("./results/secondary/icews/windowed-crqa/target")
-dir.create("./results/secondary/phoenix/crqa/source_target")
-dir.create("./results/secondary/phoenix/crqa/target")
-dir.create("./results/secondary/phoenix/windowed-crqa/source_target")
-dir.create("./results/secondary/phoenix/windowed-crqa/target")
+dir.create("./data/formatted/primary", recursive = TRUE)
+dir.create("./data/formatted/secondary/icews", recursive = TRUE)
+dir.create("./data/formatted/secondary/phoenix", recursive = TRUE)
+dir.create("./results/primary/crqa", recursive = TRUE)
+dir.create("./results/primary/windowed-crqa", recursive = TRUE)
+dir.create("./results/secondary/icews/crqa/source_target", recursive = TRUE)
+dir.create("./results/secondary/icews/crqa/target", recursive = TRUE)
+dir.create("./results/secondary/icews/windowed-crqa/source_target", recursive = TRUE)
+dir.create("./results/secondary/icews/windowed-crqa/target", recursive = TRUE)
+dir.create("./results/secondary/phoenix/crqa/source_target", recursive = TRUE)
+dir.create("./results/secondary/phoenix/crqa/target", recursive = TRUE)
+dir.create("./results/secondary/phoenix/windowed-crqa/source_target", recursive = TRUE)
+dir.create("./results/secondary/phoenix/windowed-crqa/target", recursive = TRUE)
 
 ```
 
