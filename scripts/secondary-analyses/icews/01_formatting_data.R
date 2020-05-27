@@ -444,7 +444,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 print(paste0("Total distinct shuffled social cohesion time series for windowed CRQA: ",
              nrow(distinct(shuffled_coh))))
-if(nrow(distinct(shuffled_coh)) != 1001){
+if(nrow(distinct(shuffled_coh)) != 1000){
   print("WARNING: Duplicates in surrogate time series.")
 }
 
@@ -465,10 +465,10 @@ for (i in 1:1000){
   shuffled_all_source_target <- rbind(shuffled_all_source_target, sample)
 }
 
-# check to see if we have 1001 distinct time series
+# check to see if we have 1000 distinct time series
 print(paste0("Total distinct shuffled all-event time series (source and target) for windowed CRQA: ",
              nrow(distinct(shuffled_all_source_target))))
-if(nrow(distinct(shuffled_all_source_target)) != 1001){
+if(nrow(distinct(shuffled_all_source_target)) != 1000){
   print("WARNING: Duplicates in surrogate time series.")
 }
 
@@ -487,10 +487,10 @@ for (i in 1:1000){
   shuffled_pos_source_target <- rbind(shuffled_pos_source_target, sample)
 }
 
-# check to see if we have 1001 distinct time series
-print(paste0("Total distinct shuffled positive-event time series (source and target): ",
+# check to see if we have 1000 distinct time series
+print(paste0("Total distinct shuffled positive-event time series (source and target) for windowed CRQA: ",
              nrow(distinct(shuffled_pos_source_target))))
-if(nrow(distinct(shuffled_pos_source_target)) != 1001){
+if(nrow(distinct(shuffled_pos_source_target)) != 1000){
   print("WARNING: Duplicates in surrogate time series.")
 }
 # transform rows to columns for binding
@@ -508,10 +508,10 @@ for (i in 1:1000){
   shuffled_neg_source_target <- rbind(shuffled_neg_source_target, sample)
 }
 
-# check to see if we have 1001 distinct time series
-print(paste0("Total distinct shuffled negative-event time series (source and target): ",
+# check to see if we have 1000 distinct time series
+print(paste0("Total distinct shuffled negative-event time series (source and target) for windowed CRQA: ",
              nrow(distinct(shuffled_neg_source_target))))
-if(nrow(distinct(shuffled_neg_source_target)) != 1001){
+if(nrow(distinct(shuffled_neg_source_target)) != 1000){
   print("WARNING: Duplicates in surrogate time series.")
 }
 # transform rows to columns for binding
@@ -531,10 +531,10 @@ for (i in 1:1000){
   shuffled_all_target <- rbind(shuffled_all_target, sample)
 }
 
-# check to see if we have 1001 distinct time series
-print(paste0("Total distinct shuffled all-event time series (target only): ",
+# check to see if we have 1000 distinct time series
+print(paste0("Total distinct shuffled all-event time series (target only) for windowed CRQA: ",
              nrow(distinct(shuffled_all_target))))
-if(nrow(distinct(shuffled_all_target)) != 1001){
+if(nrow(distinct(shuffled_all_target)) != 1000){
   print("WARNING: Duplicates in surrogate time series.")
 }
 # transform rows to columns for binding
@@ -552,10 +552,10 @@ for (i in 1:1000){
   shuffled_pos_target <- rbind(shuffled_pos_target, sample)
 }
 
-# check to see if we have 1001 distinct time series
-print(paste0("Total distinct shuffled positive-event time series (target only): ",
+# check to see if we have 1000 distinct time series
+print(paste0("Total distinct shuffled positive-event time series (target only) for windowed CRQA: ",
              nrow(distinct(shuffled_pos_target))))
-if(nrow(distinct(shuffled_pos_target)) != 1001){
+if(nrow(distinct(shuffled_pos_target)) != 1000){
   print("WARNING: Duplicates in surrogate time series.")
 }
 
@@ -574,8 +574,8 @@ for (i in 1:1000){
   shuffled_neg_target <- rbind(shuffled_neg_target, sample)
 }
 
-# check to see if we have 1001 distinct time series
-print(paste0("Total distinct shuffled negative-event time series (target only): ",
+# check to see if we have 1000 distinct time series
+print(paste0("Total distinct shuffled negative-event time series (target only) for windowed CRQA: ",
              nrow(distinct(shuffled_neg_target))))
 if(nrow(distinct(shuffled_neg_target)) != 1001){
   print("WARNING: Duplicates in surrogate time series.")
