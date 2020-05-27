@@ -7,7 +7,7 @@
 #
 # Code by: M. Chiovaro (@mchiovaro) and A. Paxton (@a-paxton)
 # University of Connecticut
-# Last updated: 2020_05_21
+# Last updated: 2020_05_27
 
 #### 1. Set up ####
 
