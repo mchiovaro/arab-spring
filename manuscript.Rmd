@@ -66,14 +66,10 @@ dir.create("./data/formatted/secondary/icews", recursive = TRUE)
 dir.create("./data/formatted/secondary/phoenix", recursive = TRUE)
 dir.create("./results/primary/crqa", recursive = TRUE)
 dir.create("./results/primary/windowed-crqa", recursive = TRUE)
-dir.create("./results/secondary/icews/crqa/source_target", recursive = TRUE)
-dir.create("./results/secondary/icews/crqa/target", recursive = TRUE)
-dir.create("./results/secondary/icews/windowed-crqa/source_target", recursive = TRUE)
-dir.create("./results/secondary/icews/windowed-crqa/target", recursive = TRUE)
-dir.create("./results/secondary/phoenix/crqa/source_target", recursive = TRUE)
-dir.create("./results/secondary/phoenix/crqa/target", recursive = TRUE)
-dir.create("./results/secondary/phoenix/windowed-crqa/source_target", recursive = TRUE)
-dir.create("./results/secondary/phoenix/windowed-crqa/target", recursive = TRUE)
+dir.create("./results/secondary/icews/crqa", recursive = TRUE)
+dir.create("./results/secondary/icews/windowed-crqa", recursive = TRUE)
+dir.create("./results/secondary/phoenix/crqa", recursive = TRUE)
+dir.create("./results/secondary/phoenix/windowed-crqa", recursive = TRUE)
 
 ```
 
@@ -506,5 +502,3 @@ Given the invasiveness of social media in our everyday lives, it is inevitable t
 
 <div id="refs" custom-style="Bibliography"></div>
 \endgroup
-
-\newpage
