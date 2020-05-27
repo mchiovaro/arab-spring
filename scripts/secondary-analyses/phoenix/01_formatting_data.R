@@ -76,7 +76,7 @@ phoenix_formatted_source_target <- phoenix_df_filtered %>%
   mutate(Intensity = sort(goldstein, decreasing = TRUE)) %>%
   
   # calculate mode
-  mutate(mode_source_target = mfv1(goldstein, method = "mfv")) %>%
+  mutate(mode_source_target = statip::mfv1(goldstein, method = "mfv")) %>%
   
   # keep one unique row per day
   distinct(story_date, 
@@ -92,7 +92,8 @@ phoenix_formatted_source_target <- phoenix_df_filtered %>%
   ungroup() %>%
   
   # fill in dates that turned up no observations
-  complete(Date = seq.Date(min(as.Date(Date)), max(as.Date(Date)), by="day")) %>%
+  tidyr::complete(Date = seq.Date(min(as.Date(Date)), max(as.Date(Date)), 
+                                  by="day")) %>%
   
   # fill NAs with zeros
   replace(is.na(.), 0)
@@ -121,7 +122,7 @@ phoenix_formatted_target <- phoenix_df_filtered %>%
   mutate(Intensity = sort(goldstein, decreasing = TRUE)) %>%
   
   # calculate mode
-  mutate(mode_target = mfv1(goldstein, method = "mfv")) %>%
+  mutate(mode_target = statip::mfv1(goldstein, method = "mfv")) %>%
   
   # keep one unique row per day
   distinct(story_date, 
@@ -137,7 +138,8 @@ phoenix_formatted_target <- phoenix_df_filtered %>%
   ungroup() %>%
   
   # fill in dates that turned up no observations
-  complete(Date = seq.Date(min(as.Date(Date)), max(as.Date(Date)), by="day")) %>%
+  tidyr::complete(Date = seq.Date(min(as.Date(Date)), max(as.Date(Date)), 
+                                  by="day")) %>%
   
   # fill NAs with zeros
   replace(is.na(.), 0)
