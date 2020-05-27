@@ -746,101 +746,101 @@ pander(icews_source_target_results, caption = "CRQA results for source and targe
 
 ```
 CRQ analyses for sextiled ICEWS event data found coupling between both positive and negative events with social cohesion, irrespective of target or source and target filtering. Negative events were more stongly coupled with social cohesion than positive events for the target only analyses.
-The abscence of coupling between negative events and social cohesion in the Pheonix CRQ analyses speaks to the unreliability of event data, and that nonlinear analyses in general are only as valuable as the quality of the data being used.
+The abscence of coupling between negative events and social cohesion in the Phoenix CRQ analyses speaks to the unreliability of event data, and that nonlinear analyses in general are only as valuable as the quality of the data being used.
 
-## Windowed CRQA for Pheonix data in sextiles
-```{r secondary-windowed-crqa-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+## Windowed CRQA for Phoenix data in sextiles
+```{r secondary-windowed-crqa-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
 
-# run windowed crqa on sextiled pheonix data
-source('./scripts/secondary-analyses/pheonix/03_windowed_crqa.R')
+# run windowed crqa on sextiled Phoenix data
+source('./scripts/secondary-analyses/Phoenix/03_windowed_crqa.R')
 
 ```
 
 ### Syria as Target
 
-```{r plot-RR-targ-all-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.'}
+```{r plot-RR-targ-all-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/target/windowed_all_RR.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target/windowed_all_RR.png")
 
 ```
 
-```{r plot-DET-targ-all-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.'}
+```{r plot-DET-targ-all-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/target/windowed_all_DET.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target/windowed_all_DET.png")
 
 ```
 
-```{r plot-RR-targ-pos-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.'}
+```{r plot-RR-targ-pos-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/target/windowed_pos_RR.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target/windowed_pos_RR.png")
 
 ```
 
-```{r plot-DET-targ-pos-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.'}
+```{r plot-DET-targ-pos-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/target/windowed_pos_DET.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target/windowed_pos_DET.png")
 
 ```
 
-```{r plot-RR-targ-neg-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.'}
+```{r plot-RR-targ-neg-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/target/windowed_neg_RR.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target/windowed_neg_RR.png")
 
 ```
 
-```{r plot-DET-targ-neg-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.'}
+```{r plot-DET-targ-neg-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/target/windowed_neg_DET.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target/windowed_neg_DET.png")
 
 ```
 
 ### Syria as Source and Target
 
-```{r plot-RR-source-targ-all-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.'}
+```{r plot-RR-source-targ-all-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/source_target/windowed_all_RR.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target/windowed_all_RR.png")
 
 ```
 
-```{r plot-DET-source-targ-all-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.'}
+```{r plot-DET-source-targ-all-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/source_target/windowed_all_DET.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target/windowed_all_DET.png")
 
 ```
 
-```{r plot-RR-source-targ-pos-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.'}
+```{r plot-RR-source-targ-pos-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/source_target/windowed_pos_RR.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target/windowed_pos_RR.png")
 
 ```
 
-```{r plot-DET-source-targ-pos-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.'}
+```{r plot-DET-source-targ-pos-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/source_target/windowed_pos_DET.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target/windowed_pos_DET.png")
 
 ```
 
-```{r plot-RR-source-targ-neg-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.'}
+```{r plot-RR-source-targ-neg-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/source_target/windowed_neg_RR.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target/windowed_neg_RR.png")
 
 ```
 
-```{r plot-DET-source-targ-neg-secondary-pheonix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.'}
+```{r plot-DET-source-targ-neg-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/secondary/pheonix/windowed-crqa/source_target/windowed_neg_DET.png")
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target/windowed_neg_DET.png")
 
 ```
 
