@@ -1,4 +1,4 @@
-######## Formatting Arab Spring Data (Phoenix) ########
+######## Secondary Analysis: Formatting Phoenix Arab Spring Data ########
 #
 # Phoenix event data from the Cline center: 
 # https://databank.illinois.edu/datasets/IDB-2796521
@@ -9,9 +9,9 @@
 # and transformed into sextiles for CRQA and windowed CRQA
 # analyses.
 #
-# Code by: M. Chiovaro (@mchiovaro)
+# Code by: M. Chiovaro (@mchiovaro) and A. Paxton (@a-paxton)
 # University of Connecticut
-# Last updated: 2020_05_21
+# Last updated: 2020_05_27
 
 #### 1. Set up ####
 
@@ -76,19 +76,24 @@ phoenix_formatted_source_target <- phoenix_df_filtered %>%
   mutate(Intensity = sort(goldstein, decreasing = TRUE)) %>%
   
   # calculate mode
-  mutate(mode_source_target = mfv1(goldstein, method = "mfv")) %>%
+  mutate(mode_source_target = statip::mfv1(goldstein, method = "mfv")) %>%
   
   # keep one unique row per day
-  distinct(story_date, all_events_source_target, pos_events_source_target, neg_events_source_target, mode_source_target) %>%
+  distinct(story_date, 
+           all_events_source_target, 
+           pos_events_source_target, 
+           neg_events_source_target, 
+           mode_source_target) %>%
   
-  # make date varible name match cohesion_df
+  # make date variable name match cohesion_df
   rename(Date = story_date) %>%
   
   # ungroup data
   ungroup() %>%
   
   # fill in dates that turned up no observations
-  complete(Date = seq.Date(min(as.Date(Date)), max(as.Date(Date)), by="day")) %>%
+  tidyr::complete(Date = seq.Date(min(as.Date(Date)), max(as.Date(Date)), 
+                                  by="day")) %>%
   
   # fill NAs with zeros
   replace(is.na(.), 0)
@@ -97,10 +102,10 @@ phoenix_formatted_source_target <- phoenix_df_filtered %>%
 
 # grab observations where target is Syria
 phoenix_formatted_target <- phoenix_df_filtered %>%
-
+  
   # grab observations where target is Syria
   filter(grepl("SYR", target)) %>%
-
+  
   # group by date
   group_by(story_date) %>%
   
@@ -113,117 +118,75 @@ phoenix_formatted_target <- phoenix_df_filtered %>%
   # count negative events
   mutate(neg_events_target = sum(goldstein < 0)) %>%
   
-  # sort descending so the mode will the be the more positive event
+  # sort descending so the mode will be the more positive event
   mutate(Intensity = sort(goldstein, decreasing = TRUE)) %>%
   
   # calculate mode
-  mutate(mode_target = mfv1(goldstein, method = "mfv")) %>%
+  mutate(mode_target = statip::mfv1(goldstein, method = "mfv")) %>%
   
   # keep one unique row per day
-  distinct(story_date, all_events_target, pos_events_target, neg_events_target, mode_target) %>%
+  distinct(story_date, 
+           all_events_target, 
+           pos_events_target, 
+           neg_events_target, 
+           mode_target) %>%
   
-  # make date varible name match cohesion_df
+  # make date variable name match cohesion_df
   rename(Date = story_date) %>%
   
   # ungroup data
   ungroup() %>%
   
   # fill in dates that turned up no observations
-  complete(Date = seq.Date(min(as.Date(Date)), max(as.Date(Date)), by="day")) %>%
+  tidyr::complete(Date = seq.Date(min(as.Date(Date)), max(as.Date(Date)), 
+                                  by="day")) %>%
   
   # fill NAs with zeros
   replace(is.na(.), 0)
 
-# bind the event and social cohesion data frames
-phoenix_df_formatted <- cbind(phoenix_formatted_source_target, phoenix_formatted_target, cohesion_df)
+### prepare cohesion dataframe for merging ###
 
-# keep only what we need
-phoenix_df_formatted <- phoenix_df_formatted[c("Date", 
-                                           "all_events_source_target", 
-                                           "pos_events_source_target", 
-                                           "neg_events_source_target", 
-                                           "mode_source_target", 
-                                           "all_events_target", 
-                                           "pos_events_target", 
-                                           "neg_events_target", 
-                                           "mode_target", 
-                                           "MeanCohesion")]
+cohesion_df <- cohesion_df %>%
+  
+  # format dates
+  mutate(Date = as.Date(Date)) %>%
+  
+  # only keep variables we need
+  select(Date, MeanCohesion)
+
+### combine all dataframes ###
+
+# bind the event and social cohesion data frames
+phoenix_df_formatted <- dplyr::full_join(phoenix_formatted_source_target,
+                                         phoenix_formatted_target,
+                                         by = c("Date")) %>%
+  dplyr::full_join(., cohesion_df,
+                   by = c("Date"))
 
 #### 3. Create the sextiles for analyses ####
 
-## social cohesion ##
-
-# create the sextiles
-phoenix_df_formatted$coh_sextiles <- with(phoenix_df_formatted, cut(MeanCohesion, 
-                                                                    breaks=quantile(MeanCohesion, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                    include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$coh_sextiles) <- factor(c("1","2","3","4", "5", "6"))
-
-### source and target variable sextiles ###
-
-## count of events ##
-
-# create the sextiles
-phoenix_df_formatted$all_sextiles_source_target <- with(phoenix_df_formatted, cut(all_events_source_target, 
-                                                                    breaks=quantile(all_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                    include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$all_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
-
-## count of positive events ##
-
-# create the sextiles
-phoenix_df_formatted$pos_sextiles_source_target <- with(phoenix_df_formatted, cut(pos_events_source_target, 
-                                                                    breaks=quantile(pos_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                    include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$pos_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
-
-## count of negative events ##
-
-# create the sextiles
-phoenix_df_formatted$neg_sextiles_source_target <- with(phoenix_df_formatted, cut(neg_events_source_target, 
-                                                                    breaks=quantile(neg_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                    include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$neg_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
-
-### target variable sextiles ###
-
-## count of events ##
-
-# create the sextiles
-phoenix_df_formatted$all_sextiles_target <- with(phoenix_df_formatted, cut(all_events_target, 
-                                                                           breaks=quantile(all_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                           include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$all_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
-
-## count of positive events ##
-
-# create the sextiles
-phoenix_df_formatted$pos_sextiles_target <- with(phoenix_df_formatted, cut(pos_events_target, 
-                                                                           breaks=quantile(pos_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                           include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$pos_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
-
-## count of negative events ##
-
-# create the sextiles
-phoenix_df_formatted$neg_sextiles_target <- with(phoenix_df_formatted, cut(neg_events_target, 
-                                                                           breaks=quantile(neg_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                           include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$neg_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
+phoenix_df_formatted <- phoenix_df_formatted %>% ungroup() %>%
+  
+  # social cohesion
+  mutate(coh_sextiles = ntile(MeanCohesion, 6)) %>%
+  
+  # source and target: all events
+  mutate(all_sextiles_source_target = ntile(all_events_source_target, 6)) %>%
+  
+  # source and target: positive events
+  mutate(pos_sextiles_source_target = ntile(pos_events_source_target, 6)) %>%
+  
+  # source and target: negative events
+  mutate(neg_sextiles_source_target = ntile(neg_events_source_target, 6)) %>%
+  
+  # target only: all events
+  mutate(all_sextiles_target = ntile(all_events_target, 6)) %>%
+  
+  # target only: positive events
+  mutate(pos_sextiles_target = ntile(pos_events_target, 6)) %>%
+  
+  # target only: negative events
+  mutate(neg_sextiles_target = ntile(neg_events_target, 6))
 
 ### save to file ###
 
@@ -234,7 +197,7 @@ write.table(x = phoenix_df_formatted,
             col.names=TRUE,
             row.names=FALSE)
 
-#### 4. Create randomized time series for permutation testing for crqa ####
+#### 4. Create randomized time series for permutation testing for CRQA ####
 
 # set seed for reproducibility
 set.seed(123)
@@ -257,9 +220,13 @@ original_ts <- as.data.frame(t(original_ts))
 shuffled_coh <- rbind(shuffled_coh, original_ts)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_coh))
+print(paste0("Total distinct shuffled social cohesion time series for CRQA: ",
+             nrow(distinct(shuffled_coh))))
+if(nrow(distinct(shuffled_coh)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_coh <- as.data.frame(t(shuffled_coh))
 
 # remove real time series from shuffled dataframe
@@ -285,9 +252,13 @@ original_ts_all <- as.data.frame(t(original_ts_all))
 shuffled_all_source_target <- rbind(shuffled_all_source_target, original_ts_all)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_all_source_target))
+print(paste0("Total distinct shuffled all-event time series (source and target) for CRQA: ",
+             nrow(distinct(shuffled_all_source_target))))
+if(nrow(distinct(shuffled_all_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_source_target <- as.data.frame(t(shuffled_all_source_target))
 
 # remove real time series from shuffled dataframe
@@ -311,9 +282,13 @@ original_ts_pos <- as.data.frame(t(original_ts_pos))
 shuffled_pos_source_target <- rbind(shuffled_pos_source_target, original_ts_pos)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_pos_source_target))
+print(paste0("Total distinct shuffled positive-event time series (source and target) for CRQA: ",
+             nrow(distinct(shuffled_pos_source_target))))
+if(nrow(distinct(shuffled_pos_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_source_target <- as.data.frame(t(shuffled_pos_source_target))
 
 # remove real time series from shuffled dataframe
@@ -337,9 +312,13 @@ original_ts_neg <- as.data.frame(t(original_ts_neg))
 shuffled_neg_source_target <- rbind(shuffled_neg_source_target, original_ts_neg)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_neg_source_target))
+print(paste0("Total distinct shuffled negative-event time series (source and target) for CRQA: ",
+             nrow(distinct(shuffled_neg_source_target))))
+if(nrow(distinct(shuffled_neg_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_source_target <- as.data.frame(t(shuffled_neg_source_target))
 
 # remove real time series from shuffled dataframe
@@ -365,9 +344,13 @@ original_ts_all <- as.data.frame(t(original_ts_all))
 shuffled_all_target <- rbind(shuffled_all_target, original_ts_all)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_all_target))
+print(paste0("Total distinct shuffled all-event time series (target only) for CRQA: ",
+             nrow(distinct(shuffled_all_target))))
+if(nrow(distinct(shuffled_all_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_target <- as.data.frame(t(shuffled_all_target))
 
 # remove real time series from shuffled dataframe
@@ -391,9 +374,13 @@ original_ts_pos <- as.data.frame(t(original_ts_pos))
 shuffled_pos_target <- rbind(shuffled_pos_target, original_ts_pos)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_pos_target))
+print(paste0("Total distinct shuffled positive-event time series (target only) for CRQA: ",
+             nrow(distinct(shuffled_pos_target))))
+if(nrow(distinct(shuffled_pos_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_target <- as.data.frame(t(shuffled_pos_target))
 
 # remove real time series from shuffled dataframe
@@ -417,9 +404,13 @@ original_ts_neg <- as.data.frame(t(original_ts_neg))
 shuffled_neg_target <- rbind(shuffled_neg_target, original_ts_neg)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_neg_target))
+print(paste0("Total distinct shuffled negative-event time series (target only) for CRQA: ",
+             nrow(distinct(shuffled_neg_target))))
+if(nrow(distinct(shuffled_neg_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_target <- as.data.frame(t(shuffled_neg_target))
 
 # remove real time series from shuffled dataframe
@@ -443,7 +434,7 @@ write.table(x = shuffled_full,
             col.names=TRUE,
             row.names=FALSE)
 
-#### 5. Create randomized time series for permutation testing for windowed crqa ####
+#### 5. Create randomized time series for permutation testing for windowed CRQA ####
 
 ## social cohesion ##
 
@@ -458,9 +449,13 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_coh))
+print(paste0("Total distinct shuffled social cohesion time series for windowed CRQA: ",
+             nrow(distinct(shuffled_coh))))
+if(nrow(distinct(shuffled_coh)) != 1000){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_coh <- as.data.frame(t(shuffled_coh))
 
 ### source and target ###
@@ -478,9 +473,13 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_all_source_target))
+print(paste0("Total distinct shuffled all-event time series (source and target) for windowed CRQA: ",
+             nrow(distinct(shuffled_all_source_target))))
+if(nrow(distinct(shuffled_all_source_target)) != 1000){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_source_target <- as.data.frame(t(shuffled_all_source_target))
 
 ## count of positive events ##
@@ -496,9 +495,13 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_pos_source_target))
+print(paste0("Total distinct shuffled positive-event time series (source and target) for windowed CRQA: ",
+             nrow(distinct(shuffled_pos_source_target))))
+if(nrow(distinct(shuffled_pos_source_target)) != 1000){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_source_target <- as.data.frame(t(shuffled_pos_source_target))
 
 ## count of negative events ##
@@ -514,14 +517,18 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_neg_source_target))
+print(paste0("Total distinct shuffled negative-event time series (source and target) for windowed CRQA: ",
+             nrow(distinct(shuffled_neg_source_target))))
+if(nrow(distinct(shuffled_neg_source_target)) != 1000){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_source_target <- as.data.frame(t(shuffled_neg_source_target))
 
 ### target only ###
 
-## social cohesion ##
+## count of all events ##
 
 # create empty data frame
 shuffled_all_target = data.frame()
@@ -534,9 +541,13 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_all_target))
+print(paste0("Total distinct shuffled all-event time series (target only) for windowed CRQA: ",
+             nrow(distinct(shuffled_all_target))))
+if(nrow(distinct(shuffled_all_target)) != 1000){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_target <- as.data.frame(t(shuffled_all_target))
 
 ## count of positive events ##
@@ -552,9 +563,13 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_pos_target))
+print(paste0("Total distinct shuffled positive-event time series (target only) for windowed CRQA: ",
+             nrow(distinct(shuffled_pos_target))))
+if(nrow(distinct(shuffled_pos_target)) != 1000){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_target <- as.data.frame(t(shuffled_pos_target))
 
 ## count of negative events ##
@@ -570,9 +585,13 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_neg_target))
+print(paste0("Total distinct shuffled negative-event time series (target only) for windowed CRQA: ",
+             nrow(distinct(shuffled_neg_target))))
+if(nrow(distinct(shuffled_neg_target)) != 1000){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_target <- as.data.frame(t(shuffled_neg_target))
 
 ### save to file ###
