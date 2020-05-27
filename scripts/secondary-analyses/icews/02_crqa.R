@@ -46,11 +46,11 @@ cross_recurrence_analysis = crqa(ts1=data$coh_sextiles,
 
 # save the crqa results
 rqa_results_all_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
-write.table(rqa_results_all_source_target,'./results/secondary/icews/crqa/source_target/crqa_results-all_events.csv',
+write.table(rqa_results_all_source_target,'./results/secondary/icews/crqa/source_target-crqa_results-all_events.csv',
             sep=",", row.names=FALSE)
 
 # build the CRP using 'crqa' package function: plotRP
-png("./results/secondary/icews/crqa/source_target/rp-all_events.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/icews/crqa/source_target-rp-all_events.png", width = 4, height = 4, units = 'in', res = 300)
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of all events", 
@@ -75,11 +75,11 @@ cross_recurrence_analysis = crqa(ts1=data$coh_sextiles,
 
 # save the crqa results
 rqa_results_pos_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
-write.table(rqa_results_pos_source_target,'./results/secondary/icews/crqa/source_target/crqa_results-pos_events.csv',
+write.table(rqa_results_pos_source_target,'./results/secondary/icews/crqa/source_target-crqa_results-pos_events.csv',
             sep=",", row.names=FALSE)
 
 # build the CRP using 'crqa' package function: plotRP
-png("./results/secondary/icews/crqa/source_target/rp-pos_events.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/icews/crqa/source_target-rp-pos_events.png", width = 4, height = 4, units = 'in', res = 300)
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of positive events", 
@@ -104,11 +104,11 @@ cross_recurrence_analysis = crqa(ts1=data$coh_sextiles,
 
 # save the crqa results
 rqa_results_neg_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
-write.table(rqa_results_neg_source_target,'./results/secondary/icews/crqa/source_target/crqa_results-neg_events.csv',
+write.table(rqa_results_neg_source_target,'./results/secondary/icews/crqa/source_target-crqa_results-neg_events.csv',
             sep=",", row.names=FALSE)
 
 # build the CRP using 'crqa' package function: plotRP
-png("./results/secondary/icews/crqa/source_target/rp-neg_events.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/icews/crqa/source_target-rp-neg_events.png", width = 4, height = 4, units = 'in', res = 300)
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of negative events", 
@@ -135,11 +135,11 @@ cross_recurrence_analysis = crqa(ts1=data$coh_sextiles,
 
 # save the crqa results
 rqa_results_all_target <- data.frame(c(cross_recurrence_analysis[1:9]))
-write.table(rqa_results_all_target,'./results/secondary/icews/crqa/target/crqa_results-all_events.csv',
+write.table(rqa_results_all_target,'./results/secondary/icews/crqa/target-crqa_results-all_events.csv',
             sep=",", row.names=FALSE)
 
 # build the CRP using 'crqa' package function: plotRP
-png("./results/secondary/icews/crqa/target/rp-all_events.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/icews/crqa/target-rp-all_events.png", width = 4, height = 4, units = 'in', res = 300)
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of all events", 
@@ -164,11 +164,11 @@ cross_recurrence_analysis = crqa(ts1=data$coh_sextiles,
 
 # save the crqa results
 rqa_results_pos_target <- data.frame(c(cross_recurrence_analysis[1:9]))
-write.table(rqa_results_pos_target,'./results/secondary/icews/crqa/target/crqa_results-pos_events.csv',
+write.table(rqa_results_pos_target,'./results/secondary/icews/crqa/target-crqa_results-pos_events.csv',
             sep=",", row.names=FALSE)
 
 # build the CRP using 'crqa' package function: plotRP
-png("./results/secondary/icews/crqa/target/rp-pos_events.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/icews/crqa/target-rp-pos_events.png", width = 4, height = 4, units = 'in', res = 300)
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of positive events", 
@@ -193,11 +193,11 @@ cross_recurrence_analysis = crqa(ts1=data$coh_sextiles,
 
 # save the crqa results
 rqa_results_neg_target <- data.frame(c(cross_recurrence_analysis[1:9]))
-write.table(rqa_results_neg_target,'./results/secondary/icews/crqa/target/crqa_results-neg_events.csv',
+write.table(rqa_results_neg_target,'./results/secondary/icews/crqa/target-crqa_results-neg_events.csv',
             sep=",", row.names=FALSE)
 
 # build the CRP using 'crqa' package function: plotRP
-png("./results/secondary/icews/crqa/target/rp-neg_events.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/icews/crqa/target-rp-neg_events.png", width = 4, height = 4, units = 'in', res = 300)
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of negative events", 
@@ -255,7 +255,7 @@ for (i in 1:9){
 names(significance_all_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
 
 # write to file
-write.table(significance_all_source_target,'./results/secondary/icews/crqa/source_target/metric_signif_all.csv',
+write.table(significance_all_source_target,'./results/secondary/icews/crqa/source_target-metric_signif_all.csv',
             sep=",", row.names=FALSE)
 
 ## count of positive events and social cohesion ##
@@ -303,7 +303,7 @@ for (i in 1:9){
 names(significance_pos_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
 
 # write to file
-write.table(significance_pos_source_target,'./results/secondary/icews/crqa/source_target/metric_signif_pos.csv',
+write.table(significance_pos_source_target,'./results/secondary/icews/crqa/source_target-metric_signif_pos.csv',
             sep=",", row.names=FALSE)
 
 ## count of negative events and social cohesion ##
@@ -351,7 +351,7 @@ for (i in 1:9){
 names(significance_neg_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
 
 # write to file
-write.table(significance_neg_source_target,'./results/secondary/icews/crqa/source_target/metric_signif_neg.csv',
+write.table(significance_neg_source_target,'./results/secondary/icews/crqa/source_target-metric_signif_neg.csv',
             sep=",", row.names=FALSE)
 
 ### target filtered data ###
@@ -401,7 +401,7 @@ for (i in 1:9){
 names(significance_all_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
 
 # write to file
-write.table(significance_all_target,'./results/secondary/icews/crqa/target/metric_signif_all.csv',
+write.table(significance_all_target,'./results/secondary/icews/crqa/target-metric_signif_all.csv',
             sep=",", row.names=FALSE)
 
 ## count of positive events and social cohesion ##
@@ -449,7 +449,7 @@ for (i in 1:9){
 names(significance_pos_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
 
 # write to file
-write.table(significance_pos_target,'./results/secondary/icews/crqa/target/metric_signif_pos.csv',
+write.table(significance_pos_target,'./results/secondary/icews/crqa/target-metric_signif_pos.csv',
             sep=",", row.names=FALSE)
 
 ## count of negative events and social cohesion ##
@@ -497,5 +497,5 @@ for (i in 1:9){
 names(significance_neg_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
 
 # write to file
-write.table(significance_neg_target,'./results/secondary/icews/crqa/target/metric_signif_neg.csv',
+write.table(significance_neg_target,'./results/secondary/icews/crqa/target-metric_signif_neg.csv',
             sep=",", row.names=FALSE)
