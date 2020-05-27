@@ -210,7 +210,11 @@ original <- as.data.frame(t(original))
 shuffled_coh <- rbind(shuffled_coh, original)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_coh))
+print(paste0("Total distinct shuffled social cohesion time series for CRQA: ",
+             nrow(distinct(shuffled_coh))))
+if(nrow(distinct(shuffled_coh)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_coh <- as.data.frame(t(shuffled_coh))
@@ -238,7 +242,11 @@ original_all <- as.data.frame(t(original_all))
 shuffled_all_source_target <- rbind(shuffled_all_source_target, original_all)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_all_source_target))
+print(paste0("Total distinct shuffled all-event time series (source and target) for CRQA: ",
+             nrow(distinct(shuffled_all_source_target))))
+if(nrow(distinct(shuffled_all_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_all_source_target <- as.data.frame(t(shuffled_all_source_target))
@@ -264,7 +272,11 @@ original_pos <- as.data.frame(t(original_pos))
 shuffled_pos_source_target <- rbind(shuffled_pos_source_target, original_pos)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_pos_source_target))
+print(paste0("Total distinct shuffled positive-event time series (source and target) for CRQA: ",
+             nrow(distinct(shuffled_pos_source_target))))
+if(nrow(distinct(shuffled_pos_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_pos_source_target <- as.data.frame(t(shuffled_pos_source_target))
@@ -290,7 +302,11 @@ original_neg <- as.data.frame(t(original_neg))
 shuffled_neg_source_target <- rbind(shuffled_neg_source_target, original_neg)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_neg_source_target))
+print(paste0("Total distinct shuffled negative-event time series (source and target) for CRQA: ",
+             nrow(distinct(shuffled_neg_source_target))))
+if(nrow(distinct(shuffled_neg_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_neg_source_target <- as.data.frame(t(shuffled_neg_source_target))
@@ -318,7 +334,11 @@ original_all <- as.data.frame(t(original_all))
 shuffled_all_target <- rbind(shuffled_all_target, original_all)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_all_target))
+print(paste0("Total distinct shuffled all-event time series (target only) for CRQA: ",
+             nrow(distinct(shuffled_all_target))))
+if(nrow(distinct(shuffled_all_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_all_target <- as.data.frame(t(shuffled_all_target))
@@ -344,7 +364,11 @@ original_pos <- as.data.frame(t(original_pos))
 shuffled_pos_target <- rbind(shuffled_pos_target, original_pos)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_pos_target))
+print(paste0("Total distinct shuffled positive-event time series (target only) for CRQA: ",
+             nrow(distinct(shuffled_pos_target))))
+if(nrow(distinct(shuffled_pos_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_pos_target <- as.data.frame(t(shuffled_pos_target))
@@ -370,7 +394,11 @@ original_neg <- as.data.frame(t(original_neg))
 shuffled_neg_target <- rbind(shuffled_neg_target, original_neg)
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_neg_target))
+print(paste0("Total distinct shuffled negative-event time series (target only) for CRQA: ",
+             nrow(distinct(shuffled_neg_target))))
+if(nrow(distinct(shuffled_neg_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_neg_target <- as.data.frame(t(shuffled_neg_target))
@@ -414,7 +442,11 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_coh))
+print(paste0("Total distinct shuffled social cohesion time series for windowed CRQA: ",
+             nrow(distinct(shuffled_coh))))
+if(nrow(distinct(shuffled_coh)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_coh <- as.data.frame(t(shuffled_coh))
@@ -434,7 +466,11 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_all_source_target))
+print(paste0("Total distinct shuffled all-event time series (source and target) for windowed CRQA: ",
+             nrow(distinct(shuffled_all_source_target))))
+if(nrow(distinct(shuffled_all_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_all_source_target <- as.data.frame(t(shuffled_all_source_target))
@@ -451,10 +487,13 @@ for (i in 1:1000){
   shuffled_pos_source_target <- rbind(shuffled_pos_source_target, sample)
 }
 
-# check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_pos_source_target))
-
-# tranform rows to columns for binding
+# check to see if we have 1001 distinct time series
+print(paste0("Total distinct shuffled positive-event time series (source and target): ",
+             nrow(distinct(shuffled_pos_source_target))))
+if(nrow(distinct(shuffled_pos_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
+# transform rows to columns for binding
 shuffled_pos_source_target <- as.data.frame(t(shuffled_pos_source_target))
 
 ## count of negative events ##
@@ -469,10 +508,13 @@ for (i in 1:1000){
   shuffled_neg_source_target <- rbind(shuffled_neg_source_target, sample)
 }
 
-# check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_neg_source_target))
-
-# tranform rows to columns for binding
+# check to see if we have 1001 distinct time series
+print(paste0("Total distinct shuffled negative-event time series (source and target): ",
+             nrow(distinct(shuffled_neg_source_target))))
+if(nrow(distinct(shuffled_neg_source_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
+# transform rows to columns for binding
 shuffled_neg_source_target <- as.data.frame(t(shuffled_neg_source_target))
 
 ### target only ###
@@ -490,9 +532,12 @@ for (i in 1:1000){
 }
 
 # check to see if we have 1001 distinct time series
-nrow(distinct(shuffled_all_target))
-
-# tranform rows to columns for binding
+print(paste0("Total distinct shuffled all-event time series (target only): ",
+             nrow(distinct(shuffled_all_target))))
+if(nrow(distinct(shuffled_all_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
+# transform rows to columns for binding
 shuffled_all_target <- as.data.frame(t(shuffled_all_target))
 
 ## count of positive events ##
@@ -507,8 +552,12 @@ for (i in 1:1000){
   shuffled_pos_target <- rbind(shuffled_pos_target, sample)
 }
 
-# check to see if we have 1000 distinct time series
-nrow(distinct(shuffled_pos_target))
+# check to see if we have 1001 distinct time series
+print(paste0("Total distinct shuffled positive-event time series (target only): ",
+             nrow(distinct(shuffled_pos_target))))
+if(nrow(distinct(shuffled_pos_target)) != 1001){
+  print("WARNING: Duplicates in surrogate time series.")
+}
 
 # transform rows to columns for binding
 shuffled_pos_target <- as.data.frame(t(shuffled_pos_target))
