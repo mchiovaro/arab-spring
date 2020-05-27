@@ -133,7 +133,7 @@ pander(phoenix_source_target_results, caption = "CRQA results for source and tar
 
 ```
 
-CRQ analyses for sextiled Phoenix event data found increased levels of coupling between positive events and social cohesion, irrespective of target or source and target filtering. Negative events were not coupled with social cohesion irrepective of filtering.
+CRQ analyses for sextiled Phoenix event data found increased levels of coupling between positive events and social cohesion, irrespective of target or source and target filtering. Negative events were not coupled with social cohesion irrespective of filtering.
 
 ## CRQA for ICEWS data in sextiles
 ```{r secondary-crqa-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
@@ -251,8 +251,8 @@ pander(icews_source_target_results, caption = "CRQA results for source and targe
 
 ```
 
-CRQ analyses for sextiled ICEWS event data found coupling between both positive and negative events with social cohesion, irrespective of target or source and target filtering. Negative events were more stongly coupled with social cohesion than positive events for the target only analyses.
-The abscence of coupling between negative events and social cohesion in the Phoenix CRQ analyses speaks to the unreliability of event data, and that nonlinear analyses in general are only as valuable as the quality of the data being used.
+CRQ analyses for sextiled ICEWS event data found coupling between both positive and negative events with social cohesion, irrespective of target or source and target filtering. Negative events were more strongly coupled with social cohesion than positive events for the target only analyses.
+The absence of coupling between negative events and social cohesion in the Phoenix CRQ analyses speaks to the unreliability of event data, and that nonlinear analyses in general are only as valuable as the quality of the data being used.
 
 ## Windowed CRQA for Phoenix data in sextiles
 ```{r secondary-windowed-crqa-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
