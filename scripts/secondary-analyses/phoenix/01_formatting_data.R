@@ -1,4 +1,4 @@
-######## Formatting Arab Spring Data (Phoenix) ########
+######## Secondary Analysis: Formatting Phoenix Arab Spring Data ########
 #
 # Phoenix event data from the Cline center: 
 # https://databank.illinois.edu/datasets/IDB-2796521
@@ -9,9 +9,9 @@
 # and transformed into sextiles for CRQA and windowed CRQA
 # analyses.
 #
-# Code by: M. Chiovaro (@mchiovaro)
+# Code by: M. Chiovaro (@mchiovaro) and A. Paxton (@a-paxton)
 # University of Connecticut
-# Last updated: 2020_05_21
+# Last updated: 2020_05_27
 
 #### 1. Set up ####
 
@@ -79,9 +79,13 @@ phoenix_formatted_source_target <- phoenix_df_filtered %>%
   mutate(mode_source_target = mfv1(goldstein, method = "mfv")) %>%
   
   # keep one unique row per day
-  distinct(story_date, all_events_source_target, pos_events_source_target, neg_events_source_target, mode_source_target) %>%
+  distinct(story_date, 
+           all_events_source_target, 
+           pos_events_source_target, 
+           neg_events_source_target, 
+           mode_source_target) %>%
   
-  # make date varible name match cohesion_df
+  # make date variable name match cohesion_df
   rename(Date = story_date) %>%
   
   # ungroup data
@@ -97,10 +101,10 @@ phoenix_formatted_source_target <- phoenix_df_filtered %>%
 
 # grab observations where target is Syria
 phoenix_formatted_target <- phoenix_df_filtered %>%
-
+  
   # grab observations where target is Syria
   filter(grepl("SYR", target)) %>%
-
+  
   # group by date
   group_by(story_date) %>%
   
@@ -113,16 +117,20 @@ phoenix_formatted_target <- phoenix_df_filtered %>%
   # count negative events
   mutate(neg_events_target = sum(goldstein < 0)) %>%
   
-  # sort descending so the mode will the be the more positive event
+  # sort descending so the mode will be the more positive event
   mutate(Intensity = sort(goldstein, decreasing = TRUE)) %>%
   
   # calculate mode
   mutate(mode_target = mfv1(goldstein, method = "mfv")) %>%
   
   # keep one unique row per day
-  distinct(story_date, all_events_target, pos_events_target, neg_events_target, mode_target) %>%
+  distinct(story_date, 
+           all_events_target, 
+           pos_events_target, 
+           neg_events_target, 
+           mode_target) %>%
   
-  # make date varible name match cohesion_df
+  # make date variable name match cohesion_df
   rename(Date = story_date) %>%
   
   # ungroup data
@@ -234,7 +242,7 @@ write.table(x = phoenix_df_formatted,
             col.names=TRUE,
             row.names=FALSE)
 
-#### 4. Create randomized time series for permutation testing for crqa ####
+#### 4. Create randomized time series for permutation testing for CRQA ####
 
 # set seed for reproducibility
 set.seed(123)
@@ -259,7 +267,7 @@ shuffled_coh <- rbind(shuffled_coh, original_ts)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_coh))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_coh <- as.data.frame(t(shuffled_coh))
 
 # remove real time series from shuffled dataframe
@@ -287,7 +295,7 @@ shuffled_all_source_target <- rbind(shuffled_all_source_target, original_ts_all)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_all_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_source_target <- as.data.frame(t(shuffled_all_source_target))
 
 # remove real time series from shuffled dataframe
@@ -313,7 +321,7 @@ shuffled_pos_source_target <- rbind(shuffled_pos_source_target, original_ts_pos)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_pos_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_source_target <- as.data.frame(t(shuffled_pos_source_target))
 
 # remove real time series from shuffled dataframe
@@ -339,7 +347,7 @@ shuffled_neg_source_target <- rbind(shuffled_neg_source_target, original_ts_neg)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_neg_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_source_target <- as.data.frame(t(shuffled_neg_source_target))
 
 # remove real time series from shuffled dataframe
@@ -367,7 +375,7 @@ shuffled_all_target <- rbind(shuffled_all_target, original_ts_all)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_all_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_target <- as.data.frame(t(shuffled_all_target))
 
 # remove real time series from shuffled dataframe
@@ -393,7 +401,7 @@ shuffled_pos_target <- rbind(shuffled_pos_target, original_ts_pos)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_pos_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_target <- as.data.frame(t(shuffled_pos_target))
 
 # remove real time series from shuffled dataframe
@@ -419,7 +427,7 @@ shuffled_neg_target <- rbind(shuffled_neg_target, original_ts_neg)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_neg_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_target <- as.data.frame(t(shuffled_neg_target))
 
 # remove real time series from shuffled dataframe
@@ -443,7 +451,7 @@ write.table(x = shuffled_full,
             col.names=TRUE,
             row.names=FALSE)
 
-#### 5. Create randomized time series for permutation testing for windowed crqa ####
+#### 5. Create randomized time series for permutation testing for windowed CRQA ####
 
 ## social cohesion ##
 
@@ -460,7 +468,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_coh))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_coh <- as.data.frame(t(shuffled_coh))
 
 ### source and target ###
@@ -480,7 +488,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_all_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_source_target <- as.data.frame(t(shuffled_all_source_target))
 
 ## count of positive events ##
@@ -498,7 +506,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_pos_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_source_target <- as.data.frame(t(shuffled_pos_source_target))
 
 ## count of negative events ##
@@ -516,12 +524,12 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_neg_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_source_target <- as.data.frame(t(shuffled_neg_source_target))
 
 ### target only ###
 
-## social cohesion ##
+## count of all events ##
 
 # create empty data frame
 shuffled_all_target = data.frame()
@@ -536,7 +544,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_all_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_target <- as.data.frame(t(shuffled_all_target))
 
 ## count of positive events ##
@@ -554,7 +562,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_pos_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_target <- as.data.frame(t(shuffled_pos_target))
 
 ## count of negative events ##
@@ -572,7 +580,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_neg_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_target <- as.data.frame(t(shuffled_neg_target))
 
 ### save to file ###
