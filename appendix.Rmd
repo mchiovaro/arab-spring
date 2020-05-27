@@ -1,0 +1,445 @@
+```{r setup-appendix, include = FALSE}
+
+# clear the workspace
+rm(list=ls())
+
+# install and load required packages
+source('./scripts/required_packages.r')
+source('./scripts/libraries_and_functions.r')
+
+# turn on caching
+knitr::opts_chunk$set(cache=TRUE, autodep=TRUE, cache.lazy=FALSE)
+
+# restrict floating
+knitr::opts_chunk$set(fig.pos = "!h", out.extra = "")
+
+```
+Given the inherent issues found in event data sets [@wang2016growing], we conducted the same analyses on the Cline Center Historical Phoenix Event Data [@illinoisdatabankIDB-2796521]. After filtering the data and creating the count variables for all, positive, and negative events each day, there was not enough variability to transform the data into deciles for the target only Phoenix data. As a results, sextiles were used for these analyses. For comparison, the filtered ICEWS data was also transformed into sextiles.
+
+## CRQA for Phoenix data in sextiles
+```{r secondary-crqa-phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run crqa on sextiled phoenix data
+source('./scripts/secondary-analyses/phoenix/02_crqa.R')
+
+# read in metric names
+phoenix_metrics <- t(read.csv("./results/secondary/phoenix/crqa/target-crqa_results-all_events.csv", header = FALSE)[-2,-1])
+
+# read in metrics from crq analyses (target filtered)
+phoenix_metrics_all_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-crqa_results-all_events.csv", header = FALSE)[-1,-1])
+phoenix_metrics_pos_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+phoenix_metrics_neg_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (target filtered)
+phoenix_sig_all_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-metric_signif_all.csv", header = FALSE)[-1,-1])
+phoenix_sig_pos_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-metric_signif_pos.csv", header = FALSE)[-1,-1])
+phoenix_sig_neg_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+# read in metrics from crq analyses (source and target filtered)
+phoenix_metrics_all_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-crqa_results-all_events.csv", header = FALSE)[-1,-1])
+phoenix_metrics_pos_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+phoenix_metrics_neg_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (source and target filtered)
+phoenix_sig_all_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-metric_signif_all.csv", header = FALSE)[-1,-1])
+phoenix_sig_pos_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-metric_signif_pos.csv", header = FALSE)[-1,-1])
+phoenix_sig_neg_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+```
+
+```{r secondary-crqa-table-phoenix-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+phoenix_target_results <- as.data.frame(cbind(phoenix_metrics,
+                                      phoenix_metrics_all_targ,
+                                      phoenix_sig_all_targ,
+                                      phoenix_metrics_pos_targ,
+                                      phoenix_sig_pos_targ,
+                                      phoenix_metrics_neg_targ,
+                                      phoenix_sig_neg_targ),
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+phoenix_target_results[,numerics] <- sapply(phoenix_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(phoenix_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(phoenix_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(phoenix_target_results[,7]))
+
+phoenix_target_results <- cbind(phoenix_target_results, stars_all, stars_pos, stars_neg)
+phoenix_target_results <- phoenix_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(phoenix_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(phoenix_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(phoenix_target_results, caption = "CRQA results for target only Phoenix data.")
+
+```
+
+```{r secondary-crqa-table-phoenix-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+phoenix_source_target_results <- as.data.frame(cbind(phoenix_metrics,
+                                      phoenix_metrics_all_source_targ,
+                                      phoenix_sig_all_source_targ,
+                                      phoenix_metrics_pos_source_targ,
+                                      phoenix_sig_pos_source_targ,
+                                      phoenix_metrics_neg_source_targ,
+                                      phoenix_sig_neg_source_targ),
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+phoenix_source_target_results[,numerics] <- sapply(phoenix_source_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(phoenix_source_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(phoenix_source_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(phoenix_source_target_results[,7]))
+
+phoenix_source_target_results <- cbind(phoenix_source_target_results, stars_all, stars_pos, stars_neg)
+phoenix_source_target_results <- phoenix_source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(phoenix_source_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(phoenix_source_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(phoenix_source_target_results, caption = "CRQA results for source and target Phoenix data.")
+
+```
+
+CRQ analyses for sextiled Phoenix event data found increased levels of coupling between positive events and social cohesion, irrespective of target or source and target filtering. Negative events were not coupled with social cohesion irrepective of filtering.
+
+## CRQA for ICEWS data in sextiles
+```{r secondary-crqa-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run crqa on sextiled icews data
+source('./scripts/secondary-analyses/icews/02_crqa.R')
+
+# read in metric names
+icews_metrics <- t(read.csv("./results/secondary/icews/crqa/target-crqa_results-all_events.csv", header = FALSE)[-2,-1])
+
+# read in metrics from crq analyses (target filtered)
+icews_metrics_all_targ <- t(read.csv("./results/secondary/icews/crqa/target-crqa_results-all_events.csv", header = FALSE)[-1,-1])
+icews_metrics_pos_targ <- t(read.csv("./results/secondary/icews/crqa/target-crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+icews_metrics_neg_targ <- t(read.csv("./results/secondary/icews/crqa/target-crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (target filtered)
+icews_sig_all_targ <- t(read.csv("./results/secondary/icews/crqa/target-metric_signif_all.csv", header = FALSE)[-1,-1])
+icews_sig_pos_targ <- t(read.csv("./results/secondary/icews/crqa/target-metric_signif_pos.csv", header = FALSE)[-1,-1])
+icews_sig_neg_targ <- t(read.csv("./results/secondary/icews/crqa/target-metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+# read in metrics from crq analyses (source and target filtered)
+icews_metrics_all_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target-crqa_results-all_events.csv", header = FALSE)[-1,-1])
+icews_metrics_pos_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target-crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+icews_metrics_neg_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target-crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+
+# read in signficiance from permutation tests (source and target filtered)
+icews_sig_all_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target-metric_signif_all.csv", header = FALSE)[-1,-1])
+icews_sig_pos_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target-metric_signif_pos.csv", header = FALSE)[-1,-1])
+icews_sig_neg_source_targ <- t(read.csv("./results/secondary/icews/crqa/source_target-metric_signif_neg.csv", header = FALSE)[-1,-1])
+
+```
+
+```{r secondary-crqa-table-icews-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+icews_target_results <- as.data.frame(cbind(icews_metrics,
+                                      icews_metrics_all_targ,
+                                      icews_sig_all_targ,
+                                      icews_metrics_pos_targ,
+                                      icews_sig_pos_targ,
+                                      icews_metrics_neg_targ,
+                                      icews_sig_neg_targ),
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+icews_target_results[,numerics] <- sapply(icews_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(icews_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(icews_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(icews_target_results[,7]))
+
+icews_target_results <- cbind(icews_target_results, stars_all, stars_pos, stars_neg)
+icews_target_results <- icews_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(icews_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(icews_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(icews_target_results, caption = "CRQA results for target only ICEWS data.")
+
+```
+
+```{r secondary-crqa-table-icews-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+icews_source_target_results <- as.data.frame(cbind(icews_metrics,
+                                      icews_metrics_all_source_targ,
+                                      icews_sig_all_source_targ,
+                                      icews_metrics_pos_source_targ,
+                                      icews_sig_pos_source_targ,
+                                      icews_metrics_neg_source_targ,
+                                      icews_sig_neg_source_targ),
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+icews_source_target_results[,numerics] <- sapply(icews_source_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(icews_source_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(icews_source_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(icews_source_target_results[,7]))
+
+icews_source_target_results <- cbind(icews_source_target_results, stars_all, stars_pos, stars_neg)
+icews_source_target_results <- icews_source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(icews_source_target_results) <- c("metric", "all events", "p", "sig.", "positive events", "p", "sig.", "negative events", "p", "sig.")
+
+# exclude row names
+rownames(icews_source_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(icews_source_target_results, caption = "CRQA results for source and target ICEWS data.")
+
+```
+
+CRQ analyses for sextiled ICEWS event data found coupling between both positive and negative events with social cohesion, irrespective of target or source and target filtering. Negative events were more stongly coupled with social cohesion than positive events for the target only analyses.
+The abscence of coupling between negative events and social cohesion in the Phoenix CRQ analyses speaks to the unreliability of event data, and that nonlinear analyses in general are only as valuable as the quality of the data being used.
+
+## Windowed CRQA for Phoenix data in sextiles
+```{r secondary-windowed-crqa-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run windowed crqa on sextiled Phoenix data
+source('./scripts/secondary-analyses/Phoenix/03_windowed_crqa.R')
+
+```
+
+### Syria as Target
+```{r plot-RR-targ-all-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target-windowed_all_RR.png")
+
+```
+
+```{r plot-DET-targ-all-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target-windowed_all_DET.png")
+
+```
+
+```{r plot-RR-targ-pos-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target-windowed_pos_RR.png")
+
+```
+
+```{r plot-DET-targ-pos-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target-windowed_pos_DET.png")
+
+```
+
+```{r plot-RR-targ-neg-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target-windowed_neg_RR.png")
+
+```
+
+```{r plot-DET-targ-neg-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/target-windowed_neg_DET.png")
+
+```
+
+### Syria as Source and Target
+```{r plot-RR-source-targ-all-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target-windowed_all_RR.png")
+
+```
+
+```{r plot-DET-source-targ-all-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target-windowed_all_DET.png")
+
+```
+
+```{r plot-RR-source-targ-pos-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target-windowed_pos_RR.png")
+
+```
+
+```{r plot-DET-source-targ-pos-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target-windowed_pos_DET.png")
+
+```
+
+```{r plot-RR-source-targ-neg-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target-windowed_neg_RR.png")
+
+```
+
+```{r plot-DET-source-targ-neg-secondary-Phoenix, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/Phoenix/windowed-crqa/source_target-windowed_neg_DET.png")
+
+```
+
+## Windowed CRQA for ICEWS data in sextiles
+```{r secondary-windowed-crqa-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run windowed crqa on sextiled icews data
+source('./scripts/secondary-analyses/icews/03_windowed_crqa.R')
+
+```
+
+### Syria as Target
+```{r plot-RR-targ-all-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/target-windowed_all_RR.png")
+
+```
+
+```{r plot-DET-targ-all-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/target-windowed_all_DET.png")
+
+```
+
+```{r plot-RR-targ-pos-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/target-windowed_pos_RR.png")
+
+```
+
+```{r plot-DET-targ-pos-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/target-windowed_pos_DET.png")
+
+```
+
+```{r plot-RR-targ-neg-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/target-windowed_neg_RR.png")
+
+```
+
+```{r plot-DET-targ-neg-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/target-windowed_neg_DET.png")
+
+```
+
+### Syria as Source and Target
+
+```{r plot-RR-source-targ-all-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/source_target-windowed_all_RR.png")
+
+```
+
+```{r plot-DET-source-targ-all-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/source_target-windowed_all_DET.png")
+
+```
+
+```{r plot-RR-source-targ-pos-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/source_target-windowed_pos_RR.png")
+
+```
+
+```{r plot-DET-source-targ-pos-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/source_target-windowed_pos_DET.png")
+
+```
+
+```{r plot-RR-source-targ-neg-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/source_target-windowed_neg_RR.png")
+
+```
+
+```{r plot-DET-source-targ-neg-secondary-icews, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.'}
+
+# call image
+knitr::include_graphics("./results/secondary/icews/windowed-crqa/source_target-windowed_neg_DET.png")
+
+```
