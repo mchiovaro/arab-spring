@@ -5,9 +5,9 @@
 # and transformed into deciles for CRQA and windowed CRQA
 # analyses.
 #
-# Code by: M. Chiovaro (@mchiovaro)
+# Code by: M. Chiovaro (@mchiovaro) and A. Paxton (@a-paxton)
 # University of Connecticut
-# Last updated: 2020_05_21
+# Last updated: 2020_05_27
 
 #### 1. Set up ####
 
@@ -16,7 +16,8 @@ rm(list=ls())
 
 # read in the data 
 cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
-ICEWS_df <- read.delim("./data/raw/events.2012.20150313084811.tab", header = TRUE, sep = "\t", quote = "")
+ICEWS_df <- read.delim("./data/raw/events.2012.20150313084811.tab", 
+                       header = TRUE, sep = "\t", quote = "")
 
 #### 2. Filter and format the time series ####
 
@@ -79,12 +80,16 @@ ICEWS_formatted_source_target <- ICEWS_filtered %>%
   mutate(Intensity = sort(Intensity, decreasing = TRUE)) %>%
   
   # calculate mode
-  mutate(mode_source_target = mfv1(Intensity, method = "mfv")) %>%
+  mutate(mode_source_target = statip::mfv1(Intensity, method = "mfv")) %>%
   
   # keep one unique row per day
-  distinct(Event.Date, all_events_source_target, pos_events_source_target, neg_events_source_target, mode_source_target) %>%
+  distinct(Event.Date, 
+           all_events_source_target,
+           pos_events_source_target, 
+           neg_events_source_target, 
+           mode_source_target) %>%
   
-  # make date varible name match cohesion_df
+  # make date variable name match cohesion_df
   rename(Date = Event.Date) %>%
   
   # undo grouping by date
@@ -114,12 +119,16 @@ ICEWS_formatted_target <- ICEWS_filtered %>%
   mutate(Intensity = sort(Intensity, decreasing = TRUE)) %>%
   
   # calculate mode
-  mutate(mode_target = mfv1(Intensity, method = "mfv")) %>%
+  mutate(mode_target = statip::mfv1(Intensity, method = "mfv")) %>%
   
   # keep one unique row per day
-  distinct(Event.Date, all_events_target, pos_events_target, neg_events_target, mode_target) %>%
+  distinct(Event.Date, 
+           all_events_target, 
+           pos_events_target, 
+           neg_events_target, 
+           mode_target) %>%
   
-  # make date varible name match cohesion_df
+  # make date variable name match cohesion_df
   rename(Date = Event.Date) %>%
   
   # undo grouping by date
@@ -250,7 +259,7 @@ shuffled_coh <- rbind(shuffled_coh, original)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_coh))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_coh <- as.data.frame(t(shuffled_coh))
 
 # remove real time series from shuffled dataframe
@@ -278,7 +287,7 @@ shuffled_all_source_target <- rbind(shuffled_all_source_target, original_all)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_all_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_source_target <- as.data.frame(t(shuffled_all_source_target))
 
 # remove real time series from shuffled dataframe
@@ -304,7 +313,7 @@ shuffled_pos_source_target <- rbind(shuffled_pos_source_target, original_pos)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_pos_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_source_target <- as.data.frame(t(shuffled_pos_source_target))
 
 # remove real time series from shuffled dataframe
@@ -330,7 +339,7 @@ shuffled_neg_source_target <- rbind(shuffled_neg_source_target, original_neg)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_neg_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_source_target <- as.data.frame(t(shuffled_neg_source_target))
 
 # remove real time series from shuffled dataframe
@@ -358,7 +367,7 @@ shuffled_all_target <- rbind(shuffled_all_target, original_all)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_all_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_target <- as.data.frame(t(shuffled_all_target))
 
 # remove real time series from shuffled dataframe
@@ -384,7 +393,7 @@ shuffled_pos_target <- rbind(shuffled_pos_target, original_pos)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_pos_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_target <- as.data.frame(t(shuffled_pos_target))
 
 # remove real time series from shuffled dataframe
@@ -410,7 +419,7 @@ shuffled_neg_target <- rbind(shuffled_neg_target, original_neg)
 # check to see if we have 1001 distinct time series
 nrow(distinct(shuffled_neg_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_target <- as.data.frame(t(shuffled_neg_target))
 
 # remove real time series from shuffled dataframe
@@ -451,7 +460,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_coh))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_coh <- as.data.frame(t(shuffled_coh))
 
 ### source and target ###
@@ -471,7 +480,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_all_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_source_target <- as.data.frame(t(shuffled_all_source_target))
 
 ## count of positive events ##
@@ -489,7 +498,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_pos_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_source_target <- as.data.frame(t(shuffled_pos_source_target))
 
 ## count of negative events ##
@@ -507,7 +516,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_neg_source_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_source_target <- as.data.frame(t(shuffled_neg_source_target))
 
 ### target only ###
@@ -527,7 +536,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_all_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_all_target <- as.data.frame(t(shuffled_all_target))
 
 ## count of positive events ##
@@ -545,7 +554,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_pos_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_pos_target <- as.data.frame(t(shuffled_pos_target))
 
 ## count of negative events ##
@@ -563,7 +572,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 nrow(distinct(shuffled_neg_target))
 
-# tranform rows to columns for binding
+# transform rows to columns for binding
 shuffled_neg_target <- as.data.frame(t(shuffled_neg_target))
 
 ### save to file ###
