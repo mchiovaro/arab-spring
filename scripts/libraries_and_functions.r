@@ -14,7 +14,8 @@ required_packages = c(
   'papaja',
   'pander',
   'gtools',
-  'knitr'
+  'knitr',
+  'statip'
 )
 
 # load required packages

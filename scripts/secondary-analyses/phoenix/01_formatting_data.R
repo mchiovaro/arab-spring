@@ -1,6 +1,6 @@
-######## Formatting Arab Spring Data (Pheonix) ########
+######## Formatting Arab Spring Data (Phoenix) ########
 #
-# Pheonix event data from the Cline center: 
+# Phoenix event data from the Cline center: 
 # https://databank.illinois.edu/datasets/IDB-2796521
 # "PhoenixBLN-SWB_1979-2019.csv" pulled on 2020_05_13
 #
@@ -20,14 +20,14 @@ rm(list=ls())
 
 # read in data
 cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
-pheonix_df <- read.csv("./data/raw/PhoenixBLN-SWB_1979-2019.csv", header = TRUE)
+phoenix_df <- read.csv("./data/raw/PhoenixBLN-SWB_1979-2019.csv", header = TRUE)
 
 #### 2. Filter and format the time series ####
 
 ### filter for source and target ###
 
 # filter full 2012 ICEWS data for correct dates and parameters
-pheonix_df_filtered <- pheonix_df %>% 
+phoenix_df_filtered <- phoenix_df %>% 
   
   # fill blanks with NAs
   na_if("") %>%
@@ -58,7 +58,7 @@ pheonix_df_filtered <- pheonix_df %>%
 ### prep the event count time series ###
 
 # create new dataframe with counts of different events
-pheonix_formatted_source_target <- pheonix_df_filtered %>% 
+phoenix_formatted_source_target <- phoenix_df_filtered %>% 
   
   # group by date
   group_by(story_date) %>%
@@ -96,7 +96,7 @@ pheonix_formatted_source_target <- pheonix_df_filtered %>%
 ### filter again with just target and prep count variables ###
 
 # grab observations where target is Syria
-pheonix_formatted_target <- pheonix_df_filtered %>%
+phoenix_formatted_target <- phoenix_df_filtered %>%
 
   # grab observations where target is Syria
   filter(grepl("SYR", target)) %>%
@@ -135,10 +135,10 @@ pheonix_formatted_target <- pheonix_df_filtered %>%
   replace(is.na(.), 0)
 
 # bind the event and social cohesion data frames
-pheonix_df_formatted <- cbind(pheonix_formatted_source_target, pheonix_formatted_target, cohesion_df)
+phoenix_df_formatted <- cbind(phoenix_formatted_source_target, phoenix_formatted_target, cohesion_df)
 
 # keep only what we need
-pheonix_df_formatted <- pheonix_df_formatted[c("Date", 
+phoenix_df_formatted <- phoenix_df_formatted[c("Date", 
                                            "all_events_source_target", 
                                            "pos_events_source_target", 
                                            "neg_events_source_target", 
@@ -154,82 +154,82 @@ pheonix_df_formatted <- pheonix_df_formatted[c("Date",
 ## social cohesion ##
 
 # create the sextiles
-pheonix_df_formatted$coh_sextiles <- with(pheonix_df_formatted, cut(MeanCohesion, 
+phoenix_df_formatted$coh_sextiles <- with(phoenix_df_formatted, cut(MeanCohesion, 
                                                                     breaks=quantile(MeanCohesion, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
                                                                     include.lowest=TRUE))
 
 # re-label with intuitive sextile levels
-levels(pheonix_df_formatted$coh_sextiles) <- factor(c("1","2","3","4", "5", "6"))
+levels(phoenix_df_formatted$coh_sextiles) <- factor(c("1","2","3","4", "5", "6"))
 
 ### source and target variable sextiles ###
 
 ## count of events ##
 
 # create the sextiles
-pheonix_df_formatted$all_sextiles_source_target <- with(pheonix_df_formatted, cut(all_events_source_target, 
+phoenix_df_formatted$all_sextiles_source_target <- with(phoenix_df_formatted, cut(all_events_source_target, 
                                                                     breaks=quantile(all_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
                                                                     include.lowest=TRUE))
 
 # re-label with intuitive sextile levels
-levels(pheonix_df_formatted$all_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
+levels(phoenix_df_formatted$all_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
 
 ## count of positive events ##
 
 # create the sextiles
-pheonix_df_formatted$pos_sextiles_source_target <- with(pheonix_df_formatted, cut(pos_events_source_target, 
+phoenix_df_formatted$pos_sextiles_source_target <- with(phoenix_df_formatted, cut(pos_events_source_target, 
                                                                     breaks=quantile(pos_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
                                                                     include.lowest=TRUE))
 
 # re-label with intuitive sextile levels
-levels(pheonix_df_formatted$pos_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
+levels(phoenix_df_formatted$pos_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
 
 ## count of negative events ##
 
 # create the sextiles
-pheonix_df_formatted$neg_sextiles_source_target <- with(pheonix_df_formatted, cut(neg_events_source_target, 
+phoenix_df_formatted$neg_sextiles_source_target <- with(phoenix_df_formatted, cut(neg_events_source_target, 
                                                                     breaks=quantile(neg_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
                                                                     include.lowest=TRUE))
 
 # re-label with intuitive sextile levels
-levels(pheonix_df_formatted$neg_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
+levels(phoenix_df_formatted$neg_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
 
 ### target variable sextiles ###
 
 ## count of events ##
 
 # create the sextiles
-pheonix_df_formatted$all_sextiles_target <- with(pheonix_df_formatted, cut(all_events_target, 
+phoenix_df_formatted$all_sextiles_target <- with(phoenix_df_formatted, cut(all_events_target, 
                                                                            breaks=quantile(all_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
                                                                            include.lowest=TRUE))
 
 # re-label with intuitive sextile levels
-levels(pheonix_df_formatted$all_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
+levels(phoenix_df_formatted$all_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
 
 ## count of positive events ##
 
 # create the sextiles
-pheonix_df_formatted$pos_sextiles_target <- with(pheonix_df_formatted, cut(pos_events_target, 
+phoenix_df_formatted$pos_sextiles_target <- with(phoenix_df_formatted, cut(pos_events_target, 
                                                                            breaks=quantile(pos_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
                                                                            include.lowest=TRUE))
 
 # re-label with intuitive sextile levels
-levels(pheonix_df_formatted$pos_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
+levels(phoenix_df_formatted$pos_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
 
 ## count of negative events ##
 
 # create the sextiles
-pheonix_df_formatted$neg_sextiles_target <- with(pheonix_df_formatted, cut(neg_events_target, 
+phoenix_df_formatted$neg_sextiles_target <- with(phoenix_df_formatted, cut(neg_events_target, 
                                                                            breaks=quantile(neg_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
                                                                            include.lowest=TRUE))
 
 # re-label with intuitive sextile levels
-levels(pheonix_df_formatted$neg_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
+levels(phoenix_df_formatted$neg_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
 
 ### save to file ###
 
 # write data to file
-write.table(x = pheonix_df_formatted,
-            file='./data/formatted/secondary/pheonix/formatted_data.csv',
+write.table(x = phoenix_df_formatted,
+            file='./data/formatted/secondary/phoenix/formatted_data.csv',
             sep=",",
             col.names=TRUE,
             row.names=FALSE)
@@ -246,13 +246,13 @@ shuffled_coh = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  coh_shuffled_ts <- sample(pheonix_df_formatted$coh_sextiles, replace = FALSE)
+  coh_shuffled_ts <- sample(phoenix_df_formatted$coh_sextiles, replace = FALSE)
   sample <- t(as.data.frame(coh_shuffled_ts))
   shuffled_coh <- rbind(shuffled_coh, sample)
 }
 
 # take the original time series and add it as a row
-original_ts <- as.data.frame(pheonix_df_formatted$coh_sextiles)
+original_ts <- as.data.frame(phoenix_df_formatted$coh_sextiles)
 original_ts <- as.data.frame(t(original_ts))
 shuffled_coh <- rbind(shuffled_coh, original_ts)
 
@@ -274,13 +274,13 @@ shuffled_all_source_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  all_shuffled_ts <- sample(pheonix_df_formatted$all_sextiles_source_target, replace = FALSE)
+  all_shuffled_ts <- sample(phoenix_df_formatted$all_sextiles_source_target, replace = FALSE)
   sample <- t(as.data.frame(all_shuffled_ts))
   shuffled_all_source_target <- rbind(shuffled_all_source_target, sample)
 }
 
 # take the original time series and add it as a row
-original_ts_all <- as.data.frame(pheonix_df_formatted$all_sextiles_source_target)
+original_ts_all <- as.data.frame(phoenix_df_formatted$all_sextiles_source_target)
 original_ts_all <- as.data.frame(t(original_ts_all))
 shuffled_all_source_target <- rbind(shuffled_all_source_target, original_ts_all)
 
@@ -300,13 +300,13 @@ shuffled_pos_source_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  pos_shuffled_ts <- sample(pheonix_df_formatted$pos_sextiles_source_target, replace = FALSE)
+  pos_shuffled_ts <- sample(phoenix_df_formatted$pos_sextiles_source_target, replace = FALSE)
   sample <- t(as.data.frame(pos_shuffled_ts))
   shuffled_pos_source_target <- rbind(shuffled_pos_source_target, sample)
 }
 
 # take the original time series and add it as a row
-original_ts_pos <- as.data.frame(pheonix_df_formatted$pos_sextiles_source_target)
+original_ts_pos <- as.data.frame(phoenix_df_formatted$pos_sextiles_source_target)
 original_ts_pos <- as.data.frame(t(original_ts_pos))
 shuffled_pos_source_target <- rbind(shuffled_pos_source_target, original_ts_pos)
 
@@ -326,13 +326,13 @@ shuffled_neg_source_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  neg_shuffled_ts <- sample(pheonix_df_formatted$neg_sextiles_source_target, replace = FALSE)
+  neg_shuffled_ts <- sample(phoenix_df_formatted$neg_sextiles_source_target, replace = FALSE)
   sample <- t(as.data.frame(neg_shuffled_ts))
   shuffled_neg_source_target <- rbind(shuffled_neg_source_target, sample)
 }
 
 # take the original time series and add it as a row
-original_ts_neg <- as.data.frame(pheonix_df_formatted$neg_sextiles_source_target)
+original_ts_neg <- as.data.frame(phoenix_df_formatted$neg_sextiles_source_target)
 original_ts_neg <- as.data.frame(t(original_ts_neg))
 shuffled_neg_source_target <- rbind(shuffled_neg_source_target, original_ts_neg)
 
@@ -354,13 +354,13 @@ shuffled_all_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  all_shuffled_ts <- sample(pheonix_df_formatted$all_sextiles_target, replace = FALSE)
+  all_shuffled_ts <- sample(phoenix_df_formatted$all_sextiles_target, replace = FALSE)
   sample <- t(as.data.frame(all_shuffled_ts))
   shuffled_all_target <- rbind(shuffled_all_target, sample)
 }
 
 # take the original time series and add it as a row
-original_ts_all <- as.data.frame(pheonix_df_formatted$all_sextiles_target)
+original_ts_all <- as.data.frame(phoenix_df_formatted$all_sextiles_target)
 original_ts_all <- as.data.frame(t(original_ts_all))
 shuffled_all_target <- rbind(shuffled_all_target, original_ts_all)
 
@@ -380,13 +380,13 @@ shuffled_pos_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  pos_shuffled_ts <- sample(pheonix_df_formatted$pos_sextiles_target, replace = FALSE)
+  pos_shuffled_ts <- sample(phoenix_df_formatted$pos_sextiles_target, replace = FALSE)
   sample <- t(as.data.frame(pos_shuffled_ts))
   shuffled_pos_target <- rbind(shuffled_pos_target, sample)
 }
 
 # take the original time series and add it as a row
-original_ts_pos <- as.data.frame(pheonix_df_formatted$pos_sextiles_target)
+original_ts_pos <- as.data.frame(phoenix_df_formatted$pos_sextiles_target)
 original_ts_pos <- as.data.frame(t(original_ts_pos))
 shuffled_pos_target <- rbind(shuffled_pos_target, original_ts_pos)
 
@@ -406,13 +406,13 @@ shuffled_neg_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  neg_shuffled_ts <- sample(pheonix_df_formatted$neg_sextiles_target, replace = FALSE)
+  neg_shuffled_ts <- sample(phoenix_df_formatted$neg_sextiles_target, replace = FALSE)
   sample <- t(as.data.frame(neg_shuffled_ts))
   shuffled_neg_target <- rbind(shuffled_neg_target, sample)
 }
 
 # take the original time series and add it as a row
-original_ts_neg <- as.data.frame(pheonix_df_formatted$neg_sextiles_target)
+original_ts_neg <- as.data.frame(phoenix_df_formatted$neg_sextiles_target)
 original_ts_neg <- as.data.frame(t(original_ts_neg))
 shuffled_neg_target <- rbind(shuffled_neg_target, original_ts_neg)
 
@@ -438,7 +438,7 @@ shuffled_full <- cbind(shuffled_coh,
 
 # write shuffled data to file
 write.table(x = shuffled_full,
-            file='./data/formatted/secondary/pheonix/shuffled_data_full.csv',
+            file='./data/formatted/secondary/phoenix/shuffled_data_full.csv',
             sep=",",
             col.names=TRUE,
             row.names=FALSE)
@@ -452,7 +452,7 @@ shuffled_coh = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  coh_shuffled_ts <- sample(pheonix_df_formatted$coh_sextiles, size = 14, replace = FALSE)
+  coh_shuffled_ts <- sample(phoenix_df_formatted$coh_sextiles, size = 14, replace = FALSE)
   sample <- t(as.data.frame(coh_shuffled_ts))
   shuffled_coh <- rbind(shuffled_coh, sample)
 }
@@ -472,7 +472,7 @@ shuffled_all_source_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  all_shuffled_ts <- sample(pheonix_df_formatted$all_sextiles_source_target, size = 14, replace = FALSE)
+  all_shuffled_ts <- sample(phoenix_df_formatted$all_sextiles_source_target, size = 14, replace = FALSE)
   sample <- t(as.data.frame(all_shuffled_ts))
   shuffled_all_source_target <- rbind(shuffled_all_source_target, sample)
 }
@@ -490,7 +490,7 @@ shuffled_pos_source_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  pos_shuffled_ts <- sample(pheonix_df_formatted$pos_sextiles_source_target, size = 14, replace = FALSE)
+  pos_shuffled_ts <- sample(phoenix_df_formatted$pos_sextiles_source_target, size = 14, replace = FALSE)
   sample <- t(as.data.frame(pos_shuffled_ts))
   shuffled_pos_source_target <- rbind(shuffled_pos_source_target, sample)
 }
@@ -508,7 +508,7 @@ shuffled_neg_source_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  neg_shuffled_ts <- sample(pheonix_df_formatted$neg_sextiles_source_target, size = 14, replace = FALSE)
+  neg_shuffled_ts <- sample(phoenix_df_formatted$neg_sextiles_source_target, size = 14, replace = FALSE)
   sample <- t(as.data.frame(neg_shuffled_ts))
   shuffled_neg_source_target <- rbind(shuffled_neg_source_target, sample)
 }
@@ -528,7 +528,7 @@ shuffled_all_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  all_shuffled_ts <- sample(pheonix_df_formatted$all_sextiles_target, size = 14, replace = FALSE)
+  all_shuffled_ts <- sample(phoenix_df_formatted$all_sextiles_target, size = 14, replace = FALSE)
   sample <- t(as.data.frame(all_shuffled_ts))
   shuffled_all_target <- rbind(shuffled_all_target, sample)
 }
@@ -546,7 +546,7 @@ shuffled_pos_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  pos_shuffled_ts <- sample(pheonix_df_formatted$pos_sextiles_target, size = 14, replace = FALSE)
+  pos_shuffled_ts <- sample(phoenix_df_formatted$pos_sextiles_target, size = 14, replace = FALSE)
   sample <- t(as.data.frame(pos_shuffled_ts))
   shuffled_pos_target <- rbind(shuffled_pos_target, sample)
 }
@@ -564,7 +564,7 @@ shuffled_neg_target = data.frame()
 
 # generate 1000 random time series and bind to rows
 for (i in 1:1000){
-  neg_shuffled_ts <- sample(pheonix_df_formatted$neg_sextiles_target, size = 14, replace = FALSE)
+  neg_shuffled_ts <- sample(phoenix_df_formatted$neg_sextiles_target, size = 14, replace = FALSE)
   sample <- t(as.data.frame(neg_shuffled_ts))
   shuffled_neg_target <- rbind(shuffled_neg_target, sample)
 }
@@ -588,7 +588,7 @@ shuffled_windowed <- cbind(shuffled_coh,
 
 # write shuffled data to file
 write.table(x = shuffled_windowed,
-            file='./data/formatted/secondary/pheonix/shuffled_data_windowed.csv',
+            file='./data/formatted/secondary/phoenix/shuffled_data_windowed.csv',
             sep=",",
             col.names=TRUE,
             row.names=FALSE)

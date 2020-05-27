@@ -1,4 +1,4 @@
-######## Windowed Cross-Recurrence Quantification Analysis (Pheonix) ########
+######## Windowed Cross-Recurrence Quantification Analysis (Phoenix) ########
 #
 # This script runs windowed cross-recurrence quantification 
 # analysis the real-world events and Twitter social cohesion 
@@ -14,8 +14,8 @@
 rm(list=ls())
 
 # read in data 
-data <- read.csv("./data/formatted/secondary/pheonix/formatted_data.csv")
-shuffled_windowed <- read.csv("./data/formatted/secondary/pheonix/shuffled_data_windowed.csv")
+data <- read.csv("./data/formatted/secondary/phoenix/formatted_data.csv")
+shuffled_windowed <- read.csv("./data/formatted/secondary/phoenix/shuffled_data_windowed.csv")
 
 # split shuffled data into their own dataframes
 shuffled_coh <- shuffled_windowed[,c(1:1000)]
@@ -455,7 +455,7 @@ names(significance_neg_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", 
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/source_target/windowed_all_RR.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/source_target/windowed_all_RR.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_all_df_source_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(12, 27),
      main = "Windowed RQA for Social\nCohesion and Event Count")
 
@@ -479,7 +479,7 @@ dev.off()
 wincrqa_all_df_source_target$DET[is.na(wincrqa_all_df_source_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/source_target/windowed_all_DET.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/source_target/windowed_all_DET.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_all_df_source_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(8,62), 
      main = "Windowed RQA for Social\nCohesion and Event Count")
 
@@ -502,7 +502,7 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/source_target/windowed_pos_RR.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/source_target/windowed_pos_RR.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_pos_df_source_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(10, 28),
      main = "Windowed RQA for Social\nCohesion and Positive Event Count")
 
@@ -526,7 +526,7 @@ dev.off()
 wincrqa_pos_df_source_target$DET[is.na(wincrqa_pos_df_source_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/source_target/windowed_pos_DET.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/source_target/windowed_pos_DET.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_pos_df_source_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(7, 60), 
      main = "Windowed RQA for Social\nCohesion and Positive Event Count")
 
@@ -549,7 +549,7 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/source_target/windowed_neg_RR.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/source_target/windowed_neg_RR.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_neg_df_source_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(9, 28),
      main = "Windowed RQA for Social\nCohesion and Negative Event Count")
 
@@ -573,7 +573,7 @@ dev.off()
 wincrqa_neg_df_source_target$DET[is.na(wincrqa_neg_df_source_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/source_target/windowed_neg_DET.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/source_target/windowed_neg_DET.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_neg_df_source_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(7, 60), 
      main = "Windowed RQA for Social\nCohesion and Negative Event Count")
 
@@ -594,7 +594,7 @@ dev.off()
 ### target filtered data ###
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/target/windowed_all_RR.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/target/windowed_all_RR.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_all_df_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(11, 28),
      main = "Windowed RQA for Social\nCohesion and Event Count")
 
@@ -618,7 +618,7 @@ dev.off()
 wincrqa_all_df_target$DET[is.na(wincrqa_all_df_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/target/windowed_all_DET.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/target/windowed_all_DET.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_all_df_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(5,60), 
      main = "Windowed RQA for Social\nCohesion and Event Count")
 
@@ -641,7 +641,7 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/target/windowed_pos_RR.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/target/windowed_pos_RR.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_pos_df_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(11, 29),
      main = "Windowed RQA for Social\nCohesion and Positive Event Count")
 
@@ -665,7 +665,7 @@ dev.off()
 wincrqa_pos_df_target$DET[is.na(wincrqa_pos_df_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/target/windowed_pos_DET.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/target/windowed_pos_DET.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_pos_df_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(8, 58), 
      main = "Windowed RQA for Social\nCohesion and Positive Event Count")
 
@@ -688,7 +688,7 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/target/windowed_neg_RR.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/target/windowed_neg_RR.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_neg_df_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(10, 32),
      main = "Windowed RQA for Social\nCohesion and Negative Event Count")
 
@@ -712,7 +712,7 @@ dev.off()
 wincrqa_neg_df_target$DET[is.na(wincrqa_neg_df_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/secondary/pheonix/windowed-crqa/target/windowed_neg_DET.png", width = 4, height = 4, units = 'in', res = 300)
+png("./results/secondary/phoenix/windowed-crqa/target/windowed_neg_DET.png", width = 4, height = 4, units = 'in', res = 300)
 plot(wincrqa_neg_df_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(0, 53), 
      main = "Windowed RQA for Social\nCohesion and Negative Event Count")
 
