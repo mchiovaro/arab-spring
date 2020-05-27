@@ -134,96 +134,49 @@ ICEWS_formatted_target <- ICEWS_filtered %>%
   # undo grouping by date
   ungroup()
 
-# bind the event and social cohesion data frames
-ICEWS_df_formatted <- cbind(ICEWS_formatted_source_target, ICEWS_formatted_target, cohesion_df)
+### prepare cohesion dataframe for merging ###
 
-# keep only what we need
-ICEWS_df_formatted <- ICEWS_df_formatted[c("Date", 
-                                           "all_events_source_target", 
-                                           "pos_events_source_target", 
-                                           "neg_events_source_target", 
-                                           "mode_source_target", 
-                                           "all_events_target", 
-                                           "pos_events_target", 
-                                           "neg_events_target", 
-                                           "mode_target", 
-                                           "MeanCohesion")]
+cohesion_df <- cohesion_df %>%
+  
+  # format dates
+  mutate(Date = as.Date(Date)) %>%
+  
+  # only keep variables we need
+  select(Date, MeanCohesion)
+
+### combine all dataframes ###
+
+# bind the event and social cohesion data frames
+ICEWS_df_formatted <- dplyr::full_join(ICEWS_formatted_source_target,
+                                       ICEWS_formatted_target,
+                                       by=c("Date")) %>%
+  dplyr::full_join(., cohesion_df,
+                   by=c("Date"))
 
 #### 3. Create the deciles for analyses ####
 
-## social cohesion ##
-
-# create the deciles
-ICEWS_df_formatted$coh_deciles <- with(ICEWS_df_formatted, cut(MeanCohesion, 
-                                                               breaks=quantile(MeanCohesion, probs=seq(0, 1, by=0.1), na.rm=TRUE), 
-                                                               include.lowest=TRUE))
-
-# re-label with intuitive decile levels
-levels(ICEWS_df_formatted$coh_deciles) <- factor(c("1","2","3","4", "5", "6", "7", "8", "9", "10"))
-
-### source and target variable deciles ###
-
-## count of events ##
-
-# create the deciles
-ICEWS_df_formatted$all_deciles_source_target <- with(ICEWS_df_formatted, cut(all_events_source_target, 
-                                  breaks=quantile(all_events_source_target, probs=seq(0, 1, by=0.1), na.rm=TRUE), 
-                                  include.lowest=TRUE))
-
-# re-label with intuitive decile levels
-levels(ICEWS_df_formatted$all_deciles_source_target) <- factor(c("1","2","3","4", "5", "6", "7", "8", "9", "10"))
-
-## count of positive events ##
-
-# create the deciles
-ICEWS_df_formatted$pos_deciles_source_target <- with(ICEWS_df_formatted, cut(pos_events_source_target, 
-                                breaks=quantile(pos_events_source_target, probs=seq(0, 1, by=0.1), na.rm=TRUE), 
-                                include.lowest=TRUE))
-
-# re-label with intuitive decile levels
-levels(ICEWS_df_formatted$pos_deciles_source_target) <- factor(c("1","2","3","4", "5", "6", "7", "8", "9", "10"))
-
-## count of negative events ##
-
-# create the deciles
-ICEWS_df_formatted$neg_deciles_source_target <- with(ICEWS_df_formatted, cut(neg_events_source_target, 
-                                breaks=quantile(neg_events_source_target, probs=seq(0, 1, by=0.1), na.rm=TRUE), 
-                                include.lowest=TRUE))
-
-# re-label with intuitive decile levels
-levels(ICEWS_df_formatted$neg_deciles_source_target) <- factor(c("1","2","3","4", "5", "6", "7", "8", "9", "10"))
-
-### target variable deciles ###
-
-## count of events ##
-
-# create the deciles
-ICEWS_df_formatted$all_deciles_target <- with(ICEWS_df_formatted, cut(all_events_target, 
-                                                                             breaks=quantile(all_events_target, probs=seq(0, 1, by=0.1), na.rm=TRUE), 
-                                                                             include.lowest=TRUE))
-
-# re-label with intuitive decile levels
-levels(ICEWS_df_formatted$all_deciles_target) <- factor(c("1","2","3","4", "5", "6", "7", "8", "9", "10"))
-
-## count of positive events ##
-
-# create the deciles
-ICEWS_df_formatted$pos_deciles_target <- with(ICEWS_df_formatted, cut(pos_events_target, 
-                                                                             breaks=quantile(pos_events_target, probs=seq(0, 1, by=0.1), na.rm=TRUE), 
-                                                                             include.lowest=TRUE))
-
-# re-label with intuitive decile levels
-levels(ICEWS_df_formatted$pos_deciles_target) <- factor(c("1","2","3","4", "5", "6", "7", "8", "9", "10"))
-
-## count of negative events ##
-
-# create the deciles
-ICEWS_df_formatted$neg_deciles_target <- with(ICEWS_df_formatted, cut(neg_events_target, 
-                                                                             breaks=quantile(neg_events_target, probs=seq(0, 1, by=0.1), na.rm=TRUE), 
-                                                                             include.lowest=TRUE))
-
-# re-label with intuitive decile levels
-levels(ICEWS_df_formatted$neg_deciles_target) <- factor(c("1","2","3","4", "5", "6", "7", "8", "9", "10"))
+ICEWS_df_formatted <- ICEWS_df_formatted %>% ungroup() %>%
+  
+  # social cohesion
+  mutate(coh_deciles = ntile(MeanCohesion, 10)) %>%
+  
+  # source and target: all events
+  mutate(all_deciles_source_target = ntile(all_events_source_target, 10)) %>%
+  
+  # source and target: positive events
+  mutate(pos_deciles_source_target = ntile(pos_events_source_target, 10)) %>%
+  
+  # source and target: negative events
+  mutate(neg_deciles_source_target = ntile(neg_events_source_target, 10)) %>%
+  
+  # target only: all events
+  mutate(all_deciles_target = ntile(all_events_target, 10)) %>%
+  
+  # target only: positive events
+  mutate(pos_deciles_target = ntile(pos_events_target, 10)) %>%
+  
+  # target only: negative events
+  mutate(neg_deciles_target = ntile(neg_events_target, 10))
 
 ### save to file ###
 
