@@ -165,27 +165,27 @@ To visualize the differences in the WCRQA metrics from those obtained by chance,
 source('./scripts/primary-analyses/02_crqa.R')
 
 # read in metric names
-metrics <- t(read.csv("./results/primary/crqa/target/crqa_results-all_events.csv", header = FALSE)[-2,-1])
+metrics <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv", header = FALSE)[-2,-1])
 
 # read in metrics from crq analyses (target filtered)
-metrics_all_targ <- t(read.csv("./results/primary/crqa/target/crqa_results-all_events.csv", header = FALSE)[-1,-1])
-metrics_pos_targ <- t(read.csv("./results/primary/crqa/target/crqa_results-pos_events.csv", header = FALSE)[-1,-1])
-metrics_neg_targ <- t(read.csv("./results/primary/crqa/target/crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+metrics_all_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv", header = FALSE)[-1,-1])
+metrics_pos_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+metrics_neg_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-neg_events.csv", header = FALSE)[-1,-1])
 
 # read in signficiance from permutation tests (target filtered)
-sig_all_targ <- t(read.csv("./results/primary/crqa/target/metric_signif_all.csv", header = FALSE)[-1,-1])
-sig_pos_targ <- t(read.csv("./results/primary/crqa/target/metric_signif_pos.csv", header = FALSE)[-1,-1])
-sig_neg_targ <- t(read.csv("./results/primary/crqa/target/metric_signif_neg.csv", header = FALSE)[-1,-1])
+sig_all_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_all.csv", header = FALSE)[-1,-1])
+sig_pos_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_pos.csv", header = FALSE)[-1,-1])
+sig_neg_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_neg.csv", header = FALSE)[-1,-1])
 
 # read in metrics from crq analyses (source and target filtered)
-metrics_all_source_targ <- t(read.csv("./results/primary/crqa/source_target/crqa_results-all_events.csv", header = FALSE)[-1,-1])
-metrics_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target/crqa_results-pos_events.csv", header = FALSE)[-1,-1])
-metrics_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target/crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+metrics_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-all_events.csv", header = FALSE)[-1,-1])
+metrics_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-pos_events.csv", header = FALSE)[-1,-1])
+metrics_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-neg_events.csv", header = FALSE)[-1,-1])
 
 # read in signficiance from permutation tests (source and target filtered)
-sig_all_source_targ <- t(read.csv("./results/primary/crqa/source_target/metric_signif_all.csv", header = FALSE)[-1,-1])
-sig_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target/metric_signif_pos.csv", header = FALSE)[-1,-1])
-sig_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target/metric_signif_neg.csv", header = FALSE)[-1,-1])
+sig_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_all.csv", header = FALSE)[-1,-1])
+sig_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_pos.csv", header = FALSE)[-1,-1])
+sig_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_neg.csv", header = FALSE)[-1,-1])
 
 ```
 
@@ -272,21 +272,21 @@ pander(target_results, caption = "CRQA results for target only data.")
 ```{r plot-rp-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/crqa/target/rp-all_events.png")
+knitr::include_graphics("./results/primary/crqa/target-rp-all_events.png")
 
 ```
 
 ```{r plot-rp-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of positive events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/crqa/target/rp-pos_events.png")
+knitr::include_graphics("./results/primary/crqa/target-rp-pos_events.png")
 
 ```
 
 ```{r plot-rp-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of negative events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/crqa/target/rp-neg_events.png")
+knitr::include_graphics("./results/primary/crqa/target-rp-neg_events.png")
 
 ```
 
@@ -338,21 +338,21 @@ pander(source_target_results, caption = "CRQA results for source and target data
 ```{r plot-rp-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/crqa/source_target/rp-all_events.png")
+knitr::include_graphics("./results/primary/crqa/source_target-rp-all_events.png")
 
 ```
 
 ```{r plot-rp-source-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of positive events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/crqa/source_target/rp-pos_events.png")
+knitr::include_graphics("./results/primary/crqa/source_target-rp-pos_events.png")
 
 ```
 
 ```{r plot-rp-source-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of negative events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/crqa/source_target/rp-neg_events.png")
+knitr::include_graphics("./results/primary/crqa/source_target-rp-neg_events.png")
 
 ```
 
@@ -371,42 +371,42 @@ WCRQA was performed using the crqa package [@R-crqa] for R [@R-base]. Permutatio
 ```{r plot-RR-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/target/windowed_all_RR.png")
+knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all_RR.png")
 
 ```
 
 ```{r plot-DET-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/target/windowed_all_DET.png")
+knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all_DET.png")
 
 ```
 
 ```{r plot-RR-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/target/windowed_pos_RR.png")
+knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_pos_RR.png")
 
 ```
 
 ```{r plot-DET-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/target/windowed_pos_DET.png")
+knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_pos_DET.png")
 
 ```
 
 ```{r plot-RR-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/target/windowed_neg_RR.png")
+knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_neg_RR.png")
 
 ```
 
 ```{r plot-DET-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/target/windowed_neg_DET.png")
+knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_neg_DET.png")
 
 ```
 
@@ -431,42 +431,42 @@ For social cohesion and count of all events, there is a consistent period of abo
 ```{r plot-RR-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target/windowed_all_RR.png")
+knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_all_RR.png")
 
 ```
 
 ```{r plot-DET-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target/windowed_all_DET.png")
+knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_all_DET.png")
 
 ```
 
 ```{r plot-RR-source-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target/windowed_pos_RR.png")
+knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_pos_RR.png")
 
 ```
 
 ```{r plot-DET-source-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target/windowed_pos_DET.png")
+knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_pos_DET.png")
 
 ```
 
 ```{r plot-RR-source-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target/windowed_neg_RR.png")
+knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_neg_RR.png")
 
 ```
 
 ```{r plot-DET-source-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target/windowed_neg_DET.png")
+knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_neg_DET.png")
 
 ```
 
