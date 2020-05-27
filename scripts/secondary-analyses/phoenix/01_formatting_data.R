@@ -144,96 +144,49 @@ phoenix_formatted_target <- phoenix_df_filtered %>%
   # fill NAs with zeros
   replace(is.na(.), 0)
 
-# bind the event and social cohesion data frames
-phoenix_df_formatted <- cbind(phoenix_formatted_source_target, phoenix_formatted_target, cohesion_df)
+### prepare cohesion dataframe for merging ###
 
-# keep only what we need
-phoenix_df_formatted <- phoenix_df_formatted[c("Date", 
-                                           "all_events_source_target", 
-                                           "pos_events_source_target", 
-                                           "neg_events_source_target", 
-                                           "mode_source_target", 
-                                           "all_events_target", 
-                                           "pos_events_target", 
-                                           "neg_events_target", 
-                                           "mode_target", 
-                                           "MeanCohesion")]
+cohesion_df <- cohesion_df %>%
+  
+  # format dates
+  mutate(Date = as.Date(Date)) %>%
+  
+  # only keep variables we need
+  select(Date, MeanCohesion)
+
+### combine all dataframes ###
+
+# bind the event and social cohesion data frames
+phoenix_df_formatted <- dplyr::full_join(phoenix_formatted_source_target,
+                                         phoenix_formatted_target,
+                                         by = c("Date")) %>%
+  dplyr::full_join(., cohesion_df,
+                   by = c("Date"))
 
 #### 3. Create the sextiles for analyses ####
 
-## social cohesion ##
-
-# create the sextiles
-phoenix_df_formatted$coh_sextiles <- with(phoenix_df_formatted, cut(MeanCohesion, 
-                                                                    breaks=quantile(MeanCohesion, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                    include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$coh_sextiles) <- factor(c("1","2","3","4", "5", "6"))
-
-### source and target variable sextiles ###
-
-## count of events ##
-
-# create the sextiles
-phoenix_df_formatted$all_sextiles_source_target <- with(phoenix_df_formatted, cut(all_events_source_target, 
-                                                                    breaks=quantile(all_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                    include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$all_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
-
-## count of positive events ##
-
-# create the sextiles
-phoenix_df_formatted$pos_sextiles_source_target <- with(phoenix_df_formatted, cut(pos_events_source_target, 
-                                                                    breaks=quantile(pos_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                    include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$pos_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
-
-## count of negative events ##
-
-# create the sextiles
-phoenix_df_formatted$neg_sextiles_source_target <- with(phoenix_df_formatted, cut(neg_events_source_target, 
-                                                                    breaks=quantile(neg_events_source_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                    include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$neg_sextiles_source_target) <- factor(c("1","2","3","4", "5", "6"))
-
-### target variable sextiles ###
-
-## count of events ##
-
-# create the sextiles
-phoenix_df_formatted$all_sextiles_target <- with(phoenix_df_formatted, cut(all_events_target, 
-                                                                           breaks=quantile(all_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                           include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$all_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
-
-## count of positive events ##
-
-# create the sextiles
-phoenix_df_formatted$pos_sextiles_target <- with(phoenix_df_formatted, cut(pos_events_target, 
-                                                                           breaks=quantile(pos_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                           include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$pos_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
-
-## count of negative events ##
-
-# create the sextiles
-phoenix_df_formatted$neg_sextiles_target <- with(phoenix_df_formatted, cut(neg_events_target, 
-                                                                           breaks=quantile(neg_events_target, probs=seq(0, 1, by=1/6), na.rm=TRUE), 
-                                                                           include.lowest=TRUE))
-
-# re-label with intuitive sextile levels
-levels(phoenix_df_formatted$neg_sextiles_target) <- factor(c("1","2","3","4", "5", "6"))
+phoenix_df_formatted <- phoenix_df_formatted %>% ungroup() %>%
+  
+  # social cohesion
+  mutate(coh_sextiles = ntile(MeanCohesion, 6)) %>%
+  
+  # source and target: all events
+  mutate(all_sextiles_source_target = ntile(all_events_source_target, 6)) %>%
+  
+  # source and target: positive events
+  mutate(pos_sextiles_source_target = ntile(pos_events_source_target, 6)) %>%
+  
+  # source and target: negative events
+  mutate(neg_sextiles_source_target = ntile(neg_events_source_target, 6)) %>%
+  
+  # target only: all events
+  mutate(all_sextiles_target = ntile(all_events_target, 6)) %>%
+  
+  # target only: positive events
+  mutate(pos_sextiles_target = ntile(pos_events_target, 6)) %>%
+  
+  # target only: negative events
+  mutate(neg_sextiles_target = ntile(neg_events_target, 6))
 
 ### save to file ###
 
