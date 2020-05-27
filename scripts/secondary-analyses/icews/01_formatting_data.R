@@ -80,7 +80,7 @@ ICEWS_formatted_source_target <- ICEWS_filtered %>%
   mutate(Intensity = sort(Intensity, decreasing = TRUE)) %>%
   
   # calculate mode
-  mutate(mode_source_target = mfv1(Intensity, method = "mfv")) %>%
+  mutate(mode_source_target = statip::mfv1(Intensity, method = "mfv")) %>%
   
   # keep one unique row per day
   distinct(Event.Date,
@@ -119,7 +119,7 @@ ICEWS_formatted_target <- ICEWS_filtered %>%
   mutate(Intensity = sort(Intensity, decreasing = TRUE)) %>%
   
   # calculate mode
-  mutate(mode_target = mfv1(Intensity, method = "mfv")) %>%
+  mutate(mode_target = statip::mfv1(Intensity, method = "mfv")) %>%
   
   # keep one unique row per day
   distinct(Event.Date,
