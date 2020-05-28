@@ -59,7 +59,6 @@ source('./scripts/libraries_and_functions.r')
 
 # turn on caching
 knitr::opts_chunk$set(cache=TRUE, autodep=TRUE, cache.lazy=FALSE)
-#knitr::opts_chunk$set(fig.pos = "!H", out.extra = "")
 
 # create subdirectories
 dir.create("./data/raw") # load three data files here
