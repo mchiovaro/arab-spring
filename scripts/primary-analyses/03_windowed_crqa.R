@@ -34,19 +34,19 @@ shuffled_neg_target <- shuffled_windowed[,c(6001:7000)]
 
 # calculate windowed CRQA
 windowed_all_source_target = wincrqa(ts1 = data$coh_deciles, 
-                                       ts2 = data$all_deciles_source_target, 
-                                       windowstep = 1, 
-                                       windowsize = 14,
-                                       radius = .001,  
-                                       delay = 1,       
-                                       embed = 1, 
-                                       rescale = 0, 
-                                       normalize = 0,  
-                                       mindiagline = 2, 
-                                       minvertline = 2, 
-                                       tw = 0,
-                                       whiteline = FALSE,
-                                       trend = TRUE) 
+                                     ts2 = data$all_deciles_source_target, 
+                                     windowstep = 1, 
+                                     windowsize = 14,
+                                     radius = .001,  
+                                     delay = 1,       
+                                     embed = 1, 
+                                     rescale = 0, 
+                                     normalize = 0,  
+                                     mindiagline = 2, 
+                                     minvertline = 2, 
+                                     tw = 0,
+                                     whiteline = FALSE,
+                                     trend = TRUE) 
 
 # transform into a dataframe for easier plotting 
 wincrqa_all_df_source_target <- as.data.frame(windowed_all_source_target$crqwin)
@@ -114,19 +114,19 @@ colnames(wincrqa_neg_df_source_target) <- c("RR", "DET",
 
 # calculate windowed CRQA
 windowed_all_target = wincrqa(ts1 = data$coh_deciles, 
-                               ts2 = data$all_deciles_target, 
-                               windowstep = 1, 
-                               windowsize = 14,
-                               radius = .001,  
-                               delay = 1,       
-                               embed = 1, 
-                               rescale = 0, 
-                               normalize = 0,  
-                               mindiagline = 2, 
-                               minvertline = 2, 
-                               tw = 0,
-                               whiteline = FALSE,
-                               trend = TRUE) 
+                              ts2 = data$all_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001,  
+                              delay = 1,       
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0,  
+                              mindiagline = 2, 
+                              minvertline = 2, 
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE) 
 
 # transform into a dataframe for easier plotting 
 wincrqa_all_df_target <- as.data.frame(windowed_all_target$crqwin)
@@ -140,19 +140,19 @@ colnames(wincrqa_all_df_target) <- c("RR", "DET",
 
 # calculate windowed CRQA
 windowed_pos_target = wincrqa(ts1 = data$coh_deciles, 
-                             ts2 = data$pos_deciles_target, 
-                             windowstep = 1, 
-                             windowsize = 14,
-                             radius = .001,  
-                             delay = 1,        
-                             embed = 1, 
-                             rescale = 0, 
-                             normalize = 0, 
-                             mindiagline = 2,  
-                             minvertline = 2,  
-                             tw = 0,
-                             whiteline = FALSE,
-                             trend = TRUE)
+                              ts2 = data$pos_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001,  
+                              delay = 1,        
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0, 
+                              mindiagline = 2,  
+                              minvertline = 2,  
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE)
 
 # transform into a dataframe for easier plotting 
 wincrqa_pos_df_target <- as.data.frame(windowed_pos_target$crqwin)
@@ -166,19 +166,19 @@ colnames(wincrqa_pos_df_target) <- c("RR", "DET",
 
 # calculate windowed CRQA
 windowed_neg_target = wincrqa(ts1 = data$coh_deciles, 
-                             ts2 = data$neg_deciles_target, 
-                             windowstep = 1, 
-                             windowsize = 14,
-                             radius = .001, 
-                             delay = 1, 
-                             embed = 1, 
-                             rescale = 0, 
-                             normalize = 0, 
-                             mindiagline = 2, 
-                             minvertline = 2, 
-                             tw = 0,
-                             whiteline = FALSE,
-                             trend = TRUE) 
+                              ts2 = data$neg_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001, 
+                              delay = 1, 
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0, 
+                              mindiagline = 2, 
+                              minvertline = 2, 
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE) 
 
 # transform into a dataframe for easier plotting 
 wincrqa_neg_df_target <- as.data.frame(windowed_neg_target$crqwin)
@@ -508,160 +508,262 @@ names(significance_neg_target) <- c("RR", "DET",
 
 #### 4. Plot the results across windows ####
 
+# set universal plotting parameters
+plot_rr_ymin = 0
+plot_rr_ymax = 25
+plot_det_ymin = 0
+plot_det_ymax = 60
+
 ### source and target filtered data ###
 
 ## count of all events and social cohesion ##
 
 # RR plot #
 
-# plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_all_RR.png", 
-    width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_all_df_source_target$RR,
-     xlab='Window',ylab='RR',type='b', ylim = c(4, 24),
-     main = "Windowed CRQA for Social\nCohesion and Event Count")
-
-# add trend line
+# identify trend line
 fit <- lm(RR ~ window, data = wincrqa_all_df_source_target)
-summary(fit)
-abline(fit, col="blue")
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
 
-# add upper and lower 95th and 99th percentile lines 
-abline(h = significance_all_source_target[1,1], col="orange")
-abline(h = significance_all_source_target[2,1], col="red")
-abline(h = significance_all_source_target[3,1], col="red")
-abline(h = significance_all_source_target[4,1], col="orange")
-
-# finish image processing
-dev.off()
+# construct and save the plot
+plot_source_target_windowed_all_RR = ggplot(data = wincrqa_all_df_source_target,
+                                            aes(y = RR,
+                                                x = window)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_all_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: All event count') +
+  ylab("RR") +
+  xlab("")
 
 # DET plot #
 
 # fill in NA determinism values with 0
 wincrqa_all_df_source_target$DET[is.na(wincrqa_all_df_source_target$DET)] <- 0
 
-# plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_all_DET.png", 
-    width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_all_df_source_target$DET,
-     xlab='Window',ylab='DET',type='b', ylim = c(0, 53), 
-     main = "Windowed CRQA for Social\nCohesion and Event Count")
-
-# add trend line
+# identify trend line
 fit <- lm(DET ~ window, data = wincrqa_all_df_source_target)
-summary(fit)
-abline(fit, col="blue")
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
 
-# add upper and lower 95th and 99th percentile lines 
-abline(h = significance_all_source_target[1,2], col="orange")
-abline(h = significance_all_source_target[2,2], col="red")
-abline(h = significance_all_source_target[3,2], col="red")
-abline(h = significance_all_source_target[4,2], col="orange")
-
-# finish image processing
-dev.off()
+# construct the plot
+plot_source_target_windowed_all_DET = ggplot(data = wincrqa_all_df_source_target,
+                                             aes(y = DET,
+                                                 x = window)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_all_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: All event count') +
+  ylab("DET") +
+  xlab("Window")
 
 ## count of positive events and social cohesion ##
 
 # RR plot #
 
-# plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_pos_RR.png", 
-    width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_pos_df_source_target$RR,
-     xlab='Window',ylab='RR',type='b', ylim = c(6, 23),
-     main = "Windowed CRQA for Social\nCohesion and Positive Event Count")
-
-# add trend line
+# identify trend line
 fit <- lm(RR ~ window, data = wincrqa_pos_df_source_target)
-summary(fit)
-abline(fit, col="blue")
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
 
-# add upper and lower 95th and 99th percentile lines 
-abline(h = significance_pos_source_target[1,1], col="orange")
-abline(h = significance_pos_source_target[2,1], col="red")
-abline(h = significance_pos_source_target[3,1], col="red")
-abline(h = significance_pos_source_target[4,1], col="orange")
-
-# finish image processing
-dev.off()
+# construct the plot
+plot_source_target_windowed_pos_RR = ggplot(data = wincrqa_pos_df_source_target,
+                                            aes(y = RR,
+                                                x = window)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_pos_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Positive event count') +
+  ylab("") +
+  xlab("")
 
 # DET plot #
 
 # fill in NA determinism values with 0
 wincrqa_pos_df_source_target$DET[is.na(wincrqa_pos_df_source_target$DET)] <- 0
 
-# plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_pos_DET.png", 
-    width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_pos_df_source_target$DET,
-     xlab='Window',ylab='DET',type='b', ylim = c(0, 47), 
-     main = "Windowed CRQA for Social\nCohesion and Positive Event Count")
-
-# add trend line
+# identify trend line
 fit <- lm(DET ~ window, data = wincrqa_pos_df_source_target)
-summary(fit)
-abline(fit, col="blue")
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
 
-# add upper and lower 95th and 99th percentile lines 
-abline(h = significance_pos_source_target[1,2], col="orange")
-abline(h = significance_pos_source_target[2,2], col="red")
-abline(h = significance_pos_source_target[3,2], col="red")
-abline(h = significance_pos_source_target[4,2], col="orange")
-
-# finish image processing
-dev.off()
+# construct the plot
+plot_source_target_windowed_pos_DET = ggplot(data = wincrqa_pos_df_source_target,
+                                             aes(y = DET,
+                                                 x = window)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_pos_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Positive event count') +
+  ylab("") +
+  xlab("Window")
 
 ## count of negative events and social cohesion ##
 
 # RR plot #
 
-# plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_neg_RR.png", 
-    width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_neg_df_source_target$RR,
-     xlab='Window',ylab='RR',type='b', ylim = c(4, 22),
-     main = "Windowed CRQA for Social\nCohesion and Negative Event Count")
-
-# add trend line
+# identify trend line
 fit <- lm(RR ~ window, data = wincrqa_neg_df_source_target)
-summary(fit)
-abline(fit, col="blue")
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
 
-# add upper and lower 95th and 99th percentile lines 
-abline(h = significance_neg_source_target[1,1], col="orange")
-abline(h = significance_neg_source_target[2,1], col="red")
-abline(h = significance_neg_source_target[3,1], col="red")
-abline(h = significance_neg_source_target[4,1], col="orange")
-
-# finish image processing
-dev.off()
+# construct the plot
+plot_source_target_windowed_neg_RR = ggplot(data = wincrqa_neg_df_source_target,
+                                            aes(y = RR,
+                                                x = window)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_neg_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Negative event count') +
+  ylab("") +
+  xlab("")
 
 # DET plot #
 
 # fill in NA determinism values with 0
 wincrqa_neg_df_source_target$DET[is.na(wincrqa_neg_df_source_target$DET)] <- 0
 
-# plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_neg_DET.png", 
-    width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_neg_df_source_target$DET,
-     xlab='Window',ylab='DET',type='b', ylim = c(0, 55), 
-     main = "Windowed CRQA for Social\nCohesion and Negative Event Count")
-
-# add trend line
+# identify trend line
 fit <- lm(DET ~ window, data = wincrqa_neg_df_source_target)
-summary(fit)
-abline(fit, col="blue")
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
 
-# add upper and lower 95th and 99th percentile lines 
-abline(h = significance_neg_source_target[1,2], col="orange")
-abline(h = significance_neg_source_target[2,2], col="red")
-abline(h = significance_neg_source_target[3,2], col="red")
-abline(h = significance_neg_source_target[4,2], col="orange")
+# construct the plot
+plot_source_target_windowed_neg_DET = ggplot(data = wincrqa_neg_df_source_target,
+                                             aes(y = DET,
+                                                 x = window)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_neg_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Negative event count') +
+  ylab("") +
+  xlab("Window")
 
-# finish image processing
-dev.off()
+### join source-target plots ###
+
+plot_source_target_windowed_all = gridExtra::grid.arrange(
+  top = textGrob(paste("Windowed cross-recurrence",
+                       "quantification analysis",
+                       "with event count data",
+                       sep = " "),
+                 gp=gpar(fontsize=15)), 
+  plot_source_target_windowed_all_RR,
+  plot_source_target_windowed_pos_RR,
+  plot_source_target_windowed_neg_RR,
+  plot_source_target_windowed_all_DET,
+  plot_source_target_windowed_pos_DET,
+  plot_source_target_windowed_neg_DET,
+  ncol = 3
+)
+
+# save them
+ggsave(filename = "./results/primary/windowed-crqa/source_target-windowed_all.png",
+       plot = plot_source_target_windowed_all,
+       dpi = 300,
+       height = 4,
+       width = 9)
 
 ### target filtered data ###
 
