@@ -208,6 +208,9 @@ dev.off()
 
 #### 3. Conduct permutation tests ####
 
+# set seed for reproducibility
+set.seed(123)
+
 ### source and target filtered data ###
 
 ## count of all events and social cohesion ##

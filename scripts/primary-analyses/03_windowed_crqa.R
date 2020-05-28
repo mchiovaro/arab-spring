@@ -166,6 +166,9 @@ colnames(wincrqa_neg_df_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR",
 
 #### 3. Conduct permutation tests ####
 
+# set seed for reproducibility
+set.seed(123)
+
 ### source and target filtered data ###
 
 ## count of all events and social cohesion ##
