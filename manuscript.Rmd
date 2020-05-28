@@ -112,7 +112,9 @@ cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
 
 ```
 
-The corpus of tweets used included `r sum(cohesion_df$n)` Syrian tweets occurring between March 30, 2012 and June 15, 2012. The tweet corpus was scraped from Twitter by [insert search parameters here].
+The corpus of tweets used included `r sum(cohesion_df$n)` Syrian tweets occurring between March 30, 2012 and June 15, 2012. Using the Twitter streaming API, servers at the University of Texas at Austin collected the tweets. The servers were run on a stable (LTS) version of Ubuntu Linus, 10.04, and were connected directly to the high-bandwidth UT network maintained by IT services.
+Tweets collected contained one or more of the following keywords: “syria,” “syrian,” “damascus,” “homs,” “al-assad,” and “sunni.” These keywords were chosen based on the most distinctive terms used in news articles covering the Arab Spring in Syria at the time. A node.js script was used to reinitialize the connection to Twitter's servers whenever the script timed out due to a period of silence. The script requested data from the API endpoint using basic HTTP authentication (OAuth was optional, at the time) at https://stream.twitter.com/1.1/statuses/filter.json, and stored the data directly to the local hard disk. The tweets were then post-processed with a Python script to convert the JSON-formatted tweets to tab-separated files and were then compressed to maximize storage efficiency.
+All scripts used for scrapping tweets and compressing data can be found at https://github.com/chbrown/twilight.
 
 ### Event Data
 Event data were obtained from the 2012 Integrated Crisis Early Warning System [ICEWS; @DVN/28075_2015]. The event data were first filtered to remove incomplete and incorrectly formatted data. They were then filtered to include only events that were directed (i.e., target) at Syria (n = 6300). To explore the impact of outwardly directed Syrian events, the data were filtered again to include events that were both directed at (i.e., target) or directed by (i.e., source) Syria (n = 7990).
