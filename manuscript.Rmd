@@ -105,7 +105,15 @@ Social media has become a primary platform for social movements and activism acr
 # Method
 ## Materials
 ### Tweet Corpus
-The corpus of tweets used included 8,084,644 Syrian tweets occurring between March 1, 2012 and June 15, 2012. A server malfunction during data collection resulted in missing data from March 12, 2012 to March 29, 2012. For the current analyses, the data were truncated to remove missing data, making the final dataset from March 30, 2012 to June 15, 2012 (n = 78). The tweet corpus was scraped from Twitter by [insert search parameters here].
+
+```{r tweet-count, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# read in social cohesion data
+cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
+
+```
+
+The corpus of tweets used included `r sum(cohesion_df$n)` Syrian tweets occurring between March 30, 2012 and June 15, 2012. The tweet corpus was scraped from Twitter by [insert search parameters here].
 
 ### Event Data
 Event data were obtained from the 2012 Integrated Crisis Early Warning System [ICEWS; @DVN/28075_2015]. The event data were first filtered to remove incomplete and incorrectly formatted data. They were then filtered to include only events that were directed (i.e., target) at Syria (n = 6300). To explore the impact of outwardly directed Syrian events, the data were filtered again to include events that were both directed at (i.e., target) or directed by (i.e., source) Syria (n = 7990).
