@@ -3,13 +3,6 @@
 # clear the workspace
 rm(list=ls())
 
-# install and load required packages
-source('./scripts/required_packages.r')
-source('./scripts/libraries_and_functions.r')
-
-# turn on caching
-knitr::opts_chunk$set(cache=TRUE, autodep=TRUE, cache.lazy=FALSE)
-
 # restrict floating
 knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
 
