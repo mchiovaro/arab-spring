@@ -4,9 +4,9 @@
 # analysis the real-world events and Twitter social cohesion 
 # of Arab Spring.
 #
-# Code by: M. Chiovaro (@mchiovaro)
+# Code by: M. Chiovaro (@mchiovaro) and A. Paxton (@a-paxton)
 # University of Connecticut
-# Last updated: 2020_05_21 
+# Last updated: 2020_05_28
 
 #### 1. Set up ####
 
@@ -26,13 +26,13 @@ shuffled_all_target <- shuffled_windowed[,c(4001:5000)]
 shuffled_pos_target <- shuffled_windowed[,c(5001:6000)]
 shuffled_neg_target <- shuffled_windowed[,c(6001:7000)]
 
-#### 2. Run Windowed CRQA ####
+#### 2. Run windowed CRQA ####
 
 ### source and target filtered data ###
 
 ## count of all events and social cohesion ##
 
-# calculate windowed rqa
+# calculate windowed CRQA
 windowed_all_source_target = wincrqa(ts1 = data$coh_deciles, 
                                        ts2 = data$all_deciles_source_target, 
                                        windowstep = 1, 
@@ -48,13 +48,17 @@ windowed_all_source_target = wincrqa(ts1 = data$coh_deciles,
                                        whiteline = FALSE,
                                        trend = TRUE) 
 
-# tranform into a dataframe for easier plotting 
+# transform into a dataframe for easier plotting 
 wincrqa_all_df_source_target <- as.data.frame(windowed_all_source_target$crqwin)
-colnames(wincrqa_all_df_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT", "window")
+colnames(wincrqa_all_df_source_target) <- c("RR", "DET", 
+                                            "NRLINE", "maxL", "L", 
+                                            "ENTR", "rENTR", 
+                                            "LAM", "TT", 
+                                            "window")
 
 ## count of positive events and social cohesion ##
 
-# calculate windowed rqa
+# calculate windowed CRQA
 windowed_pos_source_target = wincrqa(ts1 = data$coh_deciles, 
                                      ts2 = data$pos_deciles_source_target, 
                                      windowstep = 1, 
@@ -70,13 +74,17 @@ windowed_pos_source_target = wincrqa(ts1 = data$coh_deciles,
                                      whiteline = FALSE,
                                      trend = TRUE)
 
-# tranform into a dataframe for easier plotting 
+# transform into a dataframe for easier plotting 
 wincrqa_pos_df_source_target <- as.data.frame(windowed_pos_source_target$crqwin)
-colnames(wincrqa_pos_df_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT", "window")
+colnames(wincrqa_pos_df_source_target) <- c("RR", "DET", 
+                                            "NRLINE", "maxL", "L", 
+                                            "ENTR", "rENTR", 
+                                            "LAM", "TT", 
+                                            "window")
 
 ## count of negative events and social cohesion ##
 
-# calculate windowed rqa
+# calculate windowed CRQA
 windowed_neg_source_target = wincrqa(ts1 = data$coh_deciles, 
                                      ts2 = data$neg_deciles_source_target, 
                                      windowstep = 1, 
@@ -92,15 +100,19 @@ windowed_neg_source_target = wincrqa(ts1 = data$coh_deciles,
                                      whiteline = FALSE,
                                      trend = TRUE) 
 
-# tranform into a dataframe for easier plotting 
+# transform into a dataframe for easier plotting 
 wincrqa_neg_df_source_target <- as.data.frame(windowed_neg_source_target$crqwin)
-colnames(wincrqa_neg_df_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT", "window")
+colnames(wincrqa_neg_df_source_target) <- c("RR", "DET", 
+                                            "NRLINE", "maxL", "L", 
+                                            "ENTR", "rENTR", 
+                                            "LAM", "TT", 
+                                            "window")
 
 ### target filtered data ###
 
 ## count of all events and social cohesion ##
 
-# calculate windowed rqa
+# calculate windowed CRQA
 windowed_all_target = wincrqa(ts1 = data$coh_deciles, 
                                ts2 = data$all_deciles_target, 
                                windowstep = 1, 
@@ -116,13 +128,17 @@ windowed_all_target = wincrqa(ts1 = data$coh_deciles,
                                whiteline = FALSE,
                                trend = TRUE) 
 
-# tranform into a dataframe for easier plotting 
+# transform into a dataframe for easier plotting 
 wincrqa_all_df_target <- as.data.frame(windowed_all_target$crqwin)
-colnames(wincrqa_all_df_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT", "window")
+colnames(wincrqa_all_df_target) <- c("RR", "DET", 
+                                     "NRLINE", "maxL", "L", 
+                                     "ENTR", "rENTR", 
+                                     "LAM", "TT", 
+                                     "window")
 
 ## count of positive events and social cohesion ##
 
-# calculate windowed rqa
+# calculate windowed CRQA
 windowed_pos_target = wincrqa(ts1 = data$coh_deciles, 
                              ts2 = data$pos_deciles_target, 
                              windowstep = 1, 
@@ -138,13 +154,17 @@ windowed_pos_target = wincrqa(ts1 = data$coh_deciles,
                              whiteline = FALSE,
                              trend = TRUE)
 
-# tranform into a dataframe for easier plotting 
+# transform into a dataframe for easier plotting 
 wincrqa_pos_df_target <- as.data.frame(windowed_pos_target$crqwin)
-colnames(wincrqa_pos_df_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT", "window")
+colnames(wincrqa_pos_df_target) <- c("RR", "DET", 
+                                     "NRLINE", "maxL", "L", 
+                                     "ENTR", "rENTR", 
+                                     "LAM", "TT", 
+                                     "window")
 
 ## count of negative events and social cohesion ##
 
-# calculate windowed rqa
+# calculate windowed CRQA
 windowed_neg_target = wincrqa(ts1 = data$coh_deciles, 
                              ts2 = data$neg_deciles_target, 
                              windowstep = 1, 
@@ -160,11 +180,18 @@ windowed_neg_target = wincrqa(ts1 = data$coh_deciles,
                              whiteline = FALSE,
                              trend = TRUE) 
 
-# tranform into a dataframe for easier plotting 
+# transform into a dataframe for easier plotting 
 wincrqa_neg_df_target <- as.data.frame(windowed_neg_target$crqwin)
-colnames(wincrqa_neg_df_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT", "window")
+colnames(wincrqa_neg_df_target) <- c("RR", "DET", 
+                                     "NRLINE", "maxL", "L", 
+                                     "ENTR", "rENTR", 
+                                     "LAM", "TT", 
+                                     "window")
 
 #### 3. Conduct permutation tests ####
+
+# set seed for reproducibility
+set.seed(123)
 
 ### source and target filtered data ###
 
@@ -191,7 +218,8 @@ for (i in 1:1000) {
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
   
   # bind to dataframe
-  rqa_shuffled_all_source_target <- rbind(rqa_shuffled_all_source_target, rqa_results)
+  rqa_shuffled_all_source_target <- rbind(rqa_shuffled_all_source_target, 
+                                          rqa_results)
   
 }
 
@@ -205,14 +233,19 @@ significance_all_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 for (i in 1:9){
   
   # calculate proportion of time shuffled metric is greater than actual metric
-  temp <- data.frame(quantile(rqa_shuffled_all_source_target[,c(i)], c(.01, .05, .95, .99), na.rm = TRUE))
+  temp <- data.frame(quantile(rqa_shuffled_all_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
   
   # bind to data frame
   significance_all_source_target <- cbind(significance_all_source_target, temp)
 }
 
 # rename variables
-names(significance_all_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
+names(significance_all_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
 
 ## count of positive events and social cohesion ##
 
@@ -237,7 +270,8 @@ for (i in 1:1000) {
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
   
   # bind to dataframe
-  rqa_shuffled_pos_source_target <- rbind(rqa_shuffled_pos_source_target, rqa_results)
+  rqa_shuffled_pos_source_target <- rbind(rqa_shuffled_pos_source_target, 
+                                          rqa_results)
   
 }
 
@@ -251,14 +285,19 @@ significance_pos_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 for (i in 1:9){
   
   # calculate proportion of time shuffled metric is greater than actual metric
-  temp <- data.frame(quantile(rqa_shuffled_pos_source_target[,c(i)], c(.01, .05, .95, .99), na.rm = TRUE))
+  temp <- data.frame(quantile(rqa_shuffled_pos_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
   
   # bind to data frame
   significance_pos_source_target <- cbind(significance_pos_source_target, temp)
 }
 
 # rename variables
-names(significance_pos_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
+names(significance_pos_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
 
 ## count of negative events and social cohesion ##
 
@@ -283,7 +322,8 @@ for (i in 1:1000) {
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
   
   # bind to dataframe
-  rqa_shuffled_neg_source_target <- rbind(rqa_shuffled_neg_source_target, rqa_results)
+  rqa_shuffled_neg_source_target <- rbind(rqa_shuffled_neg_source_target, 
+                                          rqa_results)
   
 }
 
@@ -297,14 +337,19 @@ significance_neg_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 for (i in 1:9){
   
   # calculate proportion of time shuffled metric is greater than actual metric
-  temp <- data.frame(quantile(rqa_shuffled_neg_source_target[,c(i)], c(.01, .05, .95, .99), na.rm = TRUE))
+  temp <- data.frame(quantile(rqa_shuffled_neg_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
   
   # bind to data frame
   significance_neg_source_target <- cbind(significance_neg_source_target, temp)
 }
 
 # rename variables
-names(significance_neg_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
+names(significance_neg_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
 
 ### target filtered data ###
 
@@ -345,14 +390,19 @@ significance_all_target <- data.frame(matrix(, nrow=1, ncol=0))
 for (i in 1:9){
   
   # calculate proportion of time shuffled metric is greater than actual metric
-  temp <- data.frame(quantile(rqa_shuffled_all_target[,c(i)], c(.01, .05, .95, .99), na.rm = TRUE))
+  temp <- data.frame(quantile(rqa_shuffled_all_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
   
   # bind to data frame
   significance_all_target <- cbind(significance_all_target, temp)
 }
 
 # rename variables
-names(significance_all_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
+names(significance_all_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
 
 ## count of positive events and social cohesion ##
 
@@ -391,14 +441,19 @@ significance_pos_target <- data.frame(matrix(, nrow=1, ncol=0))
 for (i in 1:9){
   
   # calculate proportion of time shuffled metric is greater than actual metric
-  temp <- data.frame(quantile(rqa_shuffled_pos_target[,c(i)], c(.01, .05, .95, .99), na.rm = TRUE))
+  temp <- data.frame(quantile(rqa_shuffled_pos_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
   
   # bind to data frame
   significance_pos_target <- cbind(significance_pos_target, temp)
 }
 
 # rename variables
-names(significance_pos_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
+names(significance_pos_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
 
 ## count of negative events and social cohesion ##
 
@@ -437,14 +492,19 @@ significance_neg_target <- data.frame(matrix(, nrow=1, ncol=0))
 for (i in 1:9){
   
   # calculate proportion of time shuffled metric is greater than actual metric
-  temp <- data.frame(quantile(rqa_shuffled_neg_target[,c(i)], c(.01, .05, .95, .99), na.rm = TRUE))
+  temp <- data.frame(quantile(rqa_shuffled_neg_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
   
   # bind to data frame
   significance_neg_target <- cbind(significance_neg_target, temp)
 }
 
 # rename variables
-names(significance_neg_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", "rENTR", "LAM", "TT")
+names(significance_neg_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
 
 #### 4. Plot the results across windows ####
 
@@ -455,8 +515,10 @@ names(significance_neg_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", 
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_all_RR.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_all_df_source_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(4, 24),
+png("./results/primary/windowed-crqa/source_target-windowed_all_RR.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_all_df_source_target$RR,
+     xlab='Window',ylab='RR',type='b', ylim = c(4, 24),
      main = "Windowed CRQA for Social\nCohesion and Event Count")
 
 # add trend line
@@ -479,8 +541,10 @@ dev.off()
 wincrqa_all_df_source_target$DET[is.na(wincrqa_all_df_source_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_all_DET.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_all_df_source_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(0, 53), 
+png("./results/primary/windowed-crqa/source_target-windowed_all_DET.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_all_df_source_target$DET,
+     xlab='Window',ylab='DET',type='b', ylim = c(0, 53), 
      main = "Windowed CRQA for Social\nCohesion and Event Count")
 
 # add trend line
@@ -502,8 +566,10 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_pos_RR.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_pos_df_source_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(6, 23),
+png("./results/primary/windowed-crqa/source_target-windowed_pos_RR.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_pos_df_source_target$RR,
+     xlab='Window',ylab='RR',type='b', ylim = c(6, 23),
      main = "Windowed CRQA for Social\nCohesion and Positive Event Count")
 
 # add trend line
@@ -526,8 +592,10 @@ dev.off()
 wincrqa_pos_df_source_target$DET[is.na(wincrqa_pos_df_source_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_pos_DET.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_pos_df_source_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(0, 47), 
+png("./results/primary/windowed-crqa/source_target-windowed_pos_DET.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_pos_df_source_target$DET,
+     xlab='Window',ylab='DET',type='b', ylim = c(0, 47), 
      main = "Windowed CRQA for Social\nCohesion and Positive Event Count")
 
 # add trend line
@@ -549,8 +617,10 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_neg_RR.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_neg_df_source_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(4, 22),
+png("./results/primary/windowed-crqa/source_target-windowed_neg_RR.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_neg_df_source_target$RR,
+     xlab='Window',ylab='RR',type='b', ylim = c(4, 22),
      main = "Windowed CRQA for Social\nCohesion and Negative Event Count")
 
 # add trend line
@@ -573,8 +643,10 @@ dev.off()
 wincrqa_neg_df_source_target$DET[is.na(wincrqa_neg_df_source_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/source_target-windowed_neg_DET.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_neg_df_source_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(0, 55), 
+png("./results/primary/windowed-crqa/source_target-windowed_neg_DET.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_neg_df_source_target$DET,
+     xlab='Window',ylab='DET',type='b', ylim = c(0, 55), 
      main = "Windowed CRQA for Social\nCohesion and Negative Event Count")
 
 # add trend line
@@ -596,8 +668,10 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/target-windowed_all_RR.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_all_df_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(4, 24),
+png("./results/primary/windowed-crqa/target-windowed_all_RR.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_all_df_target$RR,
+     xlab='Window',ylab='RR',type='b', ylim = c(4, 24),
      main = "Windowed CRQA for Social\nCohesion and Event Count")
 
 # add trend line
@@ -620,8 +694,10 @@ dev.off()
 wincrqa_all_df_target$DET[is.na(wincrqa_all_df_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/target-windowed_all_DET.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_all_df_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(0, 53), 
+png("./results/primary/windowed-crqa/target-windowed_all_DET.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_all_df_target$DET,
+     xlab='Window',ylab='DET',type='b', ylim = c(0, 53), 
      main = "Windowed CRQA for Social\nCohesion and Event Count")
 
 # add trend line
@@ -643,8 +719,10 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/target-windowed_pos_RR.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_pos_df_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(6, 23),
+png("./results/primary/windowed-crqa/target-windowed_pos_RR.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_pos_df_target$RR,xlab='Window',
+     ylab='RR',type='b', ylim = c(6, 23),
      main = "Windowed CRQA for Social\nCohesion and Positive Event Count")
 
 # add trend line
@@ -667,8 +745,10 @@ dev.off()
 wincrqa_pos_df_target$DET[is.na(wincrqa_pos_df_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/target-windowed_pos_DET.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_pos_df_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(0, 40), 
+png("./results/primary/windowed-crqa/target-windowed_pos_DET.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_pos_df_target$DET,
+     xlab='Window',ylab='DET',type='b', ylim = c(0, 40), 
      main = "Windowed CRQA for Social\nCohesion and Positive Event Count")
 
 # add trend line
@@ -690,8 +770,10 @@ dev.off()
 # RR plot #
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/target-windowed_neg_RR.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_neg_df_target$RR,xlab='Window',ylab='RR',type='b', ylim = c(4, 20),
+png("./results/primary/windowed-crqa/target-windowed_neg_RR.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_neg_df_target$RR,
+     xlab='Window',ylab='RR',type='b', ylim = c(4, 20),
      main = "Windowed CRQA for Social\nCohesion and Negative Event Count")
 
 # add trend line
@@ -714,8 +796,10 @@ dev.off()
 wincrqa_neg_df_target$DET[is.na(wincrqa_neg_df_target$DET)] <- 0
 
 # plot the windows and RRs 
-png("./results/primary/windowed-crqa/target-windowed_neg_DET.png", width = 4, height = 4, units = 'in', res = 300)
-plot(wincrqa_neg_df_target$DET,xlab='Window',ylab='DET',type='b', ylim = c(0, 50), 
+png("./results/primary/windowed-crqa/target-windowed_neg_DET.png", 
+    width = 4, height = 4, units = 'in', res = 300)
+plot(wincrqa_neg_df_target$DET,
+     xlab='Window',ylab='DET',type='b', ylim = c(0, 50), 
      main = "Windowed CRQA for Social\nCohesion and Negative Event Count")
 
 # add trend line
