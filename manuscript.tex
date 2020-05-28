@@ -363,27 +363,7 @@ WCRQA was performed using the crqa package (Coco \& Dale, 2018) for R (R Core Te
 \subsubsection{Syria as Target}\label{syria-as-target-1}}
 
 \begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/target-windowed_all_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.}\label{fig:plot-RR-targ-all}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/target-windowed_all_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.}\label{fig:plot-DET-targ-all}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/target-windowed_pos_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.}\label{fig:plot-RR-targ-pos}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/target-windowed_pos_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.}\label{fig:plot-DET-targ-pos}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/target-windowed_neg_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.}\label{fig:plot-RR-targ-neg}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/target-windowed_neg_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.}\label{fig:plot-DET-targ-neg}
+\includegraphics[width=9in,angle=90]{./results/primary/windowed-crqa/target-windowed_all} \caption{Windowed CRQA for social cohesion and event counts from target filtered data.}\label{fig:plot-wcrqa-targ-all}
 \end{figure}
 
 \begin{figure}
@@ -396,27 +376,7 @@ For social cohesion and count of all events, there is a consistent period of abo
 \subsubsection{Syria as Source and Target}\label{syria-as-source-and-target-1}}
 
 \begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target-windowed_all_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-RR-source-targ-all}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target-windowed_all_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-DET-source-targ-all}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target-windowed_pos_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-RR-source-targ-pos}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target-windowed_pos_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-DET-source-targ-pos}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target-windowed_neg_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-RR-source-targ-neg}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=4in]{./results/primary/windowed-crqa/source_target-windowed_neg_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-DET-source-targ-neg}
+\includegraphics[width=9in,angle=90]{./results/primary/windowed-crqa/source_target-windowed_all} \caption{Windowed CRQA for social cohesion and event counts from source and target filtered data.}\label{fig:plot-wcrqa-source-targ-all}
 \end{figure}
 
 For social cohesion and count of all events, there is a consistent period of above or nearly above chance determinism from the 26th through 46th window (Figure 16). Determinism also shows above or nearly above chance values in window spans 11-16 and 35-37 (Figure 17). For social cohesion and count of positive events, there is a downward trend in RR as the window moves (Figure 18) and determinism stays largely within chance with the exception of windows 13-19. For social cohesion and negative events, there appears to be an extended time period where RR (Figure 11) and DET (Figure 12) were greater than chance, from the 35th through 46th windows. These windows span from May 3rd, 2012 to May 14th, 2012.
@@ -539,6 +499,11 @@ Zbilut, J. P., Giuliani, A., \& Webber Jr, C. L. (1998). Detecting deterministic
 Zbilut, J. P., \& Webber Jr, C. L. (1992). Embeddings and delays as derived from quantification of recurrence plots. \emph{Physics Letters A}, \emph{171}(3-4), 199--203.
 
 \endgroup
+
+\begin{verbatim}
+## Warning in readLines(x, encoding = "UTF-8"): incomplete final line found on
+## 'appendix.Rmd'
+\end{verbatim}
 
 \clearpage
 \makeatletter
@@ -697,40 +662,11 @@ only as valuable as the quality of the data being used.
 sextiles}\label{windowed-crqa-for-phoenix-data-in-sextiles}}
 
 \begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/target-windowed_all_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.}\label{fig:plot-RR-targ-all-secondary-Phoenix}
+\includegraphics[width=0.9\linewidth,angle=90]{./results/secondary/phoenix/windowed-crqa/target-windowed_all} \caption{Windowed CRQA for social cohesion and event counts from target filtered data.}\label{fig:plot-secondary-phoenix-wcrqa-targ-all}
 \end{figure}
+
 \begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/target-windowed_all_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.}\label{fig:plot-DET-targ-all-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/target-windowed_pos_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.}\label{fig:plot-RR-targ-pos-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/target-windowed_pos_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.}\label{fig:plot-DET-targ-pos-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/target-windowed_neg_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.}\label{fig:plot-RR-targ-neg-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/target-windowed_neg_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.}\label{fig:plot-DET-targ-neg-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/source_target-windowed_all_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-RR-source-targ-all-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/source_target-windowed_all_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-DET-source-targ-all-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/source_target-windowed_pos_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-RR-source-targ-pos-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/source_target-windowed_pos_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-DET-source-targ-pos-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/source_target-windowed_neg_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-RR-source-targ-neg-secondary-Phoenix}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/Phoenix/windowed-crqa/source_target-windowed_neg_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-DET-source-targ-neg-secondary-Phoenix}
+\includegraphics[width=0.9\linewidth,angle=90]{./results/secondary/phoenix/windowed-crqa/source_target-windowed_all} \caption{Windowed CRQA for social cohesion and event counts from target filtered data.}\label{fig:plot-secondary-phoenix-wcrqa-source-targ-all}
 \end{figure}
 
 \hypertarget{windowed-crqa-for-icews-data-in-sextiles}{%
@@ -738,40 +674,11 @@ sextiles}\label{windowed-crqa-for-phoenix-data-in-sextiles}}
 sextiles}\label{windowed-crqa-for-icews-data-in-sextiles}}
 
 \begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/target-windowed_all_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.}\label{fig:plot-RR-targ-all-secondary-icews}
+\includegraphics[width=0.9\linewidth,angle=90]{./results/secondary/icews/windowed-crqa/target-windowed_all} \caption{Windowed CRQA for social cohesion and event counts from target filtered data.}\label{fig:plot-secondary-icews-wcrqa-targ-all}
 \end{figure}
+
 \begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/target-windowed_all_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.}\label{fig:plot-DET-targ-all-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/target-windowed_pos_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.}\label{fig:plot-RR-targ-pos-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/target-windowed_pos_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.}\label{fig:plot-DET-targ-pos-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/target-windowed_neg_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.}\label{fig:plot-RR-targ-neg-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/target-windowed_neg_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.}\label{fig:plot-DET-targ-neg-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/source_target-windowed_all_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-RR-source-targ-all-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/source_target-windowed_all_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.}\label{fig:plot-DET-source-targ-all-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/source_target-windowed_pos_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-RR-source-targ-pos-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/source_target-windowed_pos_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.}\label{fig:plot-DET-source-targ-pos-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/source_target-windowed_neg_RR} \caption{Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-RR-source-targ-neg-secondary-icews}
-\end{figure}
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{./results/secondary/icews/windowed-crqa/source_target-windowed_neg_DET} \caption{Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.}\label{fig:plot-DET-source-targ-neg-secondary-icews}
+\includegraphics[width=0.9\linewidth,angle=90]{./results/secondary/icews/windowed-crqa/source_target-windowed_all} \caption{Windowed CRQA for social cohesion and event counts from target filtered data.}\label{fig:plot-secondary-icews-wcrqa-source-targ-all}
 \end{figure}
 \end{appendix}
 

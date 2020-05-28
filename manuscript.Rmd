@@ -385,45 +385,10 @@ WCRQA was performed using the crqa package [@R-crqa] for R [@R-base]. Permutatio
 
 ### Syria as Target
 
-```{r plot-RR-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from target filtered data.'}
+```{r plot-wcrqa-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA for social cohesion and event counts from target filtered data.', out.extra='angle=90'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all_RR.png")
-
-```
-
-```{r plot-DET-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all_DET.png")
-
-```
-
-```{r plot-RR-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_pos_RR.png")
-
-```
-
-```{r plot-DET-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_pos_DET.png")
-
-```
-
-```{r plot-RR-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_neg_RR.png")
-
-```
-
-```{r plot-DET-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_neg_DET.png")
+knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all.png")
 
 ```
 
@@ -445,45 +410,10 @@ For social cohesion and count of all events, there is a consistent period of abo
 
 ### Syria as Source and Target
 
-```{r plot-RR-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of all events from source and target filtered data.'}
+```{r plot-wcrqa-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA for social cohesion and event counts from source and target filtered data.', out.extra='angle=90'}
 
 # call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_all_RR.png")
-
-```
-
-```{r plot-DET-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of all events from source and target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_all_DET.png")
-
-```
-
-```{r plot-RR-source-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of positive events from source and target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_pos_RR.png")
-
-```
-
-```{r plot-DET-source-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of positive events from source and target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_pos_DET.png")
-
-```
-
-```{r plot-RR-source-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of RR for social cohesion and count of negative events from source and target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_neg_RR.png")
-
-```
-
-```{r plot-DET-source-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA visualization of DET for social cohesion and count of negative events from source and target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_neg_DET.png")
+knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_all.png")
 
 ```
 
@@ -523,4 +453,3 @@ Considering the invasiveness of social media in our everyday lives, it is inevit
 
 <div id="refs" custom-style="Bibliography"></div>
 \endgroup
-
