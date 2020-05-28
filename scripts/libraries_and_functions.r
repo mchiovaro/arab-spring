@@ -15,7 +15,8 @@ required_packages = c(
   'pander',
   'gtools',
   'knitr',
-  'statip'
+  'statip',
+  'gridExtra'
 )
 
 # load required packages
