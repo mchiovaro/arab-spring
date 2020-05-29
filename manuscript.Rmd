@@ -101,21 +101,19 @@ source('./scripts/secondary-analyses/phoenix/01_formatting_data.R')
 Social coordination has long been used both physically and virtually
 to start and carry out collective actions. These collective events
 bring individuals together and create emergent patterns of communication
-and action. Online communication has historically been used to document
-and communicate archival information about events, but it has been
-increasingly used to bring about social change. From a dynamical
+and action. From a dynamical
 systems perspective, these different means of social coordination during
 times of turmoil can be considered two complementary components of a
 single system, mutually constrained and constantly interacting and
-influencing one another [@mahner1997foundations]. Investigation of the
-coupling of real-world mobilization and social cohesion could provide
-new insight into the power of social media during mobilization and the
-ways in which individuals utilize it to bring about, or respond to, social
-change. Increasingly, social media platforms are being utilized during
+influencing one another [@mahner1997foundations]. 
+Increasingly, social media platforms are being utilized during
 social mobilization, but the relationship between virtual and real-world
-mobilization is still largely unknown. The present work aims to understand
-how physical and virtual movements coexist and interact from a dynamical
-systems perspective.
+mobilization is still largely unknown. Investigation of the
+coupling of real-world mobilization and social cohesion could provide
+new insights into the power of social media during mobilization and 
+it can be used to respond to or create social change. The present work 
+aims to understand how physical and virtual movements coexist and interact 
+from a dynamical systems perspective.
 
 ## Arab Spring
 In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and
