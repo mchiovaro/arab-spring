@@ -138,31 +138,48 @@ thoroughly discussed within the political science literature
 the direct coupling between Syrian Twitter use and international action
 has not been investigated.
 
-## Social Cohesion
+## Social Cohesion and Social Mobilization
 Real-world collective action is known to bring about a sense of togetherness,
 also known as “collective effervescence” [@durkheim1995elementary]. This
 feeling of being a part of something larger than oneself leads individuals
 to act in ways that would not have on their own. Being overcome with this
-feeling is known to lead to violence [@collins2009violence; @spaaij2014sports].
-While feelings of social connection may lead to violence, increased exposure
-to violence can result in feelings of social cohesion. @gilligan2014civil
+feeling can lead to violence [@collins2009violence; @spaaij2014sports].
+Conversely, increased exposure
+to violence can result in positive social cohesion. @gilligan2014civil
 found that exposure to fatal wartime violence resulted in increased prosocial
 motivations, including cooperative behaviors, feelings of trust, and overall
-community-level social cohesion. Just as real-world social cohesion can be
-quantified, the same is true for online cohesion. Strategic communication on
-social media in the form of social cohesion of language can lead to real-world
-social change, and exposure to real-world violence could result in social
-cohesion in the virtual world. Increased social cohesion is thus potentially
-an indicator of increased social organization and mobilization on the ground.
+community-level social cohesion. 
 
-## Social Media as a Platform for Mobilization
-Social media platforms, such as Twitter, offer rapid real-time dissemination
-of information. Given its accessibility and proficiency as an information
-exchange tool, individuals involved in social movements have taken to them
-in conjunction, or in replacement, of real-world social mobilization.
-During the 2012 Italian protests for global economic change, the riots in
-Rome were mirrored by Twitter activity both on the same day and in the
-following days after the protests [@vicari2013public]. Tweeting was
+Just as real-world social cohesion can be
+quantified, so can online cohesion. While this can be quantified in many ways,
+one kind of cohesion can be found in the similarity in language use on social media.
+This implicit or explicit similarity in language use can indicate shared
+beliefs, thoughts, and feelings, as has been studied in research on language style
+in psycholinguistics and social psychology 
+[@gonzales2010language, @tausczik2010psychological, @brennan1996conceptual]; 
+although previous work on language style
+has often focused on individuals and small groups, this can be scaled up to examine
+massive social-level changes [@michel2011quantitative, @fusaroli2015timescales]. 
+This kind of massive online social cohesion can lead to real-world
+social change.
+
+Combining these separate threads, it is reasonable to expect that real-world actions 
+and online social interactions would be enmeshed, driving and being driven by 
+one another. Rather than expecting that only real-world social cohesion would be
+driven by real-world action, we would expect interaction between real-world and
+virtual dynamics: In this case, exposure to real-world violence could result in social
+cohesion in the virtual world. Increased social cohesion is thus potentially
+an indicator and a result of increased social organization and mobilization 
+on the ground. 
+
+Social media platforms provide one way of enabling this kind of online social
+cohesion by offering distributed information-gathering and real-time information
+dissemination. Given its accessibility and proficiency as an information
+exchange tool, Twitter has provided individuals involved in social movements
+an opportunity to complement or even replace real-world social mobilization.
+For example, during the 2012 Italian protests for global economic change, the riots in
+Rome were mirrored by Twitter activity both on the day of the protests and in the
+days following them [@vicari2013public]. Tweeting was
 determined to be more effective locally in discussing real-world, real-time
 events than traditional mainstream media platforms. As more and more
 individuals rely on social media to obtain local news and information, it
