@@ -249,7 +249,9 @@ and windowed cross-recurrence quantification analysis
 cohesion online and real-world events. Specifically, using heterogeneous
 data from March 30, 2012, to June 15, 2012, we compared the social cohesion
 of Syrian tweets with the counts
-of all, positive, and negative real-world events.
+of all, positive, and negative real-world events derived from gold-standard
+international event data [i.e., the Integrated Crisis Early Warning
+System; @DVN/28075_2015].
 
 We hypothesized that the count of all events and the count of negative
 events would show high levels of determinism, as this time period was
@@ -262,7 +264,7 @@ to further examine the patterns identified with CRQA. Using WCRQA,
 we sought to identify shifts in the
 dynamics of the systems that could then be linked to real-world shifts in
 conflict frequency.
-Through these analyses, our primary goal in the current work was to uncover
+Through these analyses, our two primary goals in the current work were to uncover
 (1) how different intensities during times of turmoil may enhance or deter
 social cohesion in social media communication and (2) how social mobilization
 may be evident in the dynamic coupling of cohesion and real-world events.
@@ -560,31 +562,44 @@ of the permuted WCRQA metrics.
 # Results
 ```{r primary-crqa, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
 
-# run primary crq analysis
+# run primary crqa analysis
 source('./scripts/primary-analyses/02_crqa.R')
 
 # read in metric names
-metrics <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv", header = FALSE)[-2,-1])
+metrics <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv", 
+                      header = FALSE)[-2,-1])
 
 # read in metrics from crq analyses (target filtered)
-metrics_all_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv", header = FALSE)[-1,-1])
-metrics_pos_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-pos_events.csv", header = FALSE)[-1,-1])
-metrics_neg_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+metrics_all_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv", 
+                               header = FALSE)[-1,-1])
+metrics_pos_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-pos_events.csv", 
+                               header = FALSE)[-1,-1])
+metrics_neg_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-neg_events.csv", 
+                               header = FALSE)[-1,-1])
 
-# read in signficiance from permutation tests (target filtered)
-sig_all_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_all.csv", header = FALSE)[-1,-1])
-sig_pos_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_pos.csv", header = FALSE)[-1,-1])
-sig_neg_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_neg.csv", header = FALSE)[-1,-1])
+# read in significance from permutation tests (target filtered)
+sig_all_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_all.csv", 
+                           header = FALSE)[-1,-1])
+sig_pos_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_pos.csv", 
+                           header = FALSE)[-1,-1])
+sig_neg_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_neg.csv", 
+                           header = FALSE)[-1,-1])
 
 # read in metrics from crq analyses (source and target filtered)
-metrics_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-all_events.csv", header = FALSE)[-1,-1])
-metrics_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-pos_events.csv", header = FALSE)[-1,-1])
-metrics_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-neg_events.csv", header = FALSE)[-1,-1])
+metrics_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-all_events.csv",
+                                      header = FALSE)[-1,-1])
+metrics_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-pos_events.csv",
+                                      header = FALSE)[-1,-1])
+metrics_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-neg_events.csv",
+                                      header = FALSE)[-1,-1])
 
-# read in signficiance from permutation tests (source and target filtered)
-sig_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_all.csv", header = FALSE)[-1,-1])
-sig_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_pos.csv", header = FALSE)[-1,-1])
-sig_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_neg.csv", header = FALSE)[-1,-1])
+# read in significance from permutation tests (source and target filtered)
+sig_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_all.csv", 
+                                  header = FALSE)[-1,-1])
+sig_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_pos.csv", 
+                                  header = FALSE)[-1,-1])
+sig_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_neg.csv", 
+                                  header = FALSE)[-1,-1])
 
 ```
 
@@ -621,7 +636,7 @@ knitr::include_graphics("./results/primary/deciled_ts_example.png")
 ```
 
 ## Cross-Recurrence Quantification Analysis
-CRQA was performed using the crqa package [@R-crqa] for R [@R-base]. We 
+CRQA was performed using the `crqa` package [@R-crqa] for R [@R-base]. We 
 conducted a permutation test to check for statistical difference from chance 
 for all analyses and metrics.
 
