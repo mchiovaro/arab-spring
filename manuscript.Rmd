@@ -501,12 +501,23 @@ knitr::include_graphics("./results/primary/deciled_ts_example.png")
 ```
 
 ## Cross-Recurrence Quantification Analysis
-CRQA was performed using the crqa package [@R-crqa] for R [@R-base]. We conducted a
-permutation test to check for statistical difference from chance for all analyses and
-metrics.
+CRQA was performed using the crqa package [@R-crqa] for R [@R-base]. We 
+conducted a permutation test to check for statistical difference from chance 
+for all analyses and metrics.
 
 ### Syria as Target
-A permutation test for the CRQA of social cohesion and count of all events found a statistical difference from chance for DET, NRLINE, maxL, and LAM. All other metrics were non-significant (Figure \@ref(fig:plot-rp-targ-all); \autoref{table-1}). A permutation test for the CRQA of social cohesion and count of positive events found no statistical difference from chance for any of the metrics other than TT (Figure \@ref(fig:plot-rp-targ-pos); \autoref{table-1}). A permutation test for the CRQA of social cohesion and count of negative events found a statistical difference from chance for DET, NRLINE, L, ENTR, LAM, and TT. All other metrics were non-significant (Figure \@ref(fig:plot-rp-targ-neg); \autoref{table-1}). Looking at the recurrence plots there appears, to be a shift in dynamics around the 36th observation which corresponds to May 4th, 2012.
+A permutation test for the CRQA of social cohesion and count of all events 
+found a statistical difference from chance for DET, NRLINE, maxL, and LAM. 
+All other metrics were non-significant (Figure \@ref(fig:plot-rp-targ-all);
+\autoref{table-1}). A permutation test for the CRQA of social cohesion and 
+count of positive events found no statistical difference from chance for any 
+of the metrics other than TT (Figure \@ref(fig:plot-rp-targ-pos); 
+\autoref{table-1}). A permutation test for the CRQA of social cohesion and 
+count of negative events found a statistical difference from chance for DET, 
+NRLINE, L, ENTR, LAM, and TT. All other metrics were non-significant (Figure
+\@ref(fig:plot-rp-targ-neg); \autoref{table-1}). Looking at the recurrence 
+plots there appears, to be a shift in dynamics around the 36th observation 
+which corresponds to May 4th, 2012.
 
 ```{r primary-crqa-table-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
 
@@ -674,7 +685,18 @@ knitr::include_graphics("./results/primary/mode_ts_plot.png")
 
 ```
 
-For social cohesion and count of all events, there is a consistent period of above chance recurrence rate from the 7th-12th and 36th-47th window (Figure \@ref(fig:plot-wcrqa-targ-all)). Determinism is largely above chance from the 46th to the 61st window (Figure \@ref(fig:plot-wcrqa-targ-all)). For social cohesion and count of positive events there is a downward trend in RR as the window moves with largly above chance RR from the 1st-18th and 32nd-45th windows. Determinism was at or above chance for the 8th-17th, 32nd-34th, and the 60th window (Figure \@ref(fig:plot-wcrqa-targ-all)). For social cohesion and count of negative events, recurrence rate stays above or almost above chance from the 4th-7th and 43rd-47th windows, and determinism is above or nearly above chance in the 1st and 2nd windows, with short intermittent peaks in later windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
+For social cohesion and count of all events, there is a consistent period 
+of above chance recurrence rate from the 7th-12th and 36th-47th window 
+(Figure \@ref(fig:plot-wcrqa-targ-all)). Determinism is largely above chance 
+from the 46th to the 61st window (Figure \@ref(fig:plot-wcrqa-targ-all)). For
+social cohesion and count of positive events there is a downward trend in RR 
+as the window moves with largly above chance RR from the 1st-18th and 
+32nd-45th windows. Determinism was at or above chance for the 8th-17th, 
+32nd-34th, and the 60th window (Figure \@ref(fig:plot-wcrqa-targ-all)). 
+For social cohesion and count of negative events, recurrence rate stays above
+or almost above chance from the 4th-7th and 43rd-47th windows, and determinism
+is above or nearly above chance in the 1st and 2nd windows, with short intermittent 
+peaks in later windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
 ### Syria as Source and Target
 
@@ -685,7 +707,20 @@ knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_
 
 ```
 
-For social cohesion and count of all events, there is a consistent period of above or nearly above chance determinism from the 7th-13th and 26th-47th windows (Figure \@ref(fig:plot-wcrqa-source-targ-all)). Determinism also shows above or nearly above chance values in windows 7th-17th and short, intermittent peaks between the 34th and 61st windows (Figure \@ref(fig:plot-wcrqa-source-targ-all)). For social cohesion and count of positive events, there is a downward trend in RR as the window moves with largely above chance values in the first 20 windows and the 32nd-45th windows. Determinism stays largely within chance with the exception of windows 13 through 19 (Figure \@ref(fig:plot-wcrqa-source-targ-all)). For social cohesion and negative events, there appears to be an extended time period where RR (32nd-47th windows) and DET (35th-39th windows) were above of nearly above chance (Figure \@ref(fig:plot-wcrqa-source-targ-all)). These windows span from May 3rd, 2012 to May 14th, 2012.
+For social cohesion and count of all events, there is a consistent period of
+above or nearly above chance determinism from the 7th-13th and 26th-47th 
+windows (Figure \@ref(fig:plot-wcrqa-source-targ-all)). Determinism also 
+shows above or nearly above chance values in windows 7th-17th and short, 
+intermittent peaks between the 34th and 61st windows (Figure 
+\@ref(fig:plot-wcrqa-source-targ-all)). For social cohesion and count of 
+positive events, there is a downward trend in RR as the window moves with 
+largely above chance values in the first 20 windows and the 32nd-45th windows. 
+Determinism stays largely within chance with the exception of windows 13 
+through 19 (Figure \@ref(fig:plot-wcrqa-source-targ-all)). For social cohesion
+and negative events, there appears to be an extended time period where RR 
+(32nd-47th windows) and DET (35th-39th windows) were above of nearly above 
+chance (Figure \@ref(fig:plot-wcrqa-source-targ-all)). These windows span from
+May 3rd, 2012 to May 14th, 2012.
 
 # Discussion
 In the present study, we investigated the dynamics of real-world events
@@ -796,7 +831,8 @@ conceptualizing Twitter and real-world events as two components of an
 inextricably linked dynamical system, the levels of social cohesion within the
 virtual platform could be monitored for fluctuations indicating global shifts
 in power and peace. Social media mobilization can thus help alert us to
-real-world mobilization not communicated in mainstream media and allow for faster intervention.
+real-world mobilization not communicated in mainstream media and allow for 
+faster intervention.
 
 ### Acknowledgements
 
