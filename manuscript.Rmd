@@ -186,33 +186,46 @@ individuals rely on social media to obtain local news and information, it
 becomes increasingly important to understand just how these micro-blogs
 reflect real-world action.
 
-## Use of Nonlinear Methods in Naturally Occurring Data
+## Using Nonlinear Methods to Capture Complex Relationships
+Given the hypothesized interrelationship between the real-world
+and online actions---and the notorious messiness of naturally occurring
+data---it is critical to find appropriate analysis tools that can
+identify the complex interconnections.
 Traditional linear analyses have led to many notable discoveries in the
-domains of psychology and political science, but continuous data pose
+domains of psychology and political science, but time series data pose
 problems that are not easily overcome with these methods. Events have
 historically been conceptualized as linear chains of smaller, sequential
-events with one occurrence leading to the next. This notion has been
+events with one occurrence leading to the next. 
+Certain kinds of data are relatively well-suited to these analyses,
+but messy, complex, variable data from real-world events can pose
+challenges from overpowered samples to violation of underlying
+statistical assumptions [@paxton2017finding].
+
+At the same time, the foundational theoretical assumptions of a 
+linear world has been
 increasingly replaced by ideas from dynamical systems theory. Rather than
-a chain of events, continuous data can be thought of as nested occurrences,
+a chain of events, time series data can be thought of as nested occurrences,
 where mutually constrained parts (e.g., citizens, governments, real-world
 events, social media platforms) are constantly interacting, leading to
 more global behaviors that are larger than the sum of the parts
-[@turvey2018lectures]. When analyzed as dynamical systems, many phenomena
-exhibit new nonlinear patterns that were formerly overlooked. Continuous
-data subject to linear analyses becomes flattened, and the variability
-that is fundamental to these systems and their evolution over time is
-ignored. Nonlinear methods provide means for capturing the rich temporal
-dynamics and variability that unfold in continuous data.
+[@turvey2018lectures]. Linear analyses flatten these nonlinear patterns in 
+time series data and ignore the variability
+that is fundamental to these systems and their evolution over time. 
+However, when analyzed as dynamical systems, many phenomena
+exhibit new nonlinear patterns that were formerly overlooked. 
+Nonlinear methods provide means for capturing the rich temporal
+dynamics and variability that unfold in time series data.
 
-The primary methods used in the current work is cross-recurrence
+Although a number of other nonlinear methods exist, 
+the primary nonlinear method used in the current work is cross-recurrence
 quantification analysis [CRQA; @zbilut1998detecting] and its offshoot,
 windowed cross-recurrence quantification analysis [WCRQA; @webber2005recurrence].
 CRQA has successfully been used to gain a better understanding of many
-complex human phenomena, such as human social interactions
-[for a review, see @fusaroli2014analyzing] and interpersonal synchrony
-[@paxton2017interpersonal]. We argue that the use of nonlinear methods in
+complex human phenomena, including a variety of human social interactions
+[for a review, see @fusaroli2014analyzing]. 
+Much as it has for psychology, we argue that the use of nonlinear methods in
 the investigation of political science phenomena will lead to new insights
-and development of more robust theories.
+and the development of more robust theories.
 
 ## The Present Work
 Social media has become a primary platform for social movements and
