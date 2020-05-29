@@ -156,10 +156,10 @@ one kind of cohesion can be found in the similarity in language use on social me
 This implicit or explicit similarity in language use can indicate shared
 beliefs, thoughts, and feelings, as has been studied in research on language style
 in psycholinguistics and social psychology 
-[@gonzales2010language, @tausczik2010psychological, @brennan1996conceptual]; 
+[@gonzales2010language; @tausczik2010psychological; @brennan1996conceptual]; 
 although previous work on language style
 has often focused on individuals and small groups, this can be scaled up to examine
-massive social-level changes [@michel2011quantitative, @fusaroli2015timescales]. 
+massive social-level changes [@michel2011quantitative; @fusaroli2015timescales]. 
 This kind of massive online social cohesion can lead to real-world
 social change.
 
