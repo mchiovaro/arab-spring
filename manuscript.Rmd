@@ -400,6 +400,7 @@ we converted each time series (e.g., Figure \@ref(fig:raw-ts)) into deciles
 (e.g., Figure \@ref(fig:deciled-ts)) to analyze the relative dynamics of different
 levels of social cohesion and counts of all, positive, and negative events
 on each day. 
+We implemented CRQA using the `crqa` package [@R-crqa] for R [@R-base]. 
 
 #### Visualization
 A cross-recurrence plot (CRP) is the visual representation of CRQA. To construct
@@ -521,7 +522,8 @@ a smaller “window” of time points is used to calculate CRQA and capture more
 fine-grained dynamics of two time series. The window remains the same size and
 “slides” diagonally up the line of identity. The changes in the CRQA metrics
 across the windows can reveal changes in dynamics that can then be linked to
-external, real-world events.
+external, real-world events. 
+We implemented WCRQA using the `crqa` package [@R-crqa] for R [@R-base]. 
 
 #### Metrics
 Conducting WCRQA results in CRQA metrics (e.g., RR, DET, ENTR) for each
@@ -636,9 +638,6 @@ knitr::include_graphics("./results/primary/deciled_ts_example.png")
 ```
 
 ## Cross-Recurrence Quantification Analysis
-CRQA was performed using the `crqa` package [@R-crqa] for R [@R-base]. We 
-conducted a permutation test to check for statistical difference from chance 
-for all analyses and metrics.
 
 ### Syria as Target
 A permutation test for the CRQA of social cohesion and count of all events 
