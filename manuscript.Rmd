@@ -120,16 +120,23 @@ In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and
 unjustifiably stripped of his vendor cart by municipal officials. His
 humiliation led him to set himself on fire in protest to the authoritarian
 rule, ultimately leading to his death several days later. His actions served
-as a catalyst for the Tunisian Revolution, and one week after his death, the
-long-withstanding authoritarian president, Zine El Abidine Ben Ali, fled the
-country. The events of Tunisia rapidly spread to surrounding countries that
-were also subject to unjust authoritarian rule, such as Yemen, Egypt, Libya,
-and Syria. These mass movements would not have been possible without
-efficient interpersonal coordination, both physically and virtually on social
-media platforms, such as Twitter. The events of Arab Spring have been
+as a catalyst for the Tunisian Revolution, and one week after his death,
+Zine El Abidine Ben Ali---the longstanding authoritarian president---fled the
+country. The events of Tunisia rapidly spread to surrounding countries 
+also subject to unjust authoritarian rule, including Yemen, Egypt, Libya,
+and Syria. 
+
+These mass movements would not have been possible without
+efficient large-scale coordination, both physically and virtually on social
+media platforms. Along with Facebook, Twitter has been credited as essential 
+to the Arab Spring---both for protesters (as a means to coordinate with one 
+another and to communicate with the world) and for the government response
+(to monitor and track protestors to crack down on dissent) [@comninos2011twitter]. 
+The events of Arab Spring have been
 thoroughly discussed within the political science literature
-[e.g., @lutterbeck2013arab; @koehler2017political] but to our knowledge,
-the use of Twitter by Syrian citizens has not been investigated.
+[e.g., @lutterbeck2013arab; @koehler2017political], but to our knowledge,
+the direct coupling between Syrian Twitter use and international action
+has not been investigated.
 
 ## Social Cohesion
 Real-world collective action is known to bring about a sense of togetherness,
