@@ -983,6 +983,37 @@ RR and DET as the source-only data. This may support the ideas suggested
 in the CRQA section, but again, only future work including the *content*
 of those tweets can directly speak to that explanation.
 
+## Implications
+
+### Implications for Methodology
+
+Nonlinear methods have been transformative for a variety of research
+areas [including psychology, @coco2014cross]. One of the goals in the
+present work was to introduce variants of one kind of nonlinear
+method---specifically, recurrence quantification analysis---to
+this research area. While a number of excellent guides can provide
+detailed explanations of the methods and their statistical underpinnings 
+[e.g., @riley2005tutorials; @webber1994dynamical; @webber2005recurrence],
+one of the most important considerations that should be briefly
+summarized here is about data.
+
+Nonlinear methods---including recurrence-based analyses---require
+time series data. This requires repeated observations of the behavior
+at interest, preferably at a frequency that provides information 
+about timing at a temporal resolution that allows the researcher to 
+make observations about interesting variations over time. While
+this is easily controlled by scientists who conduct experimental
+research, it can be more difficult for scientists who rely on
+trace data or naturally occurring data. However, where possible,
+we recommend political scientists work to expand efforts for
+improving the temporal granularity of the data. One possible
+means of achieving this may be through collaborative efforts
+like the Open Event Data Alliance [@schrodt2014three].
+
+### Implications for Theory
+
+(This would be where Leah should update her part.)
+
 ## Conclusion
 Given the pervasiveness of social media, it is unsurprising
 that social activists and protesters have
