@@ -423,15 +423,18 @@ the mean of all average cohesion values for all groups was taken to get
 a social cohesion score for each day.
 
 \begin{align}
-\text{Inverse frequency weighting of overlap words = }\sum_{i=1}^k \frac{log(f(t_i, d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
+\text{Inverse frequency weighting of overlap words = }\sum_{i=1}^k
+\frac{log(f(t_i, d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
 \begin{align}
-\text{Inverse frequency weighting of all words = }\sum_{i=1}^n \frac{log(f(t_i, d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
+\text{Inverse frequency weighting of all words = }\sum_{i=1}^n \frac{log(f(t_i,
+d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
 \begin{align}
-\text{Two tweets similarity =}\frac{\text{inverse frequency weighting of overlap words}}{\text{inverse frequency weighting of all words}}
+\text{Two tweets' similarity =}\frac{\text{inverse frequency weighting of overlap
+words}}{\text{inverse frequency weighting of all words}}
 \end{align}
 
 The social cohesion calculation was performed on the tweet corpus
