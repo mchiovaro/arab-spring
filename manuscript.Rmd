@@ -337,7 +337,7 @@ that increase message cohesion. Since retweets replicate verbatim some part of
 another tweet, these tweets would also have higher cohesion. Hashtags function
 similarly and are included in our analysis.
 
-```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. Content word overlap indicates a shared relationship among tweets. The shared words--either identical or semantically similar--constitute a theme around which cohesion is occuring."}
+```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. Content word overlap indicates a shared relationship among tweets. The shared words--either identical or semantically similar--constitute a theme around which cohesion is occuring.", out.width='100%'}
 
 # call the image
 knitr::include_graphics("./figs/cohesion-in-tweets.png")
@@ -640,7 +640,7 @@ rely on social media to obtain local news and information, it becomes
 increasingly important to understand just how these micro-blogs reflect
 real-world action.
 
-```{r theoretical-framework, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "The theoretical framework for sociolinguistic cohesion. Real-world events and linguistic cohesion continually interact and influence one another throughout time."}
+```{r theoretical-framework, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "The theoretical framework for sociolinguistic cohesion. Real-world events and linguistic cohesion continually interact and influence one another throughout time.", out.width='100%'}
 
 # call the image
 knitr::include_graphics("./figs/theoretical-framework.png")
@@ -1250,7 +1250,7 @@ source('./scripts/primary-analyses/03_windowed_crqa.R')
 
 ```
 
-In the plots (see Figures \@ref(fig:plot-wcrqa-targ-all) and
+In the WCRQA plots (see Figures \@ref(fig:plot-wcrqa-targ-all) and
 \@ref(fig:plot-wcrqa-source-targ-all)), the 95th percentiles are represented by
 horizontal red lines, and the 99th percentiles are represented by horizontal
 orange lines. The trend lines are plotted in blue.
