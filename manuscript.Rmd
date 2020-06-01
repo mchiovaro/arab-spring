@@ -889,24 +889,21 @@ May 3rd--14th, 2012.
 In the present study, we investigated the dynamics of real-world events
 and online communication on Twitter in Syria during Arab Spring. We examined
 how social mobilization both virtually and physically evolve over time in
-tandem. Using the
-nonlinear dynamical time series analyses, we investigated the theory that
-virtual mobilization is increasingly reflective of real-world events
-during times of strife.
+tandem. Using nonlinear dynamical time series analyses, we investigated the 
+theory that virtual mobilization is increasingly reflective of real-world 
+events during times of strife.
 
 ## Cross-Recurrence Quantification Analysis
 ### Syria as Target
 The significant result of DET for social cohesion with all and negative 
-events supports our hypothesis that
-event salience is coupled with online social cohesion The frequency
-of all and negative events are thus associated with greater
-shared trajectories with social cohesion that would be expected by chance. 
-However, when we specifically target positive events, the connection
-to social cohesion fades, providing further
-support for our hypothesis. Positive events
-may be less coupled to social cohesion than more salient negative events
-during times of turmoil; by contrast, overall event frequency and
-negative event frequency are coupled with Twitter social cohesion.
+events supports our hypothesis that event salience is coupled with online 
+social cohesion. The frequency of all and negative events are thus associated 
+with greater shared trajectories with social cohesion that would be expected 
+by chance. However, when we specifically target positive events, the connection
+to social cohesion fades, providing further support for our hypothesis. 
+Positive events may be less coupled to social cohesion than more salient 
+negative events during times of turmoil; by contrast, overall event frequency 
+and negative event frequency are coupled with Twitter social cohesion.
 
 ### Syria as Source and Target
 By adding Syria as a source in the data filtering, the dataset increased
@@ -932,9 +929,9 @@ During these moments, the increased cohesion may reflect a surge from
 the Syrian people trying to raise awareness of the situation or
 to decry the Syrian government's attempts to improve their international
 standing. In this case, the increased coupling of positive events would
-coupled not with shared positive affect in social media but instead
+be coupled not with shared positive affect in social media but instead
 to shared negative affect in social media in response. However, we
-cannot test this hypothesis with the current data; future  
+cannot test this hypothesis with the current data; future 
 research should explore the semantic content of this tweet
 corpus to determine the nature of the socially cohered language.
 
