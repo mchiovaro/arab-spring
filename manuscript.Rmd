@@ -1144,7 +1144,12 @@ mobilization may thus help alert the world to citizens' actions and reactions
 that are suppressed by government regimes, providing insight into events that 
 may not otherwise be broadcast and allowing for faster intervention.
 
-### Acknowledgements
+# Acknowledgements
+
+This work was completed in part as coursework done by lead author M. Chiovaro
+in the ``Applications of Nonlinear Time Series Analysis'' graduate
+course at the University of Connecticut (co-taught by coauthor A. Paxton and
+Steven J. Harrison).
 
 \newpage
 
