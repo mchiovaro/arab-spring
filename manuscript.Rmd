@@ -108,13 +108,6 @@ their agendas. As McAdam found, people were more likely to join movements when
 they had a personal connection [@mcadam1986recruitment; @mcadam1993specifying]: 
 Historically, strong ties have been
 strong predictors of involvement in high-risk protest activity. 
-However, the rise of the Internet and its decentralized online networks
-has upended theories about recruitment to---and participation in---social
-movements. Strong interpersonal ties have yielded to weak impersonal ties that
-strongly predict involvement in social movements [@steinert2017spontaneous]. Research
-methodologies for measuring social movements have similarly evolved from
-ethnographic interviews to ``big data'' analyses of language on social media. 
-*(Probably need to wrap up with a sentence here.)*
 
 The cohesiveness and strength of social movements in the pre-Internet era could be
 operationalized by the number of people turning out to protest and through the
@@ -126,7 +119,14 @@ example, the ``I am a man'' posters held by the men involved in the 1968
 sanitation workers' strike reflected their internal cohesion and unified,
 goal-oriented movement [@Windsor2020]. 
 
-In the Internet age, social media replicates and amplifies
+However, the rise of the Internet and its decentralized online networks
+has upended theories about recruitment to---and participation in---social
+movements. Strong interpersonal ties have yielded to weak impersonal ties that
+strongly predict involvement in social movements [@steinert2017spontaneous]. Research
+methodologies for measuring social movements have similarly evolved from
+ethnographic interviews to ``big data'' analyses of language on social media. 
+
+Today, social media replicates and amplifies
 this phenomenon during moments of social unrest. Amid the cacophony of messages
 during political upheaval---such as the Arab Spring---consistent themes emerge
 through hashtags, retweets, and the repeated mentions of concepts such as
