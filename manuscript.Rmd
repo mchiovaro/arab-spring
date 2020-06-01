@@ -1029,27 +1029,29 @@ corpus to determine the nature of the socially cohered language.
 ## Windowed-Recurrence Quantification Analysis
 
 ### Syria as Target
-The time period of differing dynamics---from observation 38 through 
-43---appears to be captured by the RR and DET values in
-WCRQA of social cohesion and count of negative
-events (Figure \@ref(fig:plot-wcrqa-targ-all)). The
-amount of recurrence and determinism for these periods almost consistently
-lie above chance, suggesting that the intensity of negative events coincide
-with the degree of social cohesion found on Twitter and that these 
-shared trajectories extend across multiple days.
-
-The above-chance levels of determinism and recurrence rate demonstrate
-the coupling of social cohesion to both total and negative events during
-times of strife. During this period, 
+The time period of differing dynamics noted in the cross-recurrence
+plots---from observation 32 through 47---appears to be captured 
+by the above-chance RR values in WCRQA of social cohesion and count of all
+events (Figure \@ref(fig:plot-wcrqa-targ-all)). However,
+DET for these periods only intermittently
+rises above chance; it more consistently reaches statistical
+significance only at the end of the window through the end of the observation
+period, following a spike in the RR between
+negative event count and social cohesion. 
+During this period, 
 the modal ICEWS event for each day (Figure \@ref(fig:plot-mode-event))
-during May 1st--15th was almost consistently -10, the most violent 
-event category. These dates directly correlate with the above-chance RR and DET
-metrics for the WCRQA of social cohesion and count of negative events.
-Furthermore, for WCRQA of social cohesion and positive event count during
-this time period, DET was entirely within chance (Figure
-\@ref(fig:plot-wcrqa-targ-all)). This supports our hypothesis, as the
-positive events are seemingly not coupled with the social cohesion on Twitter
-during civil uprisings during the Arab Spring.
+was almost consistently -10, the most violent 
+event category. This supports our first hypothesis.
+
+Surprisingly---and contrary to our second hypothesis---we saw consistent
+coupling between positive event count and social cohesion. Although
+both had a downward trajectory throughout the time period under consideration,
+RR was at or above chance in nearly all windows, and DET showed
+much more consistent shared trajectories than negative events.
+This may suggest that Syrian Twitter community was reacting more cohesively
+to the positive events aimed at Syria from the international community;
+this interpretation is supported by the attenuation of the effect in the
+analyses that include Syria as both a source and a target.
 
 ### Syria as Source and Target
 WCRQA of recurrence rate on the source and target filtered data remained
