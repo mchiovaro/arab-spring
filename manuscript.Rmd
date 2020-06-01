@@ -987,11 +987,11 @@ events during times of strife.
 ## Cross-Recurrence Quantification Analysis
 ### Syria as Target
 The significant result of DET for social cohesion with all and negative 
-events supports our hypothesis that event salience is coupled with online 
+events supports our first hypothesis that event salience is coupled with online 
 social cohesion. The frequency of all and negative events are thus associated 
 with greater shared trajectories with social cohesion that would be expected 
 by chance. However, when we specifically target positive events, the connection
-to social cohesion fades, providing further support for our hypothesis. 
+to social cohesion fades, providing further support for our second hypothesis. 
 Positive events may be less coupled to social cohesion than more salient 
 negative events during times of turmoil; by contrast, overall event frequency 
 and negative event frequency are coupled with Twitter social cohesion.
