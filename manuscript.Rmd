@@ -24,23 +24,23 @@ affiliation:
     institution   : "Equal author contributions"
 
 abstract: |
-  Social mobilization requires effective collective coordination. In recent 
+  Social mobilization requires effective collective coordination. In recent
   years, individuals involved in social movements have taken to social media
-  platforms to reach broader audiences at rapid speeds. Effective virtual 
-  mobilization similarly requires social cohesion and coordination, yet the 
+  platforms to reach broader audiences at rapid speeds. Effective virtual
+  mobilization similarly requires social cohesion and coordination, yet the
   degree to which virtual mobilization reflects or drives real-world movements
-  is unclear. Here, we explore the dynamics of real-world events and social 
-  cohesion on Twitter in Syria during the Arab Spring. Using the nonlinear 
+  is unclear. Here, we explore the dynamics of real-world events and social
+  cohesion on Twitter in Syria during the Arab Spring. Using the nonlinear
   methods cross-recurrence quantification analysis and windowed cross-recurrence
-  quantification analysis, we investigate if counts of all daily events, daily 
-  positive events, and daily negative events are coupled with social cohesion 
-  found in Syrian tweets. Results indicate that virtual social cohesion is 
+  quantification analysis, we investigate if counts of all daily events, daily
+  positive events, and daily negative events are coupled with social cohesion
+  found in Syrian tweets. Results indicate that virtual social cohesion is
   coupled with the counts of all and negative events each day but shows a more
   nuanced connection to positive events, only visible when examining finer-grained
-  data. This suggests that virtual mobilization does reflect 
+  data. This suggests that virtual mobilization does reflect
   real-world movements, with the strongest connections to the frequency of all
-  events and the frequency of negative events. We 
-  conclude with a discussion of implications and applications of nonlinear 
+  events and the frequency of negative events. We
+  conclude with a discussion of implications and applications of nonlinear
   methods in political science research.
   <!-- https://tinyurl.com/ybremelq -->
 
@@ -56,7 +56,7 @@ footnotelist      : no
 linenumbers       : yes
 mask              : no
 draft             : no
-appendix          : 
+appendix          :
 
 documentclass     : "apa6"
 classoption       : "man"
@@ -105,9 +105,9 @@ using phone tree calling sheets and mimeographed flyers,
 through in-person meetings of social organizations and churches, and through
 word of mouth. They gathered together and hand-made protest signs that reflected
 their agendas. As McAdam found, people were more likely to join movements when
-they had a personal connection [@mcadam1986recruitment; @mcadam1993specifying]: 
+they had a personal connection [@mcadam1986recruitment; @mcadam1993specifying]:
 Historically, strong ties have been
-strong predictors of involvement in high-risk protest activity. 
+strong predictors of involvement in high-risk protest activity.
 
 The cohesiveness and strength of social movements in the pre-Internet era could be
 operationalized by the number of people turning out to protest and through the
@@ -117,37 +117,37 @@ signs provided the protest narrative in their own words. Cohesive
 social movements were reflected in their cohesive placards and posters. For
 example, the “I am a man” posters held by the men involved in the 1968
 sanitation workers' strike reflected their internal cohesion and unified,
-goal-oriented movement [@Windsor2020]. 
+goal-oriented movement [@Windsor2020].
 
 However, the rise of the Internet and its decentralized online networks
 has upended theories about recruitment to---and participation in---social
 movements. Strong interpersonal ties have yielded to weak impersonal ties that
 strongly predict involvement in social movements [@steinert2017spontaneous]. Research
 methodologies for measuring social movements have similarly evolved from
-ethnographic interviews to “big data” analyses of language on social media. 
+ethnographic interviews to “big data” analyses of language on social media.
 
 Today, social media replicates and amplifies
 this phenomenon during moments of social unrest. Amid the cacophony of messages
 during political upheaval---such as the Arab Spring---consistent themes emerge
 through hashtags, retweets, and the repeated mentions of concepts such as
 regime, security, demonstration, and human rights. The cohesiveness of these
-themes (i.e., whether movement participants are metaphorically singing in one voice) 
+themes (i.e., whether movement participants are metaphorically singing in one voice)
 reflects the real-world events happening contemporaneously with collective action in
 social movements or civil conflicts.
-        	 
+
 In the present research, we investigate the relationship between linguistic
 cohesion and social cohesion in times of social conflict and unrest. We tackle a
-question related to the one posed by Zeitzoff [-@zeitzoff2017social]: How does 
+question related to the one posed by Zeitzoff [-@zeitzoff2017social]: How does
 social media reflect on-the-ground realities during times of social conflict?
 To do so, we examine patterns of linguistic cohesion on Twitter and their
 connection to real-world events during
-the Arab Spring uprising in Syria between March and June 2012. 
+the Arab Spring uprising in Syria between March and June 2012.
 
 Disentangling the complicated relationship between mass online mobilization---and
 social mobilization in person---continues to be relevant, even as our modes
 of communication change. The
 political processes that transpired during and after the Arab Spring are still
-in the process of being understood. As Zeitzoff [-@zeitzoff2017social] recognizes, 
+in the process of being understood. As Zeitzoff [-@zeitzoff2017social] recognizes,
 social media is changing conflict, but the mechanisms and relationships by
 which it does so are still being understood.
 
@@ -202,7 +202,7 @@ events transpiring in countries across the Middle East and North Africa. Our
 understanding about the role of social media in social movements is still
 evolving. Some argue that these mass movements would not have been possible
 without efficient large-scale coordination, both physically on the ground and
-virtually on social media platforms. 
+virtually on social media platforms.
 
 Along with Facebook, Twitter has been
 credited as essential to the Arab Spring---both for protesters (as a means to
@@ -227,7 +227,7 @@ local contexts. [@anderson2011demystifying]
 Others have similarly expressed hesitation about the role of online
 organizing. Some have argued that real-life strong ties outweigh online weak ties and
 that the power of the strong ties through in-person contact is critical
-to recruiting people for higher-risk activities 
+to recruiting people for higher-risk activities
 [@gladwell2010revolution; @mcadam1986recruitment].
 
 Interestingly, these views may
@@ -248,7 +248,7 @@ conflict [@zeitzoff2017social]. Social media is not entirely event-driven, howev
 In monitoring social media channels, government forces may respond to the
 perception that citizens are gaining strength and sympathy. Governments have
 been shown to be quite tolerant of dissent so long as it does not metamorphose
-into collective action [@king2013censorship]. 
+into collective action [@king2013censorship].
 
 Citizens communicate with each other with increased transparency due to the
 ubiquitous availability of social media such as low-cost and egalitarian
@@ -257,10 +257,10 @@ phones and computers with Internet connectivity, providing a stream of real-time
 shared information. Citizens can share the location of events like protests and military
 incursions, the degree of state repression, and the number of casualties. In
 turn, the government---interested in remaining in power---monitors social media
-platforms to ascertain emerging threats [@comninos2011twitter], 
+platforms to ascertain emerging threats [@comninos2011twitter],
 such as where new groups are forming
 and where existing groups are strengthening, where gatherings are held, and who
-the idea entrepreneurs are. An example of a leader 
+the idea entrepreneurs are. An example of a leader
 expressing his interest in
 such public conversation is given by Bashar al-Assad in a speech on June 3, 2012:
 
@@ -293,11 +293,11 @@ People join social and political resistance movements because they feel a sense
 of connection to the cause and because they have been sufficiently convinced to
 participate. Given that people are generally risk-averse, overcoming inertia
 requires a strong connection to the group identity or a strong aversion to an individual,
-event, or political injustice [@goldstone1980theories; @goldstone2011understanding]. 
+event, or political injustice [@goldstone1980theories; @goldstone2011understanding].
 Political resistance offers participants the opportunity to “lose themselves” and
 relinquish their individual identity in favor of identification with a larger
 group identity, contributing to a cohesive group ready and mobilized for
-action [@Hoffer2011true]. 
+action [@Hoffer2011true].
 
 Previous research on social movements supports the idea that participants are
 likely to join movements when they know and have a personal connection to
@@ -324,7 +324,7 @@ Rebel movement success is influenced by the degree of group cohesion, which
 itself is a function of geographic distance, ideology, and ethnicity.
 Within Syria, multiple rebel groups within Syria exist, sourcing fighters locally
 from the disaffected Syrian population and internationally through
-fighters from transnational terrorist organizations. There is considerable 
+fighters from transnational terrorist organizations. There is considerable
 intergroup competition for participation in the rebel movement and
 punishment for defectors for nonparticipation [@gates2002recruitment].
 Foreign fighters would appear to be amply motivated to fight, given their
@@ -355,7 +355,7 @@ might suffer disproportionately in a given society, and this form of
 aggrievement can lead to unrest across the social lines that distinguish the
 minority group. Therefore, while collective cohesion is a function of targeted
 maldistributions, it is individual penury that allows for this collective
-mobilization. [@regan2005greed] 
+mobilization. [@regan2005greed]
 
 The body of previous work concurs that group cohesion matters to group
 mobilization. We build on this by providing a quantitative approach to
@@ -400,7 +400,7 @@ are therefore more useful when researchers want to understand *what* people are
 discussing, rather than *how* they are discussing it [@graesser2004coh;
 @mcnamara2014automated].
 
-In estimating cohesion in Twitter posts, tweets that share content words 
+In estimating cohesion in Twitter posts, tweets that share content words
 will yield higher cohesion values, even among speakers with opposing
 views on the subject matter. Repetition of terms and concepts is captured by
 reiteration, which is a type of lexical cohesion in which a subsequent item
@@ -468,7 +468,7 @@ conversations; @niederhoffer2002linguistic; @riordan2011evidence] and
 can even be connected to better performance on shared tasks [as long as
 the language is relevant to the task at hand; @fusaroli2012coming]. Shared
 movement is associated with greater group bonding and greater willingness
-to contribute to the group [@wiltermuth2009synchrony], and shared identity 
+to contribute to the group [@wiltermuth2009synchrony], and shared identity
 is associated with a greater willingness to adopt the group's goals and
 motivations [@walton2012mere].
 
@@ -502,10 +502,10 @@ behavior on behalf of the group [@wiltermuth2009synchrony; @walton2012mere].
 Taken together, these two processes may grow movement participants' weak and
 strong ties [@granovetter1977strength; @gladwell2010revolution;
 @mcadam1986recruitment], strengthening the movement overall by expanding and
-deepening heterogenous ties. Therefore, 
+deepening heterogenous ties. Therefore,
 in the context of social conflict, the linguistic cohesion
 of the online conversation should correspond to the degree of
-social cohesion on the ground. 
+social cohesion on the ground.
 
 Steinert-Threlkeld [-@steinert2017spontaneous] modeled a similar relationship
 between social media and social mobilization alongside event data. This
@@ -997,23 +997,23 @@ WCRQA metrics.
 source('./scripts/primary-analyses/02_crqa.R')
 
 # read in metric names
-metrics <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv", 
+metrics <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv",
                       header = FALSE)[-2,-1])
 
 # read in metrics from crq analyses (target filtered)
-metrics_all_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv", 
+metrics_all_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv",
                                header = FALSE)[-1,-1])
-metrics_pos_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-pos_events.csv", 
+metrics_pos_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-pos_events.csv",
                                header = FALSE)[-1,-1])
-metrics_neg_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-neg_events.csv", 
+metrics_neg_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-neg_events.csv",
                                header = FALSE)[-1,-1])
 
 # read in significance from permutation tests (target filtered)
-sig_all_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_all.csv", 
+sig_all_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_all.csv",
                            header = FALSE)[-1,-1])
-sig_pos_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_pos.csv", 
+sig_pos_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_pos.csv",
                            header = FALSE)[-1,-1])
-sig_neg_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_neg.csv", 
+sig_neg_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_neg.csv",
                            header = FALSE)[-1,-1])
 
 # read in metrics from crq analyses (source and target filtered)
@@ -1025,11 +1025,11 @@ metrics_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa
                                       header = FALSE)[-1,-1])
 
 # read in significance from permutation tests (source and target filtered)
-sig_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_all.csv", 
+sig_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_all.csv",
                                   header = FALSE)[-1,-1])
-sig_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_pos.csv", 
+sig_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_pos.csv",
                                   header = FALSE)[-1,-1])
-sig_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_neg.csv", 
+sig_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_neg.csv",
                                   header = FALSE)[-1,-1])
 
 ```
@@ -1111,9 +1111,9 @@ target_results <- cbind(target_results, stars_all, stars_pos, stars_neg)
 target_results <- target_results[,c(1,2,3,8,4,5,9,6,7,10)]
 
 # give intuitive names
-colnames(target_results) <- c("metric", 
-                              "all events", "p", "sig.", 
-                              "positive events", "p", "sig.", 
+colnames(target_results) <- c("metric",
+                              "all events", "p", "sig.",
+                              "positive events", "p", "sig.",
                               "negative events", "p", "sig.")
 
 # exclude row names
@@ -1195,9 +1195,9 @@ source_target_results <- cbind(source_target_results, stars_all, stars_pos, star
 source_target_results <- source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
 
 # give intuitive names
-colnames(source_target_results) <- c("metric", 
-                                     "all events", "p", "sig.", 
-                                     "positive events", "p", "sig.", 
+colnames(source_target_results) <- c("metric",
+                                     "all events", "p", "sig.",
+                                     "positive events", "p", "sig.",
                                      "negative events", "p", "sig.")
 
 # exclude row names
@@ -1310,10 +1310,11 @@ RR as the window moved, with largely above-chance values in the first 20 windows
 and the 32nd--45th windows. DET stayed largely within chance, with the exception
 of windows 13 through 19 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
 
-For social cohesion and negative events, there was an extended period of time
-during which RR (32nd--47th windows) and DET (35th--39th windows) were above or
-nearly above chance (Figure \@ref(fig:plot-wcrqa-source-targ-all)). These
-windows span from May 3rd--14th, 2012.
+For social cohesion and negative events, there was an extended, overlapping
+period of time during which RR (32nd--47th windows) and DET (35th--39th windows)
+were above or nearly above chance (Figure
+\@ref(fig:plot-wcrqa-source-targ-all)). These windows span from May 3rd--14th,
+2012.
 
 # Discussion
 In the present study, we investigated the dynamics of real-world events and
@@ -1450,7 +1451,7 @@ granularity of the data. One possible means of achieving this may be through
 collaborative efforts like the Open Event Data Alliance [@schrodt2014three].
 
 This methodology should be of great interest to social scientists investigating
-social mobilization. It has potential applications for gender studies and 
+social mobilization. It has potential applications for gender studies and
 the #MeToo movement and for the relationship between social protest and repression
 during the Black Lives Matter protests. Fundamentally, this methodological
 approach can help us better understand the human social mechanisms underlying
