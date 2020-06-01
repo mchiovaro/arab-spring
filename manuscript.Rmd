@@ -647,8 +647,6 @@ knitr::include_graphics("./figs/theoretical-framework.png")
 
 ```
 
-
-
 ## Using Nonlinear Methods to Capture Complex Relationships
 Given the hypothesized interrelationship between the real-world and online
 actions---and the notorious messiness of naturally occurring data---it is
@@ -1083,12 +1081,12 @@ metrics did not reach significance (Figure \@ref(fig:plot-rp-targ-all);
 \autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of positive events
-found no statistically significant difference for any of the metrics other than
-TT (Figure \@ref(fig:plot-rp-targ-pos); \autoref{table-1}).
+found no statistically significant difference from chance for any of the metrics
+other than TT (Figure \@ref(fig:plot-rp-targ-pos); \autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
-found a statistically significant difference for DET, NRLINE, L, ENTR, LAM, and
-TT. All other metrics did not reach significance (Figure
+found a statistically significant difference from chance for DET, NRLINE, L,
+ENTR, LAM, and TT. All other metrics did not reach significance (Figure
 \@ref(fig:plot-rp-targ-neg); \autoref{table-1}).
 
 A qualitative investigation of the recurrence plots suggests a shift in dynamics
