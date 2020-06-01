@@ -337,7 +337,7 @@ that increase message cohesion. Since retweets replicate verbatim some part of
 another tweet, these tweets would also have higher cohesion. Hashtags function
 similarly and are included in our analysis.
 
-```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = ""}
+```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. Content word overlap indicates a shared relationship among tweets. The shared words--either identical or semantically similar--constitute a theme around which cohesion is occuring."}
 
 # call the image
 knitr::include_graphics("./figs/cohesion-in-tweets.png")
