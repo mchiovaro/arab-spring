@@ -532,12 +532,13 @@ introducing the role of language in facilitating cohesion.
 ## Sociolinguistic cohesion: Connectedness of speakers, events, and ideas
 We tie the constructs of lexical, interlocutor, and social/physical cohesion
 together in a theoretical framework called sociolinguistic cohesion, as shown in
-Figure X. We can measure the changes in cohesion preceding and in response to
-external stimuli by evaluating the messages and the context in which they occur.
-Several mechanisms are in motion here. Previous values of linguistic cohesion
-should influence future values of linguistic cohesion. They should also
-influence future actions in the real world space. Previous events influence
-future events, and also the future cohesiveness of the opposition.
+Figure \@ref(fig:theoretical-framework). We can measure the changes in cohesion
+preceding and in response to external stimuli by evaluating the messages and the
+context in which they occur. Several mechanisms are in motion here. Previous
+values of linguistic cohesion should influence future values of linguistic
+cohesion. They should also influence future actions in the real world space.
+Previous events influence future events, and also the future cohesiveness of the
+opposition.
 
 Sociolinguistic cohesion is not a static concept. Just as social movements
 experience increased participation as well as setbacks – indicating dynamic
