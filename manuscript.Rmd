@@ -1323,10 +1323,11 @@ RR as the window moved, with largely above-chance values in the first 20 windows
 and the 32nd--45th windows. DET stayed largely within chance, with the exception
 of windows 13 through 19 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
 
-For social cohesion and negative events, there was an extended period of time
-during which RR (32nd--47th windows) and DET (35th--39th windows) were above or
-nearly above chance (Figure \@ref(fig:plot-wcrqa-source-targ-all)). These
-windows span from May 3rd--14th, 2012.
+For social cohesion and negative events, there was an extended, overlapping
+period of time during which RR (32nd--47th windows) and DET (35th--39th windows)
+were above or nearly above chance (Figure
+\@ref(fig:plot-wcrqa-source-targ-all)). These windows span from May 3rd--14th,
+2012.
 
 # Discussion
 In the present study, we investigated the dynamics of real-world events and
