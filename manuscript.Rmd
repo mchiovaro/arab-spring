@@ -211,7 +211,9 @@ events transpiring in countries across the Middle East and North Africa. Our
 understanding about the role of social media in social movements is still
 evolving. Some argue that these mass movements would not have been possible
 without efficient large-scale coordination, both physically on the ground and
-virtually on social media platforms. Along with Facebook, Twitter has been
+virtually on social media platforms. 
+
+Along with Facebook, Twitter has been
 credited as essential to the Arab Spring---both for protesters (as a means to
 coordinate with one another and to communicate with the world) and for the
 government response (to monitor and track protestors to crack down on dissent)
@@ -219,71 +221,80 @@ government response (to monitor and track protestors to crack down on dissent)
 within the political science literature [e.g., @lutterbeck2013arab;
 @koehler2017political], but to our knowledge, the direct *coupling* between
 Syrian Twitter cohesion and international action coordination has not been
-investigated. Others provide skepticism about the effect of social media on
-collective action [@Seay_2014].
+investigated. In fact, some have been skeptical about the effect of social media on
+collective action at all [@seay2014slacktivism].
 
-In Foreign Affairs, Anderson writes that, “The important story about the 2011
+This skepticism can be summarized in a quote by Lisa Anderson:
+
+> The important story about the 2011
 Arab revolts in Tunisia, Egypt, and Libya is not how the globalization of the
 norms of civic engagement shaped the protesters' aspirations. Nor is it about
 how activists used technology to share ideas and tactics. Instead, the critical
 issue is how and why these ambitions and techniques resonated in their various
-local contexts [@Anderson_2011].” Malcolm Gladwell, in highlighting the notions
-of strong and weak ties, @Gladwell_2010 and
-@McAdam_1986, similarly expressed hesitation about the role of online
-organizing, arguing that real-life strong ties outweigh online weak ties and
-that participation in online activism only requires scant sacrifices whereas
-recruitment to higher-risk activities is done through in-person contact, namely
-strong ties [@Gladwell_2010; [@McAdam_1986]. Interestingly, these views may
-actually help to make the case for bridging the gap between social media and
-social mobilization, by suggesting the strength of social ties in an online
-environment is inextricably linked to the context and ambitions of the actors.
-Granovetter notes that while strong ties tend to bind smaller groups, weak ties
-tend to bind groups across distances [@Granovetter_1973].
+local contexts. [anderson2011demystifying]
 
-Social media generates critical information about events, such as whether or not
-a demonstration will take place and what transpires when it does, how many
-people participate, and how the state, the military, and the security apparatus
+Others have similarly expressed hesitation about the role of online
+organizing. Some have argued that real-life strong ties outweigh online weak ties and
+that the power of the strong ties through in-person contact is critical
+to recruiting people for higher-risk activities 
+[@gladwell2010revolution; @mcadam1986recruitment].
+
+Interestingly, these views may
+actually help to make the case for bridging the gap between social media and
+social mobilization. Such views suggest the strength of social ties in an online
+environment is inextricably linked to the *context* and *ambitions* of the actors.
+Moreover, research suggests that weak ties still retain considerable political
+power: While strong ties tend to bind smaller groups, weak ties
+tend to bind groups across distances [@granovetter1977strength].
+
+Social media generates critical information about events, including whether and how
+a demonstration will take place, how many
+people participate, and how those in power (e.g., state, military, security apparatus)
 respond. Similarly, these media platforms alert us to more global shifts within
 a conflict, such as when fighting moves to a new city or region, the number of
 casualties and wounded, and the types of weaponry used by parties to the
-conflict [@Zeitzoff_2017]. Social media is not entirely event-driven, however.
+conflict [@zeitzoff2017social]. Social media is not entirely event-driven, however.
 In monitoring social media channels, government forces may respond to the
 perception that citizens are gaining strength and sympathy. Governments have
-been shown to be quite tolerant of dissent so long as it does not metamorphosize
-into collective action [@King_Pan_Roberts_2013]. Additionally, the insulated
-nature of online social platforms allows valuable social dynamics to be detailed
-at unprecedented resolution and scale. As such, the digital traces left by
-individuals and collectively as groups are regarded as a valuable source of
-information that can offer powerful insights into states of social
-disequilibrium, up-risings, and escalations into civil wars.
+been shown to be quite tolerant of dissent so long as it does not metamorphose
+into collective action [@king2013censorship]. 
 
 Citizens communicate with each other with increased transparency due to the
 ubiquitous availability of social media such as low-cost and egalitarian
 platforms like Twitter. Citizens are able to access these tools via mobile
 phones and computers with Internet connectivity, providing a stream of real-time
-shared information. This facilitates studying the degree of cohesion between
-speakers, and the alignment between that cohesion and their collective political
-behavior. Citizens can tweet the location of events like protests and military
+shared information. Citizens can share the location of events like protests and military
 incursions, the degree of state repression, and the number of casualties. In
-kind, the government, interested in remaining in power, monitors social media
-platforms to ascertain emerging threats, such as where new groups are forming
+turn, the government---interested in remaining in power---monitors social media
+platforms to ascertain emerging threats [@comninos2011twitter], 
+such as where new groups are forming
 and where existing groups are strengthening, where gatherings are held, and who
-the idea entrepreneurs are. An example of a leader manifesting his interest in
-such public conversation is given in a speech of June 3, 2012 by Bashar
-al-Assad:
+the idea entrepreneurs are. An example of a leader 
+expressing his interest in
+such public conversation is given by Bashar al-Assad in a speech on June 3, 2012:
 
-“I know that I have been away from the media for a long time, and I have missed
+>I know that I have been away from the media for a long time, and I have missed
 having direct contact with the citizens, but I have always been following up
 with the daily occurrences and gathering the information so that my speech can
-be built on what is said by the street.”
+be built on what is said by the street.
 
 With few exceptions, Assad chose to keep social media platforms up and running.
-Gohdes (2015) notes that regimes can attempt to thwart the growth of social
-protest online and in the streets by shutting down the Internet [@Gohdes_2015].
+Gohdes [-@gohdes2015pulling] notes that regimes can attempt to thwart the growth of social
+protest online and in the streets by shutting down the Internet.
 During these times, however, she finds that military repression increases.
-However, government information about the citizens decreases, and as such, many
+However, government information about the citizens decreases; as such, many
 regimes have elected to maintain Internet connectivity as a means of monitoring
 and surveilling their citizens.
+
+At the same time, the insulation
+of online social platforms allows researchers to detail real-world social dynamics
+at unprecedented resolution and scale [@paxton2017finding]. The digital traces left by
+individuals and collectively as groups are regarded as a valuable source of
+information that can offer powerful insights into states of social
+disequilibrium, uprisings, and escalations into civil wars.
+By examining these conversations, researchers can study the degree of cohesion between
+speakers and the alignment between that cohesion and their collective political
+behavior.
 
 ## Lexical cohesion: Connectedness of words
 The words that comprise social media posts are the first level at which cohesion
