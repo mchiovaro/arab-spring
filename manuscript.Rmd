@@ -139,18 +139,9 @@ In the present research, we investigate the relationship between linguistic
 cohesion and social cohesion in times of social conflict and unrest. We tackle a
 question related to the one posed by Zeitzoff [-@zeitzoff2017social]: How does 
 social media reflect on-the-ground realities during times of social conflict?
-To do so, we examine patterns of linguistic cohesion on Twitter during
+To do so, we examine patterns of linguistic cohesion on Twitter and their
+connection to real-world events during
 the Arab Spring uprising in Syria between March and June 2012. 
-
-We contextualize linguistic cohesion with social mobilization and response to the relative
-intensity of the conflict. Cohesion is a multi-layered concept referring to the
-connectedness of words, thoughts, speakers, and actions. Cohesion reflects the
-continuity of language and expression, and it shows the connectivity of
-participants in a social movement. To address the relationship between language
-and discourse and social movements, we adopt an interdisciplinary approach that
-incorporates linguistics, psychology, and political science using nonlinear
-dynamical systems methodology to model the relationship between language and
-action.
 
 Disentangling the complicated relationship between mass online mobilization---and
 social mobilization in person---continues to be relevant, even as our modes
@@ -296,52 +287,57 @@ By examining these conversations, researchers can study the degree of cohesion b
 speakers and the alignment between that cohesion and their collective political
 behavior.
 
-## Lexical cohesion: Connectedness of words
+## Cohesion: A Multi-Leveled, Multi-Layered Concept
+
+We contextualize linguistic cohesion with social mobilization and response to the relative
+intensity of the conflict. Cohesion is a multi-layered concept referring to the
+connectedness of words, thoughts, speakers, and actions. Cohesion reflects the
+continuity of language and expression, and it shows the connectivity of
+participants in a social movement. To address the relationship between language
+and discourse and social movements, we adopt an interdisciplinary approach that
+incorporates linguistics, psychology, and political science using nonlinear
+dynamical systems methodology to model the relationship between language and
+action.
+
+### Lexical Cohesion: Connectedness of Words
+
+The concept of lexical, or semantic, cohesion has already been applied to the
+analysis of political speech (for example, the language of Margaret Thatcher) 
+and non-political speech [@barzilay1999using; @morris1991lexical].
+
 The words that comprise social media posts are the first level at which cohesion
-occurs. In Figure 1, we see four sequential tweets, each containing four words.
+occurs. In Figure \@ref(fig:cohesion-in-tweets), we see four sequential tweets, 
+each containing four words.
 Each sequential tweet contains some content included in the previous tweets. The
 linguistic construct of content word overlap measures the relationship across
-units of meaning – here, tweets – where identical and semantically similar words
-are repeated [@Graesser_McNamara_Louwerse_Cai_2004]. These repeated lexical
+units of meaning---here, tweets---where identical and semantically similar words
+are repeated [@graesser2004coh]. These repeated lexical
 items constitute a theme; on Twitter, this might be a particular hashtag, a
 name, a location, or other nominal category. This localized cohesion is
 referential; words are repeated and co-referred across tweets, creating a sense
 of continuity and cohesiveness of meaning and message.
 
-Lexical cohesion also includes latent semantic analysis (LSA)
-[@Graesser_McNamara_Louwerse_Cai_2004. LSA measures semantic similarity across
-meaning units using a statistical method called singular value decomposition, an
-automated method used to detect plagiarism [@Ceska_2008; @Gamallo_Bordag_2011].
-In this process, each meaning unit (tweet) is a weighted vector, and the match
-between the tweets is measured as the cosine between the two vectors. This
-process provides an empirical relationship between the words used from one tweet
-to the next. We identify this as lexical cohesion.
+Typically, these analyses focus on *content words* (e.g., nouns, adjectives,
+verbs), which convey more meaningful semantic information than *function words*
+(e.g., articles, conjunctions). While function words can provide important
+information about complexity and language structure
+[@tausczik2010psychological], content words have more specialized meaning and
+are therefore more useful when researchers want to understand *what* people are
+discussing, rather than *how* they are discussing it [@graesser2004coh;
+@mcnamara2014automated].
 
-The concept of lexical, or semantic, cohesion has already been applied to the
-analysis of political speech, for example the language of Margaret Thatcher, as
-well as non-political speech [@Barzilay_Elhadad_1999; @Morris_Hirst_1991].
-McNamara and Graesser operationalize the concept of cohesion in their software,
-Coh-Metrix, an automated tool that analyzes text and discourse
-[@Graesser_Jeon_Yan_Cai_2007; @Graesser_McNamara_Louwerse_Cai_2004;
-[@Graesser_McNamara_Kulikowich_2011]. This software generates measures of
-co-referential cohesion that captures the amount of overlap in content words (as
-opposed to function words, like a, the, and and) in adjacent, local, and global
-sentences in the passage. Content word overlap refers to the proportion of words
-and word stems that are shared between sentences. A higher proportion of overlap
-indicates greater cohesion in the sentence.
-
-In estimating cohesion in Twitter posts, tweets that share content words and
-stems will yield higher cohesion values, even amongst speakers with opposing
+In estimating cohesion in Twitter posts, tweets that share content words 
+will yield higher cohesion values, even among speakers with opposing
 views on the subject matter. Repetition of terms and concepts is captured by
 reiteration, which is a type of lexical cohesion in which a subsequent item
 repeats a previous item, or refers to it through synonymous language
-[@Halliday_Hasan_1976]. In social media, we can conceive of retweets – reposts
-or forwards of previous messages in part or in whole – as a form of reiteration
+[@halliday1976cohesion]. In social media, we can conceive of retweets (i.e., reposts
+or forwards of previous messages) as a form of reiteration
 that increase message cohesion. Since retweets replicate verbatim some part of
 another tweet, these tweets would also have higher cohesion. Hashtags function
-similarly, and are included in our analysis.
+similarly and are included in our analysis.
 
-```{r figure-1}
+```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "Add more informative caption."}
 
 # call figure 1 here
 
