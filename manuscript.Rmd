@@ -287,6 +287,81 @@ By examining these conversations, researchers can study the degree of cohesion b
 speakers and the alignment between that cohesion and their collective political
 behavior.
 
+## The Role of Cohesion in Social Movements and Civil Wars
+
+People join social and political resistance movements because they feel a sense
+of connection to the cause and because they have been sufficiently convinced to
+participate. Given that people are generally risk-averse, overcoming inertia
+requires a strong connection to the group identity or a strong aversion to an individual,
+event, or political injustice [@goldstone1980theories; @goldstone2011understanding]. 
+Political resistance offers participants the opportunity to “lose themselves” and
+relinquish their individual identity in favor of identification with a larger
+group identity, contributing to a cohesive group ready and mobilized for
+action [@Hoffer2011true]. 
+
+Previous research on social movements supports the idea that participants are
+likely to join movements when they know and have a personal connection to
+someone else already involved [@mcadam1986recruitment]. The type of collective
+contentious behavior that manifests in society is a function of the available
+political opportunity structures. The political opportunity structure are
+“comprised *(sic)* of specific configuration of resources, institutional
+arrangements and historical precedents for social mobilization, which facilitate
+the development of protest movements in some instances and constrain them in
+others” [@Kitschelt_1986]. What emerges as strategies and tactics in contentious
+politics are, in essence, a function of what the system makes possible. This
+includes the number of people and their disposition (i.e. nonviolent or
+violent), as well as their internal structure. The more cohesive a group is, the
+greater threat they pose to the establishment.
+
+Cohesion is also a familiar concept in the study of civil conflicts, as it
+pertains to group affiliation and the ability to overcome collective action
+problems. Individuals must act in concert---that is, cohesively---to
+accomplish the task of challenging the authority of the state [@olson1965logic;
+@eisinger1973conditions; @tilly2004contentious; @francisco1995relationship].
+Recent work has considered rebel recruitment for participation in
+civil conflicts as a function of internal cohesion [@gates2002recruitment]:
+Rebel movement success is influenced by the degree of group cohesion, which
+itself is a function of geographic distance, ideology, and ethnicity.
+Within Syria, multiple rebel groups within Syria exist, sourcing fighters locally
+from the disaffected Syrian population and internationally through
+fighters from transnational terrorist organizations. There is considerable 
+intergroup competition for participation in the rebel movement and
+punishment for defectors for nonparticipation [@gates2002recruitment].
+Foreign fighters would appear to be amply motivated to fight, given their
+decision to relocate from a home country that may be located in the region
+or much farther away.
+
+Another factor influencing social cohesion during social movements and
+civil wars is ethnic identity and the degree of ethnic conflict associated with
+the movement. Greater degrees of ethnic conflict increase the salience of
+ethnic identity, leading people to identify more strongly with their own
+ethnic identity [@sambanis2009s]. As ethnic conflict
+intensifies, groups seek to become more quintessentially like the typical
+member of their ethnic group. This can manifest in a number of ways, including
+in behavior on social media. However, this may also include a general identification
+across ethnic groups in a membership of an opposition to an oppressive leader.
+
+The civil war literature has further explored the role of social cohesion in
+detail. Social homogeneity increases the likelihood of social conflict,
+especially when the society is polarized [@collier2004greed]; this is partly
+due to nationalist groups' strong identification with a collective identity
+[@cederman2007beyond] and their social solidarity [@sambanis2009s]. These
+same processes can be similarly important for rebels [@anyanwu2002economic].
+Referencing Gurr’s [-@gurr2000peoples] work on minorities at
+risk, Regan and Norton [-@regan2005greed] note that
+
+>a religious or linguistic minority
+might suffer disproportionately in a given society, and this form of
+aggrievement can lead to unrest across the social lines that distinguish the
+minority group. Therefore, while collective cohesion is a function of targeted
+maldistributions, it is individual penury that allows for this collective
+mobilization. [@regan2005greed] 
+
+The body of previous work concurs that group cohesion matters to group
+mobilization. We build on this by providing a quantitative approach to
+understanding cohesion from multiple levels and by incorporating analytic tools
+that allow us to investigate the interconnectedness of those levels.
+
 ## Cohesion: A Multi-Leveled, Multi-Layered Concept
 
 We contextualize linguistic cohesion with social mobilization and response to the relative
@@ -449,95 +524,8 @@ conflict-cooperation scale [@schrodt2006twenty; @goldstein1992conflict]. These e
 codes include a range of behaviors, from making public statements and appeals,
 to demanding, threatening, protesting, and using unconventional mass violence.
 
-#### Cohesion in Social Movements and Civil Wars
-People join social and political resistance movements because they feel a sense
-of connection to the cause, and because they have been sufficiently convinced to
-participate. Given that people are generally risk averse, overcoming inertia
-requires a strong connection to the group identity, or against an individual,
-event, or political injustice [@Goldstone_1980; Goldstone_2011]. Political
-resistance offers participants the opportunity to “lose themselves” and
-relinquish their individual identity in favor of identification with a larger
-group identity, thus contributing to a cohesive group ready and mobilized for
-action [@Hoffer_2011. Previous research on social movements supports the idea
-that participants are likely to join movements when they know and have a
-personal connection to someone else already involved [@McAdam_1986. The type of
-collective contentious behavior that manifests in society is a function of the
-available political opportunity structures. The political opportunity structure,
-as defined by Kitschelt (1986) are “comprised of specific configuration of
-resources, institutional arrangements and historical precedents for social
-mobilization, which facilitate the development of protest movements in some
-instances and constrain them in others [@Kitschelt_1986].” What emerges as
-strategies and tactics in contentious politics is in essence, a function of what
-the system makes possible. This includes the number of people and their
-disposition, i.e. nonviolent or violent, as well as their internal structure.
-The more cohesive a group is, the greater threat they pose to the establishment.
-
-Cohesion is also a familiar concept in the study of civil conflicts as it
-pertains to group affiliation and the ability to overcome collective action
-problems. Olson’s (Olson, 1965) seminal work on collective action informs the
-theory of group behavior. Individuals must act in concert – cohesively – to
-accomplish the task of challenging the authority of the state. Building on
-Eisinger’s (1973) analysis of social protest movements [@Eisinger_1973, McAdam,
-Tilly and Tarrow [@Tilly_2004, and Francisco [@Francisco_1995 have provided
-foundational work on the dynamics of social movements and contentious behavior.
-More recently, Gates (2002) considers rebel recruitment for participation in
-civil conflicts as a function of internal cohesion [@Gates_2002]. He notes that
-rebel movement success is influenced by the degree of group cohesion, which
-itself is a function of geographic distance, ideology and ethnicity.
-
-There are multiple rebel groups within Syria, some with fighters sourced locally
-from the disaffected Syrian population, and an increasing number of foreign
-fighters from transnational terrorist organizations. Gates’ work helps us
-understand the intergroup competition for participation in the rebel movement,
-as well as the groups’ abilities to punish defectors for nonparticipation.
-Foreign fighters would appear to be amply motivated to fight, given their
-decision to relocate from their home country which is sometimes in the region
-but other times requires them to travel large distances.
-
-Similarly, Sambanis and Shayo (2013) find in their model that “intense ethnic
-conflict makes people care more about their ethnic group relative to other
-groups, and seek to resemble it more [@Sambanis_Shayo_2013].” As ethnic conflict
-intensifies, groups seeking to become more quintessentially like the typical
-member of their ethnic group, this should be manifested in their language on
-social media. Social medial should reflect this delineation amongst ethnic
-groups and between them. However, this may also include a general identification
-across ethnic groups in a membership of an opposition to an oppressive leader.
-
-It is this general identification with the larger opposition movement, not the
-individual identity groups within Syria, which we seek to understand in this
-paper. It is implausible to expect there to be one cohesive narrative from the
-multiple groups with disparate incentives. However, they do have important
-similarities, namely, they are all interested in opposing the current Syrian
-regime using largely violent means, although there are notable and regular
-instances of nonviolent protests on Fridays, following prayer services. Thus,
-what we are able to capture in this study is the degree to which all opposition
-movements to the Syrian government have a similar content and tone, with a
-similar ebb and flow. It should be increasingly threatening to the regime if the
-rebel movement across the disparate groups is growing stronger and more unified,
-represented by similar language used across groups.
-
-The civil war literature has further explored the role of social cohesion in
-detail. Collier and Hoeffler identified the role of social homogeneity as having
-an increased likelihood on social conflict, especially when the society is
-polarized [@Collier_Hoeffler_2004]. Cederman and Girardin  write that, “In
-general, nationalist groups derive their cohesion from collective-level
-identities that resonate deeply with the emotional needs of modern citizens.”
-Sambanis and Schulhofer-Wohl note that “group cohesion and solidarity (underlie)
-the offensive advantage (Sambanis & Schulhofer-Wohl, 2009).” Anyanwu (2002)
-writes, “Another source of rebel military opportunity is social cohesion…an
-ethnically diverse society may reduce the opportunity for rebellion by limiting
-the recruitment pool [@Anyanwu_2002].” Referencing Gurr’s work on minorities at
-risk, Regan and Norton (2005) note that “a religious or linguistic minority
-might suffer disproportionately in a given society, and this form of
-aggrievement can lead to unrest across the social lines that distinguish the
-minority group. Therefore, while collective cohesion is a function of targeted
-maldistributions, it is individual penury that allows for this collective
-mobilization [@Gurr_2000; @Regan_Norton_2005].” Thus scholarship concurs that
-group cohesion matters to group mobilization; we add to this concept by
-introducing the role of language in facilitating cohesion.
-
-## Sociolinguistic cohesion: Connectedness of speakers, events, and ideas
-We tie the constructs of lexical, interlocutor, and social/physical cohesion
+### Sociolinguistic cohesion: Connectedness of speakers, events, and ideas
+We tie the constructs of lexical, interlocutor, and social cohesion
 together in a theoretical framework called sociolinguistic cohesion, as shown in
 Figure \@ref(fig:theoretical-framework). We can measure the changes in cohesion
 preceding and in response to external stimuli by evaluating the messages and the
