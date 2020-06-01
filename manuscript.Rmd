@@ -115,7 +115,7 @@ political events that precipitated and resulted from social gatherings *en masse
 The content of placards and protest
 signs provided the protest narrative in their own words. Cohesive
 social movements were reflected in their cohesive placards and posters. For
-example, the ``I am a man'' posters held by the men involved in the 1968
+example, the “I am a man” posters held by the men involved in the 1968
 sanitation workers' strike reflected their internal cohesion and unified,
 goal-oriented movement [@Windsor2020]. 
 
@@ -124,7 +124,7 @@ has upended theories about recruitment to---and participation in---social
 movements. Strong interpersonal ties have yielded to weak impersonal ties that
 strongly predict involvement in social movements [@steinert2017spontaneous]. Research
 methodologies for measuring social movements have similarly evolved from
-ethnographic interviews to ``big data'' analyses of language on social media. 
+ethnographic interviews to “big data” analyses of language on social media. 
 
 Today, social media replicates and amplifies
 this phenomenon during moments of social unrest. Amid the cacophony of messages
@@ -291,7 +291,7 @@ behavior.
 
 We contextualize linguistic cohesion with social mobilization and response to the relative
 intensity of the conflict. Cohesion is a multi-layered concept referring to the
-connectedness of words, thoughts, speakers, and actions. Cohesion reflects the
+connectedness of speakers, actions, and societies. Cohesion reflects the
 continuity of language and expression, and it shows the connectivity of
 participants in a social movement. To address the relationship between language
 and discourse and social movements, we adopt an interdisciplinary approach that
@@ -299,7 +299,7 @@ incorporates linguistics, psychology, and political science using nonlinear
 dynamical systems methodology to model the relationship between language and
 action.
 
-### Lexical Cohesion: Connectedness of Words
+### Lexical Cohesion: Connectedness of Words between Interlocutors
 
 The concept of lexical, or semantic, cohesion has already been applied to the
 analysis of political speech (for example, the language of Margaret Thatcher) 
@@ -343,50 +343,19 @@ similarly and are included in our analysis.
 
 ```
 
-## Interlocutor cohesion
-Lexical cohesion contributes to the next level of relatedness among tweets:
-interlocutor cohesion. This is the degree to which people in a conversation,
-whether in person or online, have aligned their language [@Coupland_Giles_1988].
-Known as communication accommodation theory, the degree of alignment between
-speakers reveals their closeness, status, and deliberative strategy
-[@Giles_2016]. Speakers can converge and diverge in their communication.
-Convergence facilitates easier transmission of information, because the speakers
-– or interlocutors – presume some existing familiarity or knowledge base between
-them. When you know someone well enough to finish their sentence, this is an
-example of convergence. Divergence, on the other hand, is more laborious because
-the speakers must make their presumptions explicit and tacit. Interlocutor
-cohesion, or convergence, happens when speakers are “singing in the same key” or
-are “on the same page.” Windsor (2020) describes various types of cohesion,
-using the example of the Occupy Wall Street movement as a symbol of divergence
-given the myriad signs, slogans, and interests of the participants
-[@Windsor_2020]. On the other hand, the “I am a man” protest captured by Ernest
-Withers during the 1968 santiation workers’ strike in Memphis, TN, or the “Black
-Lives Matter” placards following the uprising in Ferguson, MO, symbolize
-convergence and strong interlocutor cohesion [@Edgar_Johnson_2018].
+The use of similar language can provide insight into *interlocutor cohesion*, or
+the degree to which people are talking about similar things. This can---as noted
+earlier---include people who are talking about similar things from radically
+perspectives, as well as those who are talking about something from the same
+perspective. Previous research from political science has investigated these
+ideas [@Windsor2020]: The “Occupy Wall Street” movement has been held up as an
+example of a movement with low interlocutor and linguistic cohesion because of
+its wide range of signs and slogans, while the “I am a man” protest (captured by
+Ernest Withers during the 1968 sanitation workers' strike in Memphis, TN) or the
+“Black Lives Matter” placards (following the uprising in Ferguson, MO) have high
+lexical and interlocutor cohesion [@edgar2018struggle].
 
-Cognitive and social psychology theories of alignment and coordination lend
-themselves nicely to the study of social media communication during times of
-conflict and contentious behavior [@Tollefsen_Dale_Paxton_2013;
-@Garrod_Pickering_2004; @Pickering_Garrod_2004]. Over the past few decades, this
-area has garnered significant attention and produced evidence showing that
-people sometimes linguistically and behaviorally align as they interact more
-[@Giles_Coupland_Coupland_1991; @Tollefsen_Dale_Paxton_2013]. Similarly,
-accommodation theory refers to the ways in which individuals and groups
-linguistically adapt to minimize the social space distance. Speakers in a
-collective setting pursue strategies which increase their common ground, and
-this is reflected in the language they use to communicate with one another.
-
-A similar process happens among participants in social media discussions. The
-process of speakers’ (or tweeters) language becoming more similar is called
-linguistic style matching (LSM) [@Niederhoffer_Pennebaker_2002]. LSM is a form
-of synchrony between speakers, akin to linguistic convergence. As Bernieri and
-Rosenthal (1991) describe, people engaged in linguistic synchrony match each
-others’ verbal behaviors, adopting not only similar terms, but similar patterns
-of language [@Bernieri_Rosenthal_1991]. For example, LSM is particularly evident
-when one speaker introduces swearing into a genteel conversation; the first
-usage opens the vulgarity floodgates, and subsequent speakers may repeat the
-initial curse, as well as innovate new curses into the conversation. Fed by
-lexical cohesion, interlocutor cohesion ebbs and flows along a timeline
+Fed by lexical cohesion, interlocutor cohesion ebbs and flows along a timeline
 contextualized by variation in real world events. Interlocutor cohesion may
 increase preceding an in-person social mobilization event, alerting a repressive
 government that collective mobilization is happening. Interlocutor cohesion may
