@@ -337,9 +337,10 @@ that increase message cohesion. Since retweets replicate verbatim some part of
 another tweet, these tweets would also have higher cohesion. Hashtags function
 similarly and are included in our analysis.
 
-```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "Add more informative caption."}
+```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = ""}
 
-# call figure 1 here
+# call the image
+knitr::include_graphics("./figs/cohesion-in-tweets.png")
 
 ```
 
