@@ -639,6 +639,15 @@ rely on social media to obtain local news and information, it becomes
 increasingly important to understand just how these micro-blogs reflect
 real-world action.
 
+```{r theoretical-framework, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "The theoretical framework for sociolinguistic cohesion. Real-world events and linguistic cohesion continually interact and influence one another throughout time."}
+
+# call the image
+knitr::include_graphics("./figs/theoretical-framework.png")
+
+```
+
+
+
 ## Using Nonlinear Methods to Capture Complex Relationships
 Given the hypothesized interrelationship between the real-world and online
 actions---and the notorious messiness of naturally occurring data---it is
