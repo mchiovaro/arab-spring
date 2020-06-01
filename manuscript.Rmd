@@ -303,12 +303,12 @@ collective political behavior.
 People join social and political resistance movements because they feel a sense
 of connection to the cause and because they have been sufficiently convinced to
 participate. Given that people are generally risk-averse, overcoming inertia
-requires a strong connection to the group identity or a strong aversion to an individual,
-event, or political injustice [@goldstone1980theories; @goldstone2011understanding].
-Political resistance offers participants the opportunity to “lose themselves” and
-relinquish their individual identity in favor of identification with a larger
-group identity, contributing to a cohesive group ready and mobilized for
-action [@Hoffer2011true].
+requires a strong connection to the group identity or a strong aversion to an
+individual, event, or political injustice [@goldstone1980theories;
+@goldstone2011understanding]. Political resistance offers participants the
+opportunity to “lose themselves” and relinquish their individual identity in
+favor of identification with a larger group identity, contributing to a cohesive
+group ready and mobilized for action [@Hoffer2011true].
 
 Previous research on social movements supports the idea that participants are
 likely to join movements when they know and have a personal connection to
@@ -700,13 +700,6 @@ incorporating these methods into their work.
 ## Materials
 ### Tweet Corpus
 
-```{r tweet-count, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
-
-# read in social cohesion data
-cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
-
-```
-
 The corpus of tweets used included `r sum(cohesion_df$n)` Syrian tweets
 occurring between March 30--June 15, 2012. Using the Twitter streaming API,
 servers at the University of Texas at Austin collected the tweets. The servers
@@ -775,6 +768,26 @@ words}}{\text{inverse frequency weighting of all words}}
 The social cohesion calculation was performed on the tweet corpus containing
 both English and Arabic tweets. All hashtags and URLs were included in the
 analysis.
+
+The raw social cohesion time series can be seen in Figure \@ref(fig:raw-cohesion).
+
+```{r raw-cohesion-ts, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw social cohesion metric time series."}
+
+# read in social cohesion data
+cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
+
+# plot time series
+raw_cohesion_ts <- ggplot(cohesion_df, aes(x= as.Date(Date), y=MeanCohesion)) +
+  geom_point() +
+  geom_line() +
+  xlab("Date") +
+  ylab("Mean Social Cohesion")
+ggsave("./results/primary/raw-cohesion-ts.png")
+
+# call the image
+knitr::include_graphics("./results/primary/raw-cohesion-ts.png")
+
+```
 
 ### ICEWS Event Time Series
 Using the Integrated Crisis Early Warning System (ICEWS) developed at the
@@ -933,7 +946,7 @@ real-world events. We implemented WCRQA using the `crqa` package [@R-crqa] for R
 [@R-base].
 
 #### Metrics
-For WCRQA analyses, we decided to focus on RR and DET.
+For WCRQA analyses, we decided to focus on RR and DET, but WCRQA visualization can be done for any metric desired.
 
 #### Parameters
 In addition to the CRQA parameters, two other parameters are required when
