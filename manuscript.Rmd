@@ -160,14 +160,14 @@ in the process of being understood. As Zeitzoff [-@zeitzoff2017social] recognize
 social media is changing conflict, but the mechanisms and relationships by
 which it does so are still being understood.
 
-## Syria in context
-The decades prior to the onset of the Arabs Spring in Syria were marked by
+## Syria in Context
+The decades preceding the Arab Spring in Syria were marked by
 social repression and fear. In 1971, Hafez al-Assad overthrew the previous
-leader and remained in power for thirty years, presiding during times of
+leader and remained in power for thirty years, presiding during
 regional contentiousness and cooperation until his death in 2000. His son,
-Bashar al-Assad, who continued the regime of authoritarian leadership, assumed
-his office. The Assad lineage hails from a minority Islamic sect, the Alawites,
-in a multi-religious and multi-ethnic country comprised of Christians, Sunni and
+Bashar al-Assad continued the regime of authoritarian leadership as he assumed
+his office. The Assad lineage hails from a minority Islamic sect (the Alawites)
+in a multi-religious and multi-ethnic country comprising Christians, Sunni and
 Shia Muslims, Kurds, and Palestinian refugees.
 
 In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and
@@ -180,27 +180,28 @@ The events of Tunisia rapidly spread to surrounding countries also subject to
 unjust authoritarian rule, including Yemen, Egypt, Libya, and Syria.
 
 Following a wave of democratization efforts across the Middle East and North
-Africa, protests began modestly in Syria in March 2011. The regime responded
+Africa, modest Syrian protests began in March 2011. The regime responded
 harshly with imprisonments, detentions, censorship, and military operations as
 the resistance to Assad’s regime grew and spread throughout the country. The
-fighting escalated in earnest in March 2012, after increased unrest in the
-western city of Homs. International actors, including the Red Cross/Red Crescent
+fighting escalated dramatically in March 2012, after increased unrest in the
+western city of Homs. International actors---including the Red Cross/Red Crescent
 Society, the United Nations General Assembly, the Security Council, and
-individual leaders throughout the world worked toward cease-fires, negotiations,
-and concessions, without much success. While many high-level military and
-diplomatic officials have defected from the regime, sufficient loyal forces have
-been able to execute continued repression. During this time between March and
-June 2012, more than eight million tweets were sent within Syria revealing the
-details of the conflict.
+individual world leaders---worked toward cease-fires, negotiations,
+and concessions without much success. While many high-level military and
+diplomatic officials defected from the regime, numerous loyal forces
+continued the regime's repression, and the Syrian people turned to social
+media to help coordinate their activism and communicate to the world. Between March and
+June 2012, more than 8 million tweets were sent within Syria, revealing the
+details of the conflict suppressed by the government.
 
 Syria is a multi-ethnic, multi-lingual, and multi-religious state. Kurdish
-people comprise between 10-15% of the population, Alawites between 8-15%,
-Christians about 10%. There are also much smaller sects, i.e. the Ismailis and
-Druze, but Sunni Muslims comprise the vast majority of society, and most people
-speak Arabic as their mother tongue. Most policy reports addressing the current
+people make up between 10-15% of the population, Alawites between 8-15%,
+Christians about 10%. There are also much smaller sects (e.g., Ismailis,
+Druze), but Sunni Muslims comprise the vast majority of society. Most people
+speak Arabic as their primary language. Most policy reports addressing the current
 conflict report on the cohesion of the ruling Alawite military elite, rather
 than on the cohesiveness of the opposition movement. However, the Sunni
-majority’s disaffection with the Syrian government and lack of political
+majority's disaffection with the Syrian government and their lack of political
 representation provide sufficient grievance and collective group identification
 to make them a cohesive force.
 
