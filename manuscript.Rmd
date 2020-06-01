@@ -35,9 +35,11 @@ abstract: |
   quantification analysis, we investigate if counts of all daily events, daily 
   positive events, and daily negative events are coupled with social cohesion 
   found in Syrian tweets. Results indicate that virtual social cohesion is 
-  coupled with the counts of all and negative events each day but not with 
-  counts of positive events. This suggests that virtual mobilization does reflect 
-  real-world movements but only for salient, frequent and negative events. We 
+  coupled with the counts of all and negative events each day but shows a more
+  nuanced connection to positive events, only visible when examining finer-grained
+  data. This suggests that virtual mobilization does reflect 
+  real-world movements, with the strongest connections to the frequency of all
+  events and the frequency of negative events. We 
   conclude with a discussion of implications and applications of nonlinear 
   methods in political science research.
   <!-- https://tinyurl.com/ybremelq -->
