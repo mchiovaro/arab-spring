@@ -1054,19 +1054,42 @@ this interpretation is supported by the attenuation of the effect in the
 analyses that include Syria as both a source and a target.
 
 ### Syria as Source and Target
-WCRQA of recurrence rate on the source and target filtered data remained
-largely the same for count of all events and social cohesion, suggesting
-that large numbers on a given day will be reflective of increased levels
-of social cohesion. DET showed more frequent above-chance metrics
-for windows 39 and up, suggesting that the inclusion of externally
-directed events lead to higher event counts during these days and then
-was more reflective of the level of social cohesion on Twitter. 
+WCRQA on the source-and-target-filtered data showed similar
+patterns of RR between the count of all events and social cohesion
+(as observed in the target-only data), 
+though the values increased. This suggests
+that large numbers on a given day match increased levels
+of social cohesion online. However, the results for DET changed:
+While the majority of statistically significant DET windows
+occurred toward the end of the observation period for target-only
+data (creating a positive trendline), the source-and-target data
+showed a negative trendline for DET. 
 
-WCRQA metrics for positive-only and negative-only event counts with 
-social cohesion remained largely the same for
-RR and DET as the source-only data. This may support the ideas suggested
+The divergences in the all-event count data for these two
+datasets underscores the differences
+between RR and DET. As noted earlier, DET captures *trajectories*---in
+this case, similar to the impact of actions and social cohesion
+carrying across time. The same number of points (RR) can fall in
+different patterns (DET), providing important information
+about the structure of the system in question.
+
+WCRQA metrics for positive-only event counts with social cohesion showed 
+similar patterns in RR and DET as the target-only data, but the precise
+values of DET and RR were diminished. This may support the ideas suggested
 in the CRQA section, but again, only future work including the *content*
 of those tweets can directly speak to that explanation.
+
+Finally, the coupling between negative-only event counts and
+social cohesion also remained relatively similar but demonstrated some 
+important differences. First, we see a greater number of windows at
+above-chance levels for RR, including an interesting spike around window
+32 that suggests a negative externally focused action taken by Syria
+prompted a sharp rise in social cohesion. (This would not have been
+captured by the target-only dataset.) Second---like with the all-event
+data---we see different structuring of the data through differences
+in the patterns of DET; above-chance DET only occurrs within the middle
+of the observation period, around a time of increased strive (as
+noted above).
 
 ## Implications
 
