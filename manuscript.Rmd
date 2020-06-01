@@ -222,7 +222,7 @@ Arab revolts in Tunisia, Egypt, and Libya is not how the globalization of the
 norms of civic engagement shaped the protesters' aspirations. Nor is it about
 how activists used technology to share ideas and tactics. Instead, the critical
 issue is how and why these ambitions and techniques resonated in their various
-local contexts. [anderson2011demystifying]
+local contexts. [@anderson2011demystifying]
 
 Others have similarly expressed hesitation about the role of online
 organizing. Some have argued that real-life strong ties outweigh online weak ties and
@@ -301,13 +301,12 @@ action.
 
 ### Lexical and Interlocutor Cohesion
 
-The concept of lexical, or semantic, cohesion has already been applied to the
-analysis of political speech (for example, the language of Margaret Thatcher) 
-and non-political speech [@barzilay1999using; @morris1991lexical].
-
-The words that comprise social media posts are the first level at which cohesion
-occurs. In Figure \@ref(fig:cohesion-in-tweets), we see four sequential tweets, 
-each containing four words.
+The words that comprise social media posts are the first level of cohesion that
+we will consider. The concept of lexical, or semantic, cohesion has already been
+applied to the analysis of political speech (for example, the language of
+Margaret Thatcher) and non-political speech [@barzilay1999using;
+@morris1991lexical]. In Figure \@ref(fig:cohesion-in-tweets), we see four
+sequential tweets, each containing four words.
 Each sequential tweet contains some content included in the previous tweets. The
 linguistic construct of content word overlap measures the relationship across
 units of meaning---here, tweets---where identical and semantically similar words
