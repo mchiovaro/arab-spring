@@ -844,17 +844,19 @@ knitr::include_graphics("./results/primary/mode_ts_plot.png")
 ```
 
 For social cohesion and count of all events, there was a consistent period 
-of above-chance RR from the 7th-12th and 36th-47th window. DET was largely 
-above chance from the 46th to the 61st window 
+of above-chance RR from the 7th--12th and 36th--47th window. In addition
+to some one-week peaks at the beginning of the time period, DET was largely 
+above chance from the 46th to the 61st window, with some exceptions 
 (Figure \@ref(fig:plot-wcrqa-targ-all)). 
 
-For social cohesion and count of positive events, there was a downward trend in RR 
-as the window moves with largely above-chance RR from the 1st-18th and 
-32nd-45th windows. DET was at or above chance for the 8th-17th, 
-32nd-34th and at the 60th window (Figure \@ref(fig:plot-wcrqa-targ-all)). 
+For social cohesion and count of positive events, we saw a downward trend in 
+RR as the window advances throughout the sample. Interestingly, we see
+largely above-chance RR until the 50th window, with some exceptions during
+window periods 20-30. DET was at or above chance for the 7th--17th, 32nd-34th, 
+and 60th windows (Figure \@ref(fig:plot-wcrqa-targ-all)). 
 
 For social cohesion and count of negative events, RR stayed above
-or almost above chance from the 4th-7th and 43rd-47th windows. DET
+or almost above chance from the 4th--7th and 43rd-47th windows. DET
 was above or nearly above chance in the 1st and 2nd windows, with intermittent 
 peaks in later windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
@@ -868,20 +870,20 @@ knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_
 ```
 
 For social cohesion and count of all events, there was a consistent period of
-above- or nearly above-chance DET from the 7th-13th and 26th-47th 
+above- or nearly above-chance DET from the 7th--13th and 26th--47th 
 windows. DET also showed above- or nearly above-chance values in windows 7 
 through 17 and intermittent peaks between the 34th and 61st windows 
 (Figure \@ref(fig:plot-wcrqa-source-targ-all)). 
 
 For social cohesion and count of 
 positive events, there was a downward trend in RR as the window moved, with 
-largely above-chance values in the first 20 windows and the 32nd-45th windows. 
+largely above-chance values in the first 20 windows and the 32nd--45th windows. 
 DET stayed largely within chance, with the exception of windows 13 
 through 19 (Figure \@ref(fig:plot-wcrqa-source-targ-all)). 
 
 For social cohesion
 and negative events, there was an extended period of time during which RR 
-(32nd-47th windows) and DET (35th-39th windows) were above or nearly above 
+(32nd--47th windows) and DET (35th--39th windows) were above or nearly above 
 chance (Figure \@ref(fig:plot-wcrqa-source-targ-all)). These windows span from
 May 3rd--14th, 2012.
 
