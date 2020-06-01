@@ -1093,9 +1093,7 @@ in the patterns of DET; above-chance DET only occurrs within the middle
 of the observation period, around a time of increased strive (as
 noted above).
 
-## Implications
-
-### Implications for Methodology
+## Implications for Methodology and Theory
 
 Nonlinear methods have been transformative for a variety of research
 areas [including psychology, @coco2014cross]. One of the goals in the
@@ -1120,9 +1118,19 @@ improving the temporal granularity of the data. One possible
 means of achieving this may be through collaborative efforts
 like the Open Event Data Alliance [@schrodt2014three].
 
-### Implications for Theory
-
-This methodology should be of great interest to social scientists investigating social mobilization. It has potential applications for gender studies and the #MeToo movement, and for the relationship between social protest and repression during the Black Lives Matter protests. Fundamentally, this methodological approach can help us better understand the mechanisms underlying social media, and its influence on human behavior in real life. Given that many governments enact repressive measures when they determine that collective action by citizens has become an imminent possibility this methodology should help to improve the predictive power of using social media data in estimating repressive behavior. If social media messages are increasing in cohesion, this may represent a threat to civil and political liberties of citizens engaging in collective action. 
+This methodology should be of great interest to social scientists 
+investigating social mobilization. It has potential applications for 
+gender studies and the #MeToo movement and for the relationship between 
+social protest and repression during the Black Lives Matter protests. 
+Fundamentally, this methodological approach can help us better understand
+the human social mechanisms underlying social media and its influence on human 
+behavior in real life. Given that many governments enact repressive 
+measures when they determine that collective action by citizens is
+imminent, this methodology should help to improve 
+the predictive power of using social media data in estimating repressive 
+behavior. If social media messages are increasing in cohesion, this may 
+represent a threat to civil and political liberties of citizens engaging
+in collective action. 
 
 ## Conclusion
 Considering the pervasiveness of social media, it is unsurprising
