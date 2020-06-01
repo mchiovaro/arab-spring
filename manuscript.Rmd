@@ -36,12 +36,12 @@ abstract: |
   positive events, and daily negative events are coupled with social cohesion
   found in Syrian tweets. Results indicate that virtual social cohesion is
   coupled with the counts of all and negative events each day but shows a more
-  nuanced connection to positive events, only visible when examining finer-grained
-  data. This suggests that virtual mobilization does reflect
+  nuanced connection to positive events, only visible when examining
+  finer-grained data. This suggests that virtual mobilization does reflect
   real-world movements, with the strongest connections to the frequency of all
-  events and the frequency of negative events. We
-  conclude with a discussion of implications and applications of nonlinear
-  methods in political science research.
+  events and the frequency of negative events. We conclude with a discussion of
+  implications and applications of nonlinear methods in political science
+  research.
   <!-- https://tinyurl.com/ybremelq -->
 
 keywords          : "social cohesion, recurrence quantification analysis, complex systems, Twitter, Arab Spring"
@@ -318,11 +318,11 @@ political opportunity structures. The political opportunity structure are
 “comprised *(sic)* of specific configuration of resources, institutional
 arrangements and historical precedents for social mobilization, which facilitate
 the development of protest movements in some instances and constrain them in
-others” [@Kitschelt_1986]. What emerges as strategies and tactics in contentious
-politics are, in essence, a function of what the system makes possible. This
-includes the number of people and their disposition (i.e. nonviolent or
-violent), as well as their internal structure. The more cohesive a group is, the
-greater threat they pose to the establishment.
+others” [@kitschelt1986political]. What emerges as strategies and tactics in
+contentious politics are, in essence, a function of what the system makes
+possible. This includes the number of people and their disposition (i.e.
+nonviolent or violent), as well as their internal structure. The more cohesive a
+group is, the greater threat they pose to the establishment.
 
 Cohesion is also a familiar concept in the study of civil conflicts, as it
 pertains to group affiliation and the ability to overcome collective action
