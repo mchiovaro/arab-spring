@@ -1140,11 +1140,11 @@ Here, we quantitatively explored the connection
 between online social cohesion and real-world events. In addition
 to introducing political scientists to a family of powerful nonlinear 
 dynamics analyses, our results have serious implications for monitoring global
-movements in consistent across other social uprisings. While traditional, 
+movements in consistent across other social uprisings. While  
 state-run media in regions of authoritarian rule are often biased and 
-propaganda for the leader and central government, the 
-self-organized nature of Twitter poses a new avenue to gain insight into 
-truths about up-risings and social mobilization. By conceptualizing Twitter 
+serve as propaganda for the leader and central government, the 
+self-organized nature of Twitter provides a new avenue to gain insight into 
+truths about uprisings and social mobilization. By conceptualizing Twitter 
 and real-world events as two elements of an inextricably linked dynamical 
 system, the levels of social cohesion within social media platforms could be 
 monitored for fluctuations indicating shifts in power and peace. Social media
