@@ -1,57 +1,42 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[
-  english,
-  man]{apa6}
+\documentclass[english,man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
 \hypersetup{
-  pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
-  pdflang={en-EN},
-  pdfkeywords={social cohesion, recurrence quantification analysis, complex systems, Twitter, Arab Spring},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+            pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
+            pdfkeywords={social cohesion, recurrence quantification analysis, complex systems, Twitter, Arab Spring},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage{longtable,booktabs}
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -61,23 +46,16 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-% Make \paragraph and \subparagraph free-standing
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
+
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -135,12 +113,12 @@ Correspondence concerning this article should be addressed to Megan Chiovaro, 40
 \linenumbers
 \usepackage{csquotes}
 \usepackage{float}
-\ifxetex
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=english]{babel}
+\else
+  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
-\else
-  \usepackage[shorthands=off,main=english]{babel}
 \fi
 
 \title{Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring}
@@ -202,16 +180,16 @@ also subject to unjust authoritarian rule, including Yemen, Egypt, Libya,
 and Syria.
 
 These mass movements would not have been possible without
-efficient large-scale coordination, both physically and virtually on social
-media platforms. Along with Facebook, Twitter has been credited as essential
-to the Arab Spring---both for protesters (as a means to coordinate with one
-another and to communicate with the world) and for the government response
-(to monitor and track protestors to crack down on dissent) (Comninos, 2011).
-The events of Arab Spring have been
-thoroughly discussed within the political science literature
+efficient large-scale coordination, both physically on the ground and virtually
+on social media platforms. Along with Facebook, Twitter has been credited as
+essential to the Arab Spring---both for protesters (as a means to coordinate
+with one another and to communicate with the world) and for the government
+response (to monitor and track protestors to crack down on dissent)
+(Comninos, 2011). The events of Arab Spring have been thoroughly
+discussed within the political science literature
 (e.g., Lutterbeck, 2013; Koehler, 2017), but to our knowledge,
-the direct coupling between Syrian Twitter use and international action
-has not been investigated.
+the direct \emph{coupling} between Syrian Twitter cohesion and international action
+coordination has not been investigated.
 
 \hypertarget{social-cohesion-and-social-mobilization}{%
 \subsection{Social Cohesion and Social Mobilization}\label{social-cohesion-and-social-mobilization}}
@@ -237,7 +215,7 @@ in psycholinguistics and social psychology
 although previous work on language style
 has often focused on individuals and small groups, this can be scaled up to examine
 massive social-level changes (Fusaroli et al., 2015; Michel et al., 2011).
-This kind of massive online social cohesion can lead to real-world
+This kind of widespread online social cohesion can lead to real-world
 social change.
 
 Combining these separate threads, it is reasonable to expect that real-world actions
@@ -249,7 +227,7 @@ cohesion in the virtual world. Increased social cohesion is thus potentially
 an indicator and a result of increased social organization and mobilization
 on the ground.
 
-Social media platforms provide one way of enabling this kind of online social
+Social media platforms provide one way to enable this kind of online social
 cohesion by offering distributed information-gathering and real-time information
 dissemination. Given its accessibility and proficiency as an information
 exchange tool, Twitter has provided individuals involved in social movements
@@ -269,15 +247,14 @@ reflect real-world action.
 Given the hypothesized interrelationship between the real-world
 and online actions---and the notorious messiness of naturally occurring
 data---it is critical to find appropriate analysis tools that can
-identify the complex interconnections.
-Traditional linear analyses have led to many notable discoveries in the
-domains of psychology and political science, but time series data pose
-problems that are not easily overcome with these methods. Events have
-historically been conceptualized as linear chains of smaller, sequential
-events with one occurrence leading to the next.
+identify the complex interconnections. Traditional linear analyses have led to
+many notable discoveries in the domains of psychology and political science,
+but time series data pose problems that are not easily overcome with these
+methods. Events have historically been conceptualized as linear chains of
+smaller, sequential events with one occurrence leading to the next.
 Certain kinds of data are relatively well-suited to these analyses,
 but messy, complex, variable data from real-world events can pose
-challenges from overpowered samples to violation of underlying
+challenges, from overpowered samples to violation of underlying
 statistical assumptions (Paxton \& Griffiths, 2017).
 
 At the same time, the foundational theoretical assumptions of a
@@ -287,10 +264,9 @@ a chain of events, time series data can be thought of as nested occurrences,
 where mutually constrained parts (e.g., citizens, governments, real-world
 events, social media platforms) are constantly interacting, leading to
 more global behaviors that are larger than the sum of the parts
-(Turvey, 2018). Linear analyses flatten these nonlinear patterns in
-time series data and ignore the variability
-that is fundamental to these systems and their evolution over time.
-However, when analyzed as dynamical systems, many phenomena
+(Turvey, 2018). Linear analyses flatten time series data and ignore
+the variability that is fundamental to these systems and their evolution over
+time. However, when analyzed as dynamical systems, many phenomena
 exhibit new nonlinear patterns that were formerly overlooked.
 Nonlinear methods provide means for capturing the rich temporal
 dynamics and variability that unfold in time series data.
@@ -768,14 +744,14 @@ metric & all events & p & sig. & positive events & p & sig. & negative events & 
 metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
 \midrule
 \endhead
-DET & 25.246 & 0.001 & *** & 21.803 & 0.074 & . & 22.623 & 0.023 & *\tabularnewline
-NRLINE & 75.000 & 0.000 & *** & 61.000 & 0.121 & & 64.000 & 0.038 & *\tabularnewline
-maxL & 3.000 & 0.423 & & 4.000 & 0.037 & * & 3.000 & 0.370 &\tabularnewline
-L & 2.053 & 0.911 & & 2.180 & 0.079 & . & 2.156 & 0.155 &\tabularnewline
-ENTR & 0.208 & 0.901 & & 0.499 & 0.064 & . & 0.433 & 0.165 &\tabularnewline
-rENTR & 0.300 & 0.802 & & 0.455 & 0.305 & & 0.625 & 0.032 & *\tabularnewline
-LAM & 34.262 & 0.003 & ** & 30.328 & 0.016 & * & 24.098 & 0.113 &\tabularnewline
-TT & 2.247 & 0.107 & & 2.176 & 0.165 & & 2.100 & 0.360 &\tabularnewline
+DET & 25.246 & 0.001 & *** & 21.148 & 0.127 & & 22.623 & 0.023 & *\tabularnewline
+NRLINE & 75.000 & 0.000 & *** & 59.000 & 0.193 & & 64.000 & 0.038 & *\tabularnewline
+maxL & 3.000 & 0.423 & & 4.000 & 0.036 & * & 3.000 & 0.370 &\tabularnewline
+L & 2.053 & 0.911 & & 2.186 & 0.060 & . & 2.156 & 0.155 &\tabularnewline
+ENTR & 0.208 & 0.901 & & 0.510 & 0.047 & * & 0.433 & 0.165 &\tabularnewline
+rENTR & 0.300 & 0.802 & & 0.464 & 0.255 & & 0.625 & 0.032 & *\tabularnewline
+LAM & 34.262 & 0.003 & ** & 27.705 & 0.035 & * & 24.098 & 0.113 &\tabularnewline
+TT & 2.247 & 0.107 & & 2.195 & 0.156 & & 2.100 & 0.360 &\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -957,6 +933,40 @@ RR and DET as the source-only data. This may support the ideas suggested
 in the CRQA section, but again, only future work including the \emph{content}
 of those tweets can directly speak to that explanation.
 
+\hypertarget{implications}{%
+\subsection{Implications}\label{implications}}
+
+\hypertarget{implications-for-methodology}{%
+\subsubsection{Implications for Methodology}\label{implications-for-methodology}}
+
+Nonlinear methods have been transformative for a variety of research
+areas (including psychology, Coco \& Dale, 2014). One of the goals in the
+present work was to introduce variants of one kind of nonlinear
+method---specifically, recurrence quantification analysis---to
+this research area. While a number of excellent guides can provide
+detailed explanations of the methods and their statistical underpinnings
+(e.g., Riley \& Van Orden, 2005; Webber Jr \& Zbilut, 1994, 2005),
+one of the most important considerations that should be briefly
+summarized here is about data.
+
+Nonlinear methods---including recurrence-based analyses---require
+time series data. This requires repeated observations of the behavior
+at interest, preferably at a frequency that provides information
+about timing at a temporal resolution that allows the researcher to
+make observations about interesting variations over time. While
+this is easily controlled by scientists who conduct experimental
+research, it can be more difficult for scientists who rely on
+trace data or naturally occurring data. However, where possible,
+we recommend political scientists work to expand efforts for
+improving the temporal granularity of the data. One possible
+means of achieving this may be through collaborative efforts
+like the Open Event Data Alliance (Schrodt, Beieler, \& Idris, 2014).
+
+\hypertarget{implications-for-theory}{%
+\subsubsection{Implications for Theory}\label{implications-for-theory}}
+
+(This would be where Leah should update her part.)
+
 \hypertarget{conclusion}{%
 \subsection{Conclusion}\label{conclusion}}
 
@@ -995,6 +1005,9 @@ Boschee, E., Lautenschlager, J., O'Brien, S., Shellman, S., Starz, J., \& Ward, 
 
 \leavevmode\hypertarget{ref-brennan1996conceptual}{}%
 Brennan, S. E., \& Clark, H. H. (1996). Conceptual pacts and lexical choice in conversation. \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition}, \emph{22}(6), 1482.
+
+\leavevmode\hypertarget{ref-coco2014cross}{}%
+Coco, M. I., \& Dale, R. (2014). Cross-recurrence quantification analysis of categorical and continuous time series: An r package. \emph{Frontiers in Psychology}, \emph{5}, 510.
 
 \leavevmode\hypertarget{ref-R-crqa}{}%
 Coco, M. I., \& Dale, R. (2018). \emph{Crqa: Cross-recurrence quantification analysis for categorical and continuous time-series}. Retrieved from \url{https://CRAN.R-project.org/package=crqa}
@@ -1050,8 +1063,14 @@ Paxton, A., \& Griffiths, T. L. (2017). Finding the traces of behavioral and cog
 \leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2019). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
+\leavevmode\hypertarget{ref-riley2005tutorials}{}%
+Riley, M. A., \& Van Orden, G. C. (Eds.). (2005). \emph{Tutorials in contemporary nonlinear methods for the behavioral sciences}. National Science Foundation.
+
 \leavevmode\hypertarget{ref-robertson2004understanding}{}%
 Robertson, S. (2004). Understanding inverse document frequency: On theoretical arguments for idf. \emph{Journal of Documentation}.
+
+\leavevmode\hypertarget{ref-schrodt2014three}{}%
+Schrodt, P. A., Beieler, J., \& Idris, M. (2014). Three's a charm?: Open event data coding with EL:DIABLO, PETRARCH, and the Open Event Data Alliance. In \emph{International studies association annual convention}.
 
 \leavevmode\hypertarget{ref-spaaij2014sports}{}%
 Spaaij, R. (2014). Sports crowd violence: An interdisciplinary synthesis. \emph{Aggression and Violent Behavior}, \emph{19}(2), 146--155.
@@ -1063,7 +1082,7 @@ Tausczik, Y. R., \& Pennebaker, J. W. (2010). The psychological meaning of words
 Turvey, M. T. (2018). \emph{Lectures on perception: An ecological perspective}. Routledge.
 
 \leavevmode\hypertarget{ref-vicari2013public}{}%
-Vicari, S. (2013). Public reasoning around social contention: A case study of twitter use in the italian mobilization for global change. \emph{Current Sociology}, \emph{61}(4), 474--490.
+Vicari, S. (2013). Public reasoning around social contention: A case study of Twitter use in the Italian mobilization for global change. \emph{Current Sociology}, \emph{61}(4), 474--490.
 
 \leavevmode\hypertarget{ref-webber1994dynamical}{}%
 Webber Jr, C. L., \& Zbilut, J. P. (1994). Dynamical assessment of physiological systems and states using recurrence plot strategies. \emph{Journal of Applied Physiology}, \emph{76}(2), 965--973.

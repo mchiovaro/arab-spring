@@ -129,16 +129,16 @@ also subject to unjust authoritarian rule, including Yemen, Egypt, Libya,
 and Syria. 
 
 These mass movements would not have been possible without
-efficient large-scale coordination, both physically and virtually on social
-media platforms. Along with Facebook, Twitter has been credited as essential 
-to the Arab Spring---both for protesters (as a means to coordinate with one 
-another and to communicate with the world) and for the government response
-(to monitor and track protestors to crack down on dissent) [@comninos2011twitter]. 
-The events of Arab Spring have been
-thoroughly discussed within the political science literature
+efficient large-scale coordination, both physically on the ground and virtually 
+on social media platforms. Along with Facebook, Twitter has been credited as 
+essential to the Arab Spring---both for protesters (as a means to coordinate 
+with one another and to communicate with the world) and for the government 
+response (to monitor and track protestors to crack down on dissent) 
+[@comninos2011twitter]. The events of Arab Spring have been thoroughly 
+discussed within the political science literature 
 [e.g., @lutterbeck2013arab; @koehler2017political], but to our knowledge,
-the direct coupling between Syrian Twitter use and international action
-has not been investigated.
+the direct *coupling* between Syrian Twitter cohesion and international action
+coordination has not been investigated.
 
 ## Social Cohesion and Social Mobilization
 Real-world collective action is known to bring about a sense of togetherness,
@@ -162,7 +162,7 @@ in psycholinguistics and social psychology
 although previous work on language style
 has often focused on individuals and small groups, this can be scaled up to examine
 massive social-level changes [@michel2011quantitative; @fusaroli2015timescales]. 
-This kind of massive online social cohesion can lead to real-world
+This kind of widespread online social cohesion can lead to real-world
 social change.
 
 Combining these separate threads, it is reasonable to expect that real-world actions 
@@ -174,7 +174,7 @@ cohesion in the virtual world. Increased social cohesion is thus potentially
 an indicator and a result of increased social organization and mobilization 
 on the ground. 
 
-Social media platforms provide one way of enabling this kind of online social
+Social media platforms provide one way to enable this kind of online social
 cohesion by offering distributed information-gathering and real-time information
 dissemination. Given its accessibility and proficiency as an information
 exchange tool, Twitter has provided individuals involved in social movements
@@ -192,15 +192,14 @@ reflect real-world action.
 Given the hypothesized interrelationship between the real-world
 and online actions---and the notorious messiness of naturally occurring
 data---it is critical to find appropriate analysis tools that can
-identify the complex interconnections.
-Traditional linear analyses have led to many notable discoveries in the
-domains of psychology and political science, but time series data pose
-problems that are not easily overcome with these methods. Events have
-historically been conceptualized as linear chains of smaller, sequential
-events with one occurrence leading to the next. 
+identify the complex interconnections. Traditional linear analyses have led to 
+many notable discoveries in the domains of psychology and political science, 
+but time series data pose problems that are not easily overcome with these 
+methods. Events have historically been conceptualized as linear chains of 
+smaller, sequential events with one occurrence leading to the next. 
 Certain kinds of data are relatively well-suited to these analyses,
 but messy, complex, variable data from real-world events can pose
-challenges from overpowered samples to violation of underlying
+challenges, from overpowered samples to violation of underlying
 statistical assumptions [@paxton2017finding].
 
 At the same time, the foundational theoretical assumptions of a 
@@ -210,10 +209,9 @@ a chain of events, time series data can be thought of as nested occurrences,
 where mutually constrained parts (e.g., citizens, governments, real-world
 events, social media platforms) are constantly interacting, leading to
 more global behaviors that are larger than the sum of the parts
-[@turvey2018lectures]. Linear analyses flatten these nonlinear patterns in 
-time series data and ignore the variability
-that is fundamental to these systems and their evolution over time. 
-However, when analyzed as dynamical systems, many phenomena
+[@turvey2018lectures]. Linear analyses flatten time series data and ignore 
+the variability that is fundamental to these systems and their evolution over 
+time. However, when analyzed as dynamical systems, many phenomena
 exhibit new nonlinear patterns that were formerly overlooked. 
 Nonlinear methods provide means for capturing the rich temporal
 dynamics and variability that unfold in time series data.
