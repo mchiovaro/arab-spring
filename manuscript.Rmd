@@ -24,24 +24,20 @@ affiliation:
     institution   : "Equal author contributions"
 
 abstract: |
-  Social mobilization requires effective collective coordination. In recent
-  years, individuals involved in social movements have taken to social media
-  platforms to reach broader audiences at rapid speeds. Effective virtual
-  mobilization similarly requires social cohesion and coordination, yet the
-  degree to which virtual mobilization reflects or drives real-world movements
-  is unclear. Here, we explore the dynamics of real-world events and social
-  cohesion on Twitter in Syria during the Arab Spring. Using the nonlinear
-  methods cross-recurrence quantification analysis and windowed cross-recurrence
-  quantification analysis, we investigate if counts of all daily events, daily
-  positive events, and daily negative events are coupled with social cohesion
-  found in Syrian tweets. Results indicate that virtual social cohesion is
-  coupled with the counts of all and negative events each day but shows a more
-  nuanced connection to positive events, only visible when examining
-  finer-grained data. This suggests that virtual mobilization does reflect
-  real-world movements, with the strongest connections to the frequency of all
-  events and the frequency of negative events. We conclude with a discussion of
-  implications and applications of nonlinear methods in political science
-  research.
+  In recent years, individuals involved in social movements have taken to social
+  media platforms to reach broader audiences at rapid speeds. Although
+  micro-blogging has become a primary means of information dissemination during
+  times of turmoil, the degree to which virtual mobilization reflects or drives
+  real-world movements is unclear. Here, we explore the dynamics of real-world
+  events and Twitter social cohesion in Syria during the Arab Spring. Using the
+  nonlinear methods cross-recurrence quantification analysis and windowed
+  cross-recurrence quantification analysis, we investigate if frequency of
+  events of different intensities are coupled with social cohesion found in
+  Syrian tweets. Results indicate that virtual social cohesion is coupled with
+  the counts of all and negative events each day but shows a more nuanced
+  connection to positive events, suggesting that virtual mobilization does
+  reflect real-world movements. We conclude with a discussion of implications
+  and applications of nonlinear methods in political science research.
   <!-- https://tinyurl.com/ybremelq -->
 
 keywords          : "social cohesion, recurrence quantification analysis, complex systems, Twitter, Arab Spring"
@@ -813,7 +809,7 @@ The raw event time series for target filtered data can be seen in Figure \@ref(f
 event_df <- read.csv("./data/formatted/primary/formatted_data.csv")
 
 # plot the time series
-ggplot() +
+raw_events_ts_target <- ggplot() +
   geom_line(event_df, mapping = aes(x= as.Date(Date), y=all_events_target, colour = 'all events')) +
   geom_line(event_df, mapping = aes(x= as.Date(Date), y=pos_events_target, colour = 'positive events')) +
   geom_line(event_df, mapping = aes(x= as.Date(Date), y=neg_events_target, colour = 'negative events')) +
@@ -832,7 +828,7 @@ knitr::include_graphics("./results/primary/raw-event-ts-target.png")
 ```{r raw-event-ts-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw event count time series for source and target filtered data."}
 
 # plot the time series
-ggplot() +
+raw_events_ts_source_target <- ggplot() +
   geom_line(event_df, mapping = aes(x= as.Date(Date), y=all_events_source_target, colour = 'all events')) +
   geom_line(event_df, mapping = aes(x= as.Date(Date), y=pos_events_source_target, colour = 'positive events')) +
   geom_line(event_df, mapping = aes(x= as.Date(Date), y=neg_events_source_target, colour = 'negative events')) +
