@@ -16,7 +16,8 @@ required_packages = c(
   'gtools',
   'knitr',
   'statip',
-  'gridExtra'
+  'gridExtra',
+  'png'
 )
 
 # load required packages

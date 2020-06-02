@@ -16,7 +16,8 @@ required_packages = c(
   'gtools',
   'knitr',
   'statip',
-  'gridExtra'
+  'gridExtra',
+  'png'
 )
 
 # install missing packages (adapted from <http://stackoverflow.com/a/4090208> and a-paxton/perception-memory-coordination)
