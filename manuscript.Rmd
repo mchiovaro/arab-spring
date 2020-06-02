@@ -166,7 +166,7 @@ unjust authoritarian rule, including Yemen, Egypt, Libya, and Syria.
 Following a wave of democratization efforts across the Middle East and North
 Africa, modest Syrian protests began in March 2011. The regime responded harshly
 with imprisonments, detentions, censorship, and military operations as the
-resistance to Assad’s regime grew and spread throughout the country. The
+resistance to Assad's regime grew and spread throughout the country. The
 fighting escalated dramatically in March 2012, after increased unrest in the
 western city of Homs. International actors---including the Red Cross/Red
 Crescent Society, the United Nations General Assembly, the Security Council, and
@@ -232,7 +232,7 @@ how activists used technology to share ideas and tactics. Instead, the critical
 issue is how and why these ambitions and techniques resonated in their various
 local contexts. [@anderson2011demystifying]
 
-Others have similarly expressed hesitation about the role of online
+\noindent Others have similarly expressed hesitation about the role of online
 organizing. Some have argued that real-life strong ties outweigh online weak ties and
 that the power of the strong ties through in-person contact is critical
 to recruiting people for higher-risk activities
@@ -268,7 +268,9 @@ casualties. In turn, the government---interested in remaining in
 power---monitors social media platforms to ascertain emerging threats
 [@comninos2011twitter], such as where new groups are forming and where existing
 groups are strengthening, where gatherings are held, and who the idea
-entrepreneurs are. An example of a leader expressing his interest in such public
+entrepreneurs are. 
+
+An example of a leader expressing his interest in such public
 conversation is given by Bashar al-Assad in a speech on June 3, 2012:
 
 >I know that I have been away from the media for a long time, and I have missed
@@ -276,7 +278,7 @@ having direct contact with the citizens, but I have always been following up
 with the daily occurrences and gathering the information so that my speech can
 be built on what is said by the street.
 
-With few exceptions, Assad chose to keep social media platforms up and running.
+\noindent With few exceptions, Assad chose to keep social media platforms up and running.
 Gohdes [-@gohdes2015pulling] notes that regimes can attempt to thwart the growth
 of social protest online and in the streets by shutting down the Internet.
 During these times, however, she finds that military repression increases.
@@ -310,7 +312,7 @@ likely to join movements when they know and have a personal connection to
 someone else already involved [@mcadam1986recruitment]. The type of collective
 contentious behavior that manifests in society is a function of the available
 political opportunity structures. The political opportunity structure are
-“comprised *(sic)* of specific configuration of resources, institutional
+“comprised of *(sic)* specific configuration of resources, institutional
 arrangements and historical precedents for social mobilization, which facilitate
 the development of protest movements in some instances and constrain them in
 others” [@kitschelt1986political]. What emerges as strategies and tactics in
@@ -353,7 +355,7 @@ especially when the society is polarized [@collier2004greed]; this is partly
 due to nationalist groups' strong identification with a collective identity
 [@cederman2007beyond] and their social solidarity [@sambanis2009s]. These
 same processes can be similarly important for rebels [@anyanwu2002economic].
-Referencing Gurr’s [-@gurr2000peoples] work on minorities at
+Referencing Gurr's [-@gurr2000peoples] work on minorities at
 risk, Regan and Norton [-@regan2005greed] note that
 
 >a religious or linguistic minority
@@ -510,7 +512,7 @@ structure, inciting a government response.
 Thus, lexical and interpersonal cohesion are hypothesized to be tied to social
 and political cohesion. Shared language in an online environment may lead to the
 development or expression of a shared identity [@wiltermuth2009synchrony]. This,
-in turn, may drive individuals’ propensity to engage in similar coordinated
+in turn, may drive individuals' propensity to engage in similar coordinated
 behavior on behalf of the group [@wiltermuth2009synchrony; @walton2012mere].
 Taken together, these two processes may grow movement participants' weak and
 strong ties [@granovetter1977strength; @gladwell2010revolution;
@@ -520,8 +522,8 @@ linguistic cohesion of the online conversation should correspond to the degree
 of social cohesion on the ground.
 
 Steinert-Threlkeld [-@steinert2017spontaneous] modeled a similar relationship
-between social media and social mobilization alongside event data. This
-groundbreaking work demonstrates that participants on the fringe of a social
+between social media and social mobilization alongside event data. That
+groundbreaking work demonstrated that participants on the fringe of a social
 movement contribute substantially to the overall level of protest. In addition
 to providing new methods to this growing field of study, we build on this
 previous work by demonstrating how sociolinguistic cohesion evolves in
@@ -728,7 +730,7 @@ by (i.e., `source`) Syria ($n = 7990$).
 ## Data Preparation
 ### Social Cohesion Metric
 The social cohesion or linguistic similarity of daily tweets was calculated by
-quantifying the frequency of shared content words with respect to those words’
+quantifying the frequency of shared content words with respect to those words'
 frequencies in the entire tweet corpus. If a linguistic term has a high
 frequency in one tweet but has a low frequency in the whole tweet corpus, then
 it is more likely a content word and is thus given more weight in calculating
@@ -760,11 +762,10 @@ d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
 words}}{\text{inverse frequency weighting of all words}}
 \end{align}
 
-The social cohesion calculation was performed on the tweet corpus containing
-both English and Arabic tweets. All hashtags and URLs were included in the
-analysis.
-
-The raw social cohesion time series can be seen in Figure \@ref(fig:raw-cohesion-ts).
+\noindent The social cohesion calculation was performed on the tweet corpus
+containing both English and Arabic tweets. All hashtags and URLs were included
+in the analysis. The raw social cohesion time series can be seen in Figure
+\@ref(fig:raw-cohesion-ts).
 
 ```{r raw-cohesion-ts, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw social cohesion metric time series."}
 
@@ -800,7 +801,9 @@ day that had an intensity rating greater than zero. Lastly, time series of count
 of negative events were generated by summing the number of ICEWS events for each
 day that had an intensity rating less than zero.
 
-The raw event time series for target filtered data can be seen in Figure \@ref(fig:raw-event-ts-target). The The raw event time series for source and target filtered data can be seen in Figure \@ref(fig:raw-event-ts-source-target).
+The raw event time series for target filtered data can be seen in Figure
+\@ref(fig:raw-event-ts-target). The raw event time series for source and target
+filtered data can be seen in Figure \@ref(fig:raw-event-ts-source-target).
 
 ```{r raw-event-ts-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw event count time series for target filtered data."}
 
