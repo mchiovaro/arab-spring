@@ -223,7 +223,7 @@ par = list(unit = 2,
 plotRP(cross_recurrence_analysis$RP, par)
 dev.off()
 
-## join source-target plots ##
+## join target plots ##
 
 # read in CRPs
 crp_1 <- readPNG('./results/primary/crqa/target-rp-all_events.png')
