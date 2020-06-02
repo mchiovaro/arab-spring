@@ -984,7 +984,8 @@ real-world events. We implemented WCRQA using the `crqa` package [@R-crqa] for R
 [@R-base].
 
 #### Metrics
-For WCRQA analyses, we decided to focus on RR and DET, but WCRQA visualization can be done for any metric desired.
+For WCRQA analyses, we decided to focus on RR and DET, but similar analyses and
+visualizations can be performed for any RQA metric.
 
 #### Parameters
 In addition to the CRQA parameters, two other parameters are required when
