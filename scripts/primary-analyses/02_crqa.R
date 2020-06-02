@@ -122,6 +122,18 @@ par = list(unit = 2,
 plotRP(cross_recurrence_analysis$RP, par)
 dev.off()
 
+## join source-target plots ##
+
+# read in CRPs
+crp_1 <- readPNG('./results/primary/crqa/source_target-rp-all_events.png')
+crp_2 <- readPNG('./results/primary/crqa/source_target-rp-pos_events.png')
+crp_3 <- readPNG('./results/primary/crqa/source_target-rp-neg_events.png')
+
+# join images and save
+png("./results/primary/crqa/source_target-rp-joined.png")
+grid.arrange(rasterGrob(crp_1),rasterGrob(crp_2), rasterGrob(crp_3), ncol=3)
+dev.off()
+
 ### target filtered data ###
 
 ## count of all events and social cohesion ##
@@ -209,6 +221,18 @@ par = list(unit = 2,
            cols = negative_event_color, 
            pcex = .5)
 plotRP(cross_recurrence_analysis$RP, par)
+dev.off()
+
+## join source-target plots ##
+
+# read in CRPs
+crp_1 <- readPNG('./results/primary/crqa/target-rp-all_events.png')
+crp_2 <- readPNG('./results/primary/crqa/target-rp-pos_events.png')
+crp_3 <- readPNG('./results/primary/crqa/target-rp-neg_events.png')
+
+# join images and save
+png("./results/primary/crqa/target-rp-joined.png")
+grid.arrange(rasterGrob(crp_1),rasterGrob(crp_2), rasterGrob(crp_3), ncol=3)
 dev.off()
 
 #### 3. Conduct permutation tests ####
