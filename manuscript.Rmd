@@ -807,15 +807,33 @@ filtered data can be seen in Figure \@ref(fig:raw-event-ts-source-target).
 
 ```{r raw-event-ts-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw event count time series for target filtered data."}
 
+# specify global plotting variables for easier testing
+all_event_color = "#CC79A7"
+positive_event_color = "#0072B2"
+negative_event_color = "#D55E00"
+line_thickness = 2
+
 # read in social cohesion data
 event_df <- read.csv("./data/formatted/primary/formatted_data.csv")
 
 # plot the time series
 raw_events_ts_target <- ggplot() +
-  geom_line(event_df, mapping = aes(x= as.Date(Date), y=all_events_target, colour = 'all events')) +
-  geom_line(event_df, mapping = aes(x= as.Date(Date), y=pos_events_target, colour = 'positive events')) +
-  geom_line(event_df, mapping = aes(x= as.Date(Date), y=neg_events_target, colour = 'negative events')) +
-  scale_color_manual(values = c("red", "orange", "blue")) +
+  geom_line(event_df, 
+            mapping = aes(x= as.Date(Date), 
+                          y=all_events_target, 
+                          colour = 'all events')) +
+  geom_line(event_df, 
+            mapping = aes(x= as.Date(Date), 
+                          y=pos_events_target, 
+                          colour = 'positive events')) +
+  geom_line(event_df, 
+            mapping = aes(x= as.Date(Date),
+                          y=neg_events_target, 
+                          colour = 'negative events')) +
+  scale_color_manual(values = c(all_event_color, # all
+                                positive_event_color, # positive
+                                negative_event_color)) + # negative
+  scale_size_manual(values=line_thickness) +
   xlab("Date") +
   ylab("Number of events") +
   ylim(0, 360)
@@ -831,10 +849,22 @@ knitr::include_graphics("./results/primary/raw-event-ts-target.png")
 
 # plot the time series
 raw_events_ts_source_target <- ggplot() +
-  geom_line(event_df, mapping = aes(x= as.Date(Date), y=all_events_source_target, colour = 'all events')) +
-  geom_line(event_df, mapping = aes(x= as.Date(Date), y=pos_events_source_target, colour = 'positive events')) +
-  geom_line(event_df, mapping = aes(x= as.Date(Date), y=neg_events_source_target, colour = 'negative events')) +
-  scale_color_manual(values = c("red", "orange", "blue")) +
+  geom_line(event_df, 
+            mapping = aes(x = as.Date(Date), 
+                          y=all_events_source_target, 
+                          colour = 'all events')) +
+  geom_line(event_df, 
+            mapping = aes(x = as.Date(Date),
+                          y=pos_events_source_target, 
+                          colour = 'positive events')) +
+  geom_line(event_df, 
+            mapping = aes(x = as.Date(Date), 
+                          y=neg_events_source_target, 
+                          colour = 'negative events')) +
+  scale_color_manual(values = c(all_event_color, # all
+                                positive_event_color, # positive
+                                negative_event_color)) + # negative
+  scale_size_manual(values=line_thickness) +
   xlab("Date") +
   ylab("Number of events") +
   ylim(0, 360)
