@@ -1191,24 +1191,10 @@ pander(target_results, caption = "\\label{table-1}CRQA results for target-only d
 
 ```
 
-```{r plot-rp-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from target filtered data.'}
+```{r plot-rp-targ, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/crqa/target-rp-all_events.png")
-
-```
-
-```{r plot-rp-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of positive events from target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/crqa/target-rp-pos_events.png")
-
-```
-
-```{r plot-rp-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of negative events from target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/crqa/target-rp-neg_events.png")
+knitr::include_graphics("./results/primary/crqa/target-rp-joined.png")
 
 ```
 
@@ -1275,24 +1261,10 @@ pander(source_target_results, caption = "\\label{table-2}CRQA results for source
 
 ```
 
-```{r plot-rp-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from source and target filtered data.'}
+```{r plot-rp-source-targ, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from source and target filtered data.'}
 
 # call image
-knitr::include_graphics("./results/primary/crqa/source_target-rp-all_events.png")
-
-```
-
-```{r plot-rp-source-targ-pos, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of positive events from source and target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/crqa/source_target-rp-pos_events.png")
-
-```
-
-```{r plot-rp-source-targ-neg, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of negative events from source and target filtered data.'}
-
-# call image
-knitr::include_graphics("./results/primary/crqa/source_target-rp-neg_events.png")
+knitr::include_graphics("./results/primary/crqa/source_target-rp-joined.png")
 
 ```
 
