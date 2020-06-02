@@ -107,11 +107,10 @@ ties have been strong predictors of involvement in high-risk protest activity.
 The cohesiveness and strength of social movements in the pre-Internet era could
 be operationalized by the number of people turning out to protest and through
 the political events that precipitated and resulted from social gatherings *en
-masse*. The content of placards and protest signs provided the protest narrative
-in their own words. Cohesive social movements were reflected in their cohesive
-placards and posters. For example, the “I am a man” posters held by the men
-involved in the 1968 sanitation workers' strike reflected their internal
-cohesion and unified, goal-oriented movement [@Windsor2020].
+masse*. Cohesive social movements were reflected in their cohesive placards and
+posters. For example, the “I am a man” posters held by the men involved in the
+1968 sanitation workers' strike reflected their internal cohesion and unified,
+goal-oriented movement [@Windsor2020].
 
 However, the rise of the Internet and its decentralized online networks has
 upended theories about recruitment to---and participation in---social movements.
@@ -139,7 +138,7 @@ March and June 2012.
 
 Disentangling the complicated relationship between mass online
 mobilization---and social mobilization in person---continues to be relevant,
-even as our modes of communication change. The political processes that
+even as our modes of communication change. The political events that
 transpired during and after the Arab Spring are still in the process of being
 understood. As Zeitzoff [-@zeitzoff2017social] recognizes, social media is
 changing conflict, but the mechanisms and relationships by which it does so are
