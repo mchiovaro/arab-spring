@@ -13,6 +13,11 @@
 # clear environment
 rm(list=ls())
 
+# specify global plotting variables
+all_event_color = "#CC79A7"
+positive_event_color = "#0072B2"
+negative_event_color = "#D55E00"
+
 # read in data 
 data <- read.csv("./data/formatted/primary/formatted_data.csv")
 shuffled_full <- read.csv("./data/formatted/primary/shuffled_data_full.csv")
@@ -54,7 +59,7 @@ png("./results/primary/crqa/source_target-rp-all_events.png", width = 4, height 
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of all events", 
-           cols = "blue", 
+           cols = all_event_color, 
            pcex = .5)
 plotRP(cross_recurrence_analysis$RP, par)
 dev.off()
@@ -83,7 +88,7 @@ png("./results/primary/crqa/source_target-rp-pos_events.png", width = 4, height 
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of positive events", 
-           cols = "blue", 
+           cols = positive_event_color, 
            pcex = .5)
 plotRP(cross_recurrence_analysis$RP, par)
 dev.off()
@@ -112,7 +117,7 @@ png("./results/primary/crqa/source_target-rp-neg_events.png", width = 4, height 
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of negative events", 
-           cols = "blue", 
+           cols = negative_event_color, 
            pcex = .5)
 plotRP(cross_recurrence_analysis$RP, par)
 dev.off()
@@ -143,7 +148,7 @@ png("./results/primary/crqa/target-rp-all_events.png", width = 4, height = 4, un
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of all events", 
-           cols = "blue", 
+           cols = all_event_color, 
            pcex = .5)
 plotRP(cross_recurrence_analysis$RP, par)
 dev.off()
@@ -172,7 +177,7 @@ png("./results/primary/crqa/target-rp-pos_events.png", width = 4, height = 4, un
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of positive events", 
-           cols = "blue", 
+           cols = positive_event_color, 
            pcex = .5)
 plotRP(cross_recurrence_analysis$RP, par)
 dev.off()
@@ -201,7 +206,7 @@ png("./results/primary/crqa/target-rp-neg_events.png", width = 4, height = 4, un
 par = list(unit = 2, 
            labelx = "Social cohesion", 
            labely = "Count of negative events", 
-           cols = "blue", 
+           cols = negative_event_color, 
            pcex = .5)
 plotRP(cross_recurrence_analysis$RP, par)
 dev.off()

@@ -807,7 +807,7 @@ filtered data can be seen in Figure \@ref(fig:raw-event-ts-source-target).
 
 ```{r raw-event-ts-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw event count time series for target filtered data."}
 
-# specify global plotting variables for easier testing
+# specify global plotting variables
 all_event_color = "#CC79A7"
 positive_event_color = "#0072B2"
 negative_event_color = "#D55E00"
