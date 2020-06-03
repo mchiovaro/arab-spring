@@ -130,8 +130,8 @@ crp_2 <- readPNG('./results/primary/crqa/source_target-rp-pos_events.png')
 crp_3 <- readPNG('./results/primary/crqa/source_target-rp-neg_events.png')
 
 # join images and save
-png("./results/primary/crqa/source_target-rp-joined.png")
-grid.arrange(rasterGrob(crp_1),rasterGrob(crp_2), rasterGrob(crp_3), ncol=3)
+png("./results/primary/crqa/source_target-rp-joined.png", width=720,height=325)
+grid.arrange(rasterGrob(crp_1), rasterGrob(crp_2), rasterGrob(crp_3), nrow=1)
 dev.off()
 
 ### target filtered data ###
@@ -230,9 +230,9 @@ crp_1 <- readPNG('./results/primary/crqa/target-rp-all_events.png')
 crp_2 <- readPNG('./results/primary/crqa/target-rp-pos_events.png')
 crp_3 <- readPNG('./results/primary/crqa/target-rp-neg_events.png')
 
-# join images and save
-png("./results/primary/crqa/target-rp-joined.png")
-grid.arrange(rasterGrob(crp_1),rasterGrob(crp_2), rasterGrob(crp_3), ncol=3)
+# join and save
+png("./results/primary/crqa/target-rp-joined.png", width=720,height=325)
+grid.arrange(rasterGrob(crp_1), rasterGrob(crp_2), rasterGrob(crp_3), nrow=1)
 dev.off()
 
 #### 3. Conduct permutation tests ####
