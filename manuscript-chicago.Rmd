@@ -370,12 +370,18 @@ same processes can be similarly important for rebels [@anyanwu2002economic].
 Referencing Gurr's [-@gurr2000peoples] work on minorities at
 risk, Regan and Norton [-@regan2005greed] note that
 
->a religious or linguistic minority
+\begin{singlespace}
+\setlength{\leftskip}{1cm}
+
+\noindent a religious or linguistic minority
 might suffer disproportionately in a given society, and this form of
 aggrievement can lead to unrest across the social lines that distinguish the
 minority group. Therefore, while collective cohesion is a function of targeted
 maldistributions, it is individual penury that allows for this collective
-mobilization. [@regan2005greed]
+mobilization.
+
+\setlength{\leftskip}{0pt}
+\end{singlespace}
 
 The body of previous work concurs that group cohesion matters to group
 mobilization. We build on this by providing a quantitative approach to
