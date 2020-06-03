@@ -142,7 +142,7 @@ even as our modes of communication change. The political events that
 transpired during and after the Arab Spring are still in the process of being
 understood. As Zeitzoff [-@zeitzoff2017social] recognizes, social media is
 changing conflict, but the mechanisms and relationships by which it does so are
-still being understood.
+still largely unknown.
 
 ## Syria in Context
 The decades preceding the Arab Spring in Syria were marked by
@@ -266,7 +266,7 @@ shared information. Citizens can share the location of events like protests and
 military incursions, the degree of state repression, and the number of
 casualties. In turn, the government---interested in remaining in
 power---monitors social media platforms to ascertain emerging threats
-[@comninos2011twitter], such as where new groups are forming and where existing
+[@comninos2011twitter], such as where new groups are forming, where existing
 groups are strengthening, where gatherings are held, and who the idea
 entrepreneurs are. 
 
@@ -298,21 +298,20 @@ collective political behavior.
 ## The Role of Cohesion in Social Movements and Civil Wars
 
 People join social and political resistance movements because they feel a sense
-of connection to the cause and because they have been sufficiently convinced to
-participate. Given that people are generally risk-averse, overcoming inertia
+of connection to the cause. Given that people are generally risk-averse, overcoming inertia
 requires a strong connection to the group identity or a strong aversion to an
 individual, event, or political injustice [@goldstone1980theories;
 @goldstone2011understanding]. Political resistance offers participants the
 opportunity to “lose themselves” and relinquish their individual identity in
-favor of identification with a larger group identity, contributing to a cohesive
+favor of identification with a larger group, contributing to a cohesive
 group ready and mobilized for action [@Hoffer2011true].
 
 Previous research on social movements supports the idea that participants are
-likely to join movements when they know and have a personal connection to
+more likely to join movements when they know and have a personal connection to
 someone else already involved [@mcadam1986recruitment]. The type of collective
 contentious behavior that manifests in society is a function of the available
 political opportunity structures. The political opportunity structure are
-“comprised of *(sic)* specific configuration of resources, institutional
+“comprised of *(sic)* specific configurations of resources, institutional
 arrangements and historical precedents for social mobilization, which facilitate
 the development of protest movements in some instances and constrain them in
 others” [@kitschelt1986political]. What emerges as strategies and tactics in
@@ -330,7 +329,7 @@ Recent work has considered rebel recruitment for participation in
 civil conflicts as a function of internal cohesion [@gates2002recruitment]:
 Rebel movement success is influenced by the degree of group cohesion, which
 itself is a function of geographic distance, ideology, and ethnicity.
-Within Syria, multiple rebel groups within Syria exist, sourcing fighters locally
+Within Syria, multiple rebel groups exist, sourcing fighters locally
 from the disaffected Syrian population and internationally through
 fighters from transnational terrorist organizations. There is considerable
 intergroup competition for participation in the rebel movement and
