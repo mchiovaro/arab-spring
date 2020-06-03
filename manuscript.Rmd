@@ -373,19 +373,19 @@ that allow us to investigate the interconnectedness of those levels.
 
 We contextualize linguistic cohesion with social mobilization and response to
 the relative intensity of the conflict. Cohesion is a multi-layered concept
-referring to the connectedness of speakers, actions, and societies. Cohesion
-reflects the continuity of language and expression, and it shows the
+referring to the connectedness of speakers, actions, and societies. It
+reflects the continuity of language and expression, and shows the
 connectivity of participants in a social movement. To address the relationship
 between language and discourse and social movements, we adopt an
 interdisciplinary approach that incorporates linguistics, psychology, and
-political science using nonlinear dynamical systems methodology to model the
+political science using nonlinear dynamical systems methodology to disentangle the
 relationship between language and action.
 
 ### Lexical and Interlocutor Cohesion
 
 Just as real-world social cohesion can be quantified, so can online cohesion.
-One kind of cohesion can be found in the similarity in language use on social
-media. This implicit or explicit similarity in language use can indicate shared
+One kind of cohesion is the similarity in language use on social
+media. This implicit or explicit similarity can indicate shared
 beliefs, thoughts, and feelings, as has been studied in research on language
 style in psycholinguistics and social psychology [@gonzales2010language;
 @tausczik2010psychological;
@@ -513,7 +513,7 @@ and political cohesion. Shared language in an online environment may lead to the
 development or expression of a shared identity [@wiltermuth2009synchrony]. This,
 in turn, may drive individuals' propensity to engage in similar coordinated
 behavior on behalf of the group [@wiltermuth2009synchrony; @walton2012mere].
-Taken together, these two processes may grow movement participants' weak and
+Taken together, these two processes may increase movement participants' weak and
 strong ties [@granovetter1977strength; @gladwell2010revolution;
 @mcadam1986recruitment], strengthening the movement overall by expanding and
 deepening heterogenous ties. Therefore, in the context of social conflict, the
@@ -526,7 +526,7 @@ groundbreaking work demonstrated that participants on the fringe of a social
 movement contribute substantially to the overall level of protest. In addition
 to providing new methods to this growing field of study, we build on this
 previous work by demonstrating how sociolinguistic cohesion evolves in
-response to negative and positive exogenous events.
+tandem with negative and positive exogenous events.
 
 Political and social cohesion in the world can be modeled using event data which
 encodes who does what to whom on a given day. This could include events such as
