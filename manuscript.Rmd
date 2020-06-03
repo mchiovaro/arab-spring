@@ -44,7 +44,6 @@ keywords          : "social cohesion, recurrence quantification analysis, comple
 wordcount         : "X"
 
 bibliography      : ["references.bib"]
-csl               : chicago.csl
 
 floatsintext      : no
 figurelist        : no
@@ -57,8 +56,6 @@ appendix          :
 
 documentclass     : "apa6"
 classoption       : "man"
-header-includes   :
-  - "\\usepackage{float}"
 output            : papaja::apa6_pdf
 ---
 
