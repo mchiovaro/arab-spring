@@ -57,8 +57,6 @@ appendix          :
 
 documentclass     : "apa6"
 classoption       : "man"
-header-includes   :
-  - "\\usepackage{float}"
 output            : papaja::apa6_pdf
 ---
 
@@ -97,6 +95,7 @@ source('./scripts/secondary-analyses/phoenix/01_formatting_data.R')
 
 ```
 
+## Introduction
 Prior to the advent of social media, people coordinated their protest behavior
 using phone tree calling sheets and mimeographed flyers, through in-person
 meetings of social organizations and churches, and through word of mouth. They
