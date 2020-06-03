@@ -1,57 +1,42 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[
-  english,
-  man]{apa6}
+\documentclass[english,man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
 \hypersetup{
-  pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
-  pdflang={en-EN},
-  pdfkeywords={social cohesion, recurrence quantification analysis, complex systems, Twitter, Arab Spring},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+            pdftitle={Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring},
+            pdfkeywords={social cohesion, recurrence quantification analysis, complex systems, Twitter, Arab Spring},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage{longtable,booktabs}
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -61,23 +46,16 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-% Make \paragraph and \subparagraph free-standing
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
+
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -134,13 +112,12 @@ Correspondence concerning this article should be addressed to Megan Chiovaro, 40
 
 \linenumbers
 \usepackage{csquotes}
-\usepackage{float}
-\ifxetex
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=english]{babel}
+\else
+  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
-\else
-  \usepackage[shorthands=off,main=english]{babel}
 \fi
 
 \title{Online Social Cohesion Reflects Real-World Group Action in Syria during the Arab Spring}
@@ -172,7 +149,7 @@ using phone tree calling sheets and mimeographed flyers, through in-person
 meetings of social organizations and churches, and through word of mouth. They
 gathered together and hand-made protest signs that reflected their agendas. As
 McAdam found, people were more likely to join movements when they had a personal
-connection (McAdam 1986; McAdam and Paulsen 1993): Historically, strong
+connection (McAdam, 1986; McAdam \& Paulsen, 1993): Historically, strong
 ties have been strong predictors of involvement in high-risk protest activity.
 
 The cohesiveness and strength of social movements in the pre-Internet era could
@@ -181,12 +158,12 @@ the political events that precipitated and resulted from social gatherings \emph
 masse}. Cohesive social movements were reflected in their cohesive placards and
 posters. For example, the \enquote{I am a man} posters held by the men involved in the
 1968 sanitation workers' strike reflected their internal cohesion and unified,
-goal-oriented movement (Windsor 2020).
+goal-oriented movement (Windsor, 2020).
 
 However, the rise of the Internet and its decentralized online networks has
 upended theories about recruitment to---and participation in---social movements.
 Strong interpersonal ties have yielded to weak impersonal ties that strongly
-predict involvement in social movements (Steinert-Threlkeld 2017). Research
+predict involvement in social movements (Steinert-Threlkeld, 2017). Research
 methodologies for measuring social movements have similarly evolved from
 ethnographic interviews to \enquote{big data} analyses of language on social media.
 
@@ -273,7 +250,7 @@ exchange tool, Twitter has provided individuals involved in social movements an
 opportunity to complement or even replace real-world social mobilization. For
 example, during the 2012 Italian protests for global economic change, the riots
 in Rome were mirrored by Twitter activity both on the day of the protests and in
-the days following them (Vicari 2013). Tweeting was determined to be more
+the days following them (Vicari, 2013). Tweeting was determined to be more
 effective locally in discussing real-world, real-time events than traditional
 mainstream media platforms. As more and more individuals rely on social media to
 obtain local news and information, it becomes increasingly important to
@@ -289,12 +266,12 @@ virtually on social media platforms.
 Along with Facebook, Twitter has been credited as essential to the Arab
 Spring---both for protesters (as a means to coordinate with one another and to
 communicate with the world) and for the government response (to monitor and
-track protestors to crack down on dissent) (Comninos 2011). The events of
+track protestors to crack down on dissent) (Comninos, 2011). The events of
 Arab Spring have been thoroughly discussed within the political science
-literature (e.g., Lutterbeck 2013; Koehler 2017), but to our knowledge, the direct \emph{coupling} between
+literature (e.g., Lutterbeck, 2013; Koehler, 2017), but to our knowledge, the direct \emph{coupling} between
 Syrian Twitter cohesion and international action coordination has not been
 investigated. In fact, some have been skeptical about the effect of social media
-on collective action at all (Seay 2014).
+on collective action at all (Seay, 2014).
 
 This skepticism can be summarized in a quote by Lisa Anderson:
 
@@ -304,14 +281,14 @@ Arab revolts in Tunisia, Egypt, and Libya is not how the globalization of the
 norms of civic engagement shaped the protesters' aspirations. Nor is it about
 how activists used technology to share ideas and tactics. Instead, the critical
 issue is how and why these ambitions and techniques resonated in their various
-local contexts. (Anderson 2011)
+local contexts. (Anderson, 2011)
 \end{quote}
 
 \noindent Others have similarly expressed hesitation about the role of online
 organizing. Some have argued that real-life strong ties outweigh online weak ties and
 that the power of the strong ties through in-person contact is critical
 to recruiting people for higher-risk activities
-(Gladwell 2010; McAdam 1986).
+(Gladwell, 2010; McAdam, 1986).
 
 Interestingly, these views may
 actually help to make the case for bridging the gap between social media and
@@ -319,19 +296,19 @@ social mobilization. Such views suggest the strength of social ties in an online
 environment is inextricably linked to the \emph{context} and \emph{ambitions} of the actors.
 Moreover, research suggests that weak ties still retain considerable political
 power: While strong ties tend to bind smaller groups, weak ties
-tend to bind groups across distances (Granovetter 1973).
+tend to bind groups across distances (Granovetter, 1973).
 
 Social media generates critical information about events, including whether and
 how a demonstration will take place, how many people participate, and how those
 in power (e.g., state, military, security apparatus) respond. Similarly, these
 media platforms alert us to more global shifts within a conflict, such as when
 fighting moves to a new city or region, the number of casualties and wounded,
-and the types of weaponry used by parties to the conflict (Zeitzoff 2017).
+and the types of weaponry used by parties to the conflict (Zeitzoff, 2017).
 Social media is not entirely event-driven, however. In monitoring social media
 channels, government forces may respond to the perception that citizens are
 gaining strength and sympathy. Governments have been shown to be quite tolerant
 of dissent so long as it does not metamorphose into collective action
-(King, Pan, and Roberts 2013).
+(King, Pan, \& Roberts, 2013).
 
 Citizens communicate with each other with increased transparency due to the
 ubiquitous availability of social media such as low-cost and egalitarian
@@ -341,7 +318,7 @@ shared information. Citizens can share the location of events like protests and
 military incursions, the degree of state repression, and the number of
 casualties. In turn, the government---interested in remaining in
 power---monitors social media platforms to ascertain emerging threats
-(Comninos 2011), such as where new groups are forming, where existing
+(Comninos, 2011), such as where new groups are forming, where existing
 groups are strengthening, where gatherings are held, and who the idea
 entrepreneurs are.
 
@@ -365,7 +342,7 @@ and surveilling their citizens.
 
 At the same time, the insulation of online social platforms allows researchers
 to detail real-world social dynamics at unprecedented resolution and scale
-(Paxton and Griffiths 2017). The digital traces left by individuals and collectively as
+(Paxton \& Griffiths, 2017). The digital traces left by individuals and collectively as
 groups are regarded as a valuable source of information that can offer powerful
 insights into states of social disequilibrium, uprisings, and escalations into
 civil wars. By examining these conversations, researchers can study the degree
@@ -378,38 +355,38 @@ collective political behavior.
 People join social and political resistance movements because they feel a sense
 of connection to the cause. Given that people are generally risk-averse, overcoming inertia
 requires a strong connection to the group identity or a strong aversion to an
-individual, event, or political injustice (Goldstone 1980, 2011). Political resistance offers participants the
+individual, event, or political injustice (Goldstone, 1980, 2011). Political resistance offers participants the
 opportunity to \enquote{lose themselves} and relinquish their individual identity in
 favor of identification with a larger group, contributing to a cohesive
-group ready and mobilized for action (Hoffer 2011).
+group ready and mobilized for action (Hoffer, 2011).
 
 Previous research on social movements supports the idea that participants are
 more likely to join movements when they know and have a personal connection to
-someone else already involved (McAdam 1986). The type of collective
+someone else already involved (McAdam, 1986). The type of collective
 contentious behavior that manifests in society is a function of the available
 political opportunity structures. The political opportunity structure are
 \enquote{comprised of \emph{(sic)} specific configurations of resources, institutional
 arrangements and historical precedents for social mobilization, which facilitate
 the development of protest movements in some instances and constrain them in
-others} (Kitschelt 1986). What emerges as strategies and tactics in
+others} (Kitschelt, 1986). What emerges as strategies and tactics in
 contentious politics are, in essence, a function of what the system makes
-possible. This includes the number of people and their disposition (i.e.
-nonviolent or violent), as well as their internal structure. The more cohesive a
+possible. This includes the number of people and their disposition (
+i.e.~nonviolent or violent), as well as their internal structure. The more cohesive a
 group is, the greater threat they pose to the establishment.
 
 Cohesion is also a familiar concept in the study of civil conflicts, as it
 pertains to group affiliation and the ability to overcome collective action
 problems. Individuals must act in concert---that is, cohesively---to
-accomplish the task of challenging the authority of the state (Olson 1965; Eisinger 1973; Tilly 2004; Francisco 1995).
+accomplish the task of challenging the authority of the state (Eisinger, 1973; Francisco, 1995; Olson, 1965; Tilly, 2004).
 Recent work has considered rebel recruitment for participation in
-civil conflicts as a function of internal cohesion (Gates 2002):
+civil conflicts as a function of internal cohesion (Gates, 2002):
 Rebel movement success is influenced by the degree of group cohesion, which
 itself is a function of geographic distance, ideology, and ethnicity.
 Within Syria, multiple rebel groups exist, sourcing fighters locally
 from the disaffected Syrian population and internationally through
 fighters from transnational terrorist organizations. There is considerable
 intergroup competition for participation in the rebel movement and
-punishment for defectors for nonparticipation (Gates 2002).
+punishment for defectors for nonparticipation (Gates, 2002).
 Foreign fighters would appear to be amply motivated to fight, given their
 decision to relocate from a home country that may be located in the region
 or much farther away.
@@ -418,7 +395,7 @@ Another factor influencing social cohesion during social movements and civil
 wars is ethnic identity and the degree of ethnic conflict associated with the
 movement. Greater degrees of ethnic conflict increase the salience of ethnic
 identity, leading people to identify more strongly with their own ethnic
-identity (Sambanis and Schulhofer-Wohl 2009). As ethnic conflict intensifies, groups seek to become
+identity (Sambanis \& Schulhofer-Wohl, 2009). As ethnic conflict intensifies, groups seek to become
 more quintessentially like the typical member of their ethnic group. This can
 manifest in a number of ways, including in behavior on social media. However,
 this may also include a general identification across ethnic groups in a
@@ -426,10 +403,10 @@ membership of an opposition to an oppressive leader.
 
 The civil war literature has further explored the role of social cohesion in
 detail. Social homogeneity increases the likelihood of social conflict,
-especially when the society is polarized (Collier and Hoeffler 2004); this is partly
+especially when the society is polarized (Collier \& Hoeffler, 2004); this is partly
 due to nationalist groups' strong identification with a collective identity
-(Cederman and Girardin 2007) and their social solidarity (Sambanis and Schulhofer-Wohl 2009). These
-same processes can be similarly important for rebels (Anyanwu 2002).
+(Cederman \& Girardin, 2007) and their social solidarity (Sambanis \& Schulhofer-Wohl, 2009). These
+same processes can be similarly important for rebels (Anyanwu, 2002).
 Referencing Gurr's (2000) work on minorities at
 risk, Regan and Norton (2005) note that
 
@@ -439,7 +416,7 @@ might suffer disproportionately in a given society, and this form of
 aggrievement can lead to unrest across the social lines that distinguish the
 minority group. Therefore, while collective cohesion is a function of targeted
 maldistributions, it is individual penury that allows for this collective
-mobilization. (Regan and Norton 2005)
+mobilization. (Regan \& Norton, 2005)
 \end{quote}
 
 The body of previous work concurs that group cohesion matters to group
@@ -467,9 +444,9 @@ Just as real-world social cohesion can be quantified, so can online cohesion.
 One kind of cohesion is the similarity in language use on social
 media. This implicit or explicit similarity can indicate shared
 beliefs, thoughts, and feelings, as has been studied in research on language
-style in psycholinguistics and social psychology (Gonzales, Hancock, and Pennebaker 2010; Tausczik and Pennebaker 2010; Brennan and Clark 1996). Although previous work on language style has often
+style in psycholinguistics and social psychology (Brennan \& Clark, 1996; Gonzales, Hancock, \& Pennebaker, 2010; Tausczik \& Pennebaker, 2010). Although previous work on language style has often
 focused on individuals and small groups, this can be scaled up to examine
-massive social-level changes (Michel et al. 2011; Fusaroli et al. 2015).
+massive social-level changes (Fusaroli et al., 2015; Michel et al., 2011).
 
 The words that comprise social media posts are the first level of cohesion that
 we will consider. In Figure \ref{fig:cohesion-in-tweets}, we see four
@@ -477,7 +454,7 @@ sequential tweets, each containing four words. Each sequential tweet contains
 some content included in the previous tweets. The linguistic construct of
 content word overlap measures the relationship across units of meaning---here,
 tweets---where identical and semantically similar words are repeated
-(Graesser et al. 2004). These repeated lexical items constitute a theme; on Twitter,
+(Graesser, McNamara, Louwerse, \& Cai, 2004). These repeated lexical items constitute a theme; on Twitter,
 this might be a particular hashtag, a name, a location, or other nominal
 category. This localized cohesion is referential; words are repeated and
 co-referred across tweets, creating a sense of continuity and cohesiveness of
@@ -487,16 +464,16 @@ Typically, these analyses focus on \emph{content words} (e.g., nouns, adjectives
 verbs), which convey more meaningful semantic information than \emph{function words}
 (e.g., articles, conjunctions). While function words can provide important
 information about complexity and language structure
-(Tausczik and Pennebaker 2010), content words have more specialized meaning and
+(Tausczik \& Pennebaker, 2010), content words have more specialized meaning and
 are therefore more useful when researchers want to understand \emph{what} people are
-discussing, rather than \emph{how} they are discussing it (Graesser et al. 2004; McNamara et al. 2014).
+discussing, rather than \emph{how} they are discussing it (Graesser et al., 2004; McNamara, Graesser, McCarthy, \& Cai, 2014).
 
 In estimating cohesion in Twitter posts, tweets that share content words
 will yield higher cohesion values, even among speakers with opposing
 views on the subject matter. Repetition of terms and concepts is captured by
 reiteration, which is a type of lexical cohesion in which a subsequent item
 repeats a previous item, or refers to it through synonymous language
-(Halliday and Hasan 1976). In social media, we can conceive of retweets (i.e., reposts
+(Halliday \& Hasan, 1976). In social media, we can conceive of retweets (i.e., reposts
 or forwards of previous messages) as a form of reiteration
 that increase message cohesion. Since retweets replicate verbatim some part of
 another tweet, these tweets would also have higher cohesion. Hashtags function
@@ -511,12 +488,12 @@ the degree to which people are talking about similar things. This can---as noted
 earlier---include people who are talking about similar things from radically
 perspectives, as well as those who are talking about something from the same
 perspective. Previous research from political science has investigated these
-ideas (Windsor 2020): The \enquote{Occupy Wall Street} movement has been held up as an
+ideas (Windsor, 2020): The \enquote{Occupy Wall Street} movement has been held up as an
 example of a movement with low interlocutor and linguistic cohesion because of
 its wide range of signs and slogans, while the \enquote{I am a man} protest (captured by
 Ernest Withers during the 1968 sanitation workers' strike in Memphis, TN) or the
 \enquote{Black Lives Matter} placards (following the uprising in Ferguson, MO) have high
-lexical and interlocutor cohesion (Edgar and Johnson 2018).
+lexical and interlocutor cohesion (Edgar \& Johnson, 2018).
 
 Fed by lexical cohesion, interlocutor cohesion ebbs and flows along a timeline
 contextualized by variation in real world events. Interlocutor cohesion may
@@ -530,7 +507,7 @@ Given the importance of lexical and interlocutor cohesion for messaging in
 political movements, lexical cohesion may be an important bit of trace data for
 researchers interested in leveraging social media data to analyze social
 movements. Similar to large-scale studies of sociocultural movements (sometimes
-referred to as \emph{culturomics}; e.g., Michel et al. 2011), political
+referred to as \emph{culturomics}; e.g., Michel et al., 2011), political
 scientists can track the ways in which conversations on social media coalesce or
 diffuse around similar content words. In this way, it matters relatively little
 whether the interlocutors have precisely the same views: The point is to
@@ -541,10 +518,10 @@ language.
 \subsubsection{Social and Political Cohesion}\label{social-and-political-cohesion}}
 
 Real-world collective action is known to bring about a sense of togetherness,
-also known as \enquote{collective effervescence} (Durkheim 1995). This feeling
+also known as \enquote{collective effervescence} (Durkheim, 1995). This feeling
 of being a part of something larger than oneself leads individuals to act in
 ways that would not have on their own. Being overcome with this feeling can lead
-to violence (Collins 2009; Spaaij 2014). Conversely, increased
+to violence (Collins, 2009; Spaaij, 2014). Conversely, increased
 exposure to violence can result in positive social cohesion. Gilligan, Pasquale, and Samii (2014)
 found that exposure to fatal wartime violence resulted in increased prosocial
 motivations, including cooperative behaviors, feelings of trust, and overall
@@ -553,13 +530,13 @@ community-level social cohesion.
 At the same time, behavioral similarity in certain contexts has been
 connected to important psychological and social effects. For example, shared
 language is associated with rapport (both in face-to-face and computer-mediated
-conversations; Niederhoffer and Pennebaker 2002; Riordan et al. 2011) and
+conversations; Niederhoffer \& Pennebaker, 2002; Riordan, Dale, Kreuz, \& Olney, 2011) and
 can even be connected to better performance on shared tasks (as long as
-the language is relevant to the task at hand; Fusaroli et al. 2012). Shared
+the language is relevant to the task at hand; Fusaroli et al., 2012). Shared
 movement is associated with greater group bonding and greater willingness
-to contribute to the group (Wiltermuth and Heath 2009), and shared identity
+to contribute to the group (Wiltermuth \& Heath, 2009), and shared identity
 is associated with a greater willingness to adopt the group's goals and
-motivations (Walton et al. 2012).
+motivations (Walton, Cohen, Cwir, \& Spencer, 2012).
 
 We should expect to see increased linguistic cohesion among people participating
 in online discussions about an idea, event, individual, or movement. Given that
@@ -567,7 +544,7 @@ Syrian protesters are known to have coordinated their activity through Twitter
 by discussing their own events (e.g., planned protests, active demonstrations)
 and their reactions to events happening around them (e.g., government reactions,
 international action or inaction), the cohesion in social media should be
-expected to correlate with the social cohesion of the group (Zeitzoff 2011).
+expected to correlate with the social cohesion of the group (Zeitzoff, 2011).
 
 This social cohesion can have real and wide-ranging impacts on a political
 movement and the people in it. A socially cohesive group is inherently more
@@ -576,20 +553,20 @@ momentum and the professionalization of potential alternate leadership. Groups
 with high social cohesion are more difficult to divide and conquer, and more
 cohesive messages may also garner increased international support. Global
 insurgency movements exhibit similar patterns in their social structure
-(Bohorquez et al. 2009). Each violent group has a stable state. Exogenous events
+(Bohorquez, Gourley, Dixon, Spagat, \& Johnson, 2009). Each violent group has a stable state. Exogenous events
 can create perturbations that push the group to become either more cohesive or
 more fragmented. Rather than frenetic, patchwork messages via Twitter, emergent
 or intentional cohesive online messaging---using similar language, paralleling
-in-person messaging (Windsor 2020)---are a sign of increased organizational
+in-person messaging (Windsor, 2020)---are a sign of increased organizational
 structure, inciting a government response.
 
 Thus, lexical and interpersonal cohesion are hypothesized to be tied to social
 and political cohesion. Shared language in an online environment may lead to the
-development or expression of a shared identity (Wiltermuth and Heath 2009). This,
+development or expression of a shared identity (Wiltermuth \& Heath, 2009). This,
 in turn, may drive individuals' propensity to engage in similar coordinated
-behavior on behalf of the group (Wiltermuth and Heath 2009; Walton et al. 2012).
+behavior on behalf of the group (Walton et al., 2012; Wiltermuth \& Heath, 2009).
 Taken together, these two processes may increase movement participants' weak and
-strong ties (Granovetter 1973; Gladwell 2010; McAdam 1986), strengthening the movement overall by expanding and
+strong ties (Gladwell, 2010; Granovetter, 1973; McAdam, 1986), strengthening the movement overall by expanding and
 deepening heterogenous ties. Therefore, in the context of social conflict, the
 linguistic cohesion of the online conversation should correspond to the degree
 of social cohesion on the ground.
@@ -607,7 +584,7 @@ encodes who does what to whom on a given day. This could include events such as
 the government imposing a blockade or fighting with artillery or tanks on
 a civilian group. CAMEO (Conflict and Mediation Event Observations) encode
 a set of activities with numerical values, rescaled to reflect a
-conflict-cooperation scale (Schrodt and Hall 2006; Goldstein 1992). These event
+conflict-cooperation scale (Goldstein, 1992; Schrodt \& Hall, 2006). These event
 codes include a range of behaviors, from making public statements and appeals,
 to demanding, threatening, protesting, and using unconventional mass violence.
 
@@ -628,18 +605,18 @@ relationships among participants and between participants and the sociopolitical
 environment---sociolinguistic cohesion is also dynamic, reflecting the changing
 states of the political sphere. Other scholars have noted the diffusion of
 messages whereby they reach a critical mass, whereby \enquote{behaviors, beliefs, and
-preferences} spread within a population (Barash, Cameron, and Macy 2012). Cohesion
+preferences} spread within a population (Barash, Cameron, \& Macy, 2012). Cohesion
 changes over time in response to external events and the internal dynamics of
 the social movement. This can occur even if the social interaction occurs entirely
-online (Centola and Macy 2007).
+online (Centola \& Macy, 2007).
 
 Related previous work has also explored diffusion of hashtags in viral contagion in
 Nigeria, a phenomenon similar to what we identify as sociolinguistic cohesion
-(Fink et al. 2016). The prevalence and rate of particular hashtags were
+(Fink, Schmidt, Barash, Cameron, \& Macy, 2016). The prevalence and rate of particular hashtags were
 contributed to the overall sociolinguistic cohesion. The more that people
 reuse hashtags or common phrases, the greater the sociolinguistic cohesion when
 this phenomenon occurs during socially significant times like protests
-(State and Adamic 2015).
+(State \& Adamic, 2015).
 
 Combining these separate threads, it is reasonable to expect that real-world
 actions and online social interactions would be enmeshed, driving and being
@@ -657,11 +634,11 @@ to the rebel or resistance movement) can affect cohesion.
 From a dynamical systems perspective, online social cohesion and in-person
 action can be considered two complementary components of a single system,
 mutually constrained and constantly interacting and influencing one another
-(Mahner and Bunge 1997). Investigation of the coupling of real-world
+(Mahner \& Bunge, 1997). Investigation of the coupling of real-world
 mobilization and social cohesion could provide new insight into the power of
 social media during mobilization and the ways in which individuals utilize it to
 bring about, or respond to, social change. Increasingly, social media platforms
-are being utilized during social mobilization (McAdam, Tarrow, and Tilly 2003; Koopmans 2004), but the relationship between virtual and real-world
+are being utilized during social mobilization (Koopmans, 2004; McAdam, Tarrow, \& Tilly, 2003), but the relationship between virtual and real-world
 mobilization is still largely unknown. The present work aims to understand how
 physical and virtual movements coexist and interact from a dynamical systems
 perspective.
@@ -697,14 +674,14 @@ historically been conceptualized as linear chains of smaller, sequential events
 with one occurrence leading to the next. Certain kinds of data are relatively
 well-suited to these analyses, but messy, complex, variable data from real-world
 events can pose challenges, from overpowered samples to violation of underlying
-statistical assumptions (Paxton and Griffiths 2017).
+statistical assumptions (Paxton \& Griffiths, 2017).
 
 At the same time, the foundational theoretical assumptions of a linear world has
 been increasingly replaced by ideas from dynamical systems theory. Rather than a
 chain of events, time series data can be thought of as nested occurrences, where
 mutually constrained parts (e.g., citizens, governments, real-world events,
 social media platforms) are constantly interacting, leading to more global
-behaviors that are larger than the sum of the parts (Turvey 2018).
+behaviors that are larger than the sum of the parts (Turvey, 2018).
 Linear analyses flatten time series data and ignore the variability that is
 fundamental to these systems and their evolution over time. However, when
 analyzed as dynamical systems, many phenomena exhibit new nonlinear patterns
@@ -712,10 +689,10 @@ that were formerly overlooked. Nonlinear methods provide means for capturing the
 rich temporal dynamics and variability that unfold in time series data.
 
 Although a number of other nonlinear methods exist, the primary nonlinear method
-used in the current work is cross-recurrence quantification analysis (CRQA; Zbilut, Giuliani, and Webber Jr 1998) and its offshoot, windowed cross-recurrence quantification
-analysis (WCRQA; Webber Jr and Zbilut 2005). CRQA has successfully been used to gain
+used in the current work is cross-recurrence quantification analysis (CRQA; Zbilut, Giuliani, \& Webber Jr, 1998) and its offshoot, windowed cross-recurrence quantification
+analysis (WCRQA; Webber Jr \& Zbilut, 2005). CRQA has successfully been used to gain
 a better understanding of many complex human phenomena, including a variety of
-human social interactions (for a review, see Fusaroli, Konvalinka, and Wallot 2014). Much as it
+human social interactions (for a review, see Fusaroli, Konvalinka, \& Wallot, 2014). Much as it
 has for psychology, we argue that the use of nonlinear methods in the
 investigation of political science phenomena will lead to new insights and the
 development of more robust theories.
@@ -735,13 +712,13 @@ This study aims to explore the dynamics of Twitter users in Syria, who used the
 social media platform to raise awareness about the Arab Spring and bring about
 mass mobilization.
 
-Using cross-recurrence quantification analysis (CRQA; Zbilut, Giuliani, and Webber Jr 1998) and
-windowed cross-recurrence quantification analysis (WCRQA; Webber Jr and Zbilut 2005), we analyzed the co-evolution of social cohesion online
+Using cross-recurrence quantification analysis (CRQA; Zbilut et al., 1998) and
+windowed cross-recurrence quantification analysis (WCRQA; Webber Jr \& Zbilut, 2005), we analyzed the co-evolution of social cohesion online
 and real-world events. Specifically, using heterogeneous data from March 30,
 2012, to June 15, 2012, we compared the social cohesion of Syrian tweets with
 the counts of all, positive, and negative real-world events derived from
 gold-standard international event data (i.e., the Integrated Crisis Early
-Warning System; Boschee et al. 2015).
+Warning System; Boschee et al., 2015).
 
 We hypothesized that the count of all events and the count of negative events
 would show high levels of determinism, as this time period was marked by daily
@@ -800,7 +777,7 @@ All scripts used for scraping tweets and compressing data can be found at
 \subsubsection{Event Data}\label{event-data}}
 
 Event data were obtained from the 2012 Integrated Crisis Early Warning System
-(ICEWS; Boschee et al. 2015). The event data were first filtered to remove
+(ICEWS; Boschee et al., 2015). The event data were first filtered to remove
 incomplete and incorrectly formatted data. They were then filtered to include
 only events that were directed at (i.e., \texttt{target}) Syria (\(n = 6300\)). To
 explore the impact of outwardly directed Syrian events, the data were filtered
@@ -891,10 +868,10 @@ filtered data can be seen in Figure \ref{fig:raw-event-ts-source-target}.
 \hypertarget{cross-recurrence-quantification-analysis}{%
 \subsubsection{Cross-Recurrence Quantification Analysis}\label{cross-recurrence-quantification-analysis}}
 
-We first used cross-recurrence quantification analysis (CRQA; Zbilut, Giuliani, and Webber Jr 1998) to investigate the temporal patterns of social cohesion
+We first used cross-recurrence quantification analysis (CRQA; Zbilut et al., 1998) to investigate the temporal patterns of social cohesion
 and real-world events in Syria during Arab Spring. CRQA is an extension of RQA,
 which captures the patterns of revisited states of a single time series
-(Zbilut and Webber Jr 1992; Webber Jr and Zbilut 1994). CRQA allows for two time series
+(Webber Jr \& Zbilut, 1994; Zbilut \& Webber Jr, 1992). CRQA allows for two time series
 to be projected onto one another to investigate shared states and trajectories.
 In CRQA, we track these shared states by identifying \emph{recurrent points}, or
 intersections of time during which two signals shared or revisited the same
@@ -904,13 +881,13 @@ occurrences and patterns of multiple sequential recurrent points.
 
 To perform CRQA, the time series must be converted to the same scale, while
 still preserving a sampling rate that respects the native timescale of the
-system (cf.~Nyquist frequency in signal processing; Grenander 1959).
+system (cf.~Nyquist frequency in signal processing; Grenander, 1959).
 Because the social cohesion and event data have different scales and values, we
 converted each time series (e.g., Figure \ref{fig:raw-ts}) into deciles (e.g.,
 Figure \ref{fig:deciled-ts}) to analyze the relative dynamics of different
 levels of social cohesion and counts of all, positive, and negative events on
-each day. We implemented CRQA using the \texttt{crqa} package (Coco and Dale 2018) for R
-(R Core Team 2019).
+each day. We implemented CRQA using the \texttt{crqa} package (Coco \& Dale, 2018) for R
+(R Core Team, 2019).
 
 \hypertarget{visualization}{%
 \paragraph{Visualization}\label{visualization}}
@@ -994,7 +971,7 @@ small-\(n\) data or conducting data-informed case studies.
 
 For CRQA, this can be addressed using \emph{permutation tests}. Similar to more
 established methods of statistical significance in CRQA research (which create
-surrogate time series; e.g., Paxton and Dale 2017), the permutation test
+surrogate time series; e.g., Paxton \& Dale, 2017), the permutation test
 approach to significance testing allows the researcher to use a time series as
 its own baseline by testing whether the \emph{structure} of the unfolding events of
 the time series---rather than the \emph{raw frequency} of the events within the time
@@ -1013,7 +990,7 @@ Using the real deciles of social cohesion, count of all events, count of
 positive events, and count of negative events, we conducted a series of
 permutation tests (one for the comparison between social cohesion and each type
 of event count) to determine statistical difference from chance for each CRQA
-metric. Using the \texttt{sample} function in base R (R Core Team 2019), \(1000\) permuted time
+metric. Using the \texttt{sample} function in base R (R Core Team, 2019), \(1000\) permuted time
 series were created for each of the real time series. CRQA was then run \(1000\)
 times for social cohesion and count of all events, social cohesion and count of
 positive events, and social cohesion and count of negative events using the
@@ -1028,14 +1005,14 @@ tests.
 \hypertarget{windowed-cross-recurrence-quantification-analysis}{%
 \subsubsection{Windowed Cross-Recurrence Quantification Analysis}\label{windowed-cross-recurrence-quantification-analysis}}
 
-We used windowed cross-recurrence quantification analysis (WCRQA; Webber Jr and Zbilut 2005) to further investigate the evolution of the temporal
+We used windowed cross-recurrence quantification analysis (WCRQA; Webber Jr \& Zbilut, 2005) to further investigate the evolution of the temporal
 dynamics of social cohesion and real-world events. In this analysis, a smaller
 \enquote{window} of time points is used to calculate CRQA and capture more fine-grained
 dynamics of two time series. The window remains the same size and \enquote{slides}
 diagonally up the line of identity. The changes in the CRQA metrics across the
 windows can reveal changes in dynamics that can then be linked to external,
-real-world events. We implemented WCRQA using the \texttt{crqa} package (Coco and Dale 2018) for R
-(R Core Team 2019).
+real-world events. We implemented WCRQA using the \texttt{crqa} package (Coco \& Dale, 2018) for R
+(R Core Team, 2019).
 
 \hypertarget{metrics-1}{%
 \paragraph{Metrics}\label{metrics-1}}
@@ -1167,14 +1144,14 @@ metric & all events & p & sig. & positive events & p & sig. & negative events & 
 metric & all events & p & sig. & positive events & p & sig. & negative events & p & sig.\tabularnewline
 \midrule
 \endhead
-DET & 25.246 & 0.001 & *** & 21.803 & 0.074 & . & 22.623 & 0.023 & *\tabularnewline
-NRLINE & 75.000 & 0.000 & *** & 61.000 & 0.121 & & 64.000 & 0.038 & *\tabularnewline
-maxL & 3.000 & 0.423 & & 4.000 & 0.037 & * & 3.000 & 0.370 &\tabularnewline
-L & 2.053 & 0.911 & & 2.180 & 0.079 & . & 2.156 & 0.155 &\tabularnewline
-ENTR & 0.208 & 0.901 & & 0.499 & 0.064 & . & 0.433 & 0.165 &\tabularnewline
-rENTR & 0.300 & 0.802 & & 0.455 & 0.305 & & 0.625 & 0.032 & *\tabularnewline
-LAM & 34.262 & 0.003 & ** & 30.328 & 0.016 & * & 24.098 & 0.113 &\tabularnewline
-TT & 2.247 & 0.107 & & 2.176 & 0.165 & & 2.100 & 0.360 &\tabularnewline
+DET & 25.246 & 0.001 & *** & 21.148 & 0.127 & & 22.623 & 0.023 & *\tabularnewline
+NRLINE & 75.000 & 0.000 & *** & 59.000 & 0.193 & & 64.000 & 0.038 & *\tabularnewline
+maxL & 3.000 & 0.423 & & 4.000 & 0.036 & * & 3.000 & 0.370 &\tabularnewline
+L & 2.053 & 0.911 & & 2.186 & 0.060 & . & 2.156 & 0.155 &\tabularnewline
+ENTR & 0.208 & 0.901 & & 0.510 & 0.047 & * & 0.433 & 0.165 &\tabularnewline
+rENTR & 0.300 & 0.802 & & 0.464 & 0.255 & & 0.625 & 0.032 & *\tabularnewline
+LAM & 34.262 & 0.003 & ** & 27.705 & 0.035 & * & 24.098 & 0.113 &\tabularnewline
+TT & 2.247 & 0.107 & & 2.195 & 0.156 & & 2.100 & 0.360 &\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -1371,11 +1348,11 @@ noted above).
 \subsection{Implications for Methodology and Theory}\label{implications-for-methodology-and-theory}}
 
 Nonlinear methods have been transformative for a variety of research areas
-(including psychology, Coco and Dale 2014). One of the goals in the present work was
+(including psychology, Coco \& Dale, 2014). One of the goals in the present work was
 to introduce variants of one kind of nonlinear method---specifically, recurrence
 quantification analysis---to this research area. While a number of excellent
 guides can provide detailed explanations of the methods and their statistical
-underpinnings (e.g., Riley and Van Orden 2005; Webber Jr and Zbilut 1994, 2005), one of the most important considerations that should be
+underpinnings (e.g., Riley \& Van Orden, 2005; Webber Jr \& Zbilut, 1994, 2005), one of the most important considerations that should be
 briefly summarized here is about data.
 
 Nonlinear methods---including recurrence-based analyses---require time series
@@ -1387,7 +1364,7 @@ experimental research, it can be more difficult for scientists who rely on trace
 data or naturally occurring data. However, where possible, we recommend
 political scientists work to expand efforts for improving the temporal
 granularity of the data. One possible means of achieving this may be through
-collaborative efforts like the Open Event Data Alliance (Schrodt, Beieler, and Idris 2014).
+collaborative efforts like the Open Event Data Alliance (Schrodt, Beieler, \& Idris, 2014).
 
 This methodology should be of great interest to social scientists investigating
 social mobilization. It has potential applications for gender studies and
@@ -1440,235 +1417,235 @@ Harrison).
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-anderson2011demystifying}{}%
-Anderson, Lisa. 2011. ``Demystifying the Arab Spring: Parsing the Differences Between Tunisia, Egypt, and Libya.'' \emph{Foreign Aff.} 90: 2.
+Anderson, L. (2011). Demystifying the Arab Spring: Parsing the differences between Tunisia, Egypt, and Libya. \emph{Foreign Aff.}, \emph{90}, 2.
 
 \leavevmode\hypertarget{ref-anyanwu2002economic}{}%
-Anyanwu, John C. 2002. \emph{Economic and Political Causes of Civil Wars in Africa: Some Econometric Results}. African Development Bank Abidjan, Côte d'Ivoire.
+Anyanwu, J. C. (2002). \emph{Economic and political causes of civil wars in Africa: Some econometric results}. African Development Bank Abidjan, Côte d'Ivoire.
 
 \leavevmode\hypertarget{ref-barash2012critical}{}%
-Barash, Vladimir, Christopher Cameron, and Michael Macy. 2012. ``Critical Phenomena in Complex Contagions.'' \emph{Social Networks} 34 (4): 451--61.
+Barash, V., Cameron, C., \& Macy, M. (2012). Critical phenomena in complex contagions. \emph{Social Networks}, \emph{34}(4), 451--461.
 
 \leavevmode\hypertarget{ref-bohorquez2009common}{}%
-Bohorquez, Juan Camilo, Sean Gourley, Alexander R Dixon, Michael Spagat, and Neil F Johnson. 2009. ``Common Ecology Quantifies Human Insurgency.'' \emph{Nature} 462 (7275): 911--14.
+Bohorquez, J. C., Gourley, S., Dixon, A. R., Spagat, M., \& Johnson, N. F. (2009). Common ecology quantifies human insurgency. \emph{Nature}, \emph{462}(7275), 911--914.
 
 \leavevmode\hypertarget{ref-DVNux2f28075_2015}{}%
-Boschee, Elizabeth, Jennifer Lautenschlager, Sean O'Brien, Steve Shellman, James Starz, and Michael Ward. 2015. ``ICEWS Coded Event Data.'' Harvard Dataverse. \url{https://doi.org/10.7910/DVN/28075}.
+Boschee, E., Lautenschlager, J., O'Brien, S., Shellman, S., Starz, J., \& Ward, M. (2015). \emph{ICEWS Coded Event Data} (Version V27) {[}Data set{]}. Harvard Dataverse. \url{https://doi.org/10.7910/DVN/28075}
 
 \leavevmode\hypertarget{ref-brennan1996conceptual}{}%
-Brennan, Susan E, and Herbert H Clark. 1996. ``Conceptual Pacts and Lexical Choice in Conversation.'' \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition} 22 (6): 1482.
+Brennan, S. E., \& Clark, H. H. (1996). Conceptual pacts and lexical choice in conversation. \emph{Journal of Experimental Psychology: Learning, Memory, and Cognition}, \emph{22}(6), 1482.
 
 \leavevmode\hypertarget{ref-cederman2007beyond}{}%
-Cederman, Lars-Erik, and Luc Girardin. 2007. ``Beyond Fractionalization: Mapping Ethnicity onto Nationalist Insurgencies.'' \emph{American Political Science Review} 101 (1): 173--85.
+Cederman, L.-E., \& Girardin, L. (2007). Beyond fractionalization: Mapping ethnicity onto nationalist insurgencies. \emph{American Political Science Review}, \emph{101}(1), 173--185.
 
 \leavevmode\hypertarget{ref-centola2007complex}{}%
-Centola, Damon, and Michael Macy. 2007. ``Complex Contagions and the Weakness of Long Ties.'' \emph{American Journal of Sociology} 113 (3): 702--34.
-
-\leavevmode\hypertarget{ref-R-crqa}{}%
-Coco, Moreno I., and Rick Dale. 2018. \emph{Crqa: Cross-Recurrence Quantification Analysis for Categorical and Continuous Time-Series}. \url{https://CRAN.R-project.org/package=crqa}.
+Centola, D., \& Macy, M. (2007). Complex contagions and the weakness of long ties. \emph{American Journal of Sociology}, \emph{113}(3), 702--734.
 
 \leavevmode\hypertarget{ref-coco2014cross}{}%
-Coco, Moreno I, and Rick Dale. 2014. ``Cross-Recurrence Quantification Analysis of Categorical and Continuous Time Series: An R Package.'' \emph{Frontiers in Psychology} 5: 510.
+Coco, M. I., \& Dale, R. (2014). Cross-recurrence quantification analysis of categorical and continuous time series: An r package. \emph{Frontiers in Psychology}, \emph{5}, 510.
+
+\leavevmode\hypertarget{ref-R-crqa}{}%
+Coco, M. I., \& Dale, R. (2018). \emph{Crqa: Cross-recurrence quantification analysis for categorical and continuous time-series}. Retrieved from \url{https://CRAN.R-project.org/package=crqa}
 
 \leavevmode\hypertarget{ref-collier2004greed}{}%
-Collier, Paul, and Anke Hoeffler. 2004. ``Greed and Grievance in Civil War.'' \emph{Oxford Economic Papers} 56 (4): 563--95.
+Collier, P., \& Hoeffler, A. (2004). Greed and grievance in civil war. \emph{Oxford Economic Papers}, \emph{56}(4), 563--595.
 
 \leavevmode\hypertarget{ref-collins2009violence}{}%
-Collins, Randall. 2009. \emph{Violence: A Micro-Sociological Theory}. Princeton University Press.
+Collins, R. (2009). \emph{Violence: A micro-sociological theory}. Princeton University Press.
 
 \leavevmode\hypertarget{ref-comninos2011twitter}{}%
-Comninos, Alex. 2011. \emph{Twitter Revolutions and Cyber Crackdowns}. Association for Progressive Communications.
+Comninos, A. (2011). \emph{Twitter revolutions and cyber crackdowns}. Association for Progressive Communications.
 
 \leavevmode\hypertarget{ref-durkheim1995elementary}{}%
-Durkheim, Emile. 1995. ``The Elementary Forms of Religious Life, Terj. Karen E. Fields.'' \emph{New York: Free Press.} 42: 651669.
+Durkheim, E. (1995). The elementary forms of religious life, terj. Karen e. Fields. \emph{New York: Free Press.}, \emph{42}, 651669.
 
 \leavevmode\hypertarget{ref-edgar2018struggle}{}%
-Edgar, Amanda Nell, and Andre E Johnson. 2018. \emph{The Struggle over Black Lives Matter and All Lives Matter}. Rowman \& Littlefield.
+Edgar, A. N., \& Johnson, A. E. (2018). \emph{The struggle over black lives matter and all lives matter}. Rowman \& Littlefield.
 
 \leavevmode\hypertarget{ref-eisinger1973conditions}{}%
-Eisinger, Peter K. 1973. ``The Conditions of Protest Behavior in American Cities.'' \emph{American Political Science Review} 67 (1): 11--28.
+Eisinger, P. K. (1973). The conditions of protest behavior in american cities. \emph{American Political Science Review}, \emph{67}(1), 11--28.
 
 \leavevmode\hypertarget{ref-fink2016complex}{}%
-Fink, Clay, Aurora Schmidt, Vladimir Barash, Christopher Cameron, and Michael Macy. 2016. ``Complex Contagions and the Diffusion of Popular Twitter Hashtags in Nigeria.'' \emph{Social Network Analysis and Mining} 6 (1): 1.
+Fink, C., Schmidt, A., Barash, V., Cameron, C., \& Macy, M. (2016). Complex contagions and the diffusion of popular twitter hashtags in nigeria. \emph{Social Network Analysis and Mining}, \emph{6}(1), 1.
 
 \leavevmode\hypertarget{ref-francisco1995relationship}{}%
-Francisco, Ronald A. 1995. ``The Relationship Between Coercion and Protest: An Empirical Evaluation in Three Coercive States.'' \emph{Journal of Conflict Resolution} 39 (2): 263--82.
+Francisco, R. A. (1995). The relationship between coercion and protest: An empirical evaluation in three coercive states. \emph{Journal of Conflict Resolution}, \emph{39}(2), 263--282.
 
 \leavevmode\hypertarget{ref-fusaroli2012coming}{}%
-Fusaroli, Riccardo, Bahador Bahrami, Karsten Olsen, Andreas Roepstorff, Geraint Rees, Chris Frith, and Kristian Tylén. 2012. ``Coming to Terms: Quantifying the Benefits of Linguistic Coordination.'' \emph{Psychological Science} 23 (8): 931--39.
+Fusaroli, R., Bahrami, B., Olsen, K., Roepstorff, A., Rees, G., Frith, C., \& Tylén, K. (2012). Coming to terms: Quantifying the benefits of linguistic coordination. \emph{Psychological Science}, \emph{23}(8), 931--939.
 
 \leavevmode\hypertarget{ref-fusaroli2014analyzing}{}%
-Fusaroli, Riccardo, Ivana Konvalinka, and Sebastian Wallot. 2014. ``Analyzing Social Interactions: The Promises and Challenges of Using Cross Recurrence Quantification Analysis.'' In \emph{Translational Recurrences}, 137--55. Springer.
+Fusaroli, R., Konvalinka, I., \& Wallot, S. (2014). Analyzing social interactions: The promises and challenges of using cross recurrence quantification analysis. In \emph{Translational recurrences} (pp. 137--155). Springer.
 
 \leavevmode\hypertarget{ref-fusaroli2015timescales}{}%
-Fusaroli, Riccardo, Marcus Perlman, Alan Mislove, Alexandra Paxton, Teenie Matlock, and Rick Dale. 2015. ``Timescales of Massive Human Entrainment.'' \emph{PloS ONE} 10 (4).
+Fusaroli, R., Perlman, M., Mislove, A., Paxton, A., Matlock, T., \& Dale, R. (2015). Timescales of massive human entrainment. \emph{PloS ONE}, \emph{10}(4).
 
 \leavevmode\hypertarget{ref-gates2002recruitment}{}%
-Gates, Scott. 2002. ``Recruitment and Allegiance: The Microfoundations of Rebellion.'' \emph{Journal of Conflict Resolution} 46 (1): 111--30.
+Gates, S. (2002). Recruitment and allegiance: The microfoundations of rebellion. \emph{Journal of Conflict Resolution}, \emph{46}(1), 111--130.
 
 \leavevmode\hypertarget{ref-gilligan2014civil}{}%
-Gilligan, Michael J, Benjamin J Pasquale, and Cyrus Samii. 2014. ``Civil War and Social Cohesion: Lab-in-the-Field Evidence from Nepal.'' \emph{American Journal of Political Science} 58 (3): 604--19.
+Gilligan, M. J., Pasquale, B. J., \& Samii, C. (2014). Civil war and social cohesion: Lab-in-the-field evidence from nepal. \emph{American Journal of Political Science}, \emph{58}(3), 604--619.
 
 \leavevmode\hypertarget{ref-gladwell2010revolution}{}%
-Gladwell, Malcolm. 2010. ``Why the Revolution Will Not Be Tweeted.'' \emph{The New Yorker} 4 (2010): 42--49.
+Gladwell, M. (2010). Why the revolution will not be tweeted. \emph{The New Yorker}, \emph{4}(2010), 42--49.
 
 \leavevmode\hypertarget{ref-gohdes2015pulling}{}%
-Gohdes, Anita R. 2015. ``Pulling the Plug: Network Disruptions and Violence in Civil Conflict.'' \emph{Journal of Peace Research} 52 (3): 352--67.
+Gohdes, A. R. (2015). Pulling the plug: Network disruptions and violence in civil conflict. \emph{Journal of Peace Research}, \emph{52}(3), 352--367.
 
 \leavevmode\hypertarget{ref-goldstein1992conflict}{}%
-Goldstein, Joshua S. 1992. ``A Conflict-Cooperation Scale for WEIS Events Data.'' \emph{Journal of Conflict Resolution} 36 (2): 369--85.
+Goldstein, J. S. (1992). A conflict-cooperation scale for WEIS events data. \emph{Journal of Conflict Resolution}, \emph{36}(2), 369--385.
 
 \leavevmode\hypertarget{ref-goldstone1980theories}{}%
-Goldstone, Jack A. 1980. ``Theories of Revolution: The Third Generation.'' \emph{World Politics} 32 (3): 425--53.
+Goldstone, J. A. (1980). Theories of revolution: The third generation. \emph{World Politics}, \emph{32}(3), 425--453.
 
 \leavevmode\hypertarget{ref-goldstone2011understanding}{}%
----------. 2011. ``Understanding the Revolutions of 2011: Weakness and Resilience in Middle Eastern Autocracies.'' \emph{Foreign Affairs}, 8--16.
+Goldstone, J. A. (2011). Understanding the revolutions of 2011: Weakness and resilience in Middle Eastern autocracies. \emph{Foreign Affairs}, 8--16.
 
 \leavevmode\hypertarget{ref-gonzales2010language}{}%
-Gonzales, Amy L, Jeffrey T Hancock, and James W Pennebaker. 2010. ``Language Style Matching as a Predictor of Social Dynamics in Small Groups.'' \emph{Communication Research} 37 (1): 3--19.
+Gonzales, A. L., Hancock, J. T., \& Pennebaker, J. W. (2010). Language style matching as a predictor of social dynamics in small groups. \emph{Communication Research}, \emph{37}(1), 3--19.
 
 \leavevmode\hypertarget{ref-good2013permutation}{}%
-Good, Phillip. 2013. \emph{Permutation Tests: A Practical Guide to Resampling Methods for Testing Hypotheses}. Springer Science \& Business Media.
+Good, P. (2013). \emph{Permutation tests: A practical guide to resampling methods for testing hypotheses}. Springer Science \& Business Media.
 
 \leavevmode\hypertarget{ref-graesser2004coh}{}%
-Graesser, Arthur C, Danielle S McNamara, Max M Louwerse, and Zhiqiang Cai. 2004. ``Coh-Metrix: Analysis of Text on Cohesion and Language.'' \emph{Behavior Research Methods, Instruments, \& Computers} 36 (2): 193--202.
+Graesser, A. C., McNamara, D. S., Louwerse, M. M., \& Cai, Z. (2004). Coh-Metrix: Analysis of text on cohesion and language. \emph{Behavior Research Methods, Instruments, \& Computers}, \emph{36}(2), 193--202.
 
 \leavevmode\hypertarget{ref-granovetter1977strength}{}%
-Granovetter, Mark S. 1973. ``The Strength of Weak Ties.'' In \emph{American Journal of Sociology}, 78:1360--80. JSTOR.
+Granovetter, M. S. (1973). The strength of weak ties. In \emph{American Journal of Sociology} (Vol. 78, pp. 1360--1380). JSTOR.
 
 \leavevmode\hypertarget{ref-grenander1959probability}{}%
-Grenander, Ulf. 1959. \emph{Probability and Statistics: The Harald Cramer Volume}. Alqvist \& Wiksell.
+Grenander, U. (1959). \emph{Probability and statistics: The harald cramer volume}. Alqvist \& Wiksell.
 
 \leavevmode\hypertarget{ref-gurr2000peoples}{}%
-Gurr, Ted Robert. 2000. \emph{Peoples Versus States: Minorities at Risk in the New Century}. US Institute of Peace Press.
+Gurr, T. R. (2000). \emph{Peoples versus states: Minorities at risk in the new century}. US Institute of Peace Press.
 
 \leavevmode\hypertarget{ref-halliday1976cohesion}{}%
-Halliday, Michael Alexander Kirkwood, and Ruqaiya Hasan. 1976. \emph{Cohesion in English}. Longman, London.
+Halliday, M. A. K., \& Hasan, R. (1976). \emph{Cohesion in English}. Longman, London.
 
 \leavevmode\hypertarget{ref-Hoffer2011true}{}%
-Hoffer, Eric. 2011. \emph{The True Believer: Thoughts on the Nature of Mass Movements}. Harper Collins.
+Hoffer, E. (2011). \emph{The true believer: Thoughts on the nature of mass movements}. Harper Collins.
 
 \leavevmode\hypertarget{ref-jones1972statistical}{}%
-Jones, Karen Sparck. 1972. ``A Statistical Interpretation of Term Specificity and Its Application in Retrieval.'' \emph{Journal of Documentation}.
+Jones, K. S. (1972). A statistical interpretation of term specificity and its application in retrieval. \emph{Journal of Documentation}.
 
 \leavevmode\hypertarget{ref-king2013censorship}{}%
-King, Gary, Jennifer Pan, and Margaret E Roberts. 2013. ``How Censorship in China Allows Government Criticism but Silences Collective Expression.'' \emph{American Political Science Review} 107 (2): 326--43.
+King, G., Pan, J., \& Roberts, M. E. (2013). How censorship in China allows government criticism but silences collective expression. \emph{American Political Science Review}, \emph{107}(2), 326--343.
 
 \leavevmode\hypertarget{ref-kitschelt1986political}{}%
-Kitschelt, Herbert P. 1986. ``Political Opportunity Structures and Political Protest: Anti-Nuclear Movements in Four Democracies.'' \emph{British Journal of Political Science} 16 (1): 57--85.
+Kitschelt, H. P. (1986). Political opportunity structures and political protest: Anti-nuclear movements in four democracies. \emph{British Journal of Political Science}, \emph{16}(1), 57--85.
 
 \leavevmode\hypertarget{ref-koehler2017political}{}%
-Koehler, Kevin. 2017. ``Political Militaries in Popular Uprisings: A Comparative Perspective on the Arab Spring.'' \emph{International Political Science Review} 38 (3): 363--77.
+Koehler, K. (2017). Political militaries in popular uprisings: A comparative perspective on the arab spring. \emph{International Political Science Review}, \emph{38}(3), 363--377.
 
 \leavevmode\hypertarget{ref-koopmans2004movements}{}%
-Koopmans, Ruud. 2004. ``Movements and Media: Selection Processes and Evolutionary Dynamics in the Public Sphere.'' \emph{Theory and Society} 33 (3-4): 367--91.
+Koopmans, R. (2004). Movements and media: Selection processes and evolutionary dynamics in the public sphere. \emph{Theory and Society}, \emph{33}(3-4), 367--391.
 
 \leavevmode\hypertarget{ref-lutterbeck2013arab}{}%
-Lutterbeck, Derek. 2013. ``Arab Uprisings, Armed Forces, and Civil--Military Relations.'' \emph{Armed Forces \& Society} 39 (1): 28--52.
+Lutterbeck, D. (2013). Arab uprisings, armed forces, and civil--military relations. \emph{Armed Forces \& Society}, \emph{39}(1), 28--52.
 
 \leavevmode\hypertarget{ref-mahner1997foundations}{}%
-Mahner, Martin, and Mario Bunge. 1997. \emph{Foundations of Biophilosophy}. Springer Science \& Business Media.
+Mahner, M., \& Bunge, M. (1997). \emph{Foundations of biophilosophy}. Springer Science \& Business Media.
 
 \leavevmode\hypertarget{ref-mcadam1986recruitment}{}%
-McAdam, Doug. 1986. ``Recruitment to High-Risk Activism: The Case of Freedom Summer.'' \emph{American Journal of Sociology} 92 (1): 64--90.
+McAdam, D. (1986). Recruitment to high-risk activism: The case of freedom summer. \emph{American Journal of Sociology}, \emph{92}(1), 64--90.
 
 \leavevmode\hypertarget{ref-mcadam1993specifying}{}%
-McAdam, Doug, and Ronnelle Paulsen. 1993. ``Specifying the Relationship Between Social Ties and Activism.'' \emph{American Journal of Sociology} 99 (3): 640--67.
+McAdam, D., \& Paulsen, R. (1993). Specifying the relationship between social ties and activism. \emph{American Journal of Sociology}, \emph{99}(3), 640--667.
 
 \leavevmode\hypertarget{ref-mcadam2003dynamics}{}%
-McAdam, Doug, Sidney Tarrow, and Charles Tilly. 2003. ``Dynamics of Contention.'' \emph{Social Movement Studies} 2 (1): 99--102.
+McAdam, D., Tarrow, S., \& Tilly, C. (2003). Dynamics of contention. \emph{Social Movement Studies}, \emph{2}(1), 99--102.
 
 \leavevmode\hypertarget{ref-mcnamara2014automated}{}%
-McNamara, Danielle S, Arthur C Graesser, Philip M McCarthy, and Zhiqiang Cai. 2014. \emph{Automated Evaluation of Text and Discourse with Coh-Metrix}. Cambridge University Press.
+McNamara, D. S., Graesser, A. C., McCarthy, P. M., \& Cai, Z. (2014). \emph{Automated evaluation of text and discourse with Coh-Metrix}. Cambridge University Press.
 
 \leavevmode\hypertarget{ref-michel2011quantitative}{}%
-Michel, Jean-Baptiste, Yuan Kui Shen, Aviva Presser Aiden, Adrian Veres, Matthew K Gray, Joseph P Pickett, Dale Hoiberg, et al. 2011. ``Quantitative Analysis of Culture Using Millions of Digitized Books.'' \emph{Science} 331 (6014): 176--82.
+Michel, J.-B., Shen, Y. K., Aiden, A. P., Veres, A., Gray, M. K., Pickett, J. P., \ldots{} others. (2011). Quantitative analysis of culture using millions of digitized books. \emph{Science}, \emph{331}(6014), 176--182.
 
 \leavevmode\hypertarget{ref-niederhoffer2002linguistic}{}%
-Niederhoffer, Kate G, and James W Pennebaker. 2002. ``Linguistic Style Matching in Social Interaction.'' \emph{Journal of Language and Social Psychology} 21 (4): 337--60.
+Niederhoffer, K. G., \& Pennebaker, J. W. (2002). Linguistic style matching in social interaction. \emph{Journal of Language and Social Psychology}, \emph{21}(4), 337--360.
 
 \leavevmode\hypertarget{ref-olson1965logic}{}%
-Olson, Mancur. 1965. \emph{The Logic of Collective Action}. Harvard University Press.
+Olson, M. (1965). \emph{The logic of collective action}. Harvard University Press.
 
 \leavevmode\hypertarget{ref-paxton2017interpersonal}{}%
-Paxton, Alexandra, and Rick Dale. 2017. ``Interpersonal Movement Synchrony Responds to High-and Low-Level Conversational Constraints.'' \emph{Frontiers in Psychology} 8: 1135.
+Paxton, A., \& Dale, R. (2017). Interpersonal movement synchrony responds to high-and low-level conversational constraints. \emph{Frontiers in Psychology}, \emph{8}, 1135.
 
 \leavevmode\hypertarget{ref-paxton2017finding}{}%
-Paxton, Alexandra, and Thomas L Griffiths. 2017. ``Finding the Traces of Behavioral and Cognitive Processes in Big Data and Naturally Occurring Datasets.'' \emph{Behavior Research Methods} 49 (5): 1630--8.
+Paxton, A., \& Griffiths, T. L. (2017). Finding the traces of behavioral and cognitive processes in big data and naturally occurring datasets. \emph{Behavior Research Methods}, \emph{49}(5), 1630--1638.
 
 \leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. 2019. \emph{R: A Language and Environment for Statistical Computing}. Vienna, Austria: R Foundation for Statistical Computing. \url{https://www.R-project.org/}.
+R Core Team. (2019). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
 \leavevmode\hypertarget{ref-regan2005greed}{}%
-Regan, Patrick M, and Daniel Norton. 2005. ``Greed, Grievance, and Mobilization in Civil Wars.'' \emph{Journal of Conflict Resolution} 49 (3): 319--36.
+Regan, P. M., \& Norton, D. (2005). Greed, grievance, and mobilization in civil wars. \emph{Journal of Conflict Resolution}, \emph{49}(3), 319--336.
 
 \leavevmode\hypertarget{ref-riley2005tutorials}{}%
-Riley, Michael A, and Guy C Van Orden, eds. 2005. \emph{Tutorials in Contemporary Nonlinear Methods for the Behavioral Sciences}. National Science Foundation.
+Riley, M. A., \& Van Orden, G. C. (Eds.). (2005). \emph{Tutorials in contemporary nonlinear methods for the behavioral sciences}. National Science Foundation.
 
 \leavevmode\hypertarget{ref-riordan2011evidence}{}%
-Riordan, Monica, Rick Dale, Roger Kreuz, and Andrew Olney. 2011. ``Evidence for Alignment in a Computer-Mediated Text-Only Environment.'' In \emph{Proceedings of the Annual Meeting of the Cognitive Science Society}. Vol. 33. 33.
+Riordan, M., Dale, R., Kreuz, R., \& Olney, A. (2011). Evidence for alignment in a computer-mediated text-only environment. In \emph{Proceedings of the annual meeting of the cognitive science society} (Vol. 33).
 
 \leavevmode\hypertarget{ref-robertson2004understanding}{}%
-Robertson, Stephen. 2004. ``Understanding Inverse Document Frequency: On Theoretical Arguments for Idf.'' \emph{Journal of Documentation}.
+Robertson, S. (2004). Understanding inverse document frequency: On theoretical arguments for idf. \emph{Journal of Documentation}.
 
 \leavevmode\hypertarget{ref-sambanis2009s}{}%
-Sambanis, Nicholas, and Jonah Schulhofer-Wohl. 2009. ``What's in a Line? Is Partition a Solution to Civil War?'' \emph{International Security} 34 (2): 82--118.
+Sambanis, N., \& Schulhofer-Wohl, J. (2009). What's in a line? Is partition a solution to civil war? \emph{International Security}, \emph{34}(2), 82--118.
 
 \leavevmode\hypertarget{ref-schrodt2014three}{}%
-Schrodt, Philip A, John Beieler, and Muhammed Idris. 2014. ``Three's a Charm?: Open Event Data Coding with EL:DIABLO, PETRARCH, and the Open Event Data Alliance.'' In \emph{International Studies Association Annual Convention}.
+Schrodt, P. A., Beieler, J., \& Idris, M. (2014). Three's a charm?: Open event data coding with EL:DIABLO, PETRARCH, and the Open Event Data Alliance. In \emph{International studies association annual convention}.
 
 \leavevmode\hypertarget{ref-schrodt2006twenty}{}%
-Schrodt, Philip A, and Blake Hall. 2006. ``Twenty Years of the Kansas Event Data System Project.'' \emph{The Political Methodologist} 14 (1): 2--8.
+Schrodt, P. A., \& Hall, B. (2006). Twenty years of the Kansas event data system project. \emph{The Political Methodologist}, \emph{14}(1), 2--8.
 
 \leavevmode\hypertarget{ref-seay2014slacktivism}{}%
-Seay, Laura. 2014. ``Does Slacktivism Work?'' \emph{The Washington Post} 12.
+Seay, L. (2014). Does slacktivism work? \emph{The Washington Post}, \emph{12}.
 
 \leavevmode\hypertarget{ref-spaaij2014sports}{}%
-Spaaij, Ramón. 2014. ``Sports Crowd Violence: An Interdisciplinary Synthesis.'' \emph{Aggression and Violent Behavior} 19 (2): 146--55.
+Spaaij, R. (2014). Sports crowd violence: An interdisciplinary synthesis. \emph{Aggression and Violent Behavior}, \emph{19}(2), 146--155.
 
 \leavevmode\hypertarget{ref-state2015diffusion}{}%
-State, Bogdan, and Lada Adamic. 2015. ``The Diffusion of Support in an Online Social Movement: Evidence from the Adoption of Equal-Sign Profile Pictures.'' In \emph{Proceedings of the 18th Acm Conference on Computer Supported Cooperative Work \& Social Computing}, 1741--50.
+State, B., \& Adamic, L. (2015). The diffusion of support in an online social movement: Evidence from the adoption of equal-sign profile pictures. In \emph{Proceedings of the 18th acm conference on computer supported cooperative work \& social computing} (pp. 1741--1750).
 
 \leavevmode\hypertarget{ref-steinert2017spontaneous}{}%
-Steinert-Threlkeld, Zachary C. 2017. ``Spontaneous Collective Action: Peripheral Mobilization During the Arab Spring.'' \emph{American Political Science Review} 111 (2): 379--403.
+Steinert-Threlkeld, Z. C. (2017). Spontaneous collective action: Peripheral mobilization during the Arab Spring. \emph{American Political Science Review}, \emph{111}(2), 379--403.
 
 \leavevmode\hypertarget{ref-tausczik2010psychological}{}%
-Tausczik, Yla R, and James W Pennebaker. 2010. ``The Psychological Meaning of Words: LIWC and Computerized Text Analysis Methods.'' \emph{Journal of Language and Social Psychology} 29 (1): 24--54.
+Tausczik, Y. R., \& Pennebaker, J. W. (2010). The psychological meaning of words: LIWC and computerized text analysis methods. \emph{Journal of Language and Social Psychology}, \emph{29}(1), 24--54.
 
 \leavevmode\hypertarget{ref-tilly2004contentious}{}%
-Tilly, Charles. 2004. ``Contentious Choices.'' \emph{Theory and Society} 33 (3-4): 473--81.
+Tilly, C. (2004). Contentious choices. \emph{Theory and Society}, \emph{33}(3-4), 473--481.
 
 \leavevmode\hypertarget{ref-turvey2018lectures}{}%
-Turvey, Michael T. 2018. \emph{Lectures on Perception: An Ecological Perspective}. Routledge.
+Turvey, M. T. (2018). \emph{Lectures on perception: An ecological perspective}. Routledge.
 
 \leavevmode\hypertarget{ref-vicari2013public}{}%
-Vicari, Stefania. 2013. ``Public Reasoning Around Social Contention: A Case Study of Twitter Use in the Italian Mobilization for Global Change.'' \emph{Current Sociology} 61 (4): 474--90.
+Vicari, S. (2013). Public reasoning around social contention: A case study of Twitter use in the Italian mobilization for global change. \emph{Current Sociology}, \emph{61}(4), 474--490.
 
 \leavevmode\hypertarget{ref-walton2012mere}{}%
-Walton, Gregory M, Geoffrey L Cohen, David Cwir, and Steven J Spencer. 2012. ``Mere Belonging: The Power of Social Connections.'' \emph{Journal of Personality and Social Psychology} 102 (3): 513.
+Walton, G. M., Cohen, G. L., Cwir, D., \& Spencer, S. J. (2012). Mere belonging: The power of social connections. \emph{Journal of Personality and Social Psychology}, \emph{102}(3), 513.
 
 \leavevmode\hypertarget{ref-webber1994dynamical}{}%
-Webber Jr, Charles L, and Joseph P Zbilut. 1994. ``Dynamical Assessment of Physiological Systems and States Using Recurrence Plot Strategies.'' \emph{Journal of Applied Physiology} 76 (2): 965--73.
+Webber Jr, C. L., \& Zbilut, J. P. (1994). Dynamical assessment of physiological systems and states using recurrence plot strategies. \emph{Journal of Applied Physiology}, \emph{76}(2), 965--973.
 
 \leavevmode\hypertarget{ref-webber2005recurrence}{}%
----------. 2005. ``Recurrence Quantification Analysis of Nonlinear Dynamical Systems.'' \emph{Tutorials in Contemporary Nonlinear Methods for the Behavioral Sciences} 94 (2005): 26--94.
+Webber Jr, C. L., \& Zbilut, J. P. (2005). Recurrence quantification analysis of nonlinear dynamical systems. \emph{Tutorials in Contemporary Nonlinear Methods for the Behavioral Sciences}, \emph{94}(2005), 26--94.
 
 \leavevmode\hypertarget{ref-wiltermuth2009synchrony}{}%
-Wiltermuth, Scott S, and Chip Heath. 2009. ``Synchrony and Cooperation.'' \emph{Psychological Science} 20 (1): 1--5.
+Wiltermuth, S. S., \& Heath, C. (2009). Synchrony and cooperation. \emph{Psychological Science}, \emph{20}(1), 1--5.
 
 \leavevmode\hypertarget{ref-Windsor2020}{}%
-Windsor, Leah. 2020. ``Advancing Interdisciplinary Work in Computational Communication Science.'' \emph{Political Communication}.
+Windsor, L. (2020). Advancing interdisciplinary work in computational communication science. \emph{Political Communication}.
 
 \leavevmode\hypertarget{ref-zbilut1998detecting}{}%
-Zbilut, Joseph P, Alessandro Giuliani, and Charles L Webber Jr. 1998. ``Detecting Deterministic Signals in Exceptionally Noisy Environments Using Cross-Recurrence Quantification.'' \emph{Physics Letters A} 246 (1-2): 122--28.
+Zbilut, J. P., Giuliani, A., \& Webber Jr, C. L. (1998). Detecting deterministic signals in exceptionally noisy environments using cross-recurrence quantification. \emph{Physics Letters A}, \emph{246}(1-2), 122--128.
 
 \leavevmode\hypertarget{ref-zbilut1992embeddings}{}%
-Zbilut, Joseph P, and Charles L Webber Jr. 1992. ``Embeddings and Delays as Derived from Quantification of Recurrence Plots.'' \emph{Physics Letters A} 171 (3-4): 199--203.
+Zbilut, J. P., \& Webber Jr, C. L. (1992). Embeddings and delays as derived from quantification of recurrence plots. \emph{Physics Letters A}, \emph{171}(3-4), 199--203.
 
 \leavevmode\hypertarget{ref-zeitzoff2011using}{}%
-Zeitzoff, Thomas. 2011. ``Using Social Media to Measure Conflict Dynamics: An Application to the 2008--2009 Gaza Conflict.'' \emph{Journal of Conflict Resolution} 55 (6): 938--69.
+Zeitzoff, T. (2011). Using social media to measure conflict dynamics: An application to the 2008--2009 Gaza conflict. \emph{Journal of Conflict Resolution}, \emph{55}(6), 938--969.
 
 \leavevmode\hypertarget{ref-zeitzoff2017social}{}%
----------. 2017. ``How Social Media Is Changing Conflict.'' \emph{Journal of Conflict Resolution} 61 (9): 1970--91.
+Zeitzoff, T. (2017). How social media is changing conflict. \emph{Journal of Conflict Resolution}, \emph{61}(9), 1970--1991.
 
 \endgroup
 
