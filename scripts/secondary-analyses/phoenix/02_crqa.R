@@ -125,7 +125,7 @@ crp_2 <- readPNG('./results/secondary/phoenix/crqa/source_target-rp-pos_events.p
 crp_3 <- readPNG('./results/secondary/phoenix/crqa/source_target-rp-neg_events.png')
 
 # join images and save
-png("./results/secondary/phoenix/crqa/source_target-rp-joined.png")
+png("./results/secondary/phoenix/crqa/source_target-rp-joined.png", width=720, height=325)
 grid.arrange(rasterGrob(crp_1),rasterGrob(crp_2), rasterGrob(crp_3), ncol=3)
 dev.off()
 
@@ -226,7 +226,7 @@ crp_2 <- readPNG('./results/primary/crqa/target-rp-pos_events.png')
 crp_3 <- readPNG('./results/primary/crqa/target-rp-neg_events.png')
 
 # join images and save
-png("./results/primary/crqa/target-rp-joined.png")
+png("./results/primary/crqa/target-rp-joined.png", width=720, height=325)
 grid.arrange(rasterGrob(crp_1),rasterGrob(crp_2), rasterGrob(crp_3), ncol=3)
 dev.off()
 
