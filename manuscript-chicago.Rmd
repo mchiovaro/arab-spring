@@ -226,7 +226,6 @@ on collective action at all [@seay2014slacktivism].
 
 This skepticism can be summarized in a quote by Lisa @anderson2011demystifying:
 
-
 \begin{singlespace}
 \setlength{\leftskip}{1cm}
 
@@ -235,7 +234,7 @@ Arab revolts in Tunisia, Egypt, and Libya is not how the globalization of the
 norms of civic engagement shaped the protesters' aspirations. Nor is it about
 how activists used technology to share ideas and tactics. Instead, the critical
 issue is how and why these ambitions and techniques resonated in their various
-local contexts.
+local contexts. (2)
 
 \setlength{\leftskip}{0pt}
 \end{singlespace}
@@ -378,7 +377,7 @@ might suffer disproportionately in a given society, and this form of
 aggrievement can lead to unrest across the social lines that distinguish the
 minority group. Therefore, while collective cohesion is a function of targeted
 maldistributions, it is individual penury that allows for this collective
-mobilization.
+mobilization. (323)
 
 \setlength{\leftskip}{0pt}
 \end{singlespace}
