@@ -423,6 +423,8 @@ category. This localized cohesion is referential; words are repeated and
 co-referred across tweets, creating a sense of continuity and cohesiveness of
 meaning and message.
 
+[Figure \@ref(fig:cohesion-in-tweets) about here]
+
 Typically, these analyses focus on *content words* (e.g., nouns, adjectives,
 verbs), which convey more meaningful semantic information than *function words*
 (e.g., articles, conjunctions). While function words can provide important
@@ -563,6 +565,8 @@ motion here. Previous values of linguistic cohesion should influence future
 values of linguistic cohesion and future actions in the real world space.
 Previous events influence future events and future linguistic cohesion in
 social media.
+
+[Figure \@ref(fig:theoretical-framework) about here]
 
 Sociolinguistic cohesion is not a static concept. Just as social movements
 experience increased participation and setbacks---indicating dynamic
@@ -802,6 +806,8 @@ knitr::include_graphics("./results/primary/raw-cohesion-ts.png")
 
 ```
 
+[Figure \@ref(fig:raw-cohesion-ts) about here]
+
 ### ICEWS Event Time Series
 Using the Integrated Crisis Early Warning System (ICEWS) developed at the
 Defense Advanced Research Project Agency, the daily events were scored with an
@@ -892,6 +898,7 @@ ggsave("./results/primary/raw-event-ts-source-target.png")
 knitr::include_graphics("./results/primary/raw-event-ts-source-target.png")
 
 ```
+[Figures \@ref(fig:raw-event-ts-target) and \@ref(fig:raw-event-ts-source-target) about here]
 
 ## Analyses
 ### Cross-Recurrence Quantification Analysis
@@ -916,6 +923,8 @@ Figure \@ref(fig:deciled-ts)) to analyze the relative dynamics of different
 levels of social cohesion and counts of all, positive, and negative events on
 each day. We implemented CRQA using the `crqa` package [@R-crqa] for R
 [@R-base].
+
+[Figures \@ref(fig:raw-ts) and \@ref(fig:deciled-ts) about here]
 
 #### Visualization
 A cross-recurrence plot (CRP) is the visual representation of CRQA. To construct
@@ -1160,6 +1169,8 @@ found a statistically significant difference from chance for DET, NRLINE, L,
 ENTR, LAM, and TT. All other metrics did not reach significance (Figure
 \@ref(fig:plot-rp-targ); \autoref{table-1}).
 
+[Figure \@ref(fig:plot-rp-targ) and \autoref{table-1} about here]
+
 A qualitative investigation of the recurrence plots suggests a shift in dynamics
 around the 36th observation, which corresponds to May 4th, 2012.
 
@@ -1229,6 +1240,8 @@ A permutation test for the CRQA of social cohesion and count of negative events
 found a statistical difference from chance for DET, NRLINE, and rENTR. All other
 metrics were non-significant (Figure \@ref(fig:plot-rp-source-targ);
 \autoref{table-2}).
+
+[Figure \@ref(fig:plot-rp-source-targ) and \autoref{table-2} about here]
 
 Looking qualitatively at the recurrence plots, there again appeared to be a
 shift in dynamics around the 36th observation (May 4th, 2012).
@@ -1307,20 +1320,6 @@ knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all.png
 
 ```
 
-```{r plot-mode-event, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Mode ICEWS event per day.'}
-
-mode_plot <- ggplot(data, aes(x= as.Date(Date), y=mode_source_target)) +
-                    geom_point() +
-                    geom_line() +
-                    xlab("Date") +
-                    ylab("Mode ICEWS event")
-ggsave("./results/primary/mode_ts_plot.png")
-
-# call the image
-knitr::include_graphics("./results/primary/mode_ts_plot.png")
-
-```
-
 For social cohesion and count of all events, there was a consistent period of
 above-chance RR from the 7th--12th and 32nd--47th window. In addition to some
 one-week peaks at the beginning of the time period, DET was largely above chance
@@ -1338,12 +1337,28 @@ above chance from the 4th--7th and 43rd-47th windows. DET was above or nearly
 above chance in the 1st and 2nd windows, with intermittent peaks in later
 windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
+[Figure \@ref(fig:plot-wcrqa-targ-all) about here]
+
 ### Syria as Source and Target
 
 ```{r plot-wcrqa-source-targ-all, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Windowed CRQA for social cohesion and event counts from source and target filtered data.', out.extra='angle=90'}
 
 # call image
 knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_all.png")
+
+```
+
+```{r plot-mode-event, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Mode ICEWS event per day.'}
+
+mode_plot <- ggplot(data, aes(x= as.Date(Date), y=mode_source_target)) +
+                    geom_point() +
+                    geom_line() +
+                    xlab("Date") +
+                    ylab("Mode ICEWS event")
+ggsave("./results/primary/mode_ts_plot.png")
+
+# call the image
+knitr::include_graphics("./results/primary/mode_ts_plot.png")
 
 ```
 
@@ -1363,6 +1378,8 @@ period of time during which RR (32nd--47th windows) and DET (35th--39th windows)
 were above or nearly above chance (Figure
 \@ref(fig:plot-wcrqa-source-targ-all)). These windows span from May 3rd--14th,
 2012.
+
+[Figure \@ref(fig:plot-wcrqa-source-targ-all) about here]
 
 # Discussion
 In the present study, we investigated the dynamics of real-world events and
@@ -1432,6 +1449,8 @@ period, following a spike in the RR between negative event count and social
 cohesion. During this period, the modal ICEWS event for each day (Figure
 \@ref(fig:plot-mode-event)) was almost consistently -10, the most violent event
 category. This supports our first hypothesis.
+
+[Figure \@ref(fig:plot-mode-event) about here]
 
 Surprisingly---and contrary to our second hypothesis---we saw consistent
 coupling between positive event count and social cohesion. Although both had a
