@@ -1367,7 +1367,7 @@ were above or nearly above chance (Figure
 # Discussion
 In the present study, we investigated the dynamics of real-world events and
 online communication on Twitter in Syria during Arab Spring. CRQA methodology
-allows us to model the relationship between sociolinguistic cohesion and
+allows us to disentangle the relationship between sociolinguistic cohesion and
 exogenous political events. This work stands alongside the model of
 Palestinian-Israeli social media and events developed by Zeitzoff (2011), and
 the role of peripheral participants in the Syrian Arab Spring movement by
@@ -1375,17 +1375,17 @@ Steinert-Threlkeld (2017). By introducing the CRQA and WCRQA methods, we
 demonstrate how language and social mobilization interact with events along the
 conflict-cooperation continuum in Syria. We have introduced a novel theoretical
 framework of sociolinguistic cohesion which we operationalize using a weighted
-measure of lexical relationships. We examined how social mobilization both
-virtually and physically evolve over time in tandem. Using nonlinear dynamical
-time series analyses, we investigated the theory that virtual mobilization is
-increasingly reflective of real-world events during times of strife.
+measure of lexical relationships. We examined how virtual and physical social
+mobilization evolve over time in tandem. Using nonlinear dynamical time series
+analyses, we investigated the theory that virtual mobilization is increasingly
+reflective of real-world events during times of strife.
 
 ## Cross-Recurrence Quantification Analysis
 ### Syria as Target
 The significant result of DET for social cohesion with all and negative events
 supports our first hypothesis that event salience is coupled with online social
 cohesion. The frequency of all and negative events are thus associated with
-greater shared trajectories with social cohesion that would be expected by
+greater shared trajectories with social cohesion than would be expected by
 chance. However, when we specifically target positive events, the connection to
 social cohesion fades, providing further support for our second hypothesis.
 Positive events may be less coupled to social cohesion than more salient
@@ -1415,8 +1415,9 @@ decry the Syrian government's attempts to improve their international standing.
 In this case, the increased coupling of positive events would be coupled not
 with shared positive affect in social media but instead to shared negative
 affect in social media in response. However, we cannot test this hypothesis with
-the current data; future research should explore the semantic content of this
-tweet corpus to determine the nature of the socially cohered language.
+the current time series data; future research should explore the semantic
+content of this tweet corpus to determine the nature of the socially cohered
+language.
 
 ## Windowed-Recurrence Quantification Analysis
 
