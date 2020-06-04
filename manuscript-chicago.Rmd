@@ -1474,13 +1474,13 @@ externally focused action taken by Syria prompted a sharp rise in social
 cohesion. (This would not have been captured by the target-only dataset.)
 Second---like with the all-event data---we see different structuring of the data
 through differences in the patterns of DET; above-chance DET only occurrs within
-the middle of the observation period, around a time of increased strive (as
+the middle of the observation period, around a time of increased strife (as
 noted above).
 
 ## Implications for Methodology and Theory
 
 Nonlinear methods have been transformative for a variety of research areas
-[including psychology, @coco2014cross]. One of the goals in the present work was
+[including psychology, @coco2014cross]. One of the goals of the present work was
 to introduce variants of one kind of nonlinear method---specifically, recurrence
 quantification analysis---to this research area. While a number of excellent
 guides can provide detailed explanations of the methods and their statistical
@@ -1517,9 +1517,9 @@ activists and protesters have utilized these platforms to support real-world
 mobilization. Here, we quantitatively explored the connection between online
 social cohesion and real-world events. In addition to introducing political
 scientists to a family of powerful nonlinear dynamics analyses, our results have
-serious implications for monitoring global movements in consistent across other
-social uprisings. While state-run media in regions of authoritarian rule are
-often biased and serve as propaganda for the leader and central government, the
+serious implications for monitoring global movements across other social
+uprisings. While state-run media in regions of authoritarian rule are often
+biased and serve as propaganda for the leader and central government, the
 self-organized nature of Twitter provides a new avenue to gain insight into
 truths about uprisings and social mobilization. By conceptualizing Twitter and
 real-world events as two elements of an inextricably linked dynamical system,
