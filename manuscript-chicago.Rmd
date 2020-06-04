@@ -1386,9 +1386,9 @@ In the present study, we investigated the dynamics of real-world events and
 online communication on Twitter in Syria during Arab Spring. CRQA methodology
 allows us to disentangle the relationship between sociolinguistic cohesion and
 exogenous political events. This work stands alongside the model of
-Palestinian-Israeli social media and events developed by Zeitzoff (2011), and
+Palestinian-Israeli social media and events developed by @zeitzoff2017social, and
 the role of peripheral participants in the Syrian Arab Spring movement by
-Steinert-Threlkeld (2017). By introducing the CRQA and WCRQA methods, we
+@steinert2017spontaneous. By introducing the CRQA and WCRQA methods, we
 demonstrate how language and social mobilization interact with events along the
 conflict-cooperation continuum in Syria. We have introduced a novel theoretical
 framework of sociolinguistic cohesion which we operationalize using a weighted
