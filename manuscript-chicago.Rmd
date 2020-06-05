@@ -188,22 +188,17 @@ representation provide sufficient grievance and collective group identification
 to make them a cohesive force.
 
 ## Social Media and Social Movements
-
 Massive online social cohesion can manifest in real-world social behavior.
 Social media platforms enable online social cohesion by offering distributed
 information-gathering and real-time information dissemination. Given its
 accessibility and proficiency as an information exchange tool, Twitter has
 provided social and political activists an opportunity to complement or even
-replace real-world social mobilization. For example, during the 2012 Italian
-protests for global economic change, the riots in Rome were mirrored by Twitter
-activity both on the day of the protests and in the days following them
-[@vicari2013public]. Tweeting was determined to be more effective locally in
+replace real-world social mobilization. During the 2012 Italian protests for
+global economic change, tweeting was determined to be more effective locally in
 discussing real-world, real-time events than traditional mainstream media
-platforms. As people increasingly rely on social media for local news and
-information, we must understand exactly how these micro-blogs connect to and
-reflect real-world action. Some argue that these mass movements would not have
-been possible without efficient large-scale coordination, both physically on the
-ground and virtually on social media platforms.
+platforms [@vicari2013public]. As people increasingly rely on social media for
+local news and information, we must understand exactly how these micro-blogs
+connect to and reflect real-world action.
 
 Along with Facebook, Twitter has been credited as essential to the Arab
 Spring---both for protesters and for the government's response to them
@@ -1272,11 +1267,11 @@ from the 46th to the 61st window, with some exceptions (Figure
 For social cohesion and count of positive events, we saw a downward trend in RR
 as the window advances throughout the sample. Interestingly, we see largely
 above-chance RR until the 50th window, with some exceptions during window
-periods 19-30. DET was at or above chance for the 8th--17th, 32nd--33rd, and
+periods 19--30. DET was at or above chance for the 8th--17th, 32nd--33rd, and
 60th windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
 For social cohesion and count of negative events, RR stayed above or almost
-above chance from the 4th--7th and 43rd-47th windows. DET was above or nearly
+above chance from the 4th--7th and 43rd--47th windows. DET was above or nearly
 above chance in the 1st and 2nd windows, with intermittent peaks in later
 windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
@@ -1305,14 +1300,14 @@ knitr::include_graphics("./results/primary/mode_ts_plot.png")
 
 For social cohesion and count of all events, there was a consistent period of
 above- or nearly above-chance DET from the 7th--13th and 26th--47th windows. DET
-also showed above- or nearly above-chance values in windows 7 through 17 and
+also showed above- or nearly above-chance values in windows 7--17 and
 intermittent peaks between the 34th and 61st windows (Figure
 \@ref(fig:plot-wcrqa-source-targ-all)).
 
 For social cohesion and count of positive events, there was a downward trend in
 RR as the window moved, with largely above-chance values in the first 20 windows
 and the 32nd--45th windows. DET stayed largely within chance, with the exception
-of windows 13 through 19 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
+of windows 13--19 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
 
 For social cohesion and negative events, there was an extended, overlapping
 period of time during which RR (32nd--47th windows) and DET (35th--39th windows)
@@ -1331,8 +1326,7 @@ the role of peripheral participants in the Syrian Arab Spring movement by
 demonstrate how language and social mobilization interact with events along the
 conflict-cooperation continuum in Syria. We have introduced a novel theoretical
 framework of sociolinguistic cohesion which we operationalize using a weighted
-measure of lexical relationships. We examined how virtual and physical social
-mobilization evolve over time in tandem. Using nonlinear dynamical time series
+measure of lexical relationships. Using nonlinear dynamical time series
 analyses, we investigated the theory that virtual mobilization is increasingly
 reflective of real-world events during times of strife.
 
