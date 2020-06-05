@@ -1485,7 +1485,7 @@ for faster intervention.
 
 # Acknowledgements
 
-[redacted for blind review]
+\noindent[redacted for blind review]
 
 <!-- This work was completed in part as coursework done by lead author M. Chiovaro in -->
 <!-- the “Applications of Nonlinear Time Series Analysis” graduate course at the -->
