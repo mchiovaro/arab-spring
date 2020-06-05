@@ -50,7 +50,7 @@ floatsintext      : no
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-linenumbers       : yes
+linenumbers       : no
 mask              : no
 draft             : no
 appendix          :
@@ -123,7 +123,7 @@ ethnographic interviews to “big data” analyses of language on social media.
 Today, social media replicates and amplifies this phenomenon during moments of
 social unrest. Amid the cacophony of messages during political upheaval---such
 as the Arab Spring---consistent themes emerge through hashtags, retweets, and
-the repeated mentions of concepts such as regime, security, demonstration, and
+the repeated mentions of concepts such as regime, demonstration, and
 human rights. The cohesiveness of these themes (i.e., whether movement
 participants are metaphorically singing in one voice) reflects the real-world
 events happening contemporaneously with collective action in social movements or
@@ -155,14 +155,14 @@ his office. The Assad lineage hails from a minority Islamic sect (the Alawites)
 in a multi-religious and multi-ethnic country comprising Christians, Sunni and
 Shia Muslims, Kurds, and Palestinian refugees.
 
-In December 2010, a Tunisian man named Mohamed Bouazizi was harassed and
-unjustifiably stripped of his vendor cart by municipal officials. His
-humiliation led him to set himself on fire in protest to the authoritarian rule,
-ultimately leading to his death several days later. His actions served as a
-catalyst for the Tunisian Revolution, and one week after his death, Zine El
-Abidine Ben Ali---the longstanding authoritarian president---fled the country.
-The events of Tunisia rapidly spread to surrounding countries also subject to
-unjust authoritarian rule, including Yemen, Egypt, Libya, and Syria.
+In December 2010, a Tunisian man named Mohamed Bouazizi was unjustifiably
+stripped of his vendor cart by municipal officials. His humiliation led him to
+set himself on fire in protest to the authoritarian rule, leading to his death
+several days later. His actions served as a catalyst for the Tunisian
+Revolution, and one week after his death, Zine El Abidine Ben Ali---the
+longstanding authoritarian president---fled the country. The events of Tunisia
+rapidly spread to surrounding countries also subject to unjust authoritarian
+rule, including Egypt, Libya, and Syria.
 
 Following a wave of democratization efforts across the Middle East and North
 Africa, modest Syrian protests began in March 2011. The regime responded harshly
@@ -204,14 +204,10 @@ the days following them [@vicari2013public]. Tweeting was determined to be more
 effective locally in discussing real-world, real-time events than traditional
 mainstream media platforms. As more and more individuals rely on social media to
 obtain local news and information, it becomes increasingly important to
-understand just how these micro-blogs reflect real-world action.
-
-During the Arab Spring, social media provided real-time information about the
-events transpiring in countries across the Middle East and North Africa. Our
-understanding about the role of social media in social movements is still
-evolving. Some argue that these mass movements would not have been possible
-without efficient large-scale coordination, both physically on the ground and
-virtually on social media platforms.
+understand just how these micro-blogs reflect real-world action. Some argue that
+these mass movements would not have been possible without efficient large-scale
+coordination, both physically on the ground and virtually on social media
+platforms.
 
 Along with Facebook, Twitter has been credited as essential to the Arab
 Spring---both for protesters (as a means to coordinate with one another and to
@@ -258,12 +254,11 @@ how a demonstration will take place, how many people participate, and how those
 in power (e.g., state, military, security apparatus) respond. Similarly, these
 media platforms alert us to more global shifts within a conflict, such as when
 fighting moves to a new city or region, the number of casualties and wounded,
-and the types of weaponry used by parties to the conflict [@zeitzoff2017social].
-Social media is not entirely event-driven, however. In monitoring social media
-channels, government forces may respond to the perception that citizens are
-gaining strength and sympathy. Governments have been shown to be quite tolerant
-of dissent so long as it does not metamorphose into collective action
-[@king2013censorship].
+and the types of weaponry used by parties [@zeitzoff2017social]. In monitoring
+social media channels, government forces may respond to the perception that
+citizens are gaining strength and sympathy. Governments have been shown to be
+quite tolerant of dissent so long as it does not metamorphose into collective
+action [@king2013censorship].
 
 Citizens communicate with each other with increased transparency due to the
 ubiquitous availability of social media such as low-cost and egalitarian
@@ -283,17 +278,17 @@ conversation is given by Bashar al-Assad in a speech on June 3, 2012:
 \begin{singlespace}
 \setlength{\leftskip}{1cm}
 
-\noindent I know that I have been away from the media for a long time, and I have missed
-having direct contact with the citizens, but I have always been following up
-with the daily occurrences and gathering the information so that my speech can
-be built on what is said by the street.
+\noindent I know that I have been away from the media for a long time, and I
+have missed having direct contact with the citizens, but I have always been
+following up with the daily occurrences and gathering the information so that my
+speech can be built on what is said by the street.
 
 \setlength{\leftskip}{0pt}
 \end{singlespace}
 \noindent With few exceptions, Assad chose to keep social media platforms up and running.
 Gohdes [-@gohdes2015pulling] notes that regimes can attempt to thwart the growth
 of social protest online and in the streets by shutting down the Internet.
-During these times, however, she finds that military repression increases.
+During these times, however, they find that military repression increases.
 However, government information about the citizens decreases; as such, many
 regimes have elected to maintain Internet connectivity as a means of monitoring
 and surveilling their citizens.
@@ -310,27 +305,25 @@ collective political behavior.
 ## The Role of Cohesion in Social Movements and Civil Wars
 
 People join social and political resistance movements because they feel a sense
-of connection to the cause. Given that people are generally risk-averse, overcoming inertia
-requires a strong connection to the group identity or a strong aversion to an
-individual, event, or political injustice [@goldstone1980theories;
+of connection to the cause. Given that people are generally risk-averse,
+overcoming inertia requires a strong connection to the group identity or a
+strong aversion to an individual, event, or political injustice
+[@goldstone1980theories;
 @goldstone2011understanding]. Political resistance offers participants the
 opportunity to “lose themselves” and relinquish their individual identity in
-favor of identification with a larger group, contributing to a cohesive
-group ready and mobilized for action [@Hoffer2011true].
+favor of identification with a larger group, contributing to a cohesive group
+ready and mobilized for action [@Hoffer2011true].
 
-Previous research on social movements supports the idea that participants are
-more likely to join movements when they know and have a personal connection to
-someone else already involved [@mcadam1986recruitment]. The type of collective
-contentious behavior that manifests in society is a function of the available
-political opportunity structures. The political opportunity structure are
-“comprised of *(sic)* specific configurations of resources, institutional
-arrangements and historical precedents for social mobilization, which facilitate
-the development of protest movements in some instances and constrain them in
-others” [@kitschelt1986political]. What emerges as strategies and tactics in
-contentious politics are, in essence, a function of what the system makes
-possible. This includes the number of people and their disposition (i.e.
-nonviolent or violent), as well as their internal structure. The more cohesive a
-group is, the greater threat they pose to the establishment.
+The type of collective contentious behavior that manifests in society is a
+function of the available political opportunity structures. The political
+opportunity structure are “comprised of *(sic)* specific configurations of
+resources, institutional arrangements and historical precedents for social
+mobilization, which facilitate the development of protest movements in some
+instances and constrain them in others” [@kitschelt1986political]. What emerges
+as strategies and tactics in contentious politics are, in essence, a function of
+what the system makes possible. This includes the number of people and their
+disposition (i.e. nonviolent or violent), as well as their internal structure.
+The more cohesive a group is, the greater threat they pose to the establishment.
 
 Cohesion is also a familiar concept in the study of civil conflicts, as it
 pertains to group affiliation and the ability to overcome collective action
@@ -445,7 +438,7 @@ that increase message cohesion. Since retweets replicate verbatim some part of
 another tweet, these tweets would also have higher cohesion. Hashtags function
 similarly and are included in our analysis.
 
-```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. Content word overlap indicates a shared relationship among tweets. The shared words--either identical or semantically similar--constitute a theme around which cohesion is occuring.", out.width='100%'}
+```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. The shared content words--either identical or semantically similar--constitute a theme around which cohesion is occuring.", out.width='100%'}
 
 # call the image
 knitr::include_graphics("./figs/cohesion-in-tweets.png")
@@ -712,7 +705,7 @@ by providing detailed descriptions of the methods and providing clear directions
 about interpretation and significance testing even with relatively small-*n* or
 case studies. After demonstrating these methods' utility with this dataset, we
 close the paper with specific suggestions to political scientists interested in
-incorporating these methods into their work.
+these methods.
 
 # Method
 ## Materials
