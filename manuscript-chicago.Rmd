@@ -446,27 +446,26 @@ knitr::include_graphics("./figs/cohesion-in-tweets.png")
 ```
 
 The use of similar language can provide insight into *interlocutor cohesion*, or
-the degree to which people are talking about similar things. This can---as noted
-earlier---include people who are talking about similar things from radically
-perspectives, as well as those who are talking about something from the same
-perspective. Previous research from political science has investigated these
-ideas [@Windsor2020]: The “Occupy Wall Street” movement has been held up as an
-example of a movement with low interlocutor and linguistic cohesion because of
-its wide range of signs and slogans, while the “I am a man” protest (captured by
-Ernest Withers during the 1968 sanitation workers' strike in Memphis, TN) or the
-“Black Lives Matter” placards (following the uprising in Ferguson, MO) have high
-lexical and interlocutor cohesion [@edgar2018struggle].
+the degree to which people are talking about similar things. This can include
+people who are talking about similar things from radically perspectives, as well
+as those who are talking about something from the same perspective. Previous
+research from political science has investigated these ideas [@Windsor2020]: The
+“Occupy Wall Street” movement has been held up as an example of a movement with
+low interlocutor and linguistic cohesion because of its wide range of signs and
+slogans, while the “I am a man” protest (captured by Ernest Withers during the
+1968 sanitation workers' strike in Memphis, TN) or the “Black Lives Matter”
+placards (following the uprising in Ferguson, MO) have high lexical and
+interlocutor cohesion [@edgar2018struggle].
 
 Fed by lexical cohesion, interlocutor cohesion ebbs and flows along a timeline
 contextualized by variation in real world events. Interlocutor cohesion may
 increase preceding an in-person social mobilization event, alerting a repressive
 government that collective mobilization is happening. Interlocutor cohesion may
 also respond to exogenous events such as spontaneous, unprovoked militarized
-conflict. If government forces target a new location using military weapons,
-this can precipitate online mobilization and discussion of the event.
+conflict.
 
 Given the importance of lexical and interlocutor cohesion for messaging in
-political movements, lexical cohesion may be an important bit of trace data for
+political movements, lexical cohesion may be important trace data for
 researchers interested in leveraging social media data to analyze social
 movements. Similar to large-scale studies of sociocultural movements [sometimes
 referred to as *culturomics*; e.g., @michel2011quantitative], political
@@ -510,16 +509,12 @@ expected to correlate with the social cohesion of the group [@zeitzoff2011using]
 This social cohesion can have real and wide-ranging impacts on a political
 movement and the people in it. A socially cohesive group is inherently more
 threatening to the existing regime because it reflects collective opposition
-momentum and the professionalization of potential alternate leadership. Groups
-with high social cohesion are more difficult to divide and conquer, and more
-cohesive messages may also garner increased international support. Global
+momentum and the professionalization of potential alternate leadership. Global
 insurgency movements exhibit similar patterns in their social structure
-[@bohorquez2009common]. Each violent group has a stable state. Exogenous events
-can create perturbations that push the group to become either more cohesive or
-more fragmented. Rather than frenetic, patchwork messages via Twitter, emergent
-or intentional cohesive online messaging---using similar language, paralleling
-in-person messaging [@Windsor2020]---are a sign of increased organizational
-structure, inciting a government response.
+[@bohorquez2009common]. Rather than frenetic, patchwork messages via Twitter,
+emergent or intentional cohesive online messaging---using similar language,
+paralleling in-person messaging [@Windsor2020]---are a sign of increased
+organizational structure, inciting a government response.
 
 Thus, lexical and interpersonal cohesion are hypothesized to be tied to social
 and political cohesion. Shared language in an online environment may lead to the
@@ -542,20 +537,17 @@ previous work by demonstrating how sociolinguistic cohesion evolves in
 tandem with negative and positive exogenous events.
 
 Political and social cohesion in the world can be modeled using event data which
-encodes who does what to whom on a given day. This could include events such as
-the government imposing a blockade or fighting with artillery or tanks on
-a civilian group. CAMEO (Conflict and Mediation Event Observations) encode
-a set of activities with numerical values, rescaled to reflect a
-conflict-cooperation scale [@schrodt2006twenty; @goldstein1992conflict]. These event
-codes include a range of behaviors, from making public statements and appeals,
-to demanding, threatening, protesting, and using unconventional mass violence.
+encodes who does what to whom on a given day. CAMEO (Conflict and Mediation
+Event Observations) encode a set of activities with numerical values, rescaled
+to reflect a conflict-cooperation scale [@schrodt2006twenty;
+@goldstein1992conflict]. These event codes include a range of behaviors, from
+making public statements and appeals, to demanding, threatening, protesting, and
+using unconventional mass violence.
 
 ### Sociolinguistic Cohesion: Connectedness of Speakers, Ideas, and Events
 We tie the constructs of lexical, interlocutor, and social cohesion together in
 a theoretical framework called *sociolinguistic cohesion*, as shown in Figure
-\@ref(fig:theoretical-framework). Several interconnected mechanisms are in
-motion here. Previous values of linguistic cohesion should influence future
-values of linguistic cohesion and future actions in the real world space.
+\@ref(fig:theoretical-framework). Previous values of linguistic cohesion should influence future values of linguistic cohesion and future actions in the real world space.
 Previous events influence future events and future linguistic cohesion in
 social media.
 
@@ -566,10 +558,10 @@ experience increased participation and setbacks---indicating dynamic
 relationships among participants and between participants and the sociopolitical
 environment---sociolinguistic cohesion is also dynamic, reflecting the changing
 states of the political sphere. Other scholars have noted the diffusion of
-messages whereby they reach a critical mass, whereby “behaviors, beliefs, and
-preferences” spread within a population [@barash2012critical].  Cohesion
+messages whereby they reach a critical mass, allowing for “behaviors, beliefs, and
+preferences” to spread within a population [@barash2012critical]. Cohesion
 changes over time in response to external events and the internal dynamics of
-the social movement. This can occur even if the social interaction occurs entirely 
+the social movement, even if the social interaction occurs entirely 
 online [@centola2007complex]. 
 
 Related previous work has also explored diffusion of hashtags in viral contagion in
@@ -582,31 +574,21 @@ this phenomenon occurs during socially significant times like protests
 
 Combining these separate threads, it is reasonable to expect that real-world
 actions and online social interactions would be enmeshed, driving and being
-driven by one another. Rather than expecting that only real-world social
-cohesion would be driven by real-world action, we would expect interaction
-between real-world and online dynamics: In this case, exposure to real-world
-violence could result in social cohesion in the virtual world. Increased social
-cohesion is thus potentially an indicator and a result of increased social
-organization and mobilization on the ground. However, this occurs within a
-context that is affected by local and international events; both exogenous
-events (like intervention by another country or international organization like
-the United Nations) and endogenous events (like the recruitment of new members
-to the rebel or resistance movement) can affect cohesion.
-
-From a dynamical systems perspective, online social cohesion and in-person
-action can be considered two complementary components of a single system,
-mutually constrained and constantly interacting and influencing one another
-[@mahner1997foundations]. Investigation of the coupling of real-world
-mobilization and social cohesion could provide new insight into the power of
-social media during mobilization and the ways in which individuals utilize it to
-bring about, or respond to, social change. Increasingly, social media platforms
-are being utilized during social mobilization [@mcadam2003dynamics;
+driven by one another. From a dynamical systems perspective, online social
+cohesion and in-person action can be considered two complementary components of
+a single system, mutually constrained and constantly interacting and influencing
+one another [@mahner1997foundations]. Investigation of the coupling of
+real-world mobilization and social cohesion could provide new insight into the
+power of social media during mobilization and the ways in which individuals
+utilize it to bring about, or respond to, social change. Increasingly, social
+media platforms are being utilized during social mobilization
+[@mcadam2003dynamics;
 @koopmans2004movements], but the relationship between virtual and real-world
 mobilization is still largely unknown. The present work aims to understand how
 physical and virtual movements coexist and interact from a dynamical systems
 perspective.
 
-Lexical cohesion, then, is be a useful indicator of social cohesion in
+Lexical cohesion, then, is a useful indicator of social cohesion in
 political crisis. Lexical cohesion happens at the word level. Interlocutor
 cohesion happens between speakers. Political cohesion happens at the social
 level during moments of political crisis, like civil wars and social movements.
