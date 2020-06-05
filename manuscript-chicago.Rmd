@@ -701,9 +701,9 @@ quantifying the frequency of shared content words with respect to those words'
 frequencies in the entire tweet corpus. If a linguistic term has a high
 frequency in one tweet but has a low frequency in the whole tweet corpus, then
 it is more likely a content word and is thus given more weight in calculating
-social cohesion. This method is similar to inverse document frequency (IDF). For
-more information on IDF, see @jones1972statistical and
-@robertson2004understanding.
+social cohesion. This method is similar to *term frequency-inverse document
+frequency* [tf-idf; see also @jones1972statistical;
+@robertson2004understanding].
 
 The tweets were first sorted into ascending order by timestamp. They were then
 grouped into successive sets of five tweets. Inverse frequency weighting for the
