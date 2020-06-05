@@ -3,25 +3,26 @@ title             : "Online Social Cohesion Reflects Real-World Group Action in 
 shorttitle        : "Arab Spring"
 
 author:
-  - name          : "Megan Chiovaro"
-    affiliation   : "1, 2"
-    corresponding : yes    # Define only one corresponding author
-    address       : "406 Babbidge Road, Unit 1020, Storrs, CT 06269"
-    email         : "megan.chiovaro@uconn.edu"
-  - name          : "Alexandra Paxton"
-    affiliation   : "1,2,*"
-  - name          : "Leah C. Windsor"
-    affiliation   : "3,*"
-
-affiliation:
-  - id            : "1"
-    institution   : "Center for the Ecological Study of Perception and Action, University of Connecticut"
-  - id            : "2"
-    institution   : "Department of Psychological Sciences, University of Connecticut"
-  - id            : "3"
-    institution   : "University of Memphis"
-  - id            : "*"
-    institution   : "Equal author contributions"
+    - name          : "[author names redacted for blind review]"
+#   - name          : "Megan Chiovaro"
+#     affiliation   : "1, 2"
+#     corresponding : yes    # Define only one corresponding author
+#     address       : "406 Babbidge Road, Unit 1020, Storrs, CT 06269"
+#     email         : "megan.chiovaro@uconn.edu"
+#   - name          : "Alexandra Paxton"
+#     affiliation   : "1,2,*"
+#   - name          : "Leah C. Windsor"
+#     affiliation   : "3,*"
+# 
+# affiliation:
+#   - id            : "1"
+#     institution   : "Center for the Ecological Study of Perception and Action, University of Connecticut"
+#   - id            : "2"
+#     institution   : "Department of Psychological Sciences, University of Connecticut"
+#   - id            : "3"
+#     institution   : "University of Memphis"
+#   - id            : "*"
+#     institution   : "Equal author contributions"
 
 abstract: |
   In recent years, political activists have taken to social media platforms to
@@ -41,7 +42,7 @@ abstract: |
   <!-- https://tinyurl.com/ybremelq -->
 
 keywords          : "social cohesion, recurrence quantification analysis, complex systems, Twitter, Arab Spring"
-wordcount         : "X"
+wordcount         : "10981"
 
 bibliography      : ["references.bib"]
 csl               : chicago.csl
@@ -525,9 +526,10 @@ positive exogenous events.
 ### Sociolinguistic Cohesion: Connectedness of Speakers, Ideas, and Events
 We tie the constructs of lexical, interlocutor, and social cohesion together in
 a theoretical framework called *sociolinguistic cohesion*, as shown in Figure
-\@ref(fig:theoretical-framework). Previous values of linguistic cohesion should influence future values of linguistic cohesion and future actions in the real world space.
-Previous events influence future events and future linguistic cohesion in
-social media.
+\@ref(fig:theoretical-framework). Previous values of linguistic cohesion should
+influence future values of linguistic cohesion and future actions in the real
+world space. Previous events influence future events and future linguistic
+cohesion in social media.
 
 Sociolinguistic cohesion is not a static concept. Just as social movements
 experience increased participation and setbacks---indicating dynamic
@@ -659,6 +661,9 @@ about interpretation and significance testing even with relatively small-*n* or
 case studies. After demonstrating these methods' utility with this dataset, we
 close the paper with specific suggestions to political scientists interested in
 these methods.
+
+This work is a reproducible manuscript. All code and analyses can be found at:
+[redacted for blind review].
 
 # Method
 ## Materials
@@ -1480,10 +1485,12 @@ for faster intervention.
 
 # Acknowledgements
 
-This work was completed in part as coursework done by lead author M. Chiovaro in
-the “Applications of Nonlinear Time Series Analysis” graduate course at the
-University of Connecticut (co-taught by coauthor A. Paxton and Steven J.
-Harrison).
+[redacted for blind review]
+
+<!-- This work was completed in part as coursework done by lead author M. Chiovaro in -->
+<!-- the “Applications of Nonlinear Time Series Analysis” graduate course at the -->
+<!-- University of Connecticut (co-taught by coauthor A. Paxton and Steven J. -->
+<!-- Harrison). -->
 
 \newpage
 
