@@ -564,6 +564,18 @@ changes over time in response to external events and the internal dynamics of
 the social movement, even if the social interaction occurs entirely 
 online [@centola2007complex]. 
 
+Lexical cohesion, then, is a useful indicator of social cohesion in
+political crisis. Lexical cohesion happens at the word level. Interlocutor
+cohesion happens between speakers. Political cohesion happens at the social
+level during moments of political crisis, like civil wars and social movements.
+Sociolinguistic cohesion is comprised of lexical, interlocutor, and
+socio-political events, where the words and their context reveal the disposition
+of socially connected linguistic communities. It accounts for the cohesion between
+multiple speakers in an environment whose language evolves to become more
+aligned and similar. Sociolinguistic cohesion also addresses how groups involved
+in political rebellion must have internal cohesion to overcome the collective
+action problem to mount sustained resistance to state authority.
+
 Related previous work has also explored diffusion of hashtags in viral contagion in
 Nigeria, a phenomenon similar to what we identify as sociolinguistic cohesion
 [@fink2016complex]. The prevalence and rate of particular hashtags were
@@ -587,20 +599,6 @@ media platforms are being utilized during social mobilization
 mobilization is still largely unknown. The present work aims to understand how
 physical and virtual movements coexist and interact from a dynamical systems
 perspective.
-
-Lexical cohesion, then, is a useful indicator of social cohesion in
-political crisis. Lexical cohesion happens at the word level. Interlocutor
-cohesion happens between speakers. Political cohesion happens at the social
-level during moments of political crisis, like civil wars and social movements.
-Sociolinguistic cohesion is comprised of lexical, interlocutor, and
-socio-political events, where the words and their context reveal the disposition
-of socially connected linguistic communities. Sociolinguistic cohesion combines
-the elements of lexical cohesion in that it captures the degree of similarity
-between what is said, and how it is said. It accounts for the cohesion between
-multiple speakers in an environment whose language evolves to become more
-aligned and similar. Sociolinguistic cohesion also addresses how groups involved
-in political rebellion must have internal cohesion to overcome the collective
-action problem to mount sustained resistance to state authority.
 
 ```{r theoretical-framework, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "The theoretical framework for sociolinguistic cohesion. Real-world events and linguistic cohesion continually interact and influence one another throughout time.", out.width='100%'}
 
@@ -627,15 +625,13 @@ been increasingly replaced by ideas from dynamical systems theory. Rather than a
 chain of events, time series data can be thought of as nested occurrences, where
 mutually constrained parts (e.g., citizens, governments, real-world events,
 social media platforms) are constantly interacting, leading to more global
-behaviors that are larger than the sum of the parts [@turvey2018lectures].
-Linear analyses flatten time series data and ignore the variability that is
-fundamental to these systems and their evolution over time. However, when
+behaviors that are larger than the sum of the parts [@turvey2018lectures]. When
 analyzed as dynamical systems, many phenomena exhibit new nonlinear patterns
 that were formerly overlooked. Nonlinear methods provide means for capturing the
 rich temporal dynamics and variability that unfold in time series data.
 
-Although a number of other nonlinear methods exist, the primary nonlinear method
-used in the current work is cross-recurrence quantification analysis [CRQA;
+Although a number of other nonlinear methods exist, the primary nonlinear methods
+used in the current work are cross-recurrence quantification analysis [CRQA;
 @zbilut1998detecting] and its offshoot, windowed cross-recurrence quantification
 analysis [WCRQA; @webber2005recurrence]. CRQA has successfully been used to gain
 a better understanding of many complex human phenomena, including a variety of
@@ -663,8 +659,8 @@ windowed cross-recurrence quantification analysis [WCRQA;
 and real-world events. Specifically, using heterogeneous data from March 30,
 2012, to June 15, 2012, we compared the social cohesion of Syrian tweets with
 the counts of all, positive, and negative real-world events derived from
-gold-standard international event data [i.e., the Integrated Crisis Early
-Warning System; @DVN/28075_2015].
+international event data [i.e., the Integrated Crisis Early Warning System;
+@DVN/28075_2015].
 
 We hypothesized that the count of all events and the count of negative events
 would show high levels of determinism, as this time period was marked by daily
