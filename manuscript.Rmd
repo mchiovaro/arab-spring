@@ -49,7 +49,7 @@ floatsintext      : no
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-linenumbers       : yes
+linenumbers       : no
 mask              : no
 draft             : no
 appendix          :
@@ -411,7 +411,7 @@ that increase message cohesion. Since retweets replicate verbatim some part of
 another tweet, these tweets would also have higher cohesion. Hashtags function
 similarly and are included in our analysis.
 
-```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. The shared content words--either identical or semantically similar--constitute a theme around which cohesion is occuring.", out.width='100%'}
+```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. The shared content words--either identical or semantically similar--constitute a theme around which cohesion is occurring.", out.width='100%'}
 
 # call the image
 knitr::include_graphics("./figs/cohesion-in-tweets.png")
@@ -592,7 +592,7 @@ well-suited to these analyses, but messy, complex, variable data from real-world
 events can pose challenges, from overpowered samples to violation of underlying
 statistical assumptions [@paxton2017finding].
 
-At the same time, the foundational theoretical assumptions of a linear world has
+At the same time, the foundational theoretical assumptions of a linear world have
 been increasingly replaced by ideas from dynamical systems theory. Rather than a
 chain of events, time series data can be thought of as nested occurrences, where
 mutually constrained parts (e.g., citizens, governments, real-world events,
@@ -664,7 +664,13 @@ www.github.com/mchiovaro/arab-spring.
 ## Materials
 ### Tweet Corpus
 
-The corpus of tweets used included `r sum(cohesion_df$n)` Syrian tweets
+```{r num-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+num_tweets <- read.csv("./data/raw/Syria-social_cohesion.csv")
+
+``` 
+
+The corpus of tweets used included `r sum(num_tweets$n)` Syrian tweets
 occurring between March 30--June 15, 2012. Using the Twitter streaming API,
 servers at the University of Texas at Austin collected the tweets. The servers
 were run on a stable (LTS) version of Ubuntu Linus (v. 10.04) and were connected
@@ -1166,7 +1172,7 @@ pander(target_results, caption = "\\label{table-1}CRQA results for target-only d
 
 ```
 
-```{r plot-rp-targ, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from target filtered data.', out.width='100%'}
+```{r plot-rp-targ, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and counts of events from target filtered data.', out.width='100%'}
 
 # call image
 knitr::include_graphics("./results/primary/crqa/target-rp-joined.png")
@@ -1238,7 +1244,7 @@ pander(source_target_results, caption = "\\label{table-2}CRQA results for source
 
 ```
 
-```{r plot-rp-source-targ, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and count of all events from source and target filtered data.', out.width='100%'}
+```{r plot-rp-source-targ, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and counts of events from source and target filtered data.', out.width='100%'}
 
 # call image
 knitr::include_graphics("./results/primary/crqa/source_target-rp-joined.png")
