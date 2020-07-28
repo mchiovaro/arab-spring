@@ -1,4 +1,4 @@
-######## Secondary Analysis: Formatting Phoenix Arab Spring Data ########
+######## Formatting Arab Spring Data (Phoenix) ########
 #
 # Phoenix event data from the Cline center: 
 # https://databank.illinois.edu/datasets/IDB-2796521
@@ -11,7 +11,7 @@
 #
 # Code by: M. Chiovaro (@mchiovaro) and A. Paxton (@a-paxton)
 # University of Connecticut
-# Last updated: 2020_05_27
+# Last updated: 2020_07_28
 
 #### 1. Set up ####
 
@@ -20,7 +20,8 @@ rm(list=ls())
 
 # read in data
 cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
-phoenix_df <- read.csv("./data/raw/PhoenixBLN-SWB_1979-2019.csv", header = TRUE)
+phoenix_df <- read.csv("./data/raw/PhoenixBLN-SWB_1979-2019.csv", 
+                       header = TRUE, sep = ",")
 
 #### 2. Filter and format the time series ####
 
@@ -98,7 +99,7 @@ phoenix_formatted_source_target <- phoenix_df_filtered %>%
   # fill NAs with zeros
   replace(is.na(.), 0)
 
-### filter again with just target and prep count variables ###
+### filter again with just target and prep event count variables ###
 
 # grab observations where target is Syria
 phoenix_formatted_target <- phoenix_df_filtered %>%
