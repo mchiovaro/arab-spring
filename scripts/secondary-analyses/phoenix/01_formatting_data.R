@@ -20,8 +20,7 @@ rm(list=ls())
 
 # read in data
 cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
-phoenix_df <- read.csv("./data/raw/PhoenixBLN-SWB_1979-2019.csv", 
-                       header = TRUE, sep = ",")
+phoenix_df <- read.csv("./data/raw/PhoenixBLN-SWB_1979-2019.csv", header = TRUE, sep = ",")
 
 #### 2. Filter and format the time series ####
 
