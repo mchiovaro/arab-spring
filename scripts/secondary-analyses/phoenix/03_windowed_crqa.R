@@ -6,7 +6,7 @@
 #
 # Code by: M. Chiovaro (@mchiovaro)
 # University of Connecticut
-# Last updated: 2020_05_21
+# Last updated: 2020_07_29
 
 #### 1. Set up ####
 
@@ -295,10 +295,9 @@ for (i in 1:9){
 
 # rename variables
 names(significance_pos_source_target) <- c("RR", "DET", 
-                                           "NRLINE", "maxL", 
-                                           "L", "ENTR", 
-                                           "rENTR", "LAM", 
-                                           "TT")
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
 
 ## count of negative events and social cohesion ##
 
@@ -377,8 +376,7 @@ for (i in 1:1000) {
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
   
   # bind to dataframe
-  rqa_shuffled_all_target <- rbind(rqa_shuffled_all_target, 
-                                   rqa_results)
+  rqa_shuffled_all_target <- rbind(rqa_shuffled_all_target, rqa_results)
   
 }
 
@@ -429,8 +427,7 @@ for (i in 1:1000) {
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
   
   # bind to dataframe
-  rqa_shuffled_pos_target <- rbind(rqa_shuffled_pos_target, 
-                                   rqa_results)
+  rqa_shuffled_pos_target <- rbind(rqa_shuffled_pos_target, rqa_results)
   
 }
 
@@ -481,8 +478,7 @@ for (i in 1:1000) {
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
   
   # bind to dataframe
-  rqa_shuffled_neg_target <- rbind(rqa_shuffled_neg_target, 
-                                   rqa_results)
+  rqa_shuffled_neg_target <- rbind(rqa_shuffled_neg_target, rqa_results)
   
 }
 
@@ -751,6 +747,7 @@ plot_source_target_windowed_all = gridExtra::grid.arrange(
   top = textGrob(paste("Windowed cross-recurrence",
                        "quantification analysis",
                        "with event count data",
+                       "with source and target filtering",
                        sep = " "),
                  gp=gpar(fontsize=15)), 
   plot_source_target_windowed_all_RR,
@@ -1001,7 +998,8 @@ plot_target_windowed_neg_DET = ggplot(data = wincrqa_neg_df_target,
 plot_target_windowed_all = gridExtra::grid.arrange(
   top = textGrob(paste("Windowed cross-recurrence",
                        "quantification analysis",
-                       "with event count data",
+                       "\nwith event count data",
+                       "with target-only filtering",
                        sep = " "),
                  gp=gpar(fontsize=15)), 
   plot_target_windowed_all_RR,
