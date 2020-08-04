@@ -746,7 +746,7 @@ plot_source_target_windowed_neg_DET = ggplot(data = wincrqa_neg_df_source_target
 plot_source_target_windowed_all = gridExtra::grid.arrange(
   top = textGrob(paste("Windowed cross-recurrence",
                        "quantification analysis",
-                       "with event count data",
+                       "\nwith event count data",
                        "with source and target filtering (Phoenix)",
                        sep = " "),
                  gp=gpar(fontsize=15)), 
