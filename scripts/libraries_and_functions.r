@@ -17,7 +17,8 @@ required_packages = c(
   'knitr',
   'statip',
   'gridExtra',
-  'png'
+  'png',
+  'data.table'
 )
 
 # load required packages
