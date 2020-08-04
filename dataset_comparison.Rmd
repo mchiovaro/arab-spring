@@ -550,8 +550,8 @@ knitr::include_graphics("./results/secondary/phoenix/windowed-crqa/target-window
 knitr::include_graphics("./results/secondary/phoenix/windowed-crqa/source_target-windowed_all.png")
 
 # call Terrier plots
-knitr::include_graphics("./results/secondary/phoenix/windowed-crqa/target-windowed_all.png")
-knitr::include_graphics("./results/secondary/phoenix/windowed-crqa/source_target-windowed_all.png")
+knitr::include_graphics("./results/secondary/terrier/windowed-crqa/target-windowed_all.png")
+knitr::include_graphics("./results/secondary/terrier/windowed-crqa/source_target-windowed_all.png")
 
 ```
 
