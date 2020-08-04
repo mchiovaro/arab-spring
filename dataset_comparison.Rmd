@@ -1,0 +1,581 @@
+---
+title             : ""
+shorttitle        : ""
+
+author:
+  - name          : "Megan Chiovaro"
+    affiliation   : "1, 2"
+    corresponding : yes    # Define only one corresponding author
+    address       : "406 Babbidge Road, Unit 1020, Storrs, CT 06269"
+    email         : "megan.chiovaro@uconn.edu"
+  - name          : "Alexandra Paxton"
+    affiliation   : "1,2,*"
+  - name          : "Leah C. Windsor"
+    affiliation   : "3,*"
+
+affiliation:
+  - id            : "1"
+    institution   : "Center for the Ecological Study of Perception and Action, University of Connecticut"
+  - id            : "2"
+    institution   : "Department of Psychological Sciences, University of Connecticut"
+  - id            : "3"
+    institution   : "University of Memphis"
+  - id            : "*"
+    institution   : "Equal author contributions"
+
+abstract: |
+  <!-- https://tinyurl.com/ybremelq -->
+
+keywords          : ""
+wordcount         : ""
+
+bibliography      : ["references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : no
+mask              : no
+draft             : no
+appendix          :
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+
+# clear the workspace
+rm(list=ls())
+
+# install and load required packages
+source('./scripts/required_packages.r')
+source('./scripts/libraries_and_functions.r')
+
+# turn on caching
+knitr::opts_chunk$set(cache=TRUE, autodep=TRUE, cache.lazy=FALSE)
+
+# create subdirectories
+dir.create("./data/raw") # load three data files here
+dir.create("./data/formatted/primary", recursive = TRUE)
+dir.create("./data/formatted/secondary/phoenix", recursive = TRUE)
+dir.create("./data/formatted/secondary/terrier", recursive = TRUE)
+dir.create("./results/primary/crqa", recursive = TRUE)
+dir.create("./results/primary/windowed-crqa", recursive = TRUE)
+dir.create("./results/secondary/phoenix/crqa", recursive = TRUE)
+dir.create("./results/secondary/phoenix/windowed-crqa", recursive = TRUE)
+dir.create("./results/secondary/terrier/crqa", recursive = TRUE)
+dir.create("./results/secondary/terrier/windowed-crqa", recursive = TRUE)
+
+```
+
+```{r data-prep, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# format the data
+source('./scripts/primary-analyses/01_formatting_data.R')
+source('./scripts/secondary-analyses/phoenix/01_formatting_data.R')
+source('./scripts/secondary-analyses/terrier/01_formatting_data.R')
+
+```
+
+# Method
+
+# Results
+
+## CRQA
+
+```{r icews-crqa, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run primary crqa analysis
+source('./scripts/primary-analyses/02_crqa.R')
+
+# read in metric names
+metrics <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv",
+                      header = FALSE)[-2,-1])
+
+# read in metrics from crq analyses (target filtered)
+metrics_all_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-all_events.csv",
+                               header = FALSE)[-1,-1])
+metrics_pos_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-pos_events.csv",
+                               header = FALSE)[-1,-1])
+metrics_neg_targ <- t(read.csv("./results/primary/crqa/target-crqa_results-neg_events.csv",
+                               header = FALSE)[-1,-1])
+
+# read in significance from permutation tests (target filtered)
+sig_all_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_all.csv",
+                           header = FALSE)[-1,-1])
+sig_pos_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_pos.csv",
+                           header = FALSE)[-1,-1])
+sig_neg_targ <- t(read.csv("./results/primary/crqa/target-metric_signif_neg.csv",
+                           header = FALSE)[-1,-1])
+
+# read in metrics from crq analyses (source and target filtered)
+metrics_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-all_events.csv",
+                                      header = FALSE)[-1,-1])
+metrics_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-pos_events.csv",
+                                      header = FALSE)[-1,-1])
+metrics_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-crqa_results-neg_events.csv",
+                                      header = FALSE)[-1,-1])
+
+# read in significance from permutation tests (source and target filtered)
+sig_all_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_all.csv",
+                                  header = FALSE)[-1,-1])
+sig_pos_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_pos.csv",
+                                  header = FALSE)[-1,-1])
+sig_neg_source_targ <- t(read.csv("./results/primary/crqa/source_target-metric_signif_neg.csv",
+                                  header = FALSE)[-1,-1])
+
+```
+
+```{r icews-crqa-table-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+target_results <- as.data.frame(cbind(metrics,
+                                      metrics_all_targ,
+                                      sig_all_targ,
+                                      metrics_pos_targ,
+                                      sig_pos_targ,
+                                      metrics_neg_targ,
+                                      sig_neg_targ), stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+target_results[,numerics] <- sapply(target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(target_results[,7]))
+
+target_results <- cbind(target_results, stars_all, stars_pos, stars_neg)
+target_results <- target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(target_results) <- c("metric",
+                              "all events", "p", "sig.",
+                              "positive events", "p", "sig.",
+                              "negative events", "p", "sig.")
+
+# exclude row names
+rownames(target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(target_results, caption = "\\label{table-1}CRQA results for target-only data (ICEWS).")
+
+```
+
+```{r icews-rp-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and counts of events from target filtered data (ICEWS).', out.width='100%'}
+
+# call image
+knitr::include_graphics("./results/primary/crqa/target-rp-joined.png")
+
+```
+
+```{r icews-table-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+source_target_results <- as.data.frame(cbind(metrics,
+                                      metrics_all_source_targ,
+                                      sig_all_source_targ,
+                                      metrics_pos_source_targ,
+                                      sig_pos_source_targ,
+                                      metrics_neg_source_targ,
+                                      sig_neg_source_targ), stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+source_target_results[,numerics] <- sapply(source_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(source_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(source_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(source_target_results[,7]))
+
+source_target_results <- cbind(source_target_results, stars_all, stars_pos, stars_neg)
+source_target_results <- source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(source_target_results) <- c("metric",
+                                     "all events", "p", "sig.",
+                                     "positive events", "p", "sig.",
+                                     "negative events", "p", "sig.")
+
+# exclude row names
+rownames(source_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(source_target_results, caption = "\\label{table-2}CRQA results for source and target data (ICEWS).")
+
+```
+
+```{r icews-rp-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and counts of events from source and target filtered data (ICEWS).', out.width='100%'}
+
+# call image
+knitr::include_graphics("./results/primary/crqa/source_target-rp-joined.png")
+
+```
+
+```{r phoenix-crqa, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run primary crqa analysis
+source('./scripts/secondary-analyses/phoenix/02_crqa.R')
+
+# read in metric names
+metrics <- t(read.csv("./results/secondary/phoenix/crqa/target-crqa_results-all_events.csv",
+                      header = FALSE)[-2,-1])
+
+# read in metrics from crq analyses (target filtered)
+metrics_all_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-crqa_results-all_events.csv",
+                               header = FALSE)[-1,-1])
+metrics_pos_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-crqa_results-pos_events.csv",
+                               header = FALSE)[-1,-1])
+metrics_neg_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-crqa_results-neg_events.csv",
+                               header = FALSE)[-1,-1])
+
+# read in significance from permutation tests (target filtered)
+sig_all_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-metric_signif_all.csv",
+                           header = FALSE)[-1,-1])
+sig_pos_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-metric_signif_pos.csv",
+                           header = FALSE)[-1,-1])
+sig_neg_targ <- t(read.csv("./results/secondary/phoenix/crqa/target-metric_signif_neg.csv",
+                           header = FALSE)[-1,-1])
+
+# read in metrics from crq analyses (source and target filtered)
+metrics_all_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-crqa_results-all_events.csv",
+                                      header = FALSE)[-1,-1])
+metrics_pos_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-crqa_results-pos_events.csv",
+                                      header = FALSE)[-1,-1])
+metrics_neg_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-crqa_results-neg_events.csv",
+                                      header = FALSE)[-1,-1])
+
+# read in significance from permutation tests (source and target filtered)
+sig_all_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-metric_signif_all.csv",
+                                  header = FALSE)[-1,-1])
+sig_pos_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-metric_signif_pos.csv",
+                                  header = FALSE)[-1,-1])
+sig_neg_source_targ <- t(read.csv("./results/secondary/phoenix/crqa/source_target-metric_signif_neg.csv",
+                                  header = FALSE)[-1,-1])
+
+```
+
+```{r phoenix-crqa-table-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+target_results <- as.data.frame(cbind(metrics,
+                                      metrics_all_targ,
+                                      sig_all_targ,
+                                      metrics_pos_targ,
+                                      sig_pos_targ,
+                                      metrics_neg_targ,
+                                      sig_neg_targ), stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+target_results[,numerics] <- sapply(target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(target_results[,7]))
+
+target_results <- cbind(target_results, stars_all, stars_pos, stars_neg)
+target_results <- target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(target_results) <- c("metric",
+                              "all events", "p", "sig.",
+                              "positive events", "p", "sig.",
+                              "negative events", "p", "sig.")
+
+# exclude row names
+rownames(target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(target_results, caption = "\\label{table-1}CRQA results for target-only data (Phoenix).")
+
+```
+
+```{r phoenix-rp-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and counts of events from target filtered data (Phoenix).', out.width='100%'}
+
+# call image
+knitr::include_graphics("./results/secondary/phoenix/crqa/target-rp-joined.png")
+
+```
+
+```{r phoenix-table-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+source_target_results <- as.data.frame(cbind(metrics,
+                                      metrics_all_source_targ,
+                                      sig_all_source_targ,
+                                      metrics_pos_source_targ,
+                                      sig_pos_source_targ,
+                                      metrics_neg_source_targ,
+                                      sig_neg_source_targ), 
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+source_target_results[,numerics] <- sapply(source_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(source_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(source_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(source_target_results[,7]))
+
+source_target_results <- cbind(source_target_results, stars_all, stars_pos, stars_neg)
+source_target_results <- source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(source_target_results) <- c("metric",
+                                     "all events", "p", "sig.",
+                                     "positive events", "p", "sig.",
+                                     "negative events", "p", "sig.")
+
+# exclude row names
+rownames(source_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(source_target_results, caption = "\\label{table-2}CRQA results for source and target data (Phoenix).")
+
+```
+
+```{r phoenix-rp-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and counts of events from source and target filtered data (Phoenix).', out.width='100%'}
+
+# call image
+knitr::include_graphics("./results/secondary/phoenix/crqa/source_target-rp-joined.png")
+
+```
+
+```{r terrier-crqa, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# run primary crqa analysis
+source('./scripts/secondary-analyses/terrier/02_crqa.R')
+
+# read in metric names
+metrics <- t(read.csv("./results/secondary/terrier/crqa/target-crqa_results-all_events.csv",
+                      header = FALSE)[-2,-1])
+
+# read in metrics from crq analyses (target filtered)
+metrics_all_targ <- t(read.csv("./results/secondary/terrier/crqa/target-crqa_results-all_events.csv",
+                               header = FALSE)[-1,-1])
+metrics_pos_targ <- t(read.csv("./results/secondary/terrier/crqa/target-crqa_results-pos_events.csv",
+                               header = FALSE)[-1,-1])
+metrics_neg_targ <- t(read.csv("./results/secondary/terrier/crqa/target-crqa_results-neg_events.csv",
+                               header = FALSE)[-1,-1])
+
+# read in significance from permutation tests (target filtered)
+sig_all_targ <- t(read.csv("./results/secondary/terrier/crqa/target-metric_signif_all.csv",
+                           header = FALSE)[-1,-1])
+sig_pos_targ <- t(read.csv("./results/secondary/terrier/crqa/target-metric_signif_pos.csv",
+                           header = FALSE)[-1,-1])
+sig_neg_targ <- t(read.csv("./results/secondary/terrier/crqa/target-metric_signif_neg.csv",
+                           header = FALSE)[-1,-1])
+
+# read in metrics from crq analyses (source and target filtered)
+metrics_all_source_targ <- t(read.csv("./results/secondary/terrier/crqa/source_target-crqa_results-all_events.csv",
+                                      header = FALSE)[-1,-1])
+metrics_pos_source_targ <- t(read.csv("./results/secondary/terrier/crqa/source_target-crqa_results-pos_events.csv",
+                                      header = FALSE)[-1,-1])
+metrics_neg_source_targ <- t(read.csv("./results/secondary/terrier/crqa/source_target-crqa_results-neg_events.csv",
+                                      header = FALSE)[-1,-1])
+
+# read in significance from permutation tests (source and target filtered)
+sig_all_source_targ <- t(read.csv("./results/secondary/terrier/crqa/source_target-metric_signif_all.csv",
+                                  header = FALSE)[-1,-1])
+sig_pos_source_targ <- t(read.csv("./results/secondary/terrier/crqa/source_target-metric_signif_pos.csv",
+                                  header = FALSE)[-1,-1])
+sig_neg_source_targ <- t(read.csv("./results/secondary/terrier/crqa/source_target-metric_signif_neg.csv",
+                                  header = FALSE)[-1,-1])
+
+```
+
+```{r terrier-crqa-table-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+target_results <- as.data.frame(cbind(metrics,
+                                      metrics_all_targ,
+                                      sig_all_targ,
+                                      metrics_pos_targ,
+                                      sig_pos_targ,
+                                      metrics_neg_targ,
+                                      sig_neg_targ), stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+target_results[,numerics] <- sapply(target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(target_results[,7]))
+
+target_results <- cbind(target_results, stars_all, stars_pos, stars_neg)
+target_results <- target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(target_results) <- c("metric",
+                              "all events", "p", "sig.",
+                              "positive events", "p", "sig.",
+                              "negative events", "p", "sig.")
+
+# exclude row names
+rownames(target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(target_results, caption = "\\label{table-1}CRQA results for target-only data (Terrier).")
+
+```
+
+```{r terrier-rp-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and counts of events from target filtered data (Terrier).', out.width='100%'}
+
+# call image
+knitr::include_graphics("./results/secondary/terrier/crqa/target-rp-joined.png")
+
+```
+
+```{r terrier-table-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+
+# bind metrics and significance results
+source_target_results <- as.data.frame(cbind(metrics,
+                                      metrics_all_source_targ,
+                                      sig_all_source_targ,
+                                      metrics_pos_source_targ,
+                                      sig_pos_source_targ,
+                                      metrics_neg_source_targ,
+                                      sig_neg_source_targ), 
+                                      stringsAsFactors = FALSE)
+
+# covert to numerics for rounding
+numerics <- c(2:7)
+source_target_results[,numerics] <- sapply(source_target_results[,numerics],as.numeric)
+
+# add significance stars
+stars_all <- as.data.frame(stars.pval(source_target_results[,3]))
+stars_pos <- as.data.frame(stars.pval(source_target_results[,5]))
+stars_neg <- as.data.frame(stars.pval(source_target_results[,7]))
+
+source_target_results <- cbind(source_target_results, stars_all, stars_pos, stars_neg)
+source_target_results <- source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
+
+# give intuitive names
+colnames(source_target_results) <- c("metric",
+                                     "all events", "p", "sig.",
+                                     "positive events", "p", "sig.",
+                                     "negative events", "p", "sig.")
+
+# exclude row names
+rownames(source_target_results) <- NULL
+
+# set to not split table and round to two decimal places
+panderOptions("table.split.table", Inf)
+panderOptions('round', 3)
+panderOptions('keep.trailing.zeros', TRUE)
+
+# style for Rmd
+panderOptions("table.style", "rmarkdown")
+
+# build table
+pander(source_target_results, caption = "\\label{table-2}CRQA results for source and target data (Terrier).")
+
+```
+
+```{r terrier-rp-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Recurrence plot (RP) for social cohesion and counts of events from source and target filtered data (Terrier).', out.width='100%'}
+
+# call image
+knitr::include_graphics("./results/secondary/terrier/crqa/source_target-rp-joined.png")
+
+```
+
+## Windowed CRQA
+```{r run-wcrqa, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide', include = FALSE}
+
+# run windowed crqa
+source('./scripts/primary-analyses/03_windowed_crqa.R')
+source('./scripts/secondary-analyses/phoenix/03_windowed_crqa.R')
+source('./scripts/secondary-analyses/terrier/03_windowed_crqa.R')
+
+```
+
+```{r plot-wcrqa, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, out.extra='angle=90'}
+
+# call ICEWS plots
+knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all.png")
+knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_all.png")
+
+# call Phoenix plots
+knitr::include_graphics("./results/secondary/phoenix/windowed-crqa/target-windowed_all.png")
+knitr::include_graphics("./results/secondary/phoenix/windowed-crqa/source_target-windowed_all.png")
+
+# call Terrier plots
+knitr::include_graphics("./results/secondary/phoenix/windowed-crqa/target-windowed_all.png")
+knitr::include_graphics("./results/secondary/phoenix/windowed-crqa/source_target-windowed_all.png")
+
+```
+
+## Cross-Wavelet Analysis
+```{r cross-wavelet, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
+
+# format the data
+# source('./scripts/primary-analyses/04_cross_wavelet.R')
+# source('./scripts/secondary-analyses/phoenix/04_cross_wavelet.R')
+# source('./scripts/secondary-analyses/terrier/04_cross_wavelet.R')
+
+```
+
+# Discussion
+
+# Acknowledgements
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
