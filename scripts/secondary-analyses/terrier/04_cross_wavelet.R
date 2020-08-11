@@ -16,10 +16,6 @@ rm(list=ls())
 # set working directory
 setwd("./arab-spring/")
 
-# load the required packages
-library(dplyr)
-library(biwavelet)
-
 # read in truncated data 
 data <- read.csv("./data/formatted/secondary/terrier/formatted_data.csv")
 
