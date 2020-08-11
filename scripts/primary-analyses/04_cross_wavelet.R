@@ -62,7 +62,7 @@ plot(wtc.AB,
      arrow.len = 0.12, 
      ylab = "Scale", 
      xlab = "Period (days)", 
-     plot.cb = TRUE, 
+     plot.cb = FALSE, 
      main = "Wavelet Coherence\nTwitter social cohesion and count of all events (deciles)\nTarget filtered data")
 dev.off()
 
@@ -86,7 +86,7 @@ plot(wtc.AB,
      arrow.len = 0.12, 
      ylab = "Scale", 
      xlab = "Period (days)", 
-     plot.cb = TRUE, 
+     plot.cb = FALSE, 
      main = "Wavelet Coherence\nTwitter social cohesion and count of positive events (deciles)\nTarget filtered data")
 dev.off()
 
@@ -110,7 +110,7 @@ plot(wtc.AB,
      arrow.len = 0.12, 
      ylab = "Scale", 
      xlab = "Period (days)", 
-     plot.cb = TRUE, 
+     plot.cb = FALSE, 
      main = "Wavelet Coherence\nTwitter social cohesion and count of negative events (deciles)\nTarget filtered data")
 dev.off()
 
@@ -136,7 +136,7 @@ plot(wtc.AB,
      arrow.len = 0.12, 
      ylab = "Scale", 
      xlab = "Period (days)", 
-     plot.cb = TRUE, 
+     plot.cb = FALSE, 
      main = "Wavelet Coherence\nTwitter social cohesion and count of all events (deciles)\nSource and Target filtered data")
 dev.off()
 
@@ -160,7 +160,7 @@ plot(wtc.AB,
      arrow.len = 0.12, 
      ylab = "Scale", 
      xlab = "Period (days)", 
-     plot.cb = TRUE, 
+     plot.cb = FALSE, 
      main = "Wavelet Coherence\nTwitter social cohesion and count of positive events (deciles)\nSource and Target filtered data")
 dev.off()
 
@@ -184,6 +184,6 @@ plot(wtc.AB,
      arrow.len = 0.12, 
      ylab = "Scale", 
      xlab = "Period (days)", 
-     plot.cb = TRUE, 
+     plot.cb = FALSE, 
      main = "Wavelet Coherence\nTwitter social cohesion and count of negative events (deciles)\nSource and Target filtered data")
 dev.off()
