@@ -1,8 +1,6 @@
 #### Install missing packages ####
 #
-#
-#
-# Last updated:
+# Last updated: 2020_08_11
 
 # list of required packages as strings
 required_packages = c(
@@ -18,7 +16,8 @@ required_packages = c(
   'statip',
   'gridExtra',
   'png',
-  'data.table'
+  'data.table',
+  'biwavelet'
 )
 
 # install missing packages (adapted from <http://stackoverflow.com/a/4090208> and a-paxton/perception-memory-coordination)

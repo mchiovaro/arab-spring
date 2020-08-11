@@ -1,8 +1,6 @@
 #### Load necessary packages ####
 #
-#
-#
-# Last updated:
+# Last updated: 2020_08_11
 
 # list of required packages
 required_packages = c(
@@ -18,7 +16,8 @@ required_packages = c(
   'statip',
   'gridExtra',
   'png',
-  'data.table'
+  'data.table',
+  'biwavelet'
 )
 
 # load required packages
