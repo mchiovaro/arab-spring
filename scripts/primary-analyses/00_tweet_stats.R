@@ -3,9 +3,9 @@
 # This script explores statistics of the tweet corpus
 # for the Arab Spring project.
 #
-# Code by: M. Chiovaro (@mchiovaro)
+# Code by: M. Chiovaro (@mchiovaro) and A. Paxton (@a-paxton)
 # University of Connecticut
-# Last updated: 2020_08_31
+# Last updated: 2020_09_02
 
 #### 1. Set up ####
 
@@ -15,17 +15,17 @@ setwd("./Documents/_github/arab-spring/")
 rm(list=ls())
 
 # read in the data 
-raw_tweets <- read.delim("./data/raw/syria_tweets_en.txt", 
+raw_tweets <- data.table::fread("./data/raw/syria_tweets_en.txt", 
                          header = FALSE, 
-                         sep = "\t", 
+                         sep = "\r", # just read it as one variable for now
                          stringsAsFactors = FALSE,
                          encoding='UTF-8')
 
 #### 2. Parse data ####
 formatted_tweets <- raw_tweets %>%
 
-  # parse date
-  mutate(tweet = sub("^.*?,", "", raw_tweets$V1))
+  # separate into multiple variables
+  separate(V1, c("datestamp","tweet"), sep=",", extra="merge")
   
 # fix encoding
 Encoding(formatted_tweets$tweet) <- "latin1"
@@ -37,7 +37,7 @@ formatted_tweets <- formatted_tweets %>%
   mutate(tweet = str_trim(tweet)) %>%
   
   # parse day level
-  mutate(date = (stri_extract_first_regex(V1, "[0-9]{8}+"))) %>%
+  mutate(date = (stri_extract_first_regex(datestamp, "[0-9]{8}+"))) %>%
   
   # convert to date format
   mutate(date = anytime::anydate(date, "%Y%m%d")) %>%
@@ -50,7 +50,7 @@ formatted_tweets <- formatted_tweets %>%
   mutate(num_days = yday(date)) %>%
   
   # parse time
-  mutate(time = str_sub(V1,9,14)) %>%
+  mutate(time = str_sub(datestamp,9,14)) %>%
   
   # subset hour
   mutate(hour = as.integer(str_sub(time,1,2))) %>%
