@@ -17,7 +17,10 @@ required_packages = c(
   'gridExtra',
   'png',
   'data.table',
-  'biwavelet'
+  'biwavelet',
+  'stringr',
+  'lubridate',
+  'stringi'
 )
 
 # load required packages
