@@ -26,20 +26,19 @@ cohesion_df <- cohesion_df %>%
   
   mutate(Start.Year = 2012) %>%
   
-  mutate(date <- paste(Start.Year, 
+  mutate(full_date <- paste(Start.Year, 
                        Start.Month, 
                        Start.Day, 
                        sep="-") 
          %>% ymd() 
          %>% as.Date()) %>%
   
-  rename(full_date=19) %>%
+  rename(Date=19) %>%
   
-  group_by(full_date) %>%
+  group_by(Date) %>%
   
-  summarise(
-    n = n(),
-    daily_avg = mean(Cohesion_avg, na.rm=T))
+  summarise(n = n(),
+            MeanCohesion = mean(Cohesion_avg, na.rm=T))
 
 ### filter for source and target ###
 
@@ -154,16 +153,6 @@ ICEWS_formatted_target <- ICEWS_filtered %>%
   # undo grouping by date
   ungroup()
 
-### prepare cohesion dataframe for merging ###
-
-cohesion_df <- cohesion_df %>%
-  
-  # format dates
-  mutate(Date = as.Date(Date)) %>%
-  
-  # only keep variables we need
-  select(Date, MeanCohesion)
-
 ### combine all dataframes ###
 
 # bind the event and social cohesion data frames
@@ -171,7 +160,10 @@ ICEWS_df_formatted <- dplyr::full_join(ICEWS_formatted_source_target,
                                        ICEWS_formatted_target,
                                        by=c("Date")) %>%
   dplyr::full_join(., cohesion_df,
-                   by=c("Date"))
+                   by=c("Date")) %>%
+  
+  # remove 2020_03_30 for incomplete twitter data
+  slice(2:n())
 
 #### 3. Create the deciles for analyses ####
 
