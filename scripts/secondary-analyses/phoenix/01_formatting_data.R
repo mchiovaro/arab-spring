@@ -19,10 +19,17 @@
 rm(list=ls())
 
 # read in data
-cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
+cohesion_df <- read.csv("./data/formatted/primary/formatted_data.csv")
 phoenix_df <- read.csv("./data/raw/PhoenixBLN-SWB_1979-2019.csv", header = TRUE, sep = ",")
 
 #### 2. Filter and format the time series ####
+
+### drop unnecessary columns and keep cohesion data
+cohesion_df <- cohesion_df %>%
+  
+  select(Date, MeanCohesion, n) %>%
+  
+  mutate(Date = as.Date(Date))
 
 ### filter for source and target ###
 
@@ -144,16 +151,6 @@ phoenix_formatted_target <- phoenix_df_filtered %>%
   # fill NAs with zeros
   replace(is.na(.), 0)
 
-### prepare cohesion dataframe for merging ###
-
-cohesion_df <- cohesion_df %>%
-  
-  # format dates
-  mutate(Date = as.Date(Date)) %>%
-  
-  # only keep variables we need
-  select(Date, MeanCohesion)
-
 ### combine all dataframes ###
 
 # bind the event and social cohesion data frames
@@ -161,7 +158,10 @@ phoenix_df_formatted <- dplyr::full_join(phoenix_formatted_source_target,
                                          phoenix_formatted_target,
                                          by = c("Date")) %>%
   dplyr::full_join(., cohesion_df,
-                   by = c("Date"))
+                   by = c("Date")) %>%
+  
+  # remove 2020_03_30 for incomplete twitter data
+  slice(2:n())
 
 #### 3. Create the sextiles for analyses ####
 
