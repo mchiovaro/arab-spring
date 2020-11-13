@@ -17,7 +17,7 @@
 rm(list=ls())
 
 # read in data
-cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
+cohesion_df <- read.csv("./data/formatted/primary/formatted_data.csv")
 terrier_df <- as.data.frame(fread("./data/raw/terrier-no-location-source-complete-2012.json.gz.tsv"))
 
 # assign variable names
@@ -30,6 +30,13 @@ colnames(terrier_df) <- c('code', 'root_code','quad_class', 'goldstein',
                           'doc_id', 'mongo_id')  
 
 #### 2. Filter and format the time series ####
+
+### drop unnecessary columns and keep cohesion data
+cohesion_df <- cohesion_df %>%
+  
+  select(Date, MeanCohesion, n) %>%
+  
+  mutate(Date = as.Date(Date))
 
 ### filter for source and target ###
 
@@ -168,7 +175,10 @@ terrier_df_formatted <- dplyr::full_join(terrier_formatted_source_target,
                                          terrier_formatted_target,
                                          by = c("Date")) %>%
   dplyr::full_join(., cohesion_df,
-                   by = c("Date"))
+                   by = c("Date")) %>%
+  
+  # remove 2020_03_30 for incomplete twitter data
+  slice(2:n())
 
 #### 3. Create the deciles for analyses ####
 
