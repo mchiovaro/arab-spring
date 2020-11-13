@@ -1333,40 +1333,19 @@ reflective of real-world events during times of strife.
 
 ## Cross-Recurrence Quantification Analysis
 ### Syria as Target
-The significant result of DET for social cohesion with all and negative events
-supports our first hypothesis that event salience is coupled with online social
-cohesion. The frequency of all and negative events are thus associated with
+The significant result of DET and NRLINE for social cohesion with all events
+supports our first hypothesis that event activity is coupled with online social
+cohesion. The frequency of all events are thus associated with
 greater shared trajectories with social cohesion than would be expected by
-chance. However, when we specifically target positive events, the connection to
-social cohesion fades, providing further support for our second hypothesis.
-Positive events may be less coupled to social cohesion than more salient
-negative events during times of turmoil; by contrast, overall event frequency
-and negative event frequency are coupled with Twitter social cohesion.
+chance. This could be due to a conflation of the different kinds of events. However, when we specifically target positive events, the coupling with social cohesion is strong, running counter to our second hypothesis. In addition to the significant DET and NRLINE metrics seen in the all events analysis, maxL and TT are significant for positive events, suggesting a more stable relationship. This may be a reflection of citizens' reaction to events that are positively influential to their cause. An act of concession by the government or aid from another country may have led to an increase in moral or feelings of hope, in turn leading to an uproar on Twitter in an attempt to boost morale. By contrast, negative event frequency showed weak coupling, counter to our third hypothesis. Although the significant reuslt for maxL suggests stability, the lack of significant results for other metrics indicate that the maxL metric may point toward a particular period where coupling was strong, but that negative events were less coupled for the other points in time. Perhaps during times of intense strife, individuals in Syria focused on real-world action, turning to Twitter in the following days to report post-hoc what had happened. Further text analysis should be conducted to decipher the underlying tone of the tweets. 
 
 ### Syria as Source and Target
-By adding Syria as a source in the data filtering, the dataset increased in size
+By adding Syria as a source in the data filtering, the event dataset increased in size
 by 1,690 samples. These additional observations are times where Syria initiated
 an event with another country. Events initiated by Syria but directed internally
-within the country were already captured by the target-only filtering. The
-increase in coupling between positive events and social cohesion can thus only
-be due to the externally directed events. Though the coupling between social
-cohesion with negative and all events were largely unchanged, positive events
-and social cohesion showed greater stability in their coupling (reflected in
-maxL); while TT was no longer significant in these analyses, LAM (related to TT)
-did reach statistical significance.
+within the country were already captured by the target-only filtering. Taking outwardly directed events into account dramatically changed the coupling between all events and social cohesion. There are no longer a signficant number of shared trajectories or line lengths, indicating that the cohesion on Twitter is not tied to the frequncy of overall daily events. Since source events are at the root of this difference, it is plausible that Syrians were focused on the target events as they are immediately impacting them, and the addition of the source events now overshadows the relationship between target events and social coheison online. In contrast, there was a slight increase in coupling strength between positive events and social cohesion that once again can only be due to the externally directed events. These two time series showed greater stability in their coupling (reflected in L). But the significant ENTR metric suggests that there is more variablity in the coupling, and thus we do not feel that the source events impacted the positive event coupling notably, but rather broke up the trajectories formed by the target events. Although the coupling between social cohesion with negative events were largely unchanged, there was a slight decrease in coupling strength (reflected in maxL) and increase in complexity of shared trajectories (reflected in rENTR). Similarly to that of positive events, this change may not be reflective of source events themselves, but rather a disruption of the relationship with target events.
 
-While interesting, the underlying meaning or drivers of this change in results
-requires further investigation that incorporates the actual content of the
-tweets themselves. One possible reason (among many) may be that the finding was
-spurious. The positive external events from Syria may have been self-serving,
-aiming to prevent intervention by other countries or to cover up what was
-happening internally. During these moments, the increased cohesion may reflect a
-surge from the Syrian people trying to raise awareness of the situation or to
-decry the Syrian government's attempts to improve their international standing.
-In this case, the increased coupling of positive events would be coupled not
-with shared positive affect in social media but instead to shared negative
-affect in social media in response. However, we cannot test this hypothesis with
-the current time series data; future research should explore the semantic
+While interesting, the underlying meaning or drivers of these changes in CRQA results requires further investigation that incorporates the actual content of the tweets themselves. One possible reason (among many) may be that the findings were spurious. The source events may be covering up the relationship between different kinds of target events and Twitter social cohesion. However, we cannot test this hypothesis with the current time series data; future research should explore the semantic
 content of this tweet corpus to determine the nature of the socially cohered
 language.
 
