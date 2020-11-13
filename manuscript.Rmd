@@ -1271,10 +1271,10 @@ from the 47th to the 52nd window, with some exceptions (Figure
 
 For social cohesion and count of positive events, we saw a downward trend in RR
 as the window advances throughout the sample. Interestingly, we see largely
-above-chance RR until the 18th window, with an exception for window 17. A peak also appeared for the 40th--42nd windows. DET was intermitently at or above chance for the 8th--14th and 54th--62nd windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
+above-chance RR until the 18th window, with an exception for window 17. A peak also appeared for the 40th--42nd windows. DET was intermittently at or above chance for the 8th--14th and 54th--62nd windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
 For social cohesion and count of negative events, RR stayed above or almost
-above chance from the 4th--7th and 46th--49th windows and was below chance for extneded period from the 56th--62nd window. DET bottomed out at zero for the 15th--23rd and 34th--39th windows. The metric was above or nearly above chance only toward the end of the time series, in the 47th--54th and 62nd windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
+above chance from the 4th--7th and 46th--49th windows and was below chance for extended period from the 56th--62nd window. DET bottomed out at zero for the 15th--23rd and 34th--39th windows. The metric was above or nearly above chance only toward the end of the time series, in the 47th--54th and 62nd windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
 [Figure \@ref(fig:plot-wcrqa-targ-all) about here]
 
@@ -1311,7 +1311,7 @@ RR as the window moved, with above-chance values in the first 23 windows
 and the 57th--62nd windows. DET stayed largely within chance, with the exception
 of windows 1 and 4 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
 
-For social cohesion and negative events, RR was aboce chance for the 4th--6th and 46th--49th windows and below chance for the 56th--62nd windows. DET showed a upward trend as the windows moved. It bottomed out to zero for the 15th--23rd and 34th--39th windows, and was only above change for the 47th--54th and 62nd windows. (Figure
+For social cohesion and negative events, RR was above chance for the 4th--6th and 46th--49th windows and below chance for the 56th--62nd windows. DET showed a upward trend as the windows moved. It bottomed out to zero for the 15th--23rd and 34th--39th windows, and was only above change for the 47th--54th and 62nd windows. (Figure
 \@ref(fig:plot-wcrqa-source-targ-all)).
 
 [Figure \@ref(fig:plot-wcrqa-source-targ-all) about here]
