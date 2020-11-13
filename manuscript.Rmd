@@ -89,8 +89,6 @@ dir.create("./results/secondary/phoenix/windowed-crqa", recursive = TRUE)
 
 # format the data
 source('./scripts/primary-analyses/01_formatting_data.R')
-source('./scripts/secondary-analyses/icews/01_formatting_data.R')
-source('./scripts/secondary-analyses/phoenix/01_formatting_data.R')
 
 ```
 
@@ -666,11 +664,11 @@ www.github.com/mchiovaro/arab-spring.
 
 ```{r num-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
 
-num_tweets <- read.csv("./data/raw/Syria-social_cohesion.csv")
+#num_tweets <- read.csv("./data/raw/Syria-social_cohesion.csv")
 
 ``` 
 
-The corpus of tweets used included `r sum(num_tweets$n)` Syrian tweets
+The corpus of tweets used included r sum(num_tweets$n) (ADD TICKS) Syrian tweets
 occurring between March 30--June 15, 2012. Using the Twitter streaming API,
 servers at the University of Texas at Austin collected the tweets. The servers
 were run on a stable (LTS) version of Ubuntu Linus (v. 10.04) and were connected
@@ -745,12 +743,13 @@ in the analysis. The raw social cohesion time series can be seen in Figure
 ```{r raw-cohesion-ts, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw social cohesion metric time series."}
 
 # read in social cohesion data
-cohesion_df <- read.csv("./data/raw/Syria-social_cohesion.csv")
+cohesion_df <- read.csv("./data/formatted/primary/formatted_data.csv")
 
 # plot time series
 raw_cohesion_ts <- ggplot(cohesion_df, aes(x= as.Date(Date), y=MeanCohesion)) +
   geom_point() +
   geom_line() +
+  #geom_errorbar(aes(ymin=len-ci, ymax=len+ci), colour="black", width=.1, position=pd) +
   xlab("Date") +
   ylab("Mean Social Cohesion")
 ggsave("./results/primary/raw-cohesion-ts.png")
@@ -1109,23 +1108,18 @@ knitr::include_graphics("./results/primary/deciled_ts_example.png")
 ### Syria as Target
 
 A permutation test for the CRQA of social cohesion and count of all events found
-a statistical difference from chance for DET, NRLINE, maxL, and LAM. All other
+a statistical difference from chance for DET, NRLINE, and LAM. All other
 metrics did not reach significance (Figure \@ref(fig:plot-rp-targ);
 \autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of positive events
-found no statistically significant difference from chance for any of the metrics
-other than TT (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
+found a statistical difference from chance for DET, NRLINE, maxL, LAM, and TT. All other
+metrics did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
-found a statistically significant difference from chance for DET, NRLINE, L,
-ENTR, LAM, and TT. All other metrics did not reach significance (Figure
-\@ref(fig:plot-rp-targ); \autoref{table-1}).
+found a statistically significant difference from chance for maxL. All other metrics did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
 
 [Figure \@ref(fig:plot-rp-targ) and \autoref{table-1} about here]
-
-A qualitative investigation of the recurrence plots suggests a shift in dynamics
-around the 36th observation, which corresponds to May 4th, 2012.
 
 ```{r primary-crqa-table-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
 
@@ -1181,23 +1175,20 @@ knitr::include_graphics("./results/primary/crqa/target-rp-joined.png")
 
 ### Syria as Source and Target
 A permutation test for the CRQA of social cohesion and count of all events found
-a statistical difference from chance for DET, NRLINE, and LAM. All other metrics
+a statistical difference from chance for maxL and LAM. All other metrics
 were non-significant (Figure \@ref(fig:plot-rp-source-targ);
 \autoref{table-2}).
 
 A permutation test for the CRQA of social cohesion and count of positive events
-found a statistical difference from chance for maxL, ENTR, and LAM (Figure
+found a statistical difference from chance for DET, NRLINE, maxL, L, ENTR, and LAM (Figure
 \@ref(fig:plot-rp-source-targ); \autoref{table-2}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
-found a statistical difference from chance for DET, NRLINE, and rENTR. All other
+found a statistical difference from chance for rENTR. All other
 metrics were non-significant (Figure \@ref(fig:plot-rp-source-targ);
 \autoref{table-2}).
 
 [Figure \@ref(fig:plot-rp-source-targ) and \autoref{table-2} about here]
-
-Looking qualitatively at the recurrence plots, there again appeared to be a
-shift in dynamics around the 36th observation (May 4th, 2012).
 
 ```{r primary-table-source-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
 
@@ -1274,21 +1265,16 @@ knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all.png
 ```
 
 For social cohesion and count of all events, there was a consistent period of
-above-chance RR from the 7th--12th and 32nd--47th window. In addition to some
-one-week peaks at the beginning of the time period, DET was largely above chance
-from the 46th to the 61st window, with some exceptions (Figure
+above-chance RR from the 2nd--12th and 44th--50th window. DET was largely above chance
+from the 47th to the 52nd window, with some exceptions (Figure
 \@ref(fig:plot-wcrqa-targ-all)).
 
 For social cohesion and count of positive events, we saw a downward trend in RR
 as the window advances throughout the sample. Interestingly, we see largely
-above-chance RR until the 50th window, with some exceptions during window
-periods 19--30. DET was at or above chance for the 8th--17th, 32nd--33rd, and
-60th windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
+above-chance RR until the 18th window, with an exception for window 17. A peak also appeared for the 40th--42nd windows. DET was intermitently at or above chance for the 8th--14th and 54th--62nd windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
 For social cohesion and count of negative events, RR stayed above or almost
-above chance from the 4th--7th and 43rd--47th windows. DET was above or nearly
-above chance in the 1st and 2nd windows, with intermittent peaks in later
-windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
+above chance from the 4th--7th and 46th--49th windows and was below chance for extneded period from the 56th--62nd window. DET bottomed out at zero for the 15th--23rd and 34th--39th windows. The metric was above or nearly above chance only toward the end of the time series, in the 47th--54th and 62nd windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
 
 [Figure \@ref(fig:plot-wcrqa-targ-all) about here]
 
@@ -1316,21 +1302,17 @@ knitr::include_graphics("./results/primary/mode_ts_plot.png")
 ```
 
 For social cohesion and count of all events, there was a consistent period of
-above- or nearly above-chance DET from the 7th--13th and 26th--47th windows. DET
-also showed above- or nearly above-chance values in windows 7--17 and
-intermittent peaks between the 34th and 61st windows (Figure
+above- or nearly above-chance DET from the 2nd--18th and 44th--52nd windows. DET
+also showed above- or nearly above-chance values in windows 7--11 and 59--62 (Figure
 \@ref(fig:plot-wcrqa-source-targ-all)).
 
 For social cohesion and count of positive events, there was a downward trend in
-RR as the window moved, with largely above-chance values in the first 20 windows
-and the 32nd--45th windows. DET stayed largely within chance, with the exception
-of windows 13--19 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
+RR as the window moved, with above-chance values in the first 23 windows
+and the 57th--62nd windows. DET stayed largely within chance, with the exception
+of windows 1 and 4 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
 
-For social cohesion and negative events, there was an extended, overlapping
-period of time during which RR (32nd--47th windows) and DET (35th--39th windows)
-were above or nearly above chance (Figure
-\@ref(fig:plot-wcrqa-source-targ-all)). These windows span from May 3rd--14th,
-2012.
+For social cohesion and negative events, RR was aboce chance for the 4th--6th and 46th--49th windows and below chance for the 56th--62nd windows. DET showed a upward trend as the windows moved. It bottomed out to zero for the 15th--23rd and 34th--39th windows, and was only above change for the 47th--54th and 62nd windows. (Figure
+\@ref(fig:plot-wcrqa-source-targ-all)).
 
 [Figure \@ref(fig:plot-wcrqa-source-targ-all) about here]
 
