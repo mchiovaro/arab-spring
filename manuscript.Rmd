@@ -8,10 +8,12 @@ author:
     corresponding : yes    # Define only one corresponding author
     address       : "406 Babbidge Road, Unit 1020, Storrs, CT 06269"
     email         : "megan.chiovaro@uconn.edu"
-  - name          : "Alexandra Paxton"
-    affiliation   : "1,2,*"
   - name          : "Leah C. Windsor"
     affiliation   : "3,*"
+  - name          : "Alistair Windsor"
+    affiliation   : "4"
+  - name          : "Alexandra Paxton"
+    affiliation   : "1,2,*"
 
 affiliation:
   - id            : "1"
@@ -19,7 +21,9 @@ affiliation:
   - id            : "2"
     institution   : "Department of Psychological Sciences, University of Connecticut"
   - id            : "3"
-    institution   : "University of Memphis"
+    institution   : "Institute for Intelligent Systems, University of Memphis"
+  - id            : "4"
+    institution   : "Department of Mathematical Sciences, University of Memphis"
   - id            : "*"
     institution   : "Equal author contributions"
 
@@ -662,13 +666,13 @@ www.github.com/mchiovaro/arab-spring.
 ## Materials
 ### Tweet Corpus
 
-```{r num-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+```{r corpus_stats, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
 
-#num_tweets <- read.csv("./data/raw/Syria-social_cohesion.csv")
+tweet_stats <- read.csv("./data/formatted/primary/stats.csv")
 
 ``` 
 
-The corpus of tweets used included r sum(num_tweets$n) (ADD TICKS) Syrian tweets
+The corpus of tweets used included `r tweet_stats$total_tweets` Syrian tweets
 occurring between March 30--June 15, 2012. Using the Twitter streaming API,
 servers at the University of Texas at Austin collected the tweets. The servers
 were run on a stable (LTS) version of Ubuntu Linus (v. 10.04) and were connected
@@ -686,17 +690,19 @@ directly to the local hard disk. The tweets were then post-processed with a
 Python script to convert the JSON-formatted tweets to tab-separated files, which
 were then compressed to maximize storage efficiency.
 
-All scripts used for scraping tweets and compressing data can be found at
+The corpus consisted of `r tweet_stats$percent_original_tweets`% original tweets and `r tweet_stats$percent_retweets_all`% retweets. There were `r tweet_stats$num_users` users in the corpus, and an average of `r tweet_stats$avg_daily_tweets` tweets per day.
+
+Scripts used for scraping tweets and compressing data can be found at
 https://github.com/chbrown/twilight.
 
 ### Event Data
 Event data were obtained from the 2012 Integrated Crisis Early Warning System
 [ICEWS; @DVN/28075_2015]. The event data were first filtered to remove
 incomplete and incorrectly formatted data. They were then filtered to include
-only events that were directed at (i.e., `target`) Syria ($n = 6300$). To
+only events that were directed at (i.e., `target`) Syria ($n = INSERT NUMBER HERE$). To
 explore the impact of outwardly directed Syrian events, the data were filtered
 again to include events that were both directed at (i.e., `target`) or directed
-by (i.e., `source`) Syria ($n = 7990$).
+by (i.e., `source`) Syria ($n = INSERT NUMBER HERE$).
 
 ## Data Preparation
 ### Social Cohesion Metric
