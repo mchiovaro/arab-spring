@@ -501,7 +501,7 @@ rebellion converge to mount sustained resistance to state authority.
 
 Related previous work has also explored diffusion of hashtags in viral contagion in
 Nigeria, a phenomenon similar to what we identify as sociolinguistic cohesion
-[@fink2016complex]. The prevalence and rate of particular hashtags were
+[@fink2016complex]. The prevalence and rate of particular hashtags
 contributed to the overall sociolinguistic cohesion. The more that people
 reuse hashtags or common phrases, the greater the sociolinguistic cohesion when
 this phenomenon occurs during socially significant times like protests
