@@ -76,7 +76,7 @@ colnames(stats) <- c("avg_time_to_tweet",
                      "min_daily_tweets",
                      "total_retweets_beginning",
                      "total_retweets_all",
-                     "percent_retweets_all",
+                     "percent_retweets_beginning",
                      "num_users",
                      "total_replies_mentions",
                      "percent_replies_mentions",
@@ -124,10 +124,11 @@ replies_mentions <- formatted_tweets %>%
 # create corpus of original tweets
 original_tweets <- formatted_tweets %>% 
   
-  #filter(!str_detect(text, "^RT")) %>%
+  # tweets where RT appears in the beginning of the text
+  filter(!str_detect(text, "^RT")) %>%
 
   # tweets where RT appears anywhere in the text
-  filter(!str_detect(text, "RT")) %>%
+  #filter(!str_detect(text, "RT")) %>%
 
   # create corpus of replies and mentions
   filter(!str_detect(text, "@[[:alnum:]]"))
@@ -135,7 +136,7 @@ original_tweets <- formatted_tweets %>%
 # count retweets
 stats$total_retweets_beginning <- nrow(retweets_beginning)
 stats$total_retweets_all <- nrow(retweets_all)
-stats$percent_retweets_all <- nrow(retweets_all)/nrow(formatted_tweets)*100
+stats$percent_retweets_beginning <- nrow(retweets_beginning)/nrow(formatted_tweets)*100
 
 # count replies/mentions
 stats$total_replies_mentions <- nrow(replies_mentions)
@@ -177,4 +178,3 @@ write.table(x = stats,
             sep=",",
             col.names=TRUE,
             row.names=FALSE)
-
