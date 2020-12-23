@@ -660,17 +660,17 @@ The tweets were first sorted into ascending order by timestamp. They were then g
 
 \begin{align}
 \text{Inverse frequency weighting of overlap words = }\sum_{i=1}^k
-\frac{log(f(t_i, d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
+\frac{log(f(t_i, d_1) + f(t_i, d_2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
-Equation 1 identifies the inverse frequency weighting of each overlapping word ti between two tweets d1 and d2, relative to the word’s frequency in the corpus  D, for all overlapping words t1...k between the two tweets.
+Equation 1 identifies the inverse frequency weighting of each overlapping word ti between two tweets d_1 and d_2, relative to the word’s frequency in the corpus D, for all overlapping words t1...k between the two tweets.
 
 \begin{align}
 \text{Inverse frequency weighting of all words = }\sum_{i=1}^n \frac{log(f(t_i,
-d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
+d_1) + f(t_i, d_2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
-Equation 2 then calculates the inverse frequency of each word ti  in tweets d1 and d2, relative to the word’s frequency in the corpus D, for all words t1...n that appear in either tweet.
+Equation 2 then calculates the inverse frequency of each word ti  in tweets d_1 and d_2, relative to the word’s frequency in the corpus D, for all words t1...n that appear in either tweet.
 
 \begin{align}
 \text{Two tweets' similarity =}\frac{\text{inverse frequency weighting of overlap
@@ -813,7 +813,7 @@ occurrences and patterns of multiple sequential recurrent points.
 
 To perform CRQA, the time series must be converted to the same scale, while
 still preserving a sampling rate that respects the native timescale of the
-system [cf. Nyquist frequency in signal processing; @grenander1959probability].
+system [cf. Nyquist frequency in signal processing; @grenander1959probability]. In other words, a system that changes every day must be sampled more often than a system that changes every year and less often than a system that changes every hour. However, to compare two time series with CRQA, the two time series must be sampled at the same frequency as one another.
 Because the social cohesion and event data have different scales and values, we
 converted each time series (e.g., Figure \@ref(fig:raw-ts)) into deciles (e.g.,
 Figure \@ref(fig:deciled-ts)) to analyze the relative dynamics of different
@@ -912,7 +912,7 @@ of times that the real time series' values exceeds the surrogate time series'
 values can be interpreted as the alpha criterion to determine significance. For
 more information on permutation tests, see @good2013permutation.
 
-Using the real deciles of social cohesion, count of all events, count of
+Using the real deciled time series of social cohesion, count of all events, count of
 positive events, and count of negative events, we conducted a series of
 permutation tests (one for the comparison between social cohesion and each type
 of event count) to determine statistical difference from chance for each CRQA
@@ -948,7 +948,7 @@ In addition to the CRQA parameters, two other parameters are required when
 conducting WCRQA. First, the *window size* will determine how many observations
 are used in each CRQA analysis. We conducted WCRQA with a window size of $14$ to
 investigate the dynamics over two weeks and allow for the capture of more
-structure and thus a more meaningful interpretation of DET.
+structure and thus a more meaningful interpretation of DET. A window size smaller than 14 would limit the possibilities for shared trajectories and make determinism uninterpretable, and window sizes larger than 14 would increasingly overshadow the fine-grain dynamics that we want to investigate.
 
 The second parameter to be chosen is a *window step size*. Window step size is
 how far the window moves up the line of identity before conducting CRQA again.
@@ -1286,7 +1286,7 @@ chance. This could be due to a conflation of the different kinds of events. Howe
 
 ### Syria as Source and Target
 By adding Syria as a source in the data filtering, the event dataset increased in size
-by 1,690 samples. These additional observations are times where Syria initiated
+by N [fix number here] samples. These additional observations are times where Syria initiated
 an event with another country. Events initiated by Syria but directed internally
 within the country were already captured by the target-only filtering. Taking outwardly directed events into account dramatically changed the coupling between all events and social cohesion. There is no longer a significant number of shared trajectories or line lengths, indicating that the cohesion on Twitter is not tied to the frequency of overall daily events. Since source events are at the root of this difference, it is plausible that Syrians were focused on the target events as they are immediately impacting them, and the addition of the source events now overshadows the relationship between target events and social cohesion online. In contrast, there was a slight increase in coupling strength between positive events and social cohesion that once again can only be due to the externally directed events. These two time series showed greater stability in their coupling (reflected in L). But the significant ENTR metric suggests that there is more variability in the coupling, and thus we do not feel that the source events impacted the positive event coupling notably, but rather broke up the trajectories formed by the target events. Although the coupling between social cohesion with negative events were largely unchanged, there was a slight decrease in coupling strength (reflected in maxL) and increase in complexity of shared trajectories (reflected in rENTR). Similarly to that of positive events, this change may not be reflective of source events themselves, but rather a disruption of the relationship with target events.
 
@@ -1296,62 +1296,18 @@ language.
 ## Windowed-Recurrence Quantification Analysis
 
 ### Syria as Target
-The time period of differing dynamics noted in the cross-recurrence plots---from
-observation 32 through 47---appears to be captured by the above-chance RR values
-in WCRQA of social cohesion and count of all events (Figure
-\@ref(fig:plot-wcrqa-targ-all)). However, DET for these periods only
-intermittently rises above chance; it more consistently reaches statistical
-significance only at the end of the window through the end of the observation
-period, following a spike in the RR between negative event count and social
-cohesion. During this period, the modal ICEWS event for each day (Figure
+For the RR values in WCRQA of social cohesion and count of all events (Figure
+\@ref(fig:plot-wcrqa-targ-all)), we see both an early and late above-chance peak. However, DET for these periods only rises above chance for the later peak. During this later period, the modal ICEWS event for each day (Figure
 \@ref(fig:plot-mode-event)) was almost consistently -10, the most violent event
-category. This supports our first hypothesis.
+category. This supports our first hypothesis, that overall online cohesion may reflect the frequency of events occurring on the ground, particularly those that are violent in nature.
 
 [Figure \@ref(fig:plot-mode-event) about here]
 
-Surprisingly---and contrary to our second hypothesis---we saw consistent
-coupling between positive event count and social cohesion. Although both had a
-downward trajectory throughout the time period under consideration, RR was at or
-above chance in nearly all windows, and DET showed much more consistent shared
-trajectories than negative events. This may suggest that Syrian Twitter
-community was reacting more cohesively to the positive events aimed at Syria
-from the international community; this interpretation is supported by the
-attenuation of the effect in the analyses that include Syria as both a source
-and a target.
+///
 
 ### Syria as Source and Target
-WCRQA on the source-and-target-filtered data showed similar patterns of RR
-between the count of all events and social cohesion (as observed in the
-target-only data), though the values increased. This suggests that large numbers
-on a given day match increased levels of social cohesion online. However, the
-results for DET changed: While the majority of statistically significant DET
-windows occurred toward the end of the observation period for target-only data
-(creating a positive trendline), the source-and-target data showed a negative
-trendline for DET.
 
-The divergences in the all-event count data for these two datasets underscores
-the differences between RR and DET. As noted earlier, DET captures
-*trajectories*---in this case, similar to the impact of actions and social
-cohesion carrying across time. The same number of points (RR) can fall in
-different patterns (DET), providing important information about the structure of
-the system in question.
-
-WCRQA metrics for positive-only event counts with social cohesion showed similar
-patterns in RR and DET as the target-only data, but the precise values of DET
-and RR were diminished. This may support the ideas suggested in the CRQA
-section, but again, only future work including the *content* of those tweets can
-directly speak to that explanation.
-
-Finally, the coupling between negative-only event counts and social cohesion
-also remained relatively similar but demonstrated some important differences.
-First, we see a greater number of windows at above-chance levels for RR,
-including an interesting spike around window 32 that suggests a negative
-externally focused action taken by Syria prompted a sharp rise in social
-cohesion. (This would not have been captured by the target-only dataset.)
-Second---like with the all-event data---we see different structuring of the data
-through differences in the patterns of DET; above-chance DET only occurrs within
-the middle of the observation period, around a time of increased strife (as
-noted above).
+///
 
 ## Implications for Methodology and Theory
 
@@ -1378,8 +1334,8 @@ collaborative efforts like the Open Event Data Alliance [@schrodt2014three].
 This methodology should be of great interest to social scientists investigating
 social mobilization. It has potential applications for gender studies and
 the #MeToo movement and for the relationship between social protest and repression
-during the Black Lives Matter protests. Fundamentally, this methodological
-approach can help us better understand the human social mechanisms underlying
+during the Black Lives Matter protests. This methodological
+approach can help us better understand the fundamental human social mechanisms underlying
 social media and its influence on human behavior in real life. Given that many
 governments enact repressive measures when they determine that collective action
 by citizens is imminent, this methodology should help to improve the predictive
