@@ -78,6 +78,12 @@ ICEWS_filtered <- ICEWS_df %>%
   # filter out invalid intensity values
   filter(Intensity >= -10 & Intensity <= 10)
 
+# look at the event types percentages for source and target
+source_targ_positives <- sum(ICEWS_filtered$Intensity > 0)
+source_targ_positives_perc <- sum(ICEWS_filtered$Intensity > 0)/nrow(ICEWS_filtered)
+source_targ_negatives <- sum(ICEWS_filtered$Intensity < 0)
+source_targ_negatives_perc <- sum(ICEWS_filtered$Intensity < 0)/nrow(ICEWS_filtered)
+
 ### prep the event count time series ###
 
 # create new dataframe with counts of different events
@@ -120,7 +126,16 @@ ICEWS_formatted_source_target <- ICEWS_filtered %>%
 ICEWS_formatted_target <- ICEWS_filtered %>% 
   
   # filter to just target (removing source)
-  filter(grepl("Syria", Target.Country)) %>%
+  filter(grepl("Syria", Target.Country)) 
+
+# look at the event types percentages for source and target
+targ_positives <- sum(ICEWS_formatted_target$Intensity > 0)
+targ_positives_perc <- sum(ICEWS_formatted_target$Intensity > 0)/nrow(ICEWS_formatted_target)
+targ_negatives <- sum(ICEWS_formatted_target$Intensity < 0)
+targ_negatives_perc <- sum(ICEWS_formatted_target$Intensity < 0)/nrow(ICEWS_formatted_target)
+
+# grab observations where target is Syria
+ICEWS_formatted_target <- ICEWS_formatted_target %>%
   
   # group by date
   group_by(Event.Date) %>%
