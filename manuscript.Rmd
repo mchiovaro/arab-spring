@@ -317,8 +317,7 @@ reflects the continuity of language and expression and shows the
 connectivity of participants in a social movement. To address the relationship
 between language and discourse and social movements, we adopt an
 interdisciplinary approach that incorporates linguistics, psychology, and
-political science using nonlinear dynamical systems methodology to disentangle the
-relationship between language and action.
+political science using nonlinear dynamical systems methodology to disentangle the relationship between language and action.
 
 ### Lexical and Interlocutor Cohesion
 
@@ -359,11 +358,7 @@ yield higher cohesion values, even among speakers with opposing
 views on the subject matter. Repetition of terms and concepts is captured by
 reiteration, which is a type of lexical cohesion in which a subsequent item
 repeats a previous item, or refers to it through synonymous language
-[@halliday1976cohesion]. In social media, we can conceive of retweets (i.e., reposts
-or forwards of previous messages) as a form of reiteration
-that increase message cohesion. Since retweets replicate verbatim some part of
-another tweet, these tweets would also have higher cohesion. Hashtags function
-similarly and are included in our analysis.
+[@halliday1976cohesion]. We include retweets (i.e., reposts or forwards of previous messages) because they are a form of reiteration that increases message cohesion. They indicate that individuals are “singing to the same tune” by amplifying the original message. Since retweets replicate verbatim another tweet (sometimes with the addition of commentary or supplementary messages), these tweets would also have higher cohesion.
 
 ```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. The shared content words--either identical or semantically similar--constitute a theme around which cohesion is occurring.", out.width='100%'}
 
@@ -371,6 +366,8 @@ similarly and are included in our analysis.
 knitr::include_graphics("./figs/cohesion-in-tweets.png")
 
 ```
+
+We also include hashtags in our analyses. Hashtags are a way of identifying similar topics (e.g., people, events, places, themes) across users and across tweets by typing a string of characters preceded by a “#” symbol. Users may choose to include as many hashtags (up to the total character limit of the tweet) as they would like, and they may choose to create their own or adopt hashtags from other users or groups. The use of the same hashtags would increase cohesion; however, because hashtags are often included or embedded within longer messages, simply using the same hashtags would not be a guarantee of higher cohesion if the rest of the words in the tweets do not overlap. 
 
 The use of similar language can provide insight into *interlocutor cohesion*, or
 the degree to which people are talking about similar things. This can include
@@ -387,7 +384,7 @@ uprising in Ferguson, MO) have high lexical and interlocutor cohesion
 Fed by lexical cohesion, interlocutor cohesion ebbs and flows, contextualized by
 changing real world events. Interlocutor cohesion may increase preceding an
 in-person social mobilization event, alerting a repressive government that
-collective mobilization is happening. Interlocutor cohesion may also respond to
+collective mobilization is happening. It may also respond to
 exogenous events such as spontaneous, unprovoked militarized conflict.
 
 Given the importance of lexical and interlocutor cohesion for messaging in
@@ -425,7 +422,7 @@ leads to a greater willingness to adopt the group's goals and
 motivations [@walton2012mere].
 
 We expect to see increased linguistic cohesion among people participating in
-online discussions about an idea, event, individual, or movement. Given that
+online discussions about an idea, event, individual, or movement. While the overall frequency of social media messages related to the event may increase as a result of the event, their linguistic cohesion helps us understand if denizens are using the platforms in a coordinated way that amplifies their messages or goals and creates a virtual protest space. Given that
 Syrian protesters coordinated their activity through Twitter by discussing their
 own events (e.g., planned protests, active demonstrations) and their reactions
 to events happening around them (e.g., government reactions, international
@@ -576,8 +573,7 @@ analyzing the real-world events and online social cohesion during nearly three
 months of the Arab Spring. Both real- and virtual-world collective coordination
 were powerful tools in the events of the Arab Spring and are undeniably linked.
 This study aims to explore the dynamics of Twitter users in Syria, who used the
-social media platform to raise awareness about the Arab Spring and bring about
-mass mobilization.
+social media platform to raise awareness about the Arab Spring and the relationship of those messages to mass mobilization in the real world.
 
 Using cross-recurrence quantification analysis [CRQA; @zbilut1998detecting] and
 windowed cross-recurrence quantification analysis [WCRQA;
@@ -611,7 +607,7 @@ case studies. After demonstrating these methods' utility with this dataset, we
 close the paper with specific suggestions to political scientists interested in
 these methods.
 
-This work is a reproducible manuscript. All code and analyses can be found at:
+This work is a reproducible manuscript. Code and analyses can be found at:
 www.github.com/mchiovaro/arab-spring.
 
 # Method
