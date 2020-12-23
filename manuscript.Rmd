@@ -28,20 +28,7 @@ affiliation:
     institution   : "Equal author contributions"
 
 abstract: |
-  In recent years, political activists have taken to social media platforms to
-  rapidly reach broad audiences. Despite the prevalence of micro-blogging in
-  these sociopolitical movements, the degree to which virtual mobilization
-  reflects or drives real-world movements is unclear. Here, we explore the
-  dynamics of real-world events and Twitter social cohesion in Syria during the
-  Arab Spring. Using the nonlinear methods cross-recurrence quantification
-  analysis and windowed cross-recurrence quantification analysis, we investigate
-  if frequency of events of different intensities are coupled with social
-  cohesion found in Syrian tweets. Results indicate that virtual social cohesion
-  is coupled with the counts of all and negative events each day but shows a
-  more nuanced connection to positive events, suggesting that virtual
-  mobilization does reflect real-world movements. We conclude with a discussion
-  of implications and applications of nonlinear methods in political science
-  research.
+  In recent years, political activists have taken to social media platforms to rapidly reach broad audiences. Despite the prevalence of micro-blogging in these sociopolitical movements, the degree to which virtual mobilization reflects or drives real-world movements is unclear. Here, we explore the dynamics of real-world events and Twitter social cohesion in Syria during the Arab Spring. Using the nonlinear methods cross-recurrence quantification analysis and windowed cross-recurrence quantification analysis, we investigate if frequency of events of different intensities are coupled with social cohesion found in Syrian tweets. Results indicate that online social cohesion is coupled with the counts of all and negative events each day but shows a more nuanced connection to positive events, suggesting that online mobilization does reflect real-world movements. We conclude with a discussion of implications and applications of nonlinear methods in political science research.
   <!-- https://tinyurl.com/ybremelq -->
 
 keywords          : "social cohesion, recurrence quantification analysis, complex systems, Twitter, Arab Spring"
@@ -60,7 +47,8 @@ appendix          :
 
 documentclass     : "apa6"
 classoption       : "man"
-output            : papaja::apa6_pdf
+output            : papaja::apa6_word
+#output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -152,14 +140,7 @@ hails from a minority Islamic sect (the Alawites) in a multi-religious and
 multi-ethnic country comprising Christians, Sunni and Shia Muslims, Kurds, and
 Palestinian refugees.
 
-In December 2010, a Tunisian man named Mohamed Bouazizi was unjustifiably
-stripped of his vendor cart by municipal officials. His humiliation led him to
-set himself on fire in protest to the authoritarian rule, leading to his death
-several days later. His actions served as a catalyst for the Tunisian
-Revolution, and one week after his death, Zine El Abidine Ben Ali---the
-longstanding authoritarian president---fled the country. The events of Tunisia
-rapidly spread to surrounding countries also subject to unjust authoritarian
-rule, including Egypt, Libya, and Syria.
+In December 2010, a Tunisian man named Mohamed Bouazizi died after setting himself on fire to protest the authoritarian government’s unjustifiable confiscation of his vendor cart by municipal officials. His actions served as a catalyst for the Tunisian Revolution, which rapidly spread to surrounding countries also subject to unjust authoritarian rule, including Egypt, Libya, and Syria.
 
 Following a wave of democratization efforts across the Middle East and North
 Africa, modest Syrian protests began in March 2011. The regime responded harshly
@@ -172,8 +153,8 @@ leaders---worked toward cease-fires, negotiations, and concessions without much
 success. While many high-level military and diplomatic officials defected,
 numerous loyal forces continued the regime's repression, and the Syrian people
 turned to social media to coordinate their activism and communicate to the
-world. Between March and June 2012, more than 8 million tweets were sent within
-Syria, revealing the details of the conflict suppressed by the government.
+world. Between March and June 2012, millions of tweets were sent within
+Syria, revealing the details of the conflict suppressed by the government. A full account of the history of the Arab Spring is outside of the scope of the current article; more information can be found in Brownlee (2013) [fix bib] and Lynch (2016) [fix bib].
 
 Syria is a multi-ethnic, multi-lingual, and multi-religious state. Kurdish
 people make up between 10-15% of the population, Alawites between 8-15%, and
@@ -191,22 +172,14 @@ Massive online social cohesion can manifest in real-world social behavior.
 Social media platforms enable online social cohesion by offering distributed
 information-gathering and real-time information dissemination. Given its
 accessibility and proficiency as an information exchange tool, Twitter has
-provided social and political activists an opportunity to complement or even
-replace real-world social mobilization. During the 2012 Italian protests for
-global economic change, tweeting was determined to be more effective locally in
-discussing real-world, real-time events than traditional mainstream media
-platforms [@vicari2013public]. As people increasingly rely on social media for
-local news and information, we must understand exactly how these micro-blogs
-connect to and reflect real-world action.
+provided social and political activists an opportunity to complement (Greijdanus et al., 2020) [fix bib] and not hinder participation in (Harlow & Harp, 2012; Milošević-Đorđević & Žeželj, 2017) [fix bib] real-world social mobilization. During the 2012 Italian protests for global economic change, tweeting was determined to be more effective locally in discussing real-world, real-time events than traditional mainstream media platforms [@vicari2013public]. As people increasingly rely on social media for local news and information, we must understand exactly how these micro-blogs connect to and reflect real-world action.
 
 Along with Facebook, Twitter has been credited as essential to the Arab
 Spring---both for protesters and for the government's response to them
 [@comninos2011twitter]. The Arab Spring has been deeply examined within the
 political science literature [e.g., @lutterbeck2013arab;
 @koehler2017political], but to our knowledge, the direct *coupling* between
-Syrian Twitter cohesion and international action has not been investigated. In
-fact, some have been skeptical about the effect of social media on collective
-action at all [@seay2014slacktivism].
+Syrian Twitter cohesion and international action has not been investigated  (though hashtag usage has been linked to next-day protests; Steinert-Threlkeld et al., 2015) [fix bib]. In fact, some have been skeptical about the effect of social media on collective action at all [@seay2014slacktivism].
 
 This skepticism is summarized in a quote by Lisa @anderson2011demystifying:
 
@@ -245,9 +218,7 @@ strength and sympathy. Governments have been shown to be quite tolerant of
 dissent so long as it does not metamorphose into collective action
 [@king2013censorship].
 
-Citizens communicate with each other with increased transparency due to the
-ubiquitous availability of social media such as low-cost and egalitarian
-platforms like Twitter. Citizens are able to access these tools via mobile
+Protestors and social activists communicate with each other with increased transparency due to the ubiquitous availability of social media like Twitter. Activists are able to access these tools via mobile
 phones and computers with Internet connectivity, providing a stream of real-time
 shared information. Citizens can share the location of events like protests and
 military incursions, the degree of state repression, and the number of
@@ -256,24 +227,7 @@ power---monitors social media platforms to ascertain emerging threats
 [@comninos2011twitter], such as where new groups are forming, where existing
 groups are strengthening, where gatherings are held, and who the leaders are.
 
-An example of a leader expressing his interest in such public
-conversation is given by Bashar al-Assad in a speech on June 3, 2012:
-
-\setlength{\leftskip}{1cm}
-
-\noindent I know that I have been away from the media for a long time, and I
-have missed having direct contact with the citizens, but I have always been
-following up with the daily occurrences and gathering the information so that my
-speech can be built on what is said by the street.
-
-\setlength{\leftskip}{0pt}
-
-\noindent With few exceptions, Assad chose to keep social media platforms up and
-running. Gohdes [-@gohdes2015pulling] notes that regimes can attempt to thwart
-the growth of social protest online and in the streets by shutting down the
-Internet. During these times, military repression increases, but government
-information about the citizens decreases. As a result, regimes may elect to
-maintain Internet connectivity to monitor and surveil their citizens.
+With few exceptions, leader Bashar al-Assad chose to keep social media platforms up and running. Gohdes [-@gohdes2015pulling] notes that regimes can attempt to thwart the growth of social protest online and in the streets by shutting down the Internet. During these times, military repression increases, but government information about the citizens decreases. As a result, regimes may elect to maintain Internet connectivity to monitor and surveil their citizens.
 
 At the same time, the insulation of online social platforms allows researchers
 to detail real-world social dynamics at unprecedented resolution and scale
@@ -282,7 +236,7 @@ groups are regarded as a valuable source of information that can offer powerful
 insights into states of social disequilibrium, uprisings, and escalations into
 civil wars. By examining these conversations, researchers can study the degree
 of cohesion between speakers and the alignment between that cohesion and their
-collective political behavior.
+collective political behavior, just as the degree of cohesion among real-world protestors in past movements has been captured in their shared sign messaging (Windsor, 2020) [fix bib].
 
 ## The Role of Cohesion in Social Movements and Civil Wars
 
@@ -290,8 +244,7 @@ People join social and political resistance movements because they feel a sense
 of connection to the cause. Given that people are generally risk-averse,
 overcoming inertia requires a strong connection to the group identity or a
 strong aversion to an individual, event, or political injustice
-[@goldstone1980theories;
-@goldstone2011understanding]. Political resistance offers participants the
+[@goldstone1980theories; @goldstone2011understanding]. Political resistance offers participants the
 opportunity to “lose themselves” and relinquish their individual identity in
 favor of identification with a larger group, contributing to a cohesive group
 ready and mobilized for action [@Hoffer2011true].
@@ -301,8 +254,7 @@ function of the available political opportunity structures. The political
 opportunity structure is “comprised of *(sic)* specific configurations of
 resources, institutional arrangements and historical precedents for social
 mobilization, which facilitate the development of protest movements in some
-instances and constrain them in others” [@kitschelt1986political]. What emerges
-as strategies and tactics in contentious politics are a function of
+instances and constrain them in others” [@kitschelt1986political]. Emergent strategies and tactics in contentious politics are a function of
 what the system makes possible. This includes the number of people and their
 disposition (i.e. nonviolent or violent), as well as their internal structure.
 The more cohesive a group is, the greater threat they pose to the establishment.
@@ -1351,8 +1303,7 @@ by 1,690 samples. These additional observations are times where Syria initiated
 an event with another country. Events initiated by Syria but directed internally
 within the country were already captured by the target-only filtering. Taking outwardly directed events into account dramatically changed the coupling between all events and social cohesion. There is no longer a significant number of shared trajectories or line lengths, indicating that the cohesion on Twitter is not tied to the frequency of overall daily events. Since source events are at the root of this difference, it is plausible that Syrians were focused on the target events as they are immediately impacting them, and the addition of the source events now overshadows the relationship between target events and social cohesion online. In contrast, there was a slight increase in coupling strength between positive events and social cohesion that once again can only be due to the externally directed events. These two time series showed greater stability in their coupling (reflected in L). But the significant ENTR metric suggests that there is more variability in the coupling, and thus we do not feel that the source events impacted the positive event coupling notably, but rather broke up the trajectories formed by the target events. Although the coupling between social cohesion with negative events were largely unchanged, there was a slight decrease in coupling strength (reflected in maxL) and increase in complexity of shared trajectories (reflected in rENTR). Similarly to that of positive events, this change may not be reflective of source events themselves, but rather a disruption of the relationship with target events.
 
-While interesting, the underlying meaning or drivers of these changes in CRQA results requires further investigation that incorporates the actual content of the tweets themselves. One possible reason (among many) may be that the findings were spurious. The source events may be covering up the relationship between different kinds of target events and Twitter social cohesion. However, we cannot test this hypothesis with the current time series data; future research should explore the semantic
-content of this tweet corpus to determine the nature of the socially cohered
+While interesting, the underlying meaning or drivers of these changes in CRQA results requires further investigation that incorporates the actual content of the tweets themselves. One possible reason (among many) may be that the findings were spurious. The source events may be covering up the relationship between different kinds of target events and Twitter social cohesion. However, we cannot test this hypothesis with the current time series data; future research should explore the semantic content of this tweet corpus to determine the nature of the socially cohered
 language.
 
 ## Windowed-Recurrence Quantification Analysis
