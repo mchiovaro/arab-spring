@@ -621,7 +621,7 @@ tweet_stats <- read.csv("./data/formatted/primary/stats.csv")
 ``` 
 
 The corpus of tweets used included `r tweet_stats$total_tweets` Syrian tweets
-occurring between March 30--June 15, 2012. Using the Twitter streaming API,
+occurring between March 31--June 15, 2012. Using the Twitter streaming API,
 servers at the University of Texas at Austin collected the tweets. The servers
 were run on a stable (LTS) version of Ubuntu Linus (v. 10.04) and were connected
 directly to the high-bandwidth UT network maintained by IT services.
@@ -654,43 +654,34 @@ by (i.e., `source`) Syria ($n = INSERT NUMBER HERE$).
 
 ## Data Preparation
 ### Social Cohesion Metric
-The social cohesion or linguistic similarity of daily tweets was calculated by
-quantifying the frequency of shared content words with respect to those words'
-frequencies in the entire tweet corpus. If a linguistic term has a high
-frequency in one tweet but has a low frequency in the whole tweet corpus, then
-it is more likely a content word and is thus given more weight in calculating
-social cohesion. This method is similar to *term frequency-inverse document
-frequency* [tf-idf; see also @jones1972statistical;
-@robertson2004understanding].
+The social cohesion or linguistic similarity of daily tweets was calculated by quantifying the frequency of shared content words with respect to those words’ frequencies in the entire tweet corpus. Retweets were included in the corpus and used in the social cohesion calculation, as they indicate strong support for an individual’s message. Stop words, punctuations, and duplicate words were not removed from the tweets. 
 
-The tweets were first sorted into ascending order by timestamp. They were then
-grouped into successive sets of five tweets. Inverse frequency weighting for the
-overlap words and all words was conducted for each pair of two tweets in the
-group of five, then divided to get the social cohesion score for that pair (see
-Eq. 1-3). This resulted in ten social cohesion values for each group of five
-tweets; these values were then averaged to get a social cohesion score for the
-entire set of five tweets. Finally, the mean of all average cohesion values for
-all groups was taken to get a social cohesion score for each day.
+The tweets were first sorted into ascending order by timestamp. They were then grouped into successive sets of five tweets. Groups of five were chosen to allow for manageability and efficiency of the analyses. Linguistic cohesion was quantified for all possible pairs of tweets in the group of five, resulting in 10 pairs per group of tweets; all 10 cohesion values for the group were averaged for a single group cohesion value. The cohesion value for each day was quantified as the average cohesion values for all groups in that day. Each pair’s cohesion value was calculated in three parts: 
 
 \begin{align}
 \text{Inverse frequency weighting of overlap words = }\sum_{i=1}^k
 \frac{log(f(t_i, d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
+Equation 1 identifies the inverse frequency weighting of each overlapping word ti between two tweets d1 and d2, relative to the word’s frequency in the corpus  D, for all overlapping words t1...k between the two tweets.
+
 \begin{align}
 \text{Inverse frequency weighting of all words = }\sum_{i=1}^n \frac{log(f(t_i,
 d1) + f(t_i, d2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
+Equation 2 then calculates the inverse frequency of each word ti  in tweets d1 and d2, relative to the word’s frequency in the corpus D, for all words t1...n that appear in either tweet.
+
 \begin{align}
 \text{Two tweets' similarity =}\frac{\text{inverse frequency weighting of overlap
 words}}{\text{inverse frequency weighting of all words}}
 \end{align}
+ 
+Finally, Equation 3 identifies their linguistic cohesion by taking the ratio of the results of Equations 1 and 2. Through this process, we are able to naturally account for the frequencies of natural language generally and of online language specifically: Words that occur many times in the corpus (which we can operationalize as function words; e.g., prepositions, pronouns) influence the similarity scores between two tweets much less than words that occur rarely in the corpus (which we can operationalize as content words; e.g., names, hashtags). 
 
-\noindent The social cohesion calculation was performed on the tweet corpus
-containing both English and Arabic tweets. All hashtags and URLs were included
-in the analysis. The raw social cohesion time series can be seen in Figure
-\@ref(fig:raw-cohesion-ts).
+This linguistic cohesion metric is similar to *term frequency-inverse document
+frequency* [tf-idf; see also @jones1972statistical;
+@robertson2004understanding]. However, this method focuses more squarely on terms (i.e., agnostic to the number of documents in the corpus), aggregates at a higher semantic level (i.e., summing across words), and accounts for linguistic novelty relative to the pair and the corpus (i.e., ratio of Eq. 1 to Eq. 2). The social cohesion calculation was performed on the tweet corpus containing both English and Arabic tweets. All hashtags and URLs were included in the analysis. The raw social cohesion time series can be seen in Figure \@ref(fig:raw-cohesion-ts).
 
 [Figure \@ref(fig:raw-cohesion-ts) about here]
 
