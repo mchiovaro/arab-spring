@@ -113,9 +113,15 @@ hist(daily_stats$daily_tweets)
 retweets_alt = formatted_tweets %>%
   dplyr::filter(!is.na(retweet_id))
 
-# identify mentions
+# identify replies
 replies_alt = formatted_tweets %>%
   dplyr::filter(!is.na(in_reply_to_screen_name))
+
+# identify original tweets by stripping out retweets and replies
+original_tweets_alt = anti_join(formatted_tweets,
+                                replies_alt) %>%
+  anti_join(., 
+            retweets_alt)
 
 # # tweets where RT appears not in the middle of a word
 # retweets_beginning <- formatted_tweets %>% 
@@ -129,21 +135,21 @@ replies_alt = formatted_tweets %>%
 # replies_mentions <- formatted_tweets %>% 
 #   filter(str_detect(text, "@[[:alnum:]]"))
 
-# create corpus of original tweets
-original_tweets <- formatted_tweets %>% 
-  
-  # remove RTs
-  filter(!str_detect(text, "\\WRT\\W"))
+# # create corpus of original tweets
+# original_tweets <- formatted_tweets %>% 
+#   
+#   # remove RTs
+#   filter(!str_detect(text, "\\WRT\\W"))
+# 
+#   # tweets where RT appears in the beginning of the text
+#   # filter(!str_detect(text, "^RT")) %>%
+# 
+#   # tweets where RT appears anywhere in the text
+#   # filter(!str_detect(text, "RT")) %>%
+# 
+#   # create corpus of replies and mentions
+#   filter(!str_detect(text, "@[[:alnum:]]"))
 
-  # tweets where RT appears in the beginning of the text
-  # filter(!str_detect(text, "^RT")) %>%
-
-  # tweets where RT appears anywhere in the text
-  # filter(!str_detect(text, "RT")) %>%
-
-  # create corpus of replies and mentions
-  filter(!str_detect(text, "@[[:alnum:]]"))
-  
 # count retweets
 stats$total_retweets_beginning <- nrow(retweets_beginning)
 stats$total_retweets_all <- nrow(retweets_all)
