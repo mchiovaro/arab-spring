@@ -603,7 +603,7 @@ for (i in 1:1000){
 # check to see if we have 1000 distinct time series
 print(paste0("Total distinct shuffled negative-event time series (target only) for windowed CRQA: ",
              nrow(distinct(shuffled_neg_target))))
-if(nrow(distinct(shuffled_neg_target)) != 1001){
+if(nrow(distinct(shuffled_neg_target)) != 1000){
   print("WARNING: Duplicates in surrogate time series.")
 }
 
