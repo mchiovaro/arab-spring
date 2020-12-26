@@ -47,8 +47,8 @@ appendix          :
 
 documentclass     : "apa6"
 classoption       : "man"
-output            : papaja::apa6_word
-#output            : papaja::apa6_pdf
+#output            : papaja::apa6_word
+output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -688,16 +688,33 @@ frequency* [tf-idf; see also @jones1972statistical;
 ```{r raw-cohesion-ts, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw social cohesion metric time series."}
 
 # read in social cohesion data
-cohesion_df <- read.csv("./data/formatted/primary/formatted_data.csv")
+#cohesion_df <- read.csv("./data/formatted/primary/formatted_data.csv")
+raw_cohesion_data <- read.csv("./data/raw/syria_cohesion.csv")
 
-# plot time series
-raw_cohesion_ts <- ggplot(cohesion_df, aes(x= as.Date(Date), y=MeanCohesion)) +
+# converge date to single variable
+raw_cohesion_data$Start.Year <- "2012"
+raw_cohesion_data$date <- as.Date(with(raw_cohesion_data,
+                                       paste(Start.Year, Start.Month, Start.Day,
+                                            sep="-")), "%Y-%m-%d")
+
+# detach plyr so summarise works
+detach("package:plyr", unload=TRUE) 
+
+# calculate mean cohesion
+raw_cohesion_data %>%
+  group_by(date) %>%
+  summarise(
+    MeanCohesion = mean(Cohesion_avg),
+    sd = sd(Cohesion_avg),
+    var = sd^2,
+    n = n(),
+    se = sd / n) %>%
+  ggplot(aes(x = date, y = MeanCohesion)) +
+  geom_errorbar(aes(ymin = MeanCohesion-var, ymax = MeanCohesion+var), color = "grey57") +
   geom_point() +
   geom_line() +
-  #geom_errorbar(aes(ymin=len-ci, ymax=len+ci), colour="black", width=.1, position=pd) +
   xlab("Date") +
   ylab("Mean Social Cohesion")
-ggsave("./results/primary/raw-cohesion-ts.png")
 
 # call the image
 knitr::include_graphics("./results/primary/raw-cohesion-ts.png")
