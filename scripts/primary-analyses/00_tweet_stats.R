@@ -109,12 +109,16 @@ stats$min_daily_tweets <- min(daily_stats$daily_tweets)
 stats$total_tweets <- nrow(formatted_tweets)
 hist(daily_stats$daily_tweets)
 
-# tweets where RT appears not in the middle of a word
-retweets_beginning <- formatted_tweets %>% 
-  dplyr::filter(str_detect(tweet,"^@"))
-  
+# filter for retweets
+retweets = formatted_tweets %>%
+  dplyr::filter(str_detect(text, "\\WRT\\W"))
+
+# # tweets where RT appears not in the middle of a word
+retweets_beginning <- formatted_tweets %>%
+  dplyr::filter(str_detect(text,"^RT"))
+
 # tweets where RT appears anywhere in the text
-retweets_all <- formatted_tweets %>% 
+retweets_all <- formatted_tweets %>%
   filter(str_detect(text, "RT"))
 
 # create corpus of replies and mentions
@@ -124,11 +128,14 @@ replies_mentions <- formatted_tweets %>%
 # create corpus of original tweets
 original_tweets <- formatted_tweets %>% 
   
+  # remove RTs
+  filter(!str_detect(text, "\\WRT\\W"))
+
   # tweets where RT appears in the beginning of the text
-  filter(!str_detect(text, "^RT")) %>%
+  # filter(!str_detect(text, "^RT")) %>%
 
   # tweets where RT appears anywhere in the text
-  #filter(!str_detect(text, "RT")) %>%
+  # filter(!str_detect(text, "RT")) %>%
 
   # create corpus of replies and mentions
   filter(!str_detect(text, "@[[:alnum:]]"))
