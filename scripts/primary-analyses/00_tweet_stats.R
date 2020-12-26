@@ -9,7 +9,7 @@
 
 #### 1. Set up ####
 
-setwd("./Documents/_github/arab-spring/")
+#setwd("./Documents/_github/arab-spring/")
 
 library(data.table)
 library(readxl)
@@ -109,9 +109,9 @@ stats$min_daily_tweets <- min(daily_stats$daily_tweets)
 stats$total_tweets <- nrow(formatted_tweets)
 hist(daily_stats$daily_tweets)
 
-# tweets where RT appears in the beginning of the text
+# tweets where RT appears not in the middle of a word
 retweets_beginning <- formatted_tweets %>% 
-  filter(str_detect(text, "^RT"))
+  dplyr::filter(str_detect(tweet,"^@"))
   
 # tweets where RT appears anywhere in the text
 retweets_all <- formatted_tweets %>% 
