@@ -9,7 +9,7 @@
 
 #### 1. Set up ####
 
-setwd("./Documents/_github/arab-spring/")
+#setwd("./Documents/_github/arab-spring/")
 
 library(data.table)
 library(readxl)
