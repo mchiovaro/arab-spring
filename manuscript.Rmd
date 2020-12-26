@@ -654,7 +654,7 @@ by (i.e., `source`) Syria ($n = INSERT NUMBER HERE$).
 
 ## Data Preparation
 ### Social Cohesion Metric
-The social cohesion or linguistic similarity of daily tweets was calculated by quantifying the frequency of shared content words with respect to those words’ frequencies in the entire tweet corpus. Retweets were included in the corpus and used in the social cohesion calculation, as they indicate strong support for an individual’s message. Stop words, punctuations, and duplicate words were not removed from the tweets. 
+The social cohesion or linguistic similarity of daily tweets was calculated by quantifying the frequency of shared content words with respect to those words’ frequencies in the entire tweet corpus. Retweets were included in the corpus and used in the social cohesion calculation, as they indicate strong support for an individual’s message. Stop words, punctuations, and duplicate words were not removed from the tweets. The lengths of tweets were disregarded, as the aspect of interest is in shared linguistic content and not breadth of description. 
 
 The tweets were first sorted into ascending order by timestamp. They were then grouped into successive sets of five tweets. Groups of five were chosen to allow for manageability and efficiency of the analyses. Linguistic cohesion was quantified for all possible pairs of tweets in the group of five, resulting in 10 pairs per group of tweets; all 10 cohesion values for the group were averaged for a single group cohesion value. The cohesion value for each day was quantified as the average cohesion values for all groups in that day. Each pair’s cohesion value was calculated in three parts: 
 
@@ -1249,7 +1249,7 @@ knitr::include_graphics("./results/primary/windowed-crqa/source_target-windowed_
 
 ```
 
-```{r plot-mode-event, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'Mode ICEWS event per day.'}
+```{r plot-mode-event, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = 'A  plot of the most frequently documented ICEWS event score per day.'}
 
 mode_plot <- ggplot(data, aes(x= as.Date(Date), y=mode_source_target)) +
                     geom_point() +
