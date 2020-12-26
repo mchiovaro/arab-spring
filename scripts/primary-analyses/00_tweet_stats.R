@@ -109,17 +109,25 @@ stats$min_daily_tweets <- min(daily_stats$daily_tweets)
 stats$total_tweets <- nrow(formatted_tweets)
 hist(daily_stats$daily_tweets)
 
-# tweets where RT appears not in the middle of a word
-retweets_beginning <- formatted_tweets %>% 
-  dplyr::filter(str_detect(tweet,"^@"))
-  
-# tweets where RT appears anywhere in the text
-retweets_all <- formatted_tweets %>% 
-  filter(str_detect(text, "RT"))
+# identify retweets
+retweets_alt = formatted_tweets %>%
+  dplyr::filter(!is.na(retweet_id))
 
-# create corpus of replies and mentions
-replies_mentions <- formatted_tweets %>% 
-  filter(str_detect(text, "@[[:alnum:]]"))
+# identify mentions
+replies_alt = formatted_tweets %>%
+  dplyr::filter(!is.na(in_reply_to_screen_name))
+
+# # tweets where RT appears not in the middle of a word
+# retweets_beginning <- formatted_tweets %>% 
+#   dplyr::filter(str_detect(tweet,"^@"))
+#   
+# # tweets where RT appears anywhere in the text
+# retweets_all <- formatted_tweets %>% 
+#   filter(str_detect(text, "RT"))
+
+# # create corpus of replies and mentions
+# replies_mentions <- formatted_tweets %>% 
+#   filter(str_detect(text, "@[[:alnum:]]"))
 
 # create corpus of original tweets
 original_tweets <- formatted_tweets %>% 
