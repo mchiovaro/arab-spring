@@ -154,7 +154,7 @@ success. While many high-level military and diplomatic officials defected,
 numerous loyal forces continued the regime's repression, and the Syrian people
 turned to social media to coordinate their activism and communicate to the
 world. Between March and June 2012, millions of tweets were sent within
-Syria, revealing the details of the conflict suppressed by the government. A full account of the history of the Arab Spring is outside of the scope of the current article; more information can be found in Brownlee (2013) [fix bib] and Lynch (2016) [fix bib].
+Syria, revealing the details of the conflict suppressed by the government. A full account of the history of the Arab Spring is outside of the scope of the current article; more information can be found in [@brownlee2013syria] and [@lynch2016ne].
 
 Syria is a multi-ethnic, multi-lingual, and multi-religious state. Kurdish
 people make up between 10-15% of the population, Alawites between 8-15%, and
@@ -172,14 +172,14 @@ Massive online social cohesion can manifest in real-world social behavior.
 Social media platforms enable online social cohesion by offering distributed
 information-gathering and real-time information dissemination. Given its
 accessibility and proficiency as an information exchange tool, Twitter has
-provided social and political activists an opportunity to complement (Greijdanus et al., 2020) [fix bib] and not hinder participation in (Harlow & Harp, 2012; Milošević-Đorđević & Žeželj, 2017) [fix bib] real-world social mobilization. During the 2012 Italian protests for global economic change, tweeting was determined to be more effective locally in discussing real-world, real-time events than traditional mainstream media platforms [@vicari2013public]. As people increasingly rely on social media for local news and information, we must understand exactly how these micro-blogs connect to and reflect real-world action.
+provided social and political activists an opportunity to complement [@greijdanus2020psychology] and not hinder participation in [@harlow2012collective; @milovsevic2017civic] real-world social mobilization. During the 2012 Italian protests for global economic change, tweeting was determined to be more effective locally in discussing real-world, real-time events than traditional mainstream media platforms [@vicari2013public]. As people increasingly rely on social media for local news and information, we must understand exactly how these micro-blogs connect to and reflect real-world action.
 
 Along with Facebook, Twitter has been credited as essential to the Arab
 Spring---both for protesters and for the government's response to them
 [@comninos2011twitter]. The Arab Spring has been deeply examined within the
 political science literature [e.g., @lutterbeck2013arab;
 @koehler2017political], but to our knowledge, the direct *coupling* between
-Syrian Twitter cohesion and international action has not been investigated  (though hashtag usage has been linked to next-day protests; Steinert-Threlkeld et al., 2015) [fix bib]. In fact, some have been skeptical about the effect of social media on collective action at all [@seay2014slacktivism].
+Syrian Twitter cohesion and international action has not been investigated  (though hashtag usage has been linked to next-day protests; @steinert2015online). In fact, some have been skeptical about the effect of social media on collective action at all [@seay2014slacktivism].
 
 This skepticism is summarized in a quote by Lisa @anderson2011demystifying:
 
@@ -236,7 +236,7 @@ groups are regarded as a valuable source of information that can offer powerful
 insights into states of social disequilibrium, uprisings, and escalations into
 civil wars. By examining these conversations, researchers can study the degree
 of cohesion between speakers and the alignment between that cohesion and their
-collective political behavior, just as the degree of cohesion among real-world protestors in past movements has been captured in their shared sign messaging (Windsor, 2020) [fix bib].
+collective political behavior, just as the degree of cohesion among real-world protestors in past movements has been captured in their shared sign messaging [@Windsor2020].
 
 ## The Role of Cohesion in Social Movements and Civil Wars
 
