@@ -154,7 +154,7 @@ success. While many high-level military and diplomatic officials defected,
 numerous loyal forces continued the regime's repression, and the Syrian people
 turned to social media to coordinate their activism and communicate to the
 world. Between March and June 2012, millions of tweets were sent within
-Syria, revealing the details of the conflict suppressed by the government. A full account of the history of the Arab Spring is outside of the scope of the current article; more information can be found in [@brownlee2013syria] and [@lynch2016ne].
+Syria, revealing the details of the conflict suppressed by the government. A full account of the history of the Arab Spring is outside of the scope of the current article; more information can be found in [@brownlee2013syria] and [@lynch2016new].
 
 Syria is a multi-ethnic, multi-lingual, and multi-religious state. Kurdish
 people make up between 10-15% of the population, Alawites between 8-15%, and
@@ -638,7 +638,7 @@ directly to the local hard disk. The tweets were then post-processed with a
 Python script to convert the JSON-formatted tweets to tab-separated files, which
 were then compressed to maximize storage efficiency.
 
-The corpus consisted of `r tweet_stats$percent_original_tweets`% original tweets and `r tweet_stats$percent_retweets_all`% retweets. There were `r tweet_stats$num_users` users in the corpus, and an average of `r tweet_stats$avg_daily_tweets` tweets per day.
+The corpus consisted of `r tweet_stats$percent_original_tweets`% original tweets, `r tweet_stats$percent_retweets`% retweets, and `r tweet_stats$percent_replies`% replies. There were `r tweet_stats$num_users` users in the corpus, and an average of `r tweet_stats$avg_daily_tweets` tweets per day.
 
 Scripts used for scraping tweets and compressing data can be found at
 https://github.com/chbrown/twilight.
@@ -698,7 +698,7 @@ raw_cohesion_data$date <- as.Date(with(raw_cohesion_data,
                                             sep="-")), "%Y-%m-%d")
 
 # detach plyr so summarise works
-detach("package:plyr", unload=TRUE) 
+#detach("package:plyr", unload=TRUE) 
 
 # calculate mean cohesion
 raw_cohesion_data %>%
