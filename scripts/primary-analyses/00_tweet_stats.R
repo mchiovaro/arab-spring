@@ -66,7 +66,7 @@ formatted_tweets <- raw_tweets %>%
 hist(formatted_tweets$time_to_tweet, xlim=c(0, 55))
 
 # get empty data frame
-stats = data.frame(matrix(NA, ncol=15))
+stats = data.frame(matrix(NA, ncol=14))
 colnames(stats) <- c("avg_time_to_tweet",
                      "max_time_to_tweet",
                      "min_time_to_tweet",
@@ -74,12 +74,11 @@ colnames(stats) <- c("avg_time_to_tweet",
                      "avg_daily_tweets", 
                      "max_daily_tweets", 
                      "min_daily_tweets",
-                     "total_retweets_beginning",
-                     "total_retweets_all",
-                     "percent_retweets_beginning",
+                     "retweets",
+                     "percent_retweets",
                      "num_users",
-                     "total_replies_mentions",
-                     "percent_replies_mentions",
+                     "total_replies",
+                     "percent_replies",
                      "percent_original_tweets",
                      "total_original_tweets")
 
@@ -110,58 +109,33 @@ stats$total_tweets <- nrow(formatted_tweets)
 hist(daily_stats$daily_tweets)
 
 # identify retweets
-retweets_alt = formatted_tweets %>%
+retweets = formatted_tweets %>%
   dplyr::filter(!is.na(retweet_id))
 
 # identify replies
-replies_alt = formatted_tweets %>%
+replies = formatted_tweets %>%
   dplyr::filter(!is.na(in_reply_to_screen_name))
 
 # identify original tweets by stripping out retweets and replies
-original_tweets_alt = anti_join(formatted_tweets,
+original_tweets = anti_join(formatted_tweets,
                                 replies_alt) %>%
   anti_join(., 
             retweets_alt)
 
-# # tweets where RT appears not in the middle of a word
-# retweets_beginning <- formatted_tweets %>% 
-#   dplyr::filter(str_detect(tweet,"^@"))
-#   
-# # tweets where RT appears anywhere in the text
-# retweets_all <- formatted_tweets %>% 
-#   filter(str_detect(text, "RT"))
-
-# # create corpus of replies and mentions
-# replies_mentions <- formatted_tweets %>% 
-#   filter(str_detect(text, "@[[:alnum:]]"))
-
-# # create corpus of original tweets
-# original_tweets <- formatted_tweets %>% 
-#   
-#   # remove RTs
-#   filter(!str_detect(text, "\\WRT\\W"))
-# 
-#   # tweets where RT appears in the beginning of the text
-#   # filter(!str_detect(text, "^RT")) %>%
-# 
-#   # tweets where RT appears anywhere in the text
-#   # filter(!str_detect(text, "RT")) %>%
-# 
-#   # create corpus of replies and mentions
-#   filter(!str_detect(text, "@[[:alnum:]]"))
-
 # count retweets
-stats$total_retweets_beginning <- nrow(retweets_beginning)
-stats$total_retweets_all <- nrow(retweets_all)
-stats$percent_retweets_beginning <- nrow(retweets_beginning)/nrow(formatted_tweets)*100
+stats$retweets <- nrow(retweets)
+stats$percent_retweets <- nrow(retweets)/nrow(formatted_tweets)*100
 
 # count replies/mentions
-stats$total_replies_mentions <- nrow(replies_mentions)
-stats$percent_replies_mentions <- nrow(replies_mentions)/nrow(formatted_tweets)*100
+stats$total_replies <- nrow(replies)
+stats$percent_replies <- nrow(replies)/nrow(formatted_tweets)*100
 
 # count original tweets
-stats$total_original_tweets <- nrow(formatted_tweets) - nrow(retweets_all)
+stats$total_original_tweets <- nrow(original_tweets)
 stats$percent_original_tweets <- stats$total_original_tweets/nrow(formatted_tweets)*100
+
+# check that we have all tweets accounted for
+percent_sum <- stats$percent_retweets + stats$percent_replies + stats$percent_original_tweets
 
 #### 4. Tweet group stats ####
 
