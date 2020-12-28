@@ -47,8 +47,8 @@ appendix          :
 
 documentclass     : "apa6"
 classoption       : "man"
-#output            : papaja::apa6_word
-output            : papaja::apa6_pdf
+output            : papaja::apa6_word
+#output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -640,10 +640,10 @@ https://github.com/chbrown/twilight.
 Event data were obtained from the 2012 Integrated Crisis Early Warning System
 [ICEWS; @DVN/28075_2015]. The event data were first filtered to remove
 incomplete and incorrectly formatted data. They were then filtered to include
-only events that were directed at (i.e., `target`) Syria ($n = INSERT NUMBER HERE$). To
+only events that were directed at (i.e., `target`) Syria (n = `r num_target`). To
 explore the impact of outwardly directed Syrian events, the data were filtered
 again to include events that were both directed at (i.e., `target`) or directed
-by (i.e., `source`) Syria ($n = INSERT NUMBER HERE$).
+by (i.e., `source`) Syria (n = `r num_source_target`).
 
 ## Data Preparation
 ### Social Cohesion Metric
@@ -681,7 +681,6 @@ frequency* [tf-idf; see also @jones1972statistical;
 ```{r raw-cohesion-ts, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw social cohesion metric time series."}
 
 # read in social cohesion data
-#cohesion_df <- read.csv("./data/formatted/primary/formatted_data.csv")
 raw_cohesion_data <- read.csv("./data/raw/syria_cohesion.csv")
 
 # converge date to single variable
@@ -694,7 +693,7 @@ raw_cohesion_data$date <- as.Date(with(raw_cohesion_data,
 #detach("package:plyr", unload=TRUE) 
 
 # calculate mean cohesion
-raw_cohesion_data %>%
+raw_cohesion_ts <- raw_cohesion_data %>%
   group_by(date) %>%
   summarise(
     MeanCohesion = mean(Cohesion_avg),
@@ -708,6 +707,9 @@ raw_cohesion_data %>%
   geom_line() +
   xlab("Date") +
   ylab("Mean Social Cohesion")
+
+# save the plot
+ggsave("./results/primary/raw-cohesion-ts.png")
 
 # call the image
 knitr::include_graphics("./results/primary/raw-cohesion-ts.png")
@@ -1284,7 +1286,7 @@ greater shared trajectories with social cohesion than would be expected by
 chance. This could be due to a conflation of the different kinds of events. However, when we specifically target positive events, the coupling with social cohesion is strong, running counter to our second hypothesis. In addition to the significant DET and NRLINE metrics seen in the all-events analysis, maxL and TT are significant for positive events, suggesting a more stable relationship. This may be a reflection of citizens' reaction to events that align with their cause. An act of concession by the government or aid from another country may have led to an increase in morale or feelings of hope, in turn leading to an uproar on Twitter in an attempt to boost morale. By contrast, negative event frequency showed weak coupling, counter to our third hypothesis. Although the significant result for maxL suggests stability, the lack of significant results for other metrics indicate that the maxL metric may point toward a particular period where coupling was strong, although negative events were less coupled for the other points in time. Perhaps during times of intense strife, individuals in Syria focused on real-world action, turning to Twitter to report and rally together. Further text analysis should be conducted to decipher the underlying tone of the tweets. 
 
 ### Syria as Source and Target
-By adding Syria as a source in the data filtering, the event dataset increased in size by `r num_source_target-num_target` samples. These additional observations are times where Syria initiated
+By adding Syria as a source in the data filtering, the event dataset increased in size by `r num_source_target - num_target` samples. These additional observations are times where Syria initiated
 an event with another country. Events initiated by Syria but directed internally
 within the country were already captured by the target-only filtering. Taking outwardly directed events into account dramatically changed the coupling between all events and social cohesion. There is no longer a significant number of shared trajectories or line lengths, indicating that the cohesion on Twitter is not tied to the frequency of overall daily events. Since source events are at the root of this difference, it is plausible that Syrians were focused on the target events as they are immediately impacting them; considering additional source events then overshadowed the relationship between target events and social cohesion online. In contrast, there was a slight increase in coupling strength between positive events and social cohesion that once again can only be due to the externally directed events. These two time series showed greater stability in their coupling (reflected in L). However, the significant ENTR metric suggests that there is more variability in the coupling, so rather than interpreting these two changes as a fundamental change in coupling between source events and positive events, we interpret this as a breaking-up of the trajectories formed by the target events. Although the coupling between social cohesion with negative events were largely unchanged, there was a slight decrease in coupling strength (reflected in maxL) and an increase in complexity of shared trajectories (reflected in rENTR). Similarly to that of positive events, this change may not be reflective of source events themselves but rather a disruption of the relationship with target events.
 
