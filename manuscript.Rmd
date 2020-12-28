@@ -99,7 +99,7 @@ The cohesiveness and strength of social movements before the Internet were
 operationalized by the number of people present and through the political events
 that precipitated and resulted from social gatherings *en masse*. Cohesive
 social movements were reflected in their cohesive placards and posters. For
-example, the pervasive “I am a man” posters during the 1968 sanitation workers'
+example, the pervasive “I am a man” posters during the 1968 Memphis sanitation workers'
 strike reflected their internal cohesion and unified, goal-oriented movement
 [@Windsor2020].
 
@@ -111,20 +111,12 @@ of social movements have similarly evolved from ethnographic interviews to “bi
 data” analyses of social media.
 
 Amid the cacophony of messages during political upheaval---such
-as the Arab Spring---consistent themes emerge through hashtags, retweets, and
+as the Arab Spring of the early 2010s---consistent themes emerge through hashtags, retweets, and
 the repeated mentions of concepts such as regime, demonstration, and
-human rights. The cohesiveness of these themes (i.e., whether movement
-participants are metaphorically singing in one voice) reflects the real-world
-events happening contemporaneously with collective action in social movements or
-civil conflicts.
+human rights. The cohesiveness of these themes (i.e., the degree to which participants in the movement are metaphorically singing in one voice) reflects the real-world events happening contemporaneously with collective action in social movements or civil conflicts.
 
 In the present research, we investigate the relationship between linguistic
-cohesion and social cohesion in times of social conflict and unrest. We tackle a
-question related to the one posed by Zeitzoff [-@zeitzoff2017social]: How does
-social media reflect on-the-ground realities during times of social conflict? To
-do so, we examine patterns of linguistic cohesion on Twitter and their
-connection to real-world events during the Arab Spring uprising in Syria between
-March and June 2012.
+cohesion and social cohesion in times of social conflict and unrest. We tackle a question related to the one posed by Zeitzoff [-@zeitzoff2017social]: How does social media reflect on-the-ground realities during times of social conflict? To do so, we examine patterns of linguistic cohesion on Twitter and their connection to real-world events during the Arab Spring uprising in Syria between March and June 2012.
 
 Disentangling the complicated relationship between mass online
 mobilization---and social mobilization in person---continues to be relevant,
@@ -433,11 +425,11 @@ action or inaction), the cohesion in social media should correlate with the
 social cohesion of the group [@zeitzoff2011using].
 
 Political and social cohesion in the world can be modeled using event data which
-encodes who does what to whom on a given day. CAMEO (Conflict and Mediation
-Event Observations) encode a set of activities with numerical values, rescaled
+encodes who does what to whom on a given day. The CAMEO (Conflict and Mediation
+Event Observations) coding scheme encodes a set of activities with numerical values, rescaled
 to reflect a conflict-cooperation scale [@schrodt2006twenty;
-@goldstein1992conflict]. These event codes include a range of behaviors, from
-making public statements and appeals, to demanding, threatening, protesting, and
+@goldstein1992conflict]. These event codes include a range of behaviors of varying intensities and valences, from
+making public statements and appeals to demanding, threatening, protesting, and
 using unconventional mass violence.
 
 Social cohesion can have real and wide-ranging impacts on a political movement
@@ -513,9 +505,7 @@ this phenomenon occurs during socially significant times like protests
 Combining these separate threads, it is reasonable to expect that real-world
 actions and online social interactions would be enmeshed, driving and being
 driven by one another. From a dynamical systems perspective, online social
-cohesion and in-person action can be considered two complementary components of
-a single system, mutually constrained and constantly interacting and influencing
-one another [@mahner1997foundations]. Investigation of the coupling of
+cohesion and in-person action can be considered two complementary components of a single system--constantly constrained by, interacting with, and influencing one another [@mahner1997foundations]. Investigation of the coupling of
 real-world mobilization and social cohesion could provide new insight into the
 power of social media during mobilization and the ways in which individuals
 utilize it to bring about, or respond to, social change. Increasingly, social
@@ -571,7 +561,7 @@ Social media has become a primary platform for social movements and activism
 across the world, but the extent to which virtual activism reflects and drives
 real-world mobilization is still largely unknown. In the current work, we
 conceptualize the physical and virtual movements as a dynamical system, both
-constantly interacting and influencing the other. We aim to study this by
+constantly interacting with and influencing the other. We aim to study this by
 analyzing the real-world events and online social cohesion during nearly three
 months of the Arab Spring. Both real- and virtual-world collective coordination
 were powerful tools in the events of the Arab Spring and are undeniably linked.
@@ -623,7 +613,7 @@ tweet_stats <- read.csv("./data/formatted/primary/stats.csv")
 
 ``` 
 
-The corpus of tweets used included `r tweet_stats$total_tweets` Syrian tweets
+The corpus of tweets used included `r tweet_stats$total_tweets` English-language Syrian tweets
 occurring between March 31--June 15, 2012. Using the Twitter streaming API,
 servers at the University of Texas at Austin collected the tweets. The servers
 were run on a stable (LTS) version of Ubuntu Linus (v. 10.04) and were connected
@@ -636,12 +626,12 @@ Arab Spring in Syria at the time. A node.js script was used to reinitialize the
 connection to Twitter's servers whenever the script timed out due to a period of
 silence. The script requested data from the API endpoint using basic HTTP
 authentication (OAuth was optional, at the time) at
-https://stream.twitter.com/1.1/statuses/filter.json, and stored the data
+https://stream.twitter.com/1.1/statuses/filter.json and stored the data
 directly to the local hard disk. The tweets were then post-processed with a
 Python script to convert the JSON-formatted tweets to tab-separated files, which
 were then compressed to maximize storage efficiency.
 
-The corpus consisted of `r tweet_stats$percent_original_tweets`% original tweets, `r tweet_stats$percent_retweets`% retweets, and `r tweet_stats$percent_replies`% replies. There were `r tweet_stats$num_users` users in the corpus, and an average of `r tweet_stats$avg_daily_tweets` tweets per day.
+The corpus consisted of `r tweet_stats$percent_original_tweets`% original tweets, `r tweet_stats$percent_retweets`% retweets, and `r tweet_stats$percent_replies`% replies. There were `r tweet_stats$num_users` users in the corpus and an average of `r tweet_stats$avg_daily_tweets` tweets per day.
 
 Scripts used for scraping tweets and compressing data can be found at
 https://github.com/chbrown/twilight.
@@ -684,7 +674,7 @@ Finally, Equation 3 identifies their linguistic cohesion by taking the ratio of 
 
 This linguistic cohesion metric is similar to *term frequency-inverse document
 frequency* [tf-idf; see also @jones1972statistical;
-@robertson2004understanding]. However, this method focuses more squarely on terms (i.e., agnostic to the number of documents in the corpus), aggregates at a higher semantic level (i.e., summing across words), and accounts for linguistic novelty relative to the pair and the corpus (i.e., ratio of Eq. 1 to Eq. 2). The social cohesion calculation was performed on the tweet corpus containing both English and Arabic tweets. All hashtags and URLs were included in the analysis. The raw social cohesion time series can be seen in Figure \@ref(fig:raw-cohesion-ts).
+@robertson2004understanding]. However, the method focuses more squarely on terms (i.e., agnostic to the number of documents in the corpus), aggregates at a higher semantic level (i.e., summing across words), and accounts for linguistic novelty relative to the pair and the corpus (i.e., ratio of Eq. 1 to Eq. 2). The social cohesion calculation was performed on the tweet corpus containing English tweets. All hashtags and URLs were included in the analysis. The raw social cohesion time series can be seen in Figure \@ref(fig:raw-cohesion-ts).
 
 [Figure \@ref(fig:raw-cohesion-ts) about here]
 
@@ -819,19 +809,14 @@ knitr::include_graphics("./results/primary/raw-event-ts-source-target.png")
 
 ## Analyses
 ### Cross-Recurrence Quantification Analysis
-We first used cross-recurrence quantification analysis [CRQA;
+We first used categorical cross-recurrence quantification analysis [CRQA;
 @zbilut1998detecting] to investigate the temporal patterns of social cohesion
-and real-world events in Syria during Arab Spring. CRQA is an extension of RQA,
-which captures the patterns of revisited states of a single time series
+and real-world events in Syria during Arab Spring. CRQA is an extension of RQA, which captures the patterns of revisited states of a single time series
 [@zbilut1992embeddings; @webber1994dynamical]. CRQA allows for two time series
-to be projected onto one another to investigate shared states and trajectories.
-In CRQA, we track these shared states by identifying *recurrent points*, or
-intersections of time during which two signals shared or revisited the same
-state. These shared states can be at the same time or at later points in the
-time series. We can further chart shared trajectories by examining the
+to be projected onto one another to investigate shared states and trajectories. In CRQA, we track these shared states by identifying *recurrent points*, or intersections of time during which two signals shared or revisited the same state. These shared states can be at the same time or at later points in the time series. We can further chart shared trajectories by examining the
 occurrences and patterns of multiple sequential recurrent points.
 
-To perform CRQA, the time series must be converted to the same scale, while
+To perform categorical CRQA, the time series must be converted to the same scale, while
 still preserving a sampling rate that respects the native timescale of the
 system [cf. Nyquist frequency in signal processing; @grenander1959probability]. In other words, a system that changes every day must be sampled more often than a system that changes every year and less often than a system that changes every hour. However, to compare two time series with CRQA, the two time series must be sampled at the same frequency as one another.
 Because the social cohesion and event data have different scales and values, we
@@ -846,14 +831,12 @@ each day. We implemented CRQA using the `crqa` package [@R-crqa] for R
 #### Visualization
 A cross-recurrence plot (CRP) is the visual representation of CRQA. To construct
 a cross-recurrence plot, two time series are plotted against each other on the
-$x$ and $y$ axes. At every point where they share the same state, a point in
+$x$ and $y$ axes. At every point where they share the same state, a point is
 placed on the plot to indicate recurrence. (For categorical CRQA, this process
 is similar to the Cartesian product.)
 
 We can visually analyze these plots to reveal patterns of structure and
-recurrence. The line $y = x$ is known as the *line of identity*. This line falls
-where the time series match temporally. A filled line would indicate perfect
-in-phase synchrony between the two time series. See Figures
+recurrence. The main diagonal line on the plot is known as the *line of synchrony*. This line falls where the time series match temporally. A completely filled main diagonal line would indicate perfect in-phase synchrony between the two time series. See Figures
 \@ref(fig:plot-rp-targ)-\@ref(fig:plot-rp-source-targ) for examples of
 RPs.
 
@@ -865,7 +848,7 @@ These metrics are also critical for inferential statistics. We will focus most
 directly on two of these metrics: *recurrence rate* and *determinism*.
 
 The percentage of recurrent points to total possible points is a metric called
-the *recurrence rate* (*RR*). This metrics gives a general description of how
+the *recurrence rate* (*RR*). This metric gives a general description of how
 frequently the time series are sharing the same states. In the current study, a
 recurrent point would indicate that the level of social cohesion and frequency
 of events were at the same intensity.
@@ -904,7 +887,7 @@ was set to $1$, and radius was set to $.001$ to allow for only exact recurrent
 matches. No normalization was done, and lines were considered two or more
 consecutive recurrent points. The Theiler window was set to $0$ to include
 points along the line of identity. For more details on the CRQA parameters and
-how they impact the analysis, see @R-crqa.
+how they impact analyses, see @R-crqa.
 
 #### Permutation Test
 Unlike some nonlinear analyses (e.g., fractal analyses), CRQA metrics do not
@@ -913,7 +896,7 @@ metric---that is, comparing the CRQA values across conditions or subsets of the
 data. Typically, meaningful differences between values are determined with
 traditional inferential statistics. While this may not be a problem for
 experimentally derived datasets, it can pose a barrier to researchers using
-small-$n$ data or conducting data-informed case studies.
+smaller datasets or conducting data-informed case studies.
 
 For CRQA, this can be addressed using *permutation tests*. Similar to more
 established methods of statistical significance in CRQA research [which create
@@ -943,18 +926,14 @@ positive events, and social cohesion and count of negative events using the
 permuted time series. This resulted in $1000$ results for each of the CRQA
 metrics for each combination of time series. Statistical significance from
 chance was set at the 95th and 99th percentiles of the metrics from the permuted
-CRQ analyses. Given that a permutation test is similar to bootstrapping but does
-not include replacement, all points were included in each CRQA analysis, leaving
-RR constant across all permutations. Thus, RR is not included in the inferential
-tests.
+CRQ analyses. Given that a permutation test is similar to bootstrapping but does not include replacement, all real recurrent points were included in each CRQA analysis, leaving RR constant across all permutations. Thus, RR is not included in the inferential stests.
 
 ### Windowed Cross-Recurrence Quantification Analysis
 We used windowed cross-recurrence quantification analysis [WCRQA;
 @webber2005recurrence] to further investigate the evolution of the temporal
 dynamics of social cohesion and real-world events. In this analysis, a smaller
 “window” of time points is used to calculate CRQA and capture more fine-grained
-dynamics of two time series. The window remains the same size and “slides”
-diagonally up the line of identity. The changes in the CRQA metrics across the
+dynamics of two time series. The window remains the same size and “slides” diagonally up the line of synchrony. The changes in the CRQA metrics across the
 windows can reveal changes in dynamics that can then be linked to external,
 real-world events. We implemented WCRQA using the `crqa` package [@R-crqa] for R
 [@R-base].
@@ -1276,7 +1255,7 @@ RR as the window moved, with above-chance values in the first 23 windows
 and the 57th--62nd windows. DET stayed largely within chance, with the exception
 of windows 1 and 4 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
 
-For social cohesion and negative events, RR was above chance for the 4th--6th and 46th--49th windows and below chance for the 56th--62nd windows. DET showed a upward trend as the windows moved. It bottomed out to zero for the 15th--23rd and 34th--39th windows, and was only above change for the 47th--54th and 62nd windows. (Figure
+For social cohesion and negative events, RR was above chance for the 4th--6th and 46th--49th windows and below chance for the 56th--62nd windows. DET showed an upward trend as the windows moved. It bottomed out to zero for the 15th--23rd and 34th--39th windows, and was only above change for the 47th--54th and 62nd windows. (Figure
 \@ref(fig:plot-wcrqa-source-targ-all)).
 
 [Figure \@ref(fig:plot-wcrqa-source-targ-all) about here]
@@ -1286,13 +1265,13 @@ In the present study, we investigated the dynamics of real-world events and
 online communication on Twitter in Syria during Arab Spring. CRQA methodology
 allows us to disentangle the relationship between sociolinguistic cohesion and
 exogenous political events. This work stands alongside the model of
-Palestinian-Israeli social media and events developed by @zeitzoff2017social, and
+Palestinian-Israeli social media and events developed by @zeitzoff2017social and
 the role of peripheral participants in the Syrian Arab Spring movement by
-@steinert2017spontaneous. By introducing the CRQA and WCRQA methods, we
+@steinert2017spontaneous. By introducing CRQA and WCRQA to political science as time series analysis methods, we
 demonstrate how language and social mobilization interact with events along the
 conflict-cooperation continuum in Syria. We have introduced a novel theoretical
-framework of sociolinguistic cohesion which we operationalize using a weighted
-measure of lexical relationships. Using nonlinear dynamical time series
+framework of sociolinguistic cohesion, which we operationalize using a weighted
+measure of lexical relationships among social media posts. Using nonlinear dynamical time series
 analyses, we investigated the theory that virtual mobilization is increasingly
 reflective of real-world events during times of strife.
 
@@ -1302,12 +1281,12 @@ The significant result of DET and NRLINE for social cohesion with all events
 supports our first hypothesis that event activity is coupled with online social
 cohesion. The frequency of all events are thus associated with
 greater shared trajectories with social cohesion than would be expected by
-chance. This could be due to a conflation of the different kinds of events. However, when we specifically target positive events, the coupling with social cohesion is strong, running counter to our second hypothesis. In addition to the significant DET and NRLINE metrics seen in the all events analysis, maxL and TT are significant for positive events, suggesting a more stable relationship. This may be a reflection of citizens' reaction to events that are positively influential to their cause. An act of concession by the government or aid from another country may have led to an increase in morale or feelings of hope, in turn leading to an uproar on Twitter in an attempt to boost morale. By contrast, negative event frequency showed weak coupling, counter to our third hypothesis. Although the significant result for maxL suggests stability, the lack of significant results for other metrics indicate that the maxL metric may point toward a particular period where coupling was strong, but that negative events were less coupled for the other points in time. Perhaps during times of intense strife, individuals in Syria focused on real-world action, turning to Twitter in the following days to report post-hoc what had happened. Further text analysis should be conducted to decipher the underlying tone of the tweets. 
+chance. This could be due to a conflation of the different kinds of events. However, when we specifically target positive events, the coupling with social cohesion is strong, running counter to our second hypothesis. In addition to the significant DET and NRLINE metrics seen in the all-events analysis, maxL and TT are significant for positive events, suggesting a more stable relationship. This may be a reflection of citizens' reaction to events that align with their cause. An act of concession by the government or aid from another country may have led to an increase in morale or feelings of hope, in turn leading to an uproar on Twitter in an attempt to boost morale. By contrast, negative event frequency showed weak coupling, counter to our third hypothesis. Although the significant result for maxL suggests stability, the lack of significant results for other metrics indicate that the maxL metric may point toward a particular period where coupling was strong, although negative events were less coupled for the other points in time. Perhaps during times of intense strife, individuals in Syria focused on real-world action, turning to Twitter to report and rally together. Further text analysis should be conducted to decipher the underlying tone of the tweets. 
 
 ### Syria as Source and Target
 By adding Syria as a source in the data filtering, the event dataset increased in size by `r num_source_target-num_target` samples. These additional observations are times where Syria initiated
 an event with another country. Events initiated by Syria but directed internally
-within the country were already captured by the target-only filtering. Taking outwardly directed events into account dramatically changed the coupling between all events and social cohesion. There is no longer a significant number of shared trajectories or line lengths, indicating that the cohesion on Twitter is not tied to the frequency of overall daily events. Since source events are at the root of this difference, it is plausible that Syrians were focused on the target events as they are immediately impacting them, and the addition of the source events now overshadows the relationship between target events and social cohesion online. In contrast, there was a slight increase in coupling strength between positive events and social cohesion that once again can only be due to the externally directed events. These two time series showed greater stability in their coupling (reflected in L). But the significant ENTR metric suggests that there is more variability in the coupling, and thus we do not feel that the source events impacted the positive event coupling notably, but rather broke up the trajectories formed by the target events. Although the coupling between social cohesion with negative events were largely unchanged, there was a slight decrease in coupling strength (reflected in maxL) and increase in complexity of shared trajectories (reflected in rENTR). Similarly to that of positive events, this change may not be reflective of source events themselves, but rather a disruption of the relationship with target events.
+within the country were already captured by the target-only filtering. Taking outwardly directed events into account dramatically changed the coupling between all events and social cohesion. There is no longer a significant number of shared trajectories or line lengths, indicating that the cohesion on Twitter is not tied to the frequency of overall daily events. Since source events are at the root of this difference, it is plausible that Syrians were focused on the target events as they are immediately impacting them; considering additional source events then overshadowed the relationship between target events and social cohesion online. In contrast, there was a slight increase in coupling strength between positive events and social cohesion that once again can only be due to the externally directed events. These two time series showed greater stability in their coupling (reflected in L). However, the significant ENTR metric suggests that there is more variability in the coupling, so rather than interpreting these two changes as a fundamental change in coupling between source events and positive events, we interpret this as a breaking-up of the trajectories formed by the target events. Although the coupling between social cohesion with negative events were largely unchanged, there was a slight decrease in coupling strength (reflected in maxL) and an increase in complexity of shared trajectories (reflected in rENTR). Similarly to that of positive events, this change may not be reflective of source events themselves, but rather a disruption of the relationship with target events.
 
 While interesting, the underlying meaning or drivers of these changes in CRQA results requires further investigation that incorporates the actual content of the tweets themselves. One possible reason (among many) may be that the findings were spurious. The source events may be covering up the relationship between different kinds of target events and Twitter social cohesion. However, we cannot test this hypothesis with the current time series data; future research should explore the semantic content of this tweet corpus to determine the nature of the socially cohered
 language.
