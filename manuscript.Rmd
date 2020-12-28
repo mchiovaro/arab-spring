@@ -249,7 +249,7 @@ function of the available political opportunity structures. The political
 opportunity structure is “comprised of *(sic)* specific configurations of
 resources, institutional arrangements and historical precedents for social
 mobilization, which facilitate the development of protest movements in some
-instances and constrain them in others” [@kitschelt1986political]. Emergent strategies and tactics in contentious politics are a function of
+instances and constrain them in others” [@kitschelt1986political, p. 58]. Emergent strategies and tactics in contentious politics are a function of
 what the system makes possible. This includes the number of people and their
 disposition (i.e. nonviolent or violent), as well as their internal structure.
 The more cohesive a group is, the greater threat they pose to the establishment.
