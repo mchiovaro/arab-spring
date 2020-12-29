@@ -1063,7 +1063,7 @@ found a statistical difference from chance for DET, NRLINE, maxL, LAM, and TT. A
 metrics did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
-found a statistically significant difference from chance for maxL. All other metrics did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
+found a statistically significant difference from chance for DET, NRLINE, and maxL. All other metrics did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
 
 [Figure \@ref(fig:plot-rp-targ) and \autoref{table-1} about here]
 
@@ -1122,17 +1122,16 @@ knitr::include_graphics("./results/primary/crqa/target-rp-joined.png")
 
 ### Syria as Source and Target
 A permutation test for the CRQA of social cohesion and count of all events found
-a statistical difference from chance for maxL and LAM. All other metrics
+a statistical difference from chance for DET, maxL, and LAM. All other metrics
 were non-significant (Figure \@ref(fig:plot-rp-source-targ);
 \autoref{table-2}).
 
 A permutation test for the CRQA of social cohesion and count of positive events
-found a statistical difference from chance for DET, NRLINE, maxL, L, ENTR, and LAM (Figure
+found a statistical difference from chance for DET, L, ENTR, rENTR, and LAM (Figure
 \@ref(fig:plot-rp-source-targ); \autoref{table-2}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
-found a statistical difference from chance for rENTR. All other
-metrics were non-significant (Figure \@ref(fig:plot-rp-source-targ);
+found no statistical difference from chance for and metrics (Figure \@ref(fig:plot-rp-source-targ);
 \autoref{table-2}).
 
 [Figure \@ref(fig:plot-rp-source-targ) and \autoref{table-2} about here]
