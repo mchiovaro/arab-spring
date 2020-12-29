@@ -47,8 +47,8 @@ appendix          :
 
 documentclass     : "apa6"
 classoption       : "man"
-output            : papaja::apa6_word
-#output            : papaja::apa6_pdf
+#output            : papaja::apa6_word
+output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -656,14 +656,14 @@ The tweets were first sorted into ascending order by timestamp. They were then g
 \frac{log(f(t_i, d_1) + f(t_i, d_2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
-Equation 1 identifies the inverse frequency weighting of each overlapping word ti between two tweets d_1 and d_2, relative to the word’s frequency in the corpus D, for all overlapping words t1...k between the two tweets.
+Equation 1 identifies the inverse frequency weighting of each overlapping word $t_i$ between two tweets $d_1$ and $d_2$, relative to the word’s frequency in the corpus D, for all overlapping words $t_{1...k}$ between the two tweets.
 
 \begin{align}
 \text{Inverse frequency weighting of all words = }\sum_{i=1}^n \frac{log(f(t_i,
 d_1) + f(t_i, d_2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
-Equation 2 then calculates the inverse frequency of each word ti  in tweets d_1 and d_2, relative to the word’s frequency in the corpus D, for all words t1...n that appear in either tweet.
+Equation 2 then calculates the inverse frequency of each word $t_i$  in tweets $d_1$ and $d_2$, relative to the word’s frequency in the corpus D, for all words $t{1...n}$ that appear in either tweet.
 
 \begin{align}
 \text{Two tweets' similarity =}\frac{\text{inverse frequency weighting of overlap
@@ -928,7 +928,7 @@ positive events, and social cohesion and count of negative events using the
 permuted time series. This resulted in $1000$ results for each of the CRQA
 metrics for each combination of time series. Statistical significance from
 chance was set at the 95th and 99th percentiles of the metrics from the permuted
-CRQ analyses. Given that a permutation test is similar to bootstrapping but does not include replacement, all real recurrent points were included in each CRQA analysis, leaving RR constant across all permutations. Thus, RR is not included in the inferential stests.
+CRQ analyses. Given that a permutation test is similar to bootstrapping but does not include replacement, all real recurrent points were included in each CRQA analysis, leaving RR constant across all permutations. Thus, RR is not included in the inferential tests.
 
 ### Windowed Cross-Recurrence Quantification Analysis
 We used windowed cross-recurrence quantification analysis [WCRQA;
@@ -1108,7 +1108,8 @@ panderOptions('keep.trailing.zeros', TRUE)
 panderOptions("table.style", "rmarkdown")
 
 # build table
-pander(target_results, caption = "\\label{table-1}CRQA results for target-only data.")
+pander(target_results, caption = "\\label{table-1}CRQA results for target-only data.\n. p < .10, * p < .05, ** p < .001")
+
 
 ```
 
@@ -1177,7 +1178,7 @@ panderOptions('keep.trailing.zeros', TRUE)
 panderOptions("table.style", "rmarkdown")
 
 # build table
-pander(source_target_results, caption = "\\label{table-2}CRQA results for source and target data.")
+pander(source_target_results, caption = "\\label{table-2}CRQA results for source and target data.\n. p < .10, * p < .05, ** p < .001")
 
 ```
 
@@ -1283,7 +1284,7 @@ The significant result of DET and NRLINE for social cohesion with all events
 supports our first hypothesis that event activity is coupled with online social
 cohesion. The frequency of all events are thus associated with
 greater shared trajectories with social cohesion than would be expected by
-chance. This could be due to a conflation of the different kinds of events. However, when we specifically target positive events, the coupling with social cohesion is strong, running counter to our second hypothesis. In addition to the significant DET and NRLINE metrics seen in the all-events analysis, maxL and TT are significant for positive events, suggesting a more stable relationship. This may be a reflection of citizens' reaction to events that align with their cause. An act of concession by the government or aid from another country may have led to an increase in morale or feelings of hope, in turn leading to an uproar on Twitter in an attempt to boost morale. By contrast, negative event frequency showed weak coupling, counter to our third hypothesis. Although the significant result for maxL suggests stability, the lack of significant results for other metrics indicate that the maxL metric may point toward a particular period where coupling was strong, although negative events were less coupled for the other points in time. Perhaps during times of intense strife, individuals in Syria focused on real-world action, turning to Twitter to report and rally together. Further text analysis should be conducted to decipher the underlying tone of the tweets. 
+chance. This could be due to a conflation of the different kinds of events. However, when we specifically target positive events, the coupling with social cohesion is strong, running counter to our second hypothesis. In addition to the significant DET and NRLINE metrics seen in the all-events analysis, maxL and TT are significant for positive events, suggesting a more stable relationship. This may be a reflection of citizens' reaction to events that align with their cause. An act of concession by the government or aid from another country may have led to an increase in morale or feelings of hope, in turn leading to a groundswell of support on Twitter in an attempt to boost morale. By contrast, negative event frequency showed weak coupling, counter to our third hypothesis. Although the significant result for maxL suggests stability, the lack of significant results for other metrics indicate that the maxL metric may point toward a particular period where coupling was strong, although negative events were less coupled for the other points in time. Perhaps during times of intense strife, individuals in Syria focused on real-world action, turning to Twitter to report and rally together. Further text analysis should be conducted to decipher the underlying tone of the tweets. 
 
 ### Syria as Source and Target
 By adding Syria as a source in the data filtering, the event dataset increased in size by `r num_source_target - num_target` samples. These additional observations are times where Syria initiated
