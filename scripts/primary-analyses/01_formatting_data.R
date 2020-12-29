@@ -15,14 +15,14 @@
 rm(list=ls())
 
 # read in the data 
-cohesion_df <- read.csv("./data/raw/syria_cohesion.csv")
+cohesion_df_original <- read.csv("./data/raw/syria_coherence_sort_5.csv")
 ICEWS_df <- read.delim("./data/raw/events.2012.20150313084811.tab", 
                        header = TRUE, sep = "\t", quote = "")
 
 #### 2. Filter and format the time series ####
 
 ### prep cohesion data ###
-cohesion_df <- cohesion_df %>%
+cohesion_df <- cohesion_df_original %>%
   
   mutate(Start.Year = 2012) %>%
   
@@ -38,7 +38,7 @@ cohesion_df <- cohesion_df %>%
   group_by(Date) %>%
   
   summarise(n = n(),
-            MeanCohesion = mean(Cohesion_avg, na.rm=T))
+            MeanCohesion = mean(Cohesion..avg., na.rm=T))
 
 ### filter for source and target ###
 
