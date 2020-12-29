@@ -18,8 +18,10 @@ library(readxl)
 rm(list=ls())
 
 # read in the data 
-raw_tweets <- read_excel("./data/raw/syria_merge.xlsx")
-coh_data <- read.csv("./data/raw/syria_cohesion.csv",
+raw_tweets <- read.csv("./data/raw/syria_merge_sort.csv",
+                       header = TRUE,
+                       sep = ',')
+coh_data <- read.csv("./data/raw/syria_coherence_sort_5.csv",
                      header = TRUE,
                      sep = ',')
 
