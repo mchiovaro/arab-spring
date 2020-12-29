@@ -681,7 +681,7 @@ frequency* [tf-idf; see also @jones1972statistical;
 ```{r raw-cohesion-ts, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw social cohesion metric time series."}
 
 # read in social cohesion data
-raw_cohesion_data <- read.csv("./data/raw/syria_cohesion.csv")
+raw_cohesion_data <- read.csv("./data/raw/syria_coherence_sort_5.csv")
 
 # converge date to single variable
 raw_cohesion_data$Start.Year <- "2012"
@@ -696,8 +696,8 @@ raw_cohesion_data$date <- as.Date(with(raw_cohesion_data,
 raw_cohesion_ts <- raw_cohesion_data %>%
   group_by(date) %>%
   summarise(
-    MeanCohesion = mean(Cohesion_avg),
-    sd = sd(Cohesion_avg),
+    MeanCohesion = mean(Cohesion..avg.),
+    sd = sd(Cohesion..avg.),
     var = sd^2,
     n = n(),
     se = sd / n) %>%
@@ -888,7 +888,7 @@ typically used in categorical CRQA: Delay was set to $0$, embedding dimension
 was set to $1$, and radius was set to $.001$ to allow for only exact recurrent
 matches. No normalization was done, and lines were considered two or more
 consecutive recurrent points. The Theiler window was set to $0$ to include
-points along the line of identity. For more details on the CRQA parameters and
+points along the line of synchrony. For more details on the CRQA parameters and
 how they impact analyses, see @R-crqa.
 
 #### Permutation Test
@@ -952,7 +952,7 @@ investigate the dynamics over two weeks and allow for the capture of more
 structure and thus a more meaningful interpretation of DET. A window size smaller than 14 would limit the possibilities for shared trajectories and make determinism uninterpretable, and window sizes larger than 14 would increasingly overshadow the fine-grain dynamics that we want to investigate.
 
 The second parameter to be chosen is a *window step size*. Window step size is
-how far the window moves up the line of identity before conducting CRQA again.
+how far the window moves up the line of synchrony before conducting CRQA again.
 We chose $1$ for the step size to understand how the metrics evolve from day to
 day.
 
