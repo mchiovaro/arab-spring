@@ -1267,44 +1267,167 @@ allows us to disentangle the relationship between sociolinguistic cohesion and
 exogenous political events. This work stands alongside the model of
 Palestinian-Israeli social media and events developed by @zeitzoff2017social and
 the role of peripheral participants in the Syrian Arab Spring movement by
-@steinert2017spontaneous. By introducing CRQA and WCRQA to political science as time series analysis methods, we
-demonstrate how language and social mobilization interact with events along the
-conflict-cooperation continuum in Syria. We have introduced a novel theoretical
-framework of sociolinguistic cohesion, which we operationalize using a weighted
-measure of lexical relationships among social media posts. Using nonlinear dynamical time series
+@steinert2017spontaneous. By introducing CRQA and WCRQA to political science as
+time series analysis methods, we demonstrate how language and social
+mobilization interact with events along the conflict-cooperation continuum in
+Syria. We have introduced a novel theoretical framework of sociolinguistic
+cohesion, which we operationalize using a weighted measure of lexical
+relationships among social media posts. Using nonlinear dynamical time series
 analyses, we investigated the theory that virtual mobilization is increasingly
 reflective of real-world events during times of strife.
 
 ## Cross-Recurrence Quantification Analysis
 ### Syria as Target
-The significant result of DET and NRLINE for social cohesion with all events supports our first hypothesis that event activity is coupled with online social cohesion. The frequency of all events are thus associated with a greater number and greater length of shared trajectories with social cohesion than would be expected by chance. This could be due to a conflation of the different kinds of events. However, when we specifically target positive events, the coupling with social cohesion is strong, running counter to our second hypothesis. In addition to the significant DET,NRLINE, and LAM metrics seen in the all-events analysis, maxL and TT are significant for positive events, suggesting a more stable relationship. This may be a reflection of citizens’ reactions to events that align with their cause. An act of concession by the government or aid from another country may have led to an increase in morale or feelings of hope, in turn leading to a groundswell of support on Twitter in an attempt to boost morale. 
+The significant result of DET and NRLINE for social cohesion with all events
+supports our first hypothesis that event activity is coupled with online social
+cohesion. The frequency of all events are thus associated with a greater number
+and greater length of shared trajectories with social cohesion than would be
+expected by chance. This could be due to a conflation of the different kinds of
+events. However, when we specifically target positive events, the coupling with
+social cohesion is strong, running counter to our second hypothesis. In addition
+to the significant DET,NRLINE, and LAM metrics seen in the all-events analysis,
+maxL and TT are significant for positive events, suggesting a more stable
+relationship. This may be a reflection of citizens’ reactions to events that
+align with their cause. An act of concession by the government or aid from
+another country may have led to an increase in morale or feelings of hope, in
+turn leading to a groundswell of support on Twitter in an attempt to boost
+morale.
 
-Negative event frequency also showed coupling with social cohesion, as indicated by significant DET, NRLINE, and maxL metrics.. The significant result for maxL again suggests greater stability of coupling with negative events than with all events. Perhaps during times of intense strife, individuals in Syria focused on communication and public awareness, turning to Twitter to report and rally together. Further text analysis should be conducted to decipher the underlying tone of the tweets.
+Negative event frequency also showed coupling with social cohesion, as indicated
+by significant DET, NRLINE, and maxL metrics.. The significant result for maxL
+again suggests greater stability of coupling with negative events than with all
+events. Perhaps during times of intense strife, individuals in Syria focused on
+communication and public awareness, turning to Twitter to report and rally
+together. Further text analysis should be conducted to decipher the underlying
+tone of the tweets.
 
 ### Syria as Source and Target
-By adding Syria as a source in the data filtering, the event dataset increased in size by `r num_source_target - num_target` observations. These additional observations were times in which Syria initiated an event with another country. Events initiated by Syria but directed internally within the country were already captured by the target-only filtering. Taking outwardly directed events into account  changed the coupling for all-event filtering methods. There was no longer a significant number of shared trajectories or line lengths for social cohesion and count of all events. The recurrent points were still more likely to fall in diagonal trajectories (as seen in the significant DET metric), but there were fewer trajectories overall. This indicates that the cohesion on Twitter is not as strongly tied to the frequency of overall daily events when considering Syria as the target country, as they are less likely to share the same intensity values across extended periods of time. Since Syria-as-source events must be at the root of this difference, it is plausible that Syrians were focused on the target events as they are immediately impacting them; integrating  additional source events then overshadowed the relationship between target events and social cohesion online. 
+By adding Syria as a source in the data filtering, the event dataset increased
+in size by `r num_source_target - num_target` observations. These additional
+observations were times in which Syria initiated an event with another country.
+Events initiated by Syria but directed internally within the country were
+already captured by the target-only filtering. Taking outwardly directed events
+into account  changed the coupling for all-event filtering methods. There was no
+longer a significant number of shared trajectories or line lengths for social
+cohesion and count of all events. The recurrent points were still more likely to
+fall in diagonal trajectories (as seen in the significant DET metric), but there
+were fewer trajectories overall. This indicates that the cohesion on Twitter is
+not as strongly tied to the frequency of overall daily events when considering
+Syria as the target country, as they are less likely to share the same intensity
+values across extended periods of time. Since Syria-as-source events must be at
+the root of this difference, it is plausible that Syrians were focused on the
+target events as they are immediately impacting them; integrating  additional
+source events then overshadowed the relationship between target events and
+social cohesion online.
 
-In contrast, there was a slight change in coupling between positive events and social cohesion that once again can only be due to the externally directed events. These two time series showed greater stability in their coupling (reflected in L) but lower attractor strength (reflected in maxL). This means that—although the longest trajectory in the target-only analysis was disrupted by the addition of source events—the additional observations resulted in an overall greater average length of trajectories. However, the significant ENTR and rENTR metrics suggest that there was more variability in the coupling. Rather than interpreting these two changes as a fundamental change in coupling between source events and positive events, this may indicate that the trajectories formed by the target events were broken by the additional source events. This would also explain the overall decrease in the number of shared trajectories (reflected in NRLINE). 
+In contrast, there was a slight change in coupling between positive events and
+social cohesion that once again can only be due to the externally directed
+events. These two time series showed greater stability in their coupling
+(reflected in L) but lower attractor strength (reflected in maxL). This means
+that—although the longest trajectory in the target-only analysis was disrupted
+by the addition of source events—the additional observations resulted in an
+overall greater average length of trajectories. However, the significant ENTR
+and rENTR metrics suggest that there was more variability in the coupling.
+Rather than interpreting these two changes as a fundamental change in coupling
+between source events and positive events, this may indicate that the
+trajectories formed by the target events were broken by the additional source
+events. This would also explain the overall decrease in the number of shared
+trajectories (reflected in NRLINE).
 
-The coupling between social cohesion with negative events changed dramatically. All previously significant metrics (DET, NRLINE, maxL) became non-significant. Similarly to that of positive events, this change may not be reflective of source events themselves but rather a disruption of the relationship with target events. The negative outward-directed source events may not have been of interest to Syrian Twitter users. Those external events may have then overshadowed the true coupled system between negative target events and virtual social cohesion.
+The coupling between social cohesion with negative events changed dramatically.
+All previously significant metrics (DET, NRLINE, maxL) became non-significant.
+Similarly to that of positive events, this change may not be reflective of
+source events themselves but rather a disruption of the relationship with target
+events. The negative outward-directed source events may not have been of
+interest to Syrian Twitter users. Those external events may have then
+overshadowed the true coupled system between negative target events and virtual
+social cohesion.
 
-While interesting, the underlying meaning or drivers of these changes in CRQA results requires further investigation that incorporates the actual content of the tweets themselves. One possible reason (among many) may be that the processes of social cohesion of a population in the midst of an uprising are more tightly coupled to the state of the country itself, rather than the externally directed actions taken by the ruling class to manage international relations. For example, we observed coupling between negative events and social cohesion when considering only the target-filtered data, but that coupling disappeared when we added the source-filtered data to our dataset. In other words, the source events—that is, those taken by Syria toward parties outside of Syria (since Syrian-directed, Syrian-initiated actions were already included in the target-only dataset)—may have muddied the relationship between different kinds of target events and Twitter social cohesion—that is, the “singing with one voice” of the Syrian populace as they protested against their government. However, we cannot test this hypothesis with the current time series data; future research should explore the semantic content of this tweet corpus to determine the nature of the socially cohered language.
+While interesting, the underlying meaning or drivers of these changes in CRQA
+results requires further investigation that incorporates the actual content of
+the tweets themselves. One possible reason (among many) may be that the
+processes of social cohesion of a population in the midst of an uprising are
+more tightly coupled to the state of the country itself, rather than the
+externally directed actions taken by the ruling class to manage international
+relations. For example, we observed coupling between negative events and social
+cohesion when considering only the target-filtered data, but that coupling
+disappeared when we added the source-filtered data to our dataset. In other
+words, the source events—that is, those taken by Syria toward parties outside of
+Syria (since Syrian-directed, Syrian-initiated actions were already included in
+the target-only dataset)—may have muddied the relationship between different
+kinds of target events and Twitter social cohesion—that is, the “singing with
+one voice” of the Syrian populace as they protested against their government.
+However, we cannot test this hypothesis with the current time series data;
+future research should explore the semantic content of this tweet corpus to
+determine the nature of the socially cohered language.
 
 ## Windowed-Recurrence Quantification Analysis
 
 ### Syria as Target
 For the RR values in WCRQA of social cohesion and count of all events (Figure
-\@ref(fig:plot-wcrqa-targ-all)), we see both an early and late above-chance peak. However, DET for these periods only rises above chance for the later peak. During this later period, the modal ICEWS event for each day (Figure
+\@ref(fig:plot-wcrqa-targ-all)), we see both an early and late above-chance
+peak. However, DET for these periods only rises above chance for the later peak.
+During this later period, the modal ICEWS event for each day (Figure
 \@ref(fig:plot-mode-event)) was almost consistently -10, the most violent event
-category. This supports our first hypothesis, that overall online cohesion may reflect the frequency of events occurring on the ground, particularly those that are violent in nature.
+category. This supports our first hypothesis, that overall online cohesion may
+reflect the frequency of events occurring on the ground, particularly those that
+are violent in nature.
 
 [Figure \@ref(fig:plot-mode-event) about here]
 
-///
+For positive events, we see a similar early peak in RR, but the later
+above-chance values did not match up temporally with that of the all-events time
+series (FIX Figure 10). This suggests that the early stretch of above-chance RR
+may have been captured in the RR of the all-events analysis, whereas the shorter
+stretches were overshadowed by the coupling with negative events. The early
+period of above-chance DET in the positive-event analysis aligned with the early
+period of above-chance RR, whereas the later stretch of significant DET values
+aligns temporally with that of the all-events analysis. It is possible that the
+later stretch reflected the decrease in the number of positive events happening
+(FIX see Fig. 4), while the relative sparsity of positive events led to an
+increase in coupling, with denizens rallying around dwindling bits of hope as
+time went on.
+
+For negative events, RR rarely reached above-chance values, but around the later
+windows, there were above-chance peaks in both RR and DET that were similar to
+that of the all-events analysis. As mentioned above, this time period was almost
+consistently dominated by events with a score of -10, indicating the most
+violent, dramatic events; during this time, Twitter users may come together to
+express grievances, bring about public awareness, ask for the help of other
+countries, or just document the events. However, further semantic analysis is
+needed to investigate these hypotheses.
+
+The above-chance values for negative-event coupling are followed by a consistent
+period of below-chance RR and a drastic drop in DET, co-occurring with the
+increase in positive-event coupling. This again may reflect the shift in
+attention to some positive events (e.g., aid, ceasefire agreements) or even a
+decrease in hostilities. However, the present analyses should be complemented
+with future analyses of semantic content to investigate these possible
+explanations.
 
 ### Syria as Source and Target
+For count of all events and social cohesion, the WCRQA plot for RR looked
+largely the same as that of the target-only events, but DET showed a new early
+peak in above-chance values. This suggests that the overall number of events
+were more consistent from day to day when considering source events, as might be
+expected given that individuals can only participate in a limited number of
+events each day. Days that previously had a lower than average number of target
+events may now have had a more near-average number of source and target events
+because the reduced participation in target events allows for increased
+participation and initiation of source events.
 
-///
+For positive events, we see a similar trend in RR as was observed in the
+target-only dataset, with a more pronounced late peak. However, the previously
+significant peaks in DET were no longer present. The addition of source events
+may have thus increased the amount of recurrence but overshadowed the
+trajectories of shared values found in the target-only events.
+
+For negative events, the early peak in RR for the target-only filtering was
+dramatically reduced compared to the target-only dataset, now spanning only two
+windows. Similar to that of positive events, the late peak in DET was no longer
+present. We hypothesize again that the addition of source events may have
+obscured the true coupled relationship between the negative events and social
+cohesion.
 
 ## Implications for Methodology and Theory
 
@@ -1328,17 +1451,26 @@ political scientists work to expand efforts for improving the temporal
 granularity of the data. One possible means of achieving this may be through
 collaborative efforts like the Open Event Data Alliance [@schrodt2014three].
 
-This methodology should be of great interest to interdisciplinary scientists investigating
-social mobilization. It has potential applications for gender studies and
-the #MeToo movement and for the relationship between social protest and repression
-during the Black Lives Matter protests. This methodological
-approach can help us better understand the fundamental human social mechanisms underlying
-social media and its influence on human behavior in real life. Given that many
-governments enact repressive measures when they determine that collective action
-by citizens is imminent, this methodology should help to improve the predictive
-power of using social media data in estimating repressive behavior. If social
-media messages are increasing in cohesion, this may represent a threat to civil
-and political liberties of citizens engaging in collective action.
+After identifying the dataset of interest, researchers should think carefully
+about how they will winnow down their data for analysis. The differences in our
+findings when considering target-only or source-and-target filtering highlight
+the importance of considering directionality when using event data. The parties
+involved and the specific actions they take can dramatically influence results,
+and it is critical to think carefully about which will be chosen and why.
+
+This methodology should be of great interest to interdisciplinary scientists
+investigating social mobilization. It has potential applications for gender
+studies and the #MeToo movement and for the relationship between social protest
+and repression during the Black Lives Matter protests. This methodological
+approach can help us better understand the fundamental human social mechanisms
+underlying social media and its influence on human behavior in real life. Given
+that many governments enact repressive measures when they determine that
+collective action by citizens is imminent, this methodology should help to
+improve the predictive power of using social media data in estimating repressive
+behavior. If social media messages are increasing in cohesion, this may
+represent a threat to civil and political liberties of denizens engaging in
+collective action, a unified reaction to sparse positive events, or an attempt
+to decry the government’s attempt to distract from what may be going on.
 
 ## Conclusion
 Considering the pervasiveness of social media, it is unsurprising that social
@@ -1354,9 +1486,9 @@ By conceptualizing Twitter and real-world events as two elements of an
 inextricably linked dynamical system, the levels of social cohesion within
 social media platforms could be monitored for fluctuations indicating shifts in
 power and peace. Social media mobilization may thus help alert the world to
-citizens' actions and reactions that are suppressed by government regimes,
-providing insight into events that may not otherwise be broadcast and allowing
-for faster intervention.
+citizens' actions and reactions that are otherwise suppressed by government
+regimes, providing insight into events that may not otherwise be broadcast and
+allowing for faster intervention.
 
 # Acknowledgements
 
