@@ -672,7 +672,7 @@ tweet_stats <- read.csv("./data/formatted/primary/stats.csv")
 The corpus of tweets used included `r tweet_stats$total_tweets` English-language
 Syrian tweets occurring between March 31--June 15, 2012. Using the Twitter
 streaming API, servers at the University of Texas at Austin collected the
-tweets. The servers were run on a stable (LTS) version of Ubuntu Linus (v.
+tweets. The servers were run on a stable (LTS) version of Ubuntu Linux (v.
 10.04) and were connected directly to the high-bandwidth UT network maintained
 by IT services.
 
