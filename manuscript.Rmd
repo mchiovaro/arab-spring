@@ -11,7 +11,7 @@ author:
   - name          : "Leah C. Windsor"
     affiliation   : "3,*"
   - name          : "Alistair Windsor"
-    affiliation   : "4"
+    affiliation   : "3,4"
   - name          : "Alexandra Paxton"
     affiliation   : "1,2,*"
 
@@ -727,9 +727,9 @@ grouped into successive sets of five tweets. Groups of five were chosen to allow
 for manageability and efficiency of the analyses. Linguistic cohesion was
 quantified for all possible pairs of tweets in the group of five, resulting in
 10 pairs per group of tweets; all 10 cohesion values for the group were averaged
-for a single group cohesion value. The cohesion value for each day was
-quantified as the average cohesion values for all groups in that day. Each
-pair’s cohesion value was calculated in three parts:
+for a single group cohesion value. The cohesion value for each day was computed
+as the average cohesion values for all groups whose first tweet was on that day.
+Each pair’s cohesion value was calculated in three parts:
 
 \begin{align}
 \text{Inverse frequency weighting of overlap words = }\sum_{i=1}^k
@@ -1003,47 +1003,58 @@ consecutive recurrent points. The Theiler window was set to $0$ to include
 points along the line of synchrony. For more details on the CRQA parameters and
 how they impact analyses, see @R-crqa.
 
-#### Permutation Test
+#### Approximate Permutation Test
 Unlike some nonlinear analyses (e.g., fractal analyses), CRQA metrics do not
 have inherently meaningful values. As a result, CRQA is best used as a relative
-metric---that is, comparing the CRQA values across conditions or subsets of the
+metric—that is, comparing the CRQA values across conditions or subsets of the
 data. Typically, meaningful differences between values are determined with
 traditional inferential statistics. While this may not be a problem for
 experimentally derived datasets, it can pose a barrier to researchers using
-smaller datasets or conducting data-informed case studies.
+smaller datasets or conducting data-informed case studies. 
 
-For CRQA, this can be addressed using *permutation tests*. Similar to more
-established methods of statistical significance in CRQA research [which create
-surrogate time series; e.g., @paxton2017interpersonal], the permutation test
-approach to significance testing allows the researcher to use a time series as
-its own baseline by testing whether the *structure* of the unfolding events of
-the time series---rather than the *raw frequency* of the events within the time
-series---cohere together more than would be expected by chance. A permutation
-test is similar to bootstrapping, except that the sampling of observations is
-done without replacement. In this approach, we simply create a large number of
-permutations of the original time series (i.e., breaking up the dependency
-across time points but preserving the frequencies of the events), conduct CRQA
-for each of those permutations, and then examine whether the real time series'
-CRQA metrics exceed those that we would expect to see by chance. The proportion
-of times that the real time series' values exceeds the surrogate time series'
-values can be interpreted as the alpha criterion to determine significance. For
-more information on permutation tests, see @good2013permutation.
+For CRQA, this can be addressed using *approximate permutation tests*. Similar
+to more established methods of statistical significance in CRQA research (which
+create surrogate time series; e.g., @paxton2017interpersonal), the permutation
+test approach to significance testing allows the researcher to use a time series
+as its own baseline by testing whether the *structure* of the unfolding events
+of the time series—rather than the *raw frequency* of the events within the time
+series—cohere together more than would be expected by chance. Permutation tests
+are used to identify null distributions for test statistics when the null
+hypothesis is that the group assignment does not matter, and they can be used
+when traditional parametric tests may not be appropriate [e.g.,
+@collingridge2013primer;
+@boring2016student]. The test is similar to bootstrapping, except that the
+sampling of observations is done without replacement.
+
+To quantify the differences in the CRQA metrics from those that would be
+expected by chance, we conducted approximate permutation tests for significance
+with upper and lower bounds for the 95th and 99th percentiles (comparable to
+traditional alpha criteria of .05 and .01, respectively). In this approach, we
+simply create a large number of permutations of the original time series (i.e.,
+breaking up the dependency across time points but preserving the frequencies of
+the events), conduct CRQA for each of those permutations, and then examine
+whether the real time series’ CRQA metrics exceed those that we would expect to
+see by chance. The proportion of times that the real time series’ values exceeds
+the surrogate time series’ values can be interpreted as the alpha criterion to
+determine significance. For more information on permutation tests, see
+@good2013permutation.
 
 Using the real deciled time series of social cohesion, count of all events,
 count of positive events, and count of negative events, we conducted a series of
 permutation tests (one for the comparison between social cohesion and each type
-of event count) to determine whether the observed measure is statistically different from chance for each CRQA
-metric. Using the `sample` function in base R [@R-base], $1000$ permuted time
-series were created for each of the real time series. CRQA was then run $1000$
-times for social cohesion and count of all events, social cohesion and count of
-positive events, and social cohesion and count of negative events using the
-permuted time series. This resulted in $1000$ results for each of the CRQA
-metrics for each combination of time series. Statistical significance from
-chance was set at the 95th and 99th percentiles of the metrics from the permuted
-CRQ analyses. Given that a permutation test is similar to bootstrapping but does
-not include replacement, all real recurrent points were included in each CRQA
-analysis, leaving RR constant across all permutations. Thus, RR is not included
-in the inferential tests.
+of event count) to determine whether the observed measure is statistically
+different from chance for each CRQA metric. Using the `sample` function in base
+R [@R-base], $1000$ permuted time series were created for each of the real time
+series. CRQA was then run for each permuted time series combination for social
+cohesion and count of all events, social cohesion and count of positive events,
+and social cohesion and count of negative events using the permuted time series.
+This resulted in $1000$ results for each of the CRQA metrics for each
+combination of time series. Statistical significance from chance was set at the
+95th and 99th percentiles of the metrics from the permuted CRQ analyses. Given
+that a permutation test is similar to bootstrapping but does not include
+replacement, all real recurrent points were included in each CRQA analysis,
+leaving RR constant across all permutations. Thus, RR is not included in the
+inferential tests.
 
 ### Windowed Cross-Recurrence Quantification Analysis
 We used windowed cross-recurrence quantification analysis [WCRQA;
@@ -1065,10 +1076,13 @@ In addition to the CRQA parameters, two other parameters are required when
 conducting WCRQA. First, the *window size* will determine how many observations
 are used in each CRQA analysis. We conducted WCRQA with a window size of $14$ to
 investigate the dynamics over two weeks and allow for the capture of more
-structure and thus a more meaningful interpretation of DET. A window size
-smaller than 14 would limit the possibilities for shared trajectories and make
-determinism uninterpretable, and window sizes larger than 14 would increasingly
-overshadow the fine-grain dynamics that we want to investigate.
+structure and thus a more meaningful interpretation of DET. We first attempted
+to use a window size of $7$ to investigate the dynamics at the week scale, but
+found that window sizes smaller than $14$ limited the possibilities for shared
+trajectories and made determinism uninterpretable. In addition, window sizes
+larger than $14$ increasingly overshadowed the fine-grain dynamics that we wanted
+to investigate. Thus we decided to use a window size of $14$ to investigate the
+dynamics at the two week scale.
 
 The second parameter to be chosen is a *window step size*. Window step size is
 how far the window moves up the line of synchrony before conducting CRQA again.
@@ -1084,13 +1098,14 @@ of the metrics across time. These dynamics can then be linked to other external
 events. See Figures \@ref(fig:plot-wcrqa-targ-all) and
 \@ref(fig:plot-wcrqa-source-targ-all) for examples.
 
-#### Permutation Test
+#### Approximate Permutation Test
 To visualize the differences in the WCRQA metrics from those obtained by chance,
-a permutation test was done to set upper and lower bounds for the 95th and 99th
-percentiles. Using a sample size of 14, $1000$ permuted time series were
-generated without replacement for each real time series. The upper and lower
-95th and 99th percentiles were set based on the distribution of the permuted
-WCRQA metrics.
+a permutation test was done. $1000$ permuted time series were generated (without
+replacement) of length $14$, (in accordance with the 14-day windows of real data
+for our WCRQA analyses), for each real time series; WCRQA was conducted on each
+combination of cohesion and event permuted time series. The upper and lower 95th
+and 99th percentiles for significance were set based on the distribution of the
+permuted WCRQA metrics.
 
 # Results
 ```{r primary-crqa, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='hide'}
@@ -1547,12 +1562,10 @@ explanations.
 For count of all events and social cohesion, the WCRQA plot for RR looked
 largely the same as that of the target-only events, but DET showed a new early
 peak in above-chance values. This suggests that the overall number of events
-were more consistent from day to day when considering source events, as might be
-expected given that individuals can only participate in a limited number of
-events each day. Days that previously had a lower than average number of target
-events may now have had a more near-average number of source and target events
-because the reduced participation in target events allows for increased
-participation and initiation of source events.
+were more consistent from day to day when considering both source and target
+events, as compared to target-only events. In other words, days that previously
+had a more variable number of target events may now have had a more stable
+number of source and target events.
 
 For positive events, we see a similar trend in RR as was observed in the
 target-only dataset, with a more pronounced late peak. However, the previously
@@ -1623,10 +1636,7 @@ new avenue to gain insight into truths about uprisings and social mobilization.
 By conceptualizing Twitter and real-world events as two elements of an
 inextricably linked dynamical system, the levels of social cohesion within
 social media platforms could be monitored for fluctuations indicating shifts in
-power and peace. Social media mobilization may thus help alert the world to
-citizens' actions and reactions that are otherwise suppressed by government
-regimes, providing insight into events that may not otherwise be broadcast and
-allowing for faster intervention.
+power and peace.
 
 # Acknowledgements
 
