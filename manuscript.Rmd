@@ -99,9 +99,9 @@ The cohesiveness and strength of social movements before the Internet were
 operationalized by the number of people present and through the political events
 that precipitated and resulted from social gatherings *en masse*. Cohesive
 social movements were reflected in their cohesive placards and posters. For
-example, the pervasive “I am a man” posters during the 1968 Memphis sanitation workers'
-strike reflected their internal cohesion and unified, goal-oriented movement
-[@Windsor2020].
+example, the pervasive “I am a man” posters during the 1968 Memphis sanitation
+workers' strike reflected their internal cohesion and unified, goal-oriented
+movement [@Windsor2020].
 
 However, the rise of the Internet and its decentralized online networks have
 upended theories about recruitment to---and participation in---social movements.
@@ -110,13 +110,21 @@ predict involvement in social movements [@steinert2017spontaneous]. Measurements
 of social movements have similarly evolved from ethnographic interviews to “big
 data” analyses of social media.
 
-Amid the cacophony of messages during political upheaval---such
-as the Arab Spring of the early 2010s---consistent themes emerge through hashtags, retweets, and
-the repeated mentions of concepts such as regime, demonstration, and
-human rights. The cohesiveness of these themes (i.e., the degree to which participants in the movement are metaphorically singing in one voice) reflects the real-world events happening contemporaneously with collective action in social movements or civil conflicts.
+Amid the cacophony of messages during political upheaval---such as the Arab
+Spring of the early 2010s---consistent themes emerge through hashtags, retweets,
+and the repeated mentions of concepts such as regime, demonstration, and human
+rights. The cohesiveness of these themes (i.e., the degree to which participants
+in the movement are metaphorically singing in one voice) reflects the real-world
+events happening contemporaneously with collective action in social movements or
+civil conflicts.
 
 In the present research, we investigate the relationship between linguistic
-cohesion and social cohesion in times of social conflict and unrest. We tackle a question related to the one posed by Zeitzoff [-@zeitzoff2017social]: How does social media reflect on-the-ground realities during times of social conflict? To do so, we examine patterns of linguistic cohesion on Twitter and their connection to real-world events during the Arab Spring uprising in Syria between March and June 2012.
+cohesion and social cohesion in times of social conflict and unrest. We tackle a
+question related to the one posed by Zeitzoff [-@zeitzoff2017social]: How does
+social media reflect on-the-ground realities during times of social conflict? To
+do so, we examine patterns of linguistic cohesion on Twitter and their
+connection to real-world events during the Arab Spring uprising in Syria between
+March and June 2012.
 
 Disentangling the complicated relationship between mass online
 mobilization---and social mobilization in person---continues to be relevant,
@@ -135,7 +143,12 @@ hails from a minority Islamic sect (the Alawites) in a multi-religious and
 multi-ethnic country comprising Christians, Sunni and Shia Muslims, Kurds, and
 Palestinian refugees.
 
-In December 2010, a Tunisian man named Mohamed Bouazizi died after setting himself on fire to protest the authoritarian government’s unjustifiable confiscation of his vendor cart by municipal officials. His actions served as a catalyst for the Tunisian Revolution, which rapidly spread to surrounding countries also subject to unjust authoritarian rule, including Egypt, Libya, and Syria.
+In December 2010, a Tunisian man named Mohamed Bouazizi died after setting
+himself on fire to protest the authoritarian government’s unjustifiable
+confiscation of his vendor cart by municipal officials. His actions served as a
+catalyst for the Tunisian Revolution, which rapidly spread to surrounding
+countries also subject to unjust authoritarian rule, including Egypt, Libya, and
+Syria.
 
 Following a wave of democratization efforts across the Middle East and North
 Africa, modest Syrian protests began in March 2011. The regime responded harshly
@@ -148,8 +161,11 @@ leaders---worked toward cease-fires, negotiations, and concessions without much
 success. While many high-level military and diplomatic officials defected,
 numerous loyal forces continued the regime's repression, and the Syrian people
 turned to social media to coordinate their activism and communicate to the
-world. Between March and June 2012, millions of tweets were sent within
-Syria, revealing the details of the conflict suppressed by the government. A full account of the history of the Arab Spring is outside of the scope of the current article; more information can be found in [@brownlee2013syria] and [@lynch2016new].
+world. Between March and June 2012, millions of tweets were sent within Syria,
+revealing the details of the conflict suppressed by the government. A full
+account of the history of the Arab Spring is outside of the scope of the current
+article; more information can be found in [@brownlee2013syria] and
+[@lynch2016new].
 
 Syria is a multi-ethnic, multi-lingual, and multi-religious state. Kurdish
 people make up between 10-15% of the population, Alawites between 8-15%, and
@@ -167,25 +183,35 @@ Massive online social cohesion can manifest in real-world social behavior.
 Social media platforms enable online social cohesion by offering distributed
 information-gathering and real-time information dissemination. Given its
 accessibility and proficiency as an information exchange tool, Twitter has
-provided social and political activists an opportunity to complement [@greijdanus2020psychology] and not hinder participation in [@harlow2012collective; @milovsevic2017civic] real-world social mobilization. During the 2012 Italian protests for global economic change, tweeting was determined to be more effective locally in discussing real-world, real-time events than traditional mainstream media platforms [@vicari2013public]. As people increasingly rely on social media for local news and information, we must understand exactly how these micro-blogs connect to and reflect real-world action.
+provided social and political activists an opportunity to complement
+[@greijdanus2020psychology] and not hinder participation in
+[@harlow2012collective; @milovsevic2017civic] real-world social mobilization.
+During the 2012 Italian protests for global economic change, tweeting was
+determined to be more effective locally in discussing real-world, real-time
+events than traditional mainstream media platforms [@vicari2013public]. As
+people increasingly rely on social media for local news and information, we must
+understand exactly how these micro-blogs connect to and reflect real-world
+action.
 
 Along with Facebook, Twitter has been credited as essential to the Arab
 Spring---both for protesters and for the government's response to them
 [@comninos2011twitter]. The Arab Spring has been deeply examined within the
 political science literature [e.g., @lutterbeck2013arab;
 @koehler2017political], but to our knowledge, the direct *coupling* between
-Syrian Twitter cohesion and international action has not been investigated  (though hashtag usage has been linked to next-day protests; @steinert2015online). In fact, some have been skeptical about the effect of social media on collective action at all [@seay2014slacktivism].
+Syrian Twitter cohesion and international action has not been investigated
+(though hashtag usage has been linked to next-day protests;
+@steinert2015online). In fact, some have been skeptical about the effect of
+social media on collective action at all [@seay2014slacktivism].
 
 This skepticism is summarized in a quote by Lisa @anderson2011demystifying:
 
 \setlength{\leftskip}{1cm}
 
-\noindent The important story about the 2011
-Arab revolts in Tunisia, Egypt, and Libya is not how the globalization of the
-norms of civic engagement shaped the protesters' aspirations. Nor is it about
-how activists used technology to share ideas and tactics. Instead, the critical
-issue is how and why these ambitions and techniques resonated in their various
-local contexts. (p. 2)
+\noindent The important story about the 2011 Arab revolts in Tunisia, Egypt, and
+Libya is not how the globalization of the norms of civic engagement shaped the
+protesters' aspirations. Nor is it about how activists used technology to share
+ideas and tactics. Instead, the critical issue is how and why these ambitions
+and techniques resonated in their various local contexts. (p. 2)
 
 \setlength{\leftskip}{0pt}
 
@@ -213,16 +239,23 @@ strength and sympathy. Governments have been shown to be quite tolerant of
 dissent so long as it does not metamorphose into collective action
 [@king2013censorship].
 
-Protestors and social activists communicate with each other with increased transparency due to the ubiquitous availability of social media like Twitter. Activists are able to access these tools via mobile
-phones and computers with Internet connectivity, providing a stream of real-time
-shared information. Citizens can share the location of events like protests and
-military incursions, the degree of state repression, and the number of
-casualties. In turn, the government---interested in remaining in
-power---monitors social media platforms to ascertain emerging threats
-[@comninos2011twitter], such as where new groups are forming, where existing
-groups are strengthening, where gatherings are held, and who the leaders are.
+Protestors and social activists communicate with each other with increased
+transparency due to the ubiquitous availability of social media like Twitter.
+Activists are able to access these tools via mobile phones and computers with
+Internet connectivity, providing a stream of real-time shared information.
+Citizens can share the location of events like protests and military incursions,
+the degree of state repression, and the number of casualties. In turn, the
+government---interested in remaining in power---monitors social media platforms
+to ascertain emerging threats [@comninos2011twitter], such as where new groups
+are forming, where existing groups are strengthening, where gatherings are held,
+and who the leaders are.
 
-With few exceptions, leader Bashar al-Assad chose to keep social media platforms up and running. Gohdes [-@gohdes2015pulling] notes that regimes can attempt to thwart the growth of social protest online and in the streets by shutting down the Internet. During these times, military repression increases, but government information about the citizens decreases. As a result, regimes may elect to maintain Internet connectivity to monitor and surveil their citizens.
+With few exceptions, leader Bashar al-Assad chose to keep social media platforms
+up and running. Gohdes [-@gohdes2015pulling] notes that regimes can attempt to
+thwart the growth of social protest online and in the streets by shutting down
+the Internet. During these times, military repression increases, but government
+information about the citizens decreases. As a result, regimes may elect to
+maintain Internet connectivity to monitor and surveil their citizens.
 
 At the same time, the insulation of online social platforms allows researchers
 to detail real-world social dynamics at unprecedented resolution and scale
@@ -231,7 +264,9 @@ groups are regarded as a valuable source of information that can offer powerful
 insights into states of social disequilibrium, uprisings, and escalations into
 civil wars. By examining these conversations, researchers can study the degree
 of cohesion between speakers and the alignment between that cohesion and their
-collective political behavior, just as the degree of cohesion among real-world protestors in past movements has been captured in their shared sign messaging [@Windsor2020].
+collective political behavior, just as the degree of cohesion among real-world
+protestors in past movements has been captured in their shared sign messaging
+[@Windsor2020].
 
 ## The Role of Cohesion in Social Movements and Civil Wars
 
@@ -239,18 +274,19 @@ People join social and political resistance movements because they feel a sense
 of connection to the cause. Given that people are generally risk-averse,
 overcoming inertia requires a strong connection to the group identity or a
 strong aversion to an individual, event, or political injustice
-[@goldstone1980theories; @goldstone2011understanding]. Political resistance offers participants the
-opportunity to “lose themselves” and relinquish their individual identity in
-favor of identification with a larger group, contributing to a cohesive group
-ready and mobilized for action [@Hoffer2011true].
+[@goldstone1980theories; @goldstone2011understanding]. Political resistance
+offers participants the opportunity to “lose themselves” and relinquish their
+individual identity in favor of identification with a larger group, contributing
+to a cohesive group ready and mobilized for action [@Hoffer2011true].
 
 The type of collective contentious behavior that manifests in society is a
 function of the available political opportunity structures. The political
 opportunity structure is “comprised of *(sic)* specific configurations of
 resources, institutional arrangements and historical precedents for social
 mobilization, which facilitate the development of protest movements in some
-instances and constrain them in others” [@kitschelt1986political, p. 58]. Emergent strategies and tactics in contentious politics are a function of
-what the system makes possible. This includes the number of people and their
+instances and constrain them in others” [@kitschelt1986political, p. 58].
+Emergent strategies and tactics in contentious politics are a function of what
+the system makes possible. This includes the number of people and their
 disposition (i.e. nonviolent or violent), as well as their internal structure.
 The more cohesive a group is, the greater threat they pose to the establishment.
 
@@ -289,12 +325,11 @@ similarly important for rebels [@anyanwu2002economic]. Referencing Gurr's
 
 \setlength{\leftskip}{1cm}
 
-\noindent a religious or linguistic minority
-might suffer disproportionately in a given society, and this form of
-aggrievement can lead to unrest across the social lines that distinguish the
-minority group. Therefore, while collective cohesion is a function of targeted
-maldistributions, it is individual penury that allows for this collective
-mobilization. (p. 323)
+\noindent a religious or linguistic minority might suffer disproportionately in
+a given society, and this form of aggrievement can lead to unrest across the
+social lines that distinguish the minority group. Therefore, while collective
+cohesion is a function of targeted maldistributions, it is individual penury
+that allows for this collective mobilization. (p. 323)
 
 \setlength{\leftskip}{0pt}
 
@@ -307,20 +342,21 @@ that allow us to investigate the interconnectedness of those levels.
 
 We contextualize linguistic cohesion with social mobilization and response to
 the relative intensity of the conflict. Cohesion is a multi-layered concept
-referring to the connectedness of speakers, actions, and societies. It
-reflects the continuity of language and expression and shows the
-connectivity of participants in a social movement. To address the relationship
-between language and discourse and social movements, we adopt an
-interdisciplinary approach that incorporates linguistics, psychology, and
-political science using nonlinear dynamical systems methodology to disentangle the relationship between language and action.
+referring to the connectedness of speakers, actions, and societies. It reflects
+the continuity of language and expression and shows the connectivity of
+participants in a social movement. To address the relationship between language
+and discourse and social movements, we adopt an interdisciplinary approach that
+incorporates linguistics, psychology, and political science using nonlinear
+dynamical systems methodology to disentangle the relationship between language
+and action.
 
 ### Lexical and Interlocutor Cohesion
 
 Just as real-world social cohesion can be quantified, so can online cohesion.
-One kind of cohesion is the similarity in language use on social
-media. This implicit or explicit similarity can indicate shared
-beliefs, thoughts, and feelings, as has been studied in research on language
-style in psycholinguistics and social psychology [@gonzales2010language;
+One kind of cohesion is the similarity in language use on social media. This
+implicit or explicit similarity can indicate shared beliefs, thoughts, and
+feelings, as has been studied in research on language style in psycholinguistics
+and social psychology [@gonzales2010language;
 @tausczik2010psychological;
 @brennan1996conceptual]. Although previous work on language style has often
 focused on individuals and small groups, this can be scaled up to examine
@@ -328,9 +364,9 @@ massive social-level changes [@michel2011quantitative; @fusaroli2015timescales].
 
 The first level of cohesion that we will consider are the words within social
 media posts.  In Figure \@ref(fig:cohesion-in-tweets), we see four sequential
-tweets of four words each. Each sequential tweet contains some content
-included in the previous tweets. The linguistic construct of content word
-overlap measures the relationship across units of meaning---here, tweets---where
+tweets of four words each. Each sequential tweet contains some content included
+in the previous tweets. The linguistic construct of content word overlap
+measures the relationship across units of meaning---here, tweets---where
 identical and semantically similar words are repeated [@graesser2004coh]. These
 repeated lexical items constitute a theme; on Twitter, this might be a
 particular hashtag, a name, a location, or another nominal category. This
@@ -348,12 +384,17 @@ are therefore more useful when researchers want to understand *what* people are
 discussing, rather than *how* they are discussing it [@graesser2004coh;
 @mcnamara2014automated].
 
-In estimating cohesion in Twitter posts, tweets that share content words
-yield higher cohesion values, even among speakers with opposing
-views on the subject matter. Repetition of terms and concepts is captured by
-reiteration, which is a type of lexical cohesion in which a subsequent item
-repeats a previous item, or refers to it through synonymous language
-[@halliday1976cohesion]. We include retweets (i.e., reposts or forwards of previous messages) because they are a form of reiteration that increases message cohesion. They indicate that individuals are “singing to the same tune” by amplifying the original message. Since retweets replicate verbatim another tweet (sometimes with the addition of commentary or supplementary messages), these tweets would also have higher cohesion.
+In estimating cohesion in Twitter posts, tweets that share content words yield
+higher cohesion values, even among speakers with opposing views on the subject
+matter. Repetition of terms and concepts is captured by reiteration, which is a
+type of lexical cohesion in which a subsequent item repeats a previous item, or
+refers to it through synonymous language [@halliday1976cohesion]. We include
+retweets (i.e., reposts or forwards of previous messages) because they are a
+form of reiteration that increases message cohesion. They indicate that
+individuals are “singing to the same tune” by amplifying the original message.
+Since retweets replicate verbatim another tweet (sometimes with the addition of
+commentary or supplementary messages), these tweets would also have higher
+cohesion.
 
 ```{r cohesion-in-tweets, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap = "A visual representation of cohesion in tweets. The shared content words--either identical or semantically similar--constitute a theme around which cohesion is occurring.", out.width='100%'}
 
@@ -362,7 +403,15 @@ knitr::include_graphics("./figs/cohesion-in-tweets.png")
 
 ```
 
-We also include hashtags in our analyses. Hashtags are a way of identifying similar topics (e.g., people, events, places, themes) across users and across tweets by typing a string of characters preceded by a “#” symbol. Users may choose to include as many hashtags (up to the total character limit of the tweet) as they would like, and they may choose to create their own or adopt hashtags from other users or groups. The use of the same hashtags would increase cohesion; however, because hashtags are often included or embedded within longer messages, simply using the same hashtags would not be a guarantee of higher cohesion if the rest of the words in the tweets do not overlap. 
+We also include hashtags in our analyses. Hashtags are a way of identifying
+similar topics (e.g., people, events, places, themes) across users and across
+tweets by typing a string of characters preceded by a “#” symbol. Users may
+choose to include as many hashtags (up to the total character limit of the
+tweet) as they would like, and they may choose to create their own or adopt
+hashtags from other users or groups. The use of the same hashtags would increase
+cohesion; however, because hashtags are often included or embedded within longer
+messages, simply using the same hashtags would not be a guarantee of higher
+cohesion if the rest of the words in the tweets do not overlap.
 
 The use of similar language can provide insight into *interlocutor cohesion*, or
 the degree to which people are talking about similar things. This can include
@@ -379,8 +428,8 @@ uprising in Ferguson, MO) have high lexical and interlocutor cohesion
 Fed by lexical cohesion, interlocutor cohesion ebbs and flows, contextualized by
 changing real world events. Interlocutor cohesion may increase preceding an
 in-person social mobilization event, alerting a repressive government that
-collective mobilization is happening. It may also respond to
-exogenous events such as spontaneous, unprovoked militarized conflict.
+collective mobilization is happening. It may also respond to exogenous events
+such as spontaneous, unprovoked militarized conflict.
 
 Given the importance of lexical and interlocutor cohesion for messaging in
 political movements, lexical cohesion may be important trace data for
@@ -405,32 +454,35 @@ found that exposure to fatal wartime violence resulted in increased prosocial
 motivations, including cooperative behaviors, feelings of trust, and overall
 community-level social cohesion.
 
-At the same time, behavioral similarity in certain contexts has been
-connected to important psychological and social effects. For example, shared
-language is associated with rapport [both in face-to-face and computer-mediated
-conversations; @niederhoffer2002linguistic; @riordan2011evidence] and
-can even be connected to better performance on shared tasks [as long as
-the language is relevant to the task at hand; @fusaroli2012coming]. Shared
-movement is associated with greater group bonding and greater willingness
-to contribute to the group [@wiltermuth2009synchrony], and shared identity
-leads to a greater willingness to adopt the group's goals and
-motivations [@walton2012mere].
+At the same time, behavioral similarity in certain contexts has been connected
+to important psychological and social effects. For example, shared language is
+associated with rapport [both in face-to-face and computer-mediated
+conversations; @niederhoffer2002linguistic; @riordan2011evidence] and can even
+be connected to better performance on shared tasks [as long as the language is
+relevant to the task at hand; @fusaroli2012coming]. Shared movement is
+associated with greater group bonding and greater willingness to contribute to
+the group [@wiltermuth2009synchrony], and shared identity leads to a greater
+willingness to adopt the group's goals and motivations [@walton2012mere].
 
 We expect to see increased linguistic cohesion among people participating in
-online discussions about an idea, event, individual, or movement. While the overall frequency of social media messages related to the event may increase as a result of the event, their linguistic cohesion helps us understand if denizens are using the platforms in a coordinated way that amplifies their messages or goals and creates a virtual protest space. Given that
-Syrian protesters coordinated their activity through Twitter by discussing their
-own events (e.g., planned protests, active demonstrations) and their reactions
-to events happening around them (e.g., government reactions, international
-action or inaction), the cohesion in social media should correlate with the
-social cohesion of the group [@zeitzoff2011using].
+online discussions about an idea, event, individual, or movement. While the
+overall frequency of social media messages related to the event may increase as
+a result of the event, their linguistic cohesion helps us understand if denizens
+are using the platforms in a coordinated way that amplifies their messages or
+goals and creates a virtual protest space. Given that Syrian protesters
+coordinated their activity through Twitter by discussing their own events (e.g.,
+planned protests, active demonstrations) and their reactions to events happening
+around them (e.g., government reactions, international action or inaction), the
+cohesion in social media should correlate with the social cohesion of the group
+[@zeitzoff2011using].
 
 Political and social cohesion in the world can be modeled using event data which
 encodes who does what to whom on a given day. The CAMEO (Conflict and Mediation
-Event Observations) coding scheme encodes a set of activities with numerical values, rescaled
-to reflect a conflict-cooperation scale [@schrodt2006twenty;
-@goldstein1992conflict]. These event codes include a range of behaviors of varying intensities and valences, from
-making public statements and appeals to demanding, threatening, protesting, and
-using unconventional mass violence.
+Event Observations) coding scheme encodes a set of activities with numerical
+values, rescaled to reflect a conflict-cooperation scale [@schrodt2006twenty;
+@goldstein1992conflict]. These event codes include a range of behaviors of
+varying intensities and valences, from making public statements and appeals to
+demanding, threatening, protesting, and using unconventional mass violence.
 
 Social cohesion can have real and wide-ranging impacts on a political movement
 and the people in it. A socially cohesive group is inherently more threatening
@@ -450,8 +502,8 @@ drive individuals' propensity to engage in coordinated behavior for the group
 increase movement participants' weak and strong ties [@granovetter1977strength;
 @gladwell2010revolution;
 @mcadam1986recruitment], building the movement by expanding and deepening
-heterogenous ties. Therefore, during social conflict, the linguistic cohesion
-of the online conversation should correspond to the degree of social cohesion on
+heterogenous ties. Therefore, during social conflict, the linguistic cohesion of
+the online conversation should correspond to the degree of social cohesion on
 the ground.
 
 Steinert-Threlkeld [-@steinert2017spontaneous] modeled a similar relationship
@@ -480,8 +532,8 @@ states of the political sphere. Other scholars have noted the diffusion of
 messages that reach critical mass, allowing for “behaviors, beliefs, and
 preferences” to spread within a population [@barash2012critical]. Cohesion
 changes over time in response to external events and the internal dynamics of
-the social movement, even if the social interaction occurs entirely 
-online [@centola2007complex]. 
+the social movement, even if the social interaction occurs entirely online
+[@centola2007complex].
 
 Lexical cohesion, then, is a useful indicator of social cohesion in political
 crisis. Lexical cohesion happens at the word level. Interlocutor cohesion
@@ -494,18 +546,19 @@ speakers in an environment as their language becomes more similar.
 Sociolinguistic cohesion also addresses how groups involved in political
 rebellion converge to mount sustained resistance to state authority.
 
-Related previous work has also explored diffusion of hashtags in viral contagion in
-Nigeria, a phenomenon similar to what we identify as sociolinguistic cohesion
-[@fink2016complex]. The prevalence and rate of particular hashtags
-contributed to the overall sociolinguistic cohesion. The more that people
-reuse hashtags or common phrases, the greater the sociolinguistic cohesion when
-this phenomenon occurs during socially significant times like protests
-[@state2015diffusion]. 
+Related previous work has also explored diffusion of hashtags in viral contagion
+in Nigeria, a phenomenon similar to what we identify as sociolinguistic cohesion
+[@fink2016complex]. The prevalence and rate of particular hashtags contributed
+to the overall sociolinguistic cohesion. The more that people reuse hashtags or
+common phrases, the greater the sociolinguistic cohesion when this phenomenon
+occurs during socially significant times like protests [@state2015diffusion].
 
 Combining these separate threads, it is reasonable to expect that real-world
 actions and online social interactions would be enmeshed, driving and being
 driven by one another. From a dynamical systems perspective, online social
-cohesion and in-person action can be considered two complementary components of a single system--constantly constrained by, interacting with, and influencing one another [@mahner1997foundations]. Investigation of the coupling of
+cohesion and in-person action can be considered two complementary components of
+a single system--constantly constrained by, interacting with, and influencing
+one another [@mahner1997foundations]. Investigation of the coupling of
 real-world mobilization and social cohesion could provide new insight into the
 power of social media during mobilization and the ways in which individuals
 utilize it to bring about, or respond to, social change. Increasingly, social
@@ -536,18 +589,20 @@ well-suited to these analyses, but messy, complex, variable data from real-world
 events can pose challenges, from overpowered samples to violation of underlying
 statistical assumptions [@paxton2017finding].
 
-At the same time, the foundational theoretical assumptions of a linear world have
-been increasingly replaced by ideas from dynamical systems theory. Rather than a
-chain of events, time series data can be thought of as nested occurrences, where
-mutually constrained parts (e.g., citizens, governments, real-world events,
-social media platforms) are constantly interacting, leading to more global
-behaviors that are larger than the sum of the parts [@turvey2018lectures]. When
-analyzed as dynamical systems, many phenomena exhibit new nonlinear patterns
-that were formerly overlooked. Nonlinear methods provide means for capturing the
-rich temporal dynamics and variability that unfold in time series data.
+At the same time, the foundational theoretical assumptions of a linear world
+have been increasingly replaced by ideas from dynamical systems theory. Rather
+than a chain of events, time series data can be thought of as nested
+occurrences, where mutually constrained parts (e.g., citizens, governments,
+real-world events, social media platforms) are constantly interacting, leading
+to more global behaviors that are larger than the sum of the parts
+[@turvey2018lectures]. When analyzed as dynamical systems, many phenomena
+exhibit new nonlinear patterns that were formerly overlooked. Nonlinear methods
+provide means for capturing the rich temporal dynamics and variability that
+unfold in time series data.
 
-Although a number of other nonlinear methods exist, the primary nonlinear methods
-used in the current work are cross-recurrence quantification analysis [CRQA;
+Although a number of other nonlinear methods exist, the primary nonlinear
+methods used in the current work are cross-recurrence quantification analysis
+[CRQA;
 @zbilut1998detecting] and its offshoot, windowed cross-recurrence quantification
 analysis [WCRQA; @webber2005recurrence]. CRQA has successfully been used to gain
 a better understanding of many complex human phenomena, including a variety of
@@ -566,7 +621,8 @@ analyzing the real-world events and online social cohesion during nearly three
 months of the Arab Spring. Both real- and virtual-world collective coordination
 were powerful tools in the events of the Arab Spring and are undeniably linked.
 This study aims to explore the dynamics of Twitter users in Syria, who used the
-social media platform to raise awareness about the Arab Spring and the relationship of those messages to mass mobilization in the real world.
+social media platform to raise awareness about the Arab Spring and the
+relationship of those messages to mass mobilization in the real world.
 
 Using cross-recurrence quantification analysis [CRQA; @zbilut1998detecting] and
 windowed cross-recurrence quantification analysis [WCRQA;
@@ -613,11 +669,12 @@ tweet_stats <- read.csv("./data/formatted/primary/stats.csv")
 
 ``` 
 
-The corpus of tweets used included `r tweet_stats$total_tweets` English-language Syrian tweets
-occurring between March 31--June 15, 2012. Using the Twitter streaming API,
-servers at the University of Texas at Austin collected the tweets. The servers
-were run on a stable (LTS) version of Ubuntu Linus (v. 10.04) and were connected
-directly to the high-bandwidth UT network maintained by IT services.
+The corpus of tweets used included `r tweet_stats$total_tweets` English-language
+Syrian tweets occurring between March 31--June 15, 2012. Using the Twitter
+streaming API, servers at the University of Texas at Austin collected the
+tweets. The servers were run on a stable (LTS) version of Ubuntu Linus (v.
+10.04) and were connected directly to the high-bandwidth UT network maintained
+by IT services.
 
 Tweets collected contained one or more of the following keywords: “syria,”
 “syrian,” “damascus,” “homs,” “al-assad,” and “sunni.” These keywords were
@@ -626,12 +683,16 @@ Arab Spring in Syria at the time. A node.js script was used to reinitialize the
 connection to Twitter's servers whenever the script timed out due to a period of
 silence. The script requested data from the API endpoint using basic HTTP
 authentication (OAuth was optional, at the time) at
-https://stream.twitter.com/1.1/statuses/filter.json and stored the data
-directly to the local hard disk. The tweets were then post-processed with a
-Python script to convert the JSON-formatted tweets to tab-separated files, which
-were then compressed to maximize storage efficiency.
+https://stream.twitter.com/1.1/statuses/filter.json and stored the data directly
+to the local hard disk. The tweets were then post-processed with a Python script
+to convert the JSON-formatted tweets to tab-separated files, which were then
+compressed to maximize storage efficiency.
 
-The corpus consisted of `r tweet_stats$percent_original_tweets`% original tweets, `r tweet_stats$percent_retweets`% retweets, and `r tweet_stats$percent_replies`% replies. There were `r tweet_stats$num_users` users in the corpus and an average of `r tweet_stats$avg_daily_tweets` tweets per day.
+The corpus consisted of `r tweet_stats$percent_original_tweets`% original
+tweets, `r tweet_stats$percent_retweets`% retweets, and `r
+tweet_stats$percent_replies`% replies. There were `r tweet_stats$num_users`
+users in the corpus and an average of `r tweet_stats$avg_daily_tweets` tweets
+per day.
 
 Scripts used for scraping tweets and compressing data can be found at
 https://github.com/chbrown/twilight.
@@ -640,41 +701,74 @@ https://github.com/chbrown/twilight.
 Event data were obtained from the 2012 Integrated Crisis Early Warning System
 [ICEWS; @DVN/28075_2015]. The event data were first filtered to remove
 incomplete and incorrectly formatted data. They were then filtered to include
-only events that were directed at (i.e., `target`) Syria (n = `r num_target`). To
-explore the impact of outwardly directed Syrian events, the data were filtered
-again to include events that were both directed at (i.e., `target`) or directed
-by (i.e., `source`) Syria (n = `r num_source_target`).
+only events that were directed at (i.e., `target`) Syria (n = `r num_target`).
+To explore the impact of outwardly directed Syrian events, the data were
+filtered again to include events that were both directed at (i.e., `target`) or
+directed by (i.e., `source`) Syria (n = `r num_source_target`).
 
 ## Data Preparation
 ### Social Cohesion Metric
-The social cohesion or linguistic similarity of daily tweets was calculated by quantifying the frequency of shared content words with respect to those words’ frequencies in the entire tweet corpus. Retweets were included in the corpus and used in the social cohesion calculation, as they indicate strong support for an individual’s message. Stop words, punctuations, and duplicate words were not removed from the tweets. The lengths of tweets were disregarded, as the aspect of interest is in shared linguistic content and not breadth of description. The presence of bots was not investigated. According to a 10-Q report for Twitter, Inc., for a quarterly period in 2014, the estimated number of third party applications automatically contacting the servers (i.e., bots), was less than 8.5% [@twitter2014]. As the data in this study were collected two years prior, this number was likely even less. Thus we consider the number of bots negligible for the present investigation.
+The social cohesion or linguistic similarity of daily tweets was calculated by
+quantifying the frequency of shared content words with respect to those words’
+frequencies in the entire tweet corpus. Retweets were included in the corpus and
+used in the social cohesion calculation, as they indicate strong support for an
+individual’s message. Stop words, punctuations, and duplicate words were not
+removed from the tweets. The lengths of tweets were disregarded, as the aspect
+of interest is in shared linguistic content and not breadth of description. The
+presence of bots was not investigated. According to a 10-Q report for Twitter,
+Inc., for a quarterly period in 2014, the estimated number of third party
+applications automatically contacting the servers (i.e., bots), was less than
+8.5% [@twitter2014]. As the data in this study were collected two years prior,
+this number was likely even less. Thus we consider the number of bots negligible
+for the present investigation.
 
-The tweets were first sorted into ascending order by timestamp. They were then grouped into successive sets of five tweets. Groups of five were chosen to allow for manageability and efficiency of the analyses. Linguistic cohesion was quantified for all possible pairs of tweets in the group of five, resulting in 10 pairs per group of tweets; all 10 cohesion values for the group were averaged for a single group cohesion value. The cohesion value for each day was quantified as the average cohesion values for all groups in that day. Each pair’s cohesion value was calculated in three parts: 
+The tweets were first sorted into ascending order by timestamp. They were then
+grouped into successive sets of five tweets. Groups of five were chosen to allow
+for manageability and efficiency of the analyses. Linguistic cohesion was
+quantified for all possible pairs of tweets in the group of five, resulting in
+10 pairs per group of tweets; all 10 cohesion values for the group were averaged
+for a single group cohesion value. The cohesion value for each day was
+quantified as the average cohesion values for all groups in that day. Each
+pair’s cohesion value was calculated in three parts:
 
 \begin{align}
 \text{Inverse frequency weighting of overlap words = }\sum_{i=1}^k
 \frac{log(f(t_i, d_1) + f(t_i, d_2) + 1)}{log(f(t_i) + 1)}
 \end{align}
 
-Equation 1 identifies the inverse frequency weighting of each overlapping word $t_i$ between two tweets $d_1$ and $d_2$, relative to the word’s frequency in the corpus D, for all overlapping words $t_{1...k}$ between the two tweets.
+Equation 1 identifies the inverse frequency weighting of each overlapping word
+$t_i$ between two tweets $d_1$ and $d_2$, relative to the word’s frequency in
+the corpus D, for all overlapping words $t_{1...k}$ between the two tweets.
 
-\begin{align}
-\text{Inverse frequency weighting of all words = }\sum_{i=1}^n \frac{log(f(t_i,
-d_1) + f(t_i, d_2) + 1)}{log(f(t_i) + 1)}
-\end{align}
+\begin{align} \text{Inverse frequency weighting of all words = }\sum_{i=1}^n
+\frac{log(f(t_i, d_1) + f(t_i, d_2) + 1)}{log(f(t_i) + 1)} \end{align}
 
-Equation 2 then calculates the inverse frequency of each word $t_i$  in tweets $d_1$ and $d_2$, relative to the word’s frequency in the corpus D, for all words $t{1...n}$ that appear in either tweet.
+Equation 2 then calculates the inverse frequency of each word $t_i$  in tweets
+$d_1$ and $d_2$, relative to the word’s frequency in the corpus D, for all words
+$t{1...n}$ that appear in either tweet.
 
-\begin{align}
-\text{Two tweets' similarity =}\frac{\text{inverse frequency weighting of overlap
-words}}{\text{inverse frequency weighting of all words}}
+\begin{align} \text{Two tweets' similarity =}\frac{\text{inverse frequency
+weighting of overlap words}}{\text{inverse frequency weighting of all words}}
 \end{align}
  
-Finally, Equation 3 identifies their linguistic cohesion by taking the ratio of the results of Equations 1 and 2. Through this process, we are able to naturally account for the frequencies of natural language generally and of online language specifically: Words that occur many times in the corpus (which we can operationalize as function words; e.g., prepositions, pronouns) influence the similarity scores between two tweets much less than words that occur rarely in the corpus (which we can operationalize as content words; e.g., names, hashtags). 
+Finally, Equation 3 identifies their linguistic cohesion by taking the ratio of
+the results of Equations 1 and 2. Through this process, we are able to naturally
+account for the frequencies of natural language generally and of online language
+specifically: Words that occur many times in the corpus (which we can
+operationalize as function words; e.g., prepositions, pronouns) influence the
+similarity scores between two tweets much less than words that occur rarely in
+the corpus (which we can operationalize as content words; e.g., names,
+hashtags).
 
 This linguistic cohesion metric is similar to *term frequency-inverse document
 frequency* [tf-idf; see also @jones1972statistical;
-@robertson2004understanding]. However, the method focuses more squarely on terms (i.e., agnostic to the number of documents in the corpus), aggregates at a higher semantic level (i.e., summing across words), and accounts for linguistic novelty relative to the pair and the corpus (i.e., ratio of Eq. 1 to Eq. 2). The social cohesion calculation was performed on the tweet corpus containing English tweets. All hashtags and URLs were included in the analysis. The raw social cohesion time series can be seen in Figure \@ref(fig:raw-cohesion-ts).
+@robertson2004understanding]. However, the method focuses more squarely on terms
+(i.e., agnostic to the number of documents in the corpus), aggregates at a
+higher semantic level (i.e., summing across words), and accounts for linguistic
+novelty relative to the pair and the corpus (i.e., ratio of Eq. 1 to Eq. 2). The
+social cohesion calculation was performed on the tweet corpus containing English
+tweets. All hashtags and URLs were included in the analysis. The raw social
+cohesion time series can be seen in Figure \@ref(fig:raw-cohesion-ts).
 
 [Figure \@ref(fig:raw-cohesion-ts) about here]
 
@@ -736,7 +830,8 @@ The raw event time series for target filtered data can be seen in Figure
 \@ref(fig:raw-event-ts-target). The raw event time series for source and target
 filtered data can be seen in Figure \@ref(fig:raw-event-ts-source-target).
 
-[Figures \@ref(fig:raw-event-ts-target) and \@ref(fig:raw-event-ts-source-target) about here]
+[Figures \@ref(fig:raw-event-ts-target) and
+\@ref(fig:raw-event-ts-source-target) about here]
 
 ```{r raw-event-ts-target, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, fig.cap="Raw event count time series for target filtered data."}
 
@@ -813,14 +908,24 @@ knitr::include_graphics("./results/primary/raw-event-ts-source-target.png")
 ### Cross-Recurrence Quantification Analysis
 We first used categorical cross-recurrence quantification analysis [CRQA;
 @zbilut1998detecting] to investigate the temporal patterns of social cohesion
-and real-world events in Syria during Arab Spring. CRQA is an extension of RQA, which captures the patterns of revisited states of a single time series
+and real-world events in Syria during Arab Spring. CRQA is an extension of RQA,
+which captures the patterns of revisited states of a single time series
 [@zbilut1992embeddings; @webber1994dynamical]. CRQA allows for two time series
-to be projected onto one another to investigate shared states and trajectories. In CRQA, we track these shared states by identifying *recurrent points*, or intersections of time during which two signals shared or revisited the same state. These shared states can be at the same time or at later points in the time series. We can further chart shared trajectories by examining the
+to be projected onto one another to investigate shared states and trajectories.
+In CRQA, we track these shared states by identifying *recurrent points*, or
+intersections of time during which two signals shared or revisited the same
+state. These shared states can be at the same time or at later points in the
+time series. We can further chart shared trajectories by examining the
 occurrences and patterns of multiple sequential recurrent points.
 
-To perform categorical CRQA, the time series must be converted to the same scale, while
-still preserving a sampling rate that respects the native timescale of the
-system [cf. Nyquist frequency in signal processing; @grenander1959probability]. In other words, a system that changes every day must be sampled more often than a system that changes every year and less often than a system that changes every hour. However, to compare two time series with CRQA, the two time series must be sampled at the same frequency as one another.
+To perform categorical CRQA, the time series must be converted to the same
+scale, while still preserving a sampling rate that respects the native timescale
+of the system [cf. Nyquist frequency in signal processing;
+@grenander1959probability]. In other words, a system that changes every day must
+be sampled more often than a system that changes every year and less often than
+a system that changes every hour. However, to compare two time series with CRQA,
+the two time series must be sampled at the same frequency as one another.
+
 Because the social cohesion and event data have different scales and values, we
 converted each time series (e.g., Figure \@ref(fig:raw-ts)) into deciles (e.g.,
 Figure \@ref(fig:deciled-ts)) to analyze the relative dynamics of different
@@ -838,9 +943,11 @@ placed on the plot to indicate recurrence. (For categorical CRQA, this process
 is similar to the Cartesian product.)
 
 We can visually analyze these plots to reveal patterns of structure and
-recurrence. The main diagonal line on the plot is known as the *line of synchrony*. This line falls where the time series match temporally. A completely filled main diagonal line would indicate perfect in-phase synchrony between the two time series. See Figures
-\@ref(fig:plot-rp-targ)-\@ref(fig:plot-rp-source-targ) for examples of
-RPs.
+recurrence. The main diagonal line on the plot is known as the *line of
+synchrony*. This line falls where the time series match temporally. A completely
+filled main diagonal line would indicate perfect in-phase synchrony between the
+two time series. See Figures
+\@ref(fig:plot-rp-targ)-\@ref(fig:plot-rp-source-targ) for examples of RPs.
 
 #### Metrics
 While visual inspections can be informative, we can derive a variety of
@@ -917,8 +1024,8 @@ of times that the real time series' values exceeds the surrogate time series'
 values can be interpreted as the alpha criterion to determine significance. For
 more information on permutation tests, see @good2013permutation.
 
-Using the real deciled time series of social cohesion, count of all events, count of
-positive events, and count of negative events, we conducted a series of
+Using the real deciled time series of social cohesion, count of all events,
+count of positive events, and count of negative events, we conducted a series of
 permutation tests (one for the comparison between social cohesion and each type
 of event count) to determine statistical difference from chance for each CRQA
 metric. Using the `sample` function in base R [@R-base], $1000$ permuted time
@@ -928,14 +1035,18 @@ positive events, and social cohesion and count of negative events using the
 permuted time series. This resulted in $1000$ results for each of the CRQA
 metrics for each combination of time series. Statistical significance from
 chance was set at the 95th and 99th percentiles of the metrics from the permuted
-CRQ analyses. Given that a permutation test is similar to bootstrapping but does not include replacement, all real recurrent points were included in each CRQA analysis, leaving RR constant across all permutations. Thus, RR is not included in the inferential tests.
+CRQ analyses. Given that a permutation test is similar to bootstrapping but does
+not include replacement, all real recurrent points were included in each CRQA
+analysis, leaving RR constant across all permutations. Thus, RR is not included
+in the inferential tests.
 
 ### Windowed Cross-Recurrence Quantification Analysis
 We used windowed cross-recurrence quantification analysis [WCRQA;
 @webber2005recurrence] to further investigate the evolution of the temporal
 dynamics of social cohesion and real-world events. In this analysis, a smaller
 “window” of time points is used to calculate CRQA and capture more fine-grained
-dynamics of two time series. The window remains the same size and “slides” diagonally up the line of synchrony. The changes in the CRQA metrics across the
+dynamics of two time series. The window remains the same size and “slides”
+diagonally up the line of synchrony. The changes in the CRQA metrics across the
 windows can reveal changes in dynamics that can then be linked to external,
 real-world events. We implemented WCRQA using the `crqa` package [@R-crqa] for R
 [@R-base].
@@ -949,7 +1060,10 @@ In addition to the CRQA parameters, two other parameters are required when
 conducting WCRQA. First, the *window size* will determine how many observations
 are used in each CRQA analysis. We conducted WCRQA with a window size of $14$ to
 investigate the dynamics over two weeks and allow for the capture of more
-structure and thus a more meaningful interpretation of DET. A window size smaller than 14 would limit the possibilities for shared trajectories and make determinism uninterpretable, and window sizes larger than 14 would increasingly overshadow the fine-grain dynamics that we want to investigate.
+structure and thus a more meaningful interpretation of DET. A window size
+smaller than 14 would limit the possibilities for shared trajectories and make
+determinism uninterpretable, and window sizes larger than 14 would increasingly
+overshadow the fine-grain dynamics that we want to investigate.
 
 The second parameter to be chosen is a *window step size*. Window step size is
 how far the window moves up the line of synchrony before conducting CRQA again.
@@ -1054,16 +1168,18 @@ knitr::include_graphics("./results/primary/deciled_ts_example.png")
 ### Syria as Target
 
 A permutation test for the CRQA of social cohesion and count of all events found
-a statistical difference from chance for DET, NRLINE, and LAM. All other
-metrics did not reach significance (Figure \@ref(fig:plot-rp-targ);
-\autoref{table-1}).
+a statistical difference from chance for DET, NRLINE, and LAM. All other metrics
+did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of positive events
-found a statistical difference from chance for DET, NRLINE, maxL, LAM, and TT. All other
-metrics did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
+found a statistical difference from chance for DET, NRLINE, maxL, LAM, and TT.
+All other metrics did not reach significance (Figure \@ref(fig:plot-rp-targ);
+\autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
-found a statistically significant difference from chance for DET, NRLINE, and maxL. All other metrics did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
+found a statistically significant difference from chance for DET, NRLINE, and
+maxL. All other metrics did not reach significance (Figure
+\@ref(fig:plot-rp-targ); \autoref{table-1}).
 
 [Figure \@ref(fig:plot-rp-targ) and \autoref{table-1} about here]
 
@@ -1123,16 +1239,15 @@ knitr::include_graphics("./results/primary/crqa/target-rp-joined.png")
 ### Syria as Source and Target
 A permutation test for the CRQA of social cohesion and count of all events found
 a statistical difference from chance for DET, maxL, and LAM. All other metrics
-were non-significant (Figure \@ref(fig:plot-rp-source-targ);
-\autoref{table-2}).
+were non-significant (Figure \@ref(fig:plot-rp-source-targ); \autoref{table-2}).
 
 A permutation test for the CRQA of social cohesion and count of positive events
-found a statistical difference from chance for DET, L, ENTR, rENTR, and LAM (Figure
-\@ref(fig:plot-rp-source-targ); \autoref{table-2}).
+found a statistical difference from chance for DET, L, ENTR, rENTR, and LAM
+(Figure \@ref(fig:plot-rp-source-targ); \autoref{table-2}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
-found no statistical difference from chance for and metrics (Figure \@ref(fig:plot-rp-source-targ);
-\autoref{table-2}).
+found no statistical difference from chance for and metrics (Figure
+\@ref(fig:plot-rp-source-targ); \autoref{table-2}).
 
 [Figure \@ref(fig:plot-rp-source-targ) and \autoref{table-2} about here]
 
@@ -1210,17 +1325,24 @@ knitr::include_graphics("./results/primary/windowed-crqa/target-windowed_all.png
 
 ```
 
-For social cohesion and count of all events, there was a consistent period of
-at or above-chance RR from the 3rd--12th and 44th--50th window. DET was largely above chance
-from the 47th to the 54th window, with some exceptions (Figure
+For social cohesion and count of all events, there was a consistent period of at
+or above-chance RR from the 3rd--12th and 44th--50th window. DET was largely
+above chance from the 47th to the 54th window, with some exceptions (Figure
 \@ref(fig:plot-wcrqa-targ-all)).
 
 For social cohesion and count of positive events, we saw a downward trend in RR
 as the window advances throughout the sample. Interestingly, we see largely
-above-chance RR until the 16th window, with an exception for window 1. A peak also appeared for the 40th--42nd windows. DET was intermittently at or above chance for the 8th--14th and 54th--62nd windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
+above-chance RR until the 16th window, with an exception for window 1. A peak
+also appeared for the 40th--42nd windows. DET was intermittently at or above
+chance for the 8th--14th and 54th--62nd windows (Figure
+\@ref(fig:plot-wcrqa-targ-all)).
 
 For social cohesion and count of negative events, RR stayed above or almost
-above chance from the 5th--6th and 46th--49th windows and was below chance for an extended period from the 56th--62nd window. DET bottomed out at zero for the 15th--23rd windows. The metric was above or nearly above chance only toward the end of the time series, in the 47th--54th and 62nd windows (Figure \@ref(fig:plot-wcrqa-targ-all)).
+above chance from the 5th--6th and 46th--49th windows and was below chance for
+an extended period from the 56th--62nd window. DET bottomed out at zero for the
+15th--23rd windows. The metric was above or nearly above chance only toward the
+end of the time series, in the 47th--54th and 62nd windows (Figure
+\@ref(fig:plot-wcrqa-targ-all)).
 
 [Figure \@ref(fig:plot-wcrqa-targ-all) about here]
 
@@ -1248,15 +1370,24 @@ knitr::include_graphics("./results/primary/mode_ts_plot.png")
 ```
 
 For social cohesion and count of all events, there was a consistent period of
-above- or nearly above-chance RR in the first 23 windows and the 44th--52nd windows. RR was consistently below chance for the 29th--39th windows. DET showed above- or nearly above-chance values in windows 7--11 and 59--62 (Figure
+above- or nearly above-chance RR in the first 23 windows and the 44th--52nd
+windows. RR was consistently below chance for the 29th--39th windows. DET showed
+above- or nearly above-chance values in windows 7--11 and 59--62 (Figure
 \@ref(fig:plot-wcrqa-source-targ-all)).
 
 For social cohesion and count of positive events, there was a downward trend in
-RR as the window moved, with above- or nearly above-chance values in the first 23 windows
-and the 57th--62nd windows. RRR was largely below-chance for the 30th--38th windows. DET stayed largely within chance with intermittent bottoming-out to a value of 0 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
+RR as the window moved, with above- or nearly above-chance values in the first
+23 windows and the 57th--62nd windows. RRR was largely below-chance for the
+30th--38th windows. DET stayed largely within chance with intermittent
+bottoming-out to a value of 0 (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
 
-For social cohesion and negative events, RR was above chance for the 7th window and below chance for the 15th--19th windows, intermittently below chance beetween the 25th--39th windows, and below chance for the 51st--62nd windows. DET showed a downward trend as the windows moved, with no abovee-chance values. It bottomed out to zero for the 15th--20th and 24th-27th windows, intermittently bottomed out for the 34th--45th windows, and consistently bottomed out for the 52nd--62nd windows. (Figure
-\@ref(fig:plot-wcrqa-source-targ-all)).
+For social cohesion and negative events, RR was above chance for the 7th window
+and below chance for the 15th--19th windows, intermittently below chance
+beetween the 25th--39th windows, and below chance for the 51st--62nd windows.
+DET showed a downward trend as the windows moved, with no abovee-chance values.
+It bottomed out to zero for the 15th--20th and 24th-27th windows, intermittently
+bottomed out for the 34th--45th windows, and consistently bottomed out for the
+52nd--62nd windows. (Figure \@ref(fig:plot-wcrqa-source-targ-all)).
 
 [Figure \@ref(fig:plot-wcrqa-source-targ-all) about here]
 
