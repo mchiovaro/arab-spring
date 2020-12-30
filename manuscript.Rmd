@@ -767,8 +767,9 @@ frequency* [tf-idf; see also @jones1972statistical;
 higher semantic level (i.e., summing across words), and accounts for linguistic
 novelty relative to the pair and the corpus (i.e., ratio of Eq. 1 to Eq. 2). The
 social cohesion calculation was performed on the tweet corpus containing English
-tweets. All hashtags and URLs were included in the analysis. The raw social
-cohesion time series can be seen in Figure \@ref(fig:raw-cohesion-ts).
+tweets. All hashtags were included in the analysis, while URLs were removed. The
+raw social cohesion time series can be seen in Figure
+\@ref(fig:raw-cohesion-ts).
 
 [Figure \@ref(fig:raw-cohesion-ts) about here]
 
@@ -925,12 +926,11 @@ of the system [cf. Nyquist frequency in signal processing;
 be sampled more often than a system that changes every year and less often than
 a system that changes every hour. However, to compare two time series with CRQA,
 the two time series must be sampled at the same frequency as one another.
-
 Because the social cohesion and event data have different scales and values, we
-converted each time series (e.g., Figure \@ref(fig:raw-ts)) into deciles (e.g.,
-Figure \@ref(fig:deciled-ts)) to analyze the relative dynamics of different
-levels of social cohesion and counts of all, positive, and negative events on
-each day. We implemented CRQA using the `crqa` package [@R-crqa] for R
+converted each time series of daily values (e.g., Figure \@ref(fig:raw-ts)) into
+deciles (e.g., Figure \@ref(fig:deciled-ts)) to analyze the relative dynamics of
+different levels of social cohesion and counts of all, positive, and negative
+events on each day. We implemented CRQA using the `crqa` package [@R-crqa] for R
 [@R-base].
 
 [Figures \@ref(fig:raw-ts) and \@ref(fig:deciled-ts) about here]
@@ -960,7 +960,12 @@ The percentage of recurrent points to total possible points is a metric called
 the *recurrence rate* (*RR*). This metric gives a general description of how
 frequently the time series are sharing the same states. In the current study, a
 recurrent point would indicate that the level of social cohesion and frequency
-of events were at the same intensity.
+of events were at the same intensity for across two particular points in time
+(in this case, one-day windows). Importantly, the nature of CRQA allows us to
+quantify how a system shares similar states across time: In other words, it
+identifies recurrence whether a window of shared intensity occurs on the same
+day for the two time series or after a one-week gap between when the two time
+series exhibit the same intensity.
 
 Recurrent points that occur in successive moments form line structures. These
 are conceptualized as shared trajectories, where the two time series are moving
@@ -1027,7 +1032,7 @@ more information on permutation tests, see @good2013permutation.
 Using the real deciled time series of social cohesion, count of all events,
 count of positive events, and count of negative events, we conducted a series of
 permutation tests (one for the comparison between social cohesion and each type
-of event count) to determine statistical difference from chance for each CRQA
+of event count) to determine whether the observed measure is statistically different from chance for each CRQA
 metric. Using the `sample` function in base R [@R-base], $1000$ permuted time
 series were created for each of the real time series. CRQA was then run $1000$
 times for social cohesion and count of all events, social cohesion and count of
@@ -1168,13 +1173,14 @@ knitr::include_graphics("./results/primary/deciled_ts_example.png")
 ### Syria as Target
 
 A permutation test for the CRQA of social cohesion and count of all events found
-a statistical difference from chance for DET, NRLINE, and LAM. All other metrics
-did not reach significance (Figure \@ref(fig:plot-rp-targ); \autoref{table-1}).
+a statistically significant difference from chance for DET, NRLINE, and LAM. All
+other metrics did not reach significance (Figure \@ref(fig:plot-rp-targ);
+\autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of positive events
-found a statistical difference from chance for DET, NRLINE, maxL, LAM, and TT.
-All other metrics did not reach significance (Figure \@ref(fig:plot-rp-targ);
-\autoref{table-1}).
+found a statistically significant difference from chance for DET, NRLINE, maxL,
+LAM, and TT. All other metrics did not reach significance (Figure
+\@ref(fig:plot-rp-targ); \autoref{table-1}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
 found a statistically significant difference from chance for DET, NRLINE, and
@@ -1238,16 +1244,17 @@ knitr::include_graphics("./results/primary/crqa/target-rp-joined.png")
 
 ### Syria as Source and Target
 A permutation test for the CRQA of social cohesion and count of all events found
-a statistical difference from chance for DET, maxL, and LAM. All other metrics
-were non-significant (Figure \@ref(fig:plot-rp-source-targ); \autoref{table-2}).
+a statistically significant difference from chance for DET, maxL, and LAM. All
+other metrics were non-significant (Figure \@ref(fig:plot-rp-source-targ);
+\autoref{table-2}).
 
 A permutation test for the CRQA of social cohesion and count of positive events
-found a statistical difference from chance for DET, L, ENTR, rENTR, and LAM
-(Figure \@ref(fig:plot-rp-source-targ); \autoref{table-2}).
+found a statistically significant difference from chance for DET, L, ENTR,
+rENTR, and LAM (Figure \@ref(fig:plot-rp-source-targ); \autoref{table-2}).
 
 A permutation test for the CRQA of social cohesion and count of negative events
-found no statistical difference from chance for and metrics (Figure
-\@ref(fig:plot-rp-source-targ); \autoref{table-2}).
+found no statistically significant difference from chance for and metrics
+(Figure \@ref(fig:plot-rp-source-targ); \autoref{table-2}).
 
 [Figure \@ref(fig:plot-rp-source-targ) and \autoref{table-2} about here]
 
