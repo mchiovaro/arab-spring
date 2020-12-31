@@ -1530,16 +1530,16 @@ are violent in nature.
 
 For positive events, we see a similar early peak in RR, but the later
 above-chance values did not match up temporally with that of the all-events time
-series (FIX Figure 10). This suggests that the early stretch of above-chance RR
-may have been captured in the RR of the all-events analysis, whereas the shorter
-stretches were overshadowed by the coupling with negative events. The early
-period of above-chance DET in the positive-event analysis aligned with the early
-period of above-chance RR, whereas the later stretch of significant DET values
-aligns temporally with that of the all-events analysis. It is possible that the
-later stretch reflected the decrease in the number of positive events happening
-(FIX see Fig. 4), while the relative sparsity of positive events led to an
-increase in coupling, with denizens rallying around dwindling bits of hope as
-time went on.
+series (Figure \@ref(fig:plot-wcrqa-targ-all)). This suggests that the early
+stretch of above-chance RR may have been captured in the RR of the all-events
+analysis, whereas the shorter stretches were overshadowed by the coupling with
+negative events. The early period of above-chance DET in the positive-event
+analysis aligned with the early period of above-chance RR, whereas the later
+stretch of significant DET values aligns temporally with that of the all-events
+analysis. It is possible that the later stretch reflected the decrease in the
+number of positive events happening (see Figure \@ref(fig:raw-event-ts-target)),
+while the relative sparsity of positive events led to an increase in coupling,
+with denizens rallying around dwindling bits of hope as time went on.
 
 For negative events, RR rarely reached above-chance values, but around the later
 windows, there were above-chance peaks in both RR and DET that were similar to
