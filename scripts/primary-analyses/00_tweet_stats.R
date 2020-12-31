@@ -5,14 +5,9 @@
 #
 # Code by: M. Chiovaro (@mchiovaro) and A. Paxton (@a-paxton)
 # University of Connecticut
-# Last updated: 2020_12_22
+# Last updated: 2020_12_31
 
 #### 1. Set up ####
-
-#setwd("./Documents/_github/arab-spring/")
-
-library(data.table)
-library(readxl)
 
 # clear environment
 rm(list=ls())
@@ -68,7 +63,7 @@ formatted_tweets <- raw_tweets %>%
 hist(formatted_tweets$time_to_tweet, xlim=c(0, 55))
 
 # get empty data frame
-stats = data.frame(matrix(NA, ncol=14))
+stats = data.frame(matrix(NA, ncol=17))
 colnames(stats) <- c("avg_time_to_tweet",
                      "max_time_to_tweet",
                      "min_time_to_tweet",
@@ -82,7 +77,10 @@ colnames(stats) <- c("avg_time_to_tweet",
                      "total_replies",
                      "percent_replies",
                      "percent_original_tweets",
-                     "total_original_tweets")
+                     "total_original_tweets",
+                     "avg_duration",
+                     "max_duration",
+                     "min_duration")
 
 # get time between tweets
 stats$avg_time_to_tweet <- mean(formatted_tweets$time_to_tweet[2:length(formatted_tweets)])
@@ -116,13 +114,13 @@ retweets = formatted_tweets %>%
 
 # identify replies
 replies = formatted_tweets %>%
-  dplyr::filter(!is.na(in_reply_to_screen_name))
+  dplyr::filter(!is.na(in_reply_to_status_id))
 
 # identify original tweets by stripping out retweets and replies
 original_tweets = anti_join(formatted_tweets,
-                                replies_alt) %>%
+                                replies) %>%
   anti_join(., 
-            retweets_alt)
+            retweets)
 
 # count retweets
 stats$retweets <- nrow(retweets)
@@ -142,12 +140,15 @@ percent_sum <- stats$percent_retweets + stats$percent_replies + stats$percent_or
 #### 4. Tweet group stats ####
 
 # check max and mins
-max(coh_data$Duration..s.)
-min(coh_data$Duration..s.)
+stats$avg_duration = mean(coh_data$Duration..s.)
+stats$max_duration = max(coh_data$Duration..s.)
+stats$min_duration = min(coh_data$Duration..s.)
+
+# check out distribution of unique values
 sort(unique(coh_data$Duration..s.))  
   
 # plot distribution of durations
-hist(coh_data$Duration..s., xlim=c(-210,500), breaks = 2500)
+hist(coh_data$Duration..s., xlim=c(0,500), breaks = 1000)
 
 #### 5. Save everything ####
 
