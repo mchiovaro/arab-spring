@@ -20,7 +20,9 @@ required_packages = c(
   'biwavelet',
   'stringr',
   'lubridate',
-  'stringi'
+  'stringi',
+  'anytime',
+  'grid'
 )
 
 # install missing packages (adapted from <http://stackoverflow.com/a/4090208> and a-paxton/perception-memory-coordination)
