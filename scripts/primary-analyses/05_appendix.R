@@ -68,14 +68,14 @@ formatted_tweets <- raw_tweets %>%
   
   # sort by time of tweet
   arrange(total_seconds)
-  
-  
+
+
 #### 3. Get daily counts of retweets, replies, and originals ####  
-  
+
 # identify retweets
 retweets = formatted_tweets %>%
   dplyr::filter(!is.na(retweet_id)) 
-  
+
 # identify replies
 replies = formatted_tweets %>%
   dplyr::filter(!is.na(in_reply_to_status_id))
@@ -117,11 +117,11 @@ daily_counts <- as.data.frame(cbind(count_retweets$date,
                                     count_orig$deciles_orig))
 # rename columns
 colnames(daily_counts) <- c("date", 
-                           "deciles_retweets", 
-                           "deciles_replies", 
-                           "deciles_orig")
+                            "deciles_retweets", 
+                            "deciles_replies", 
+                            "deciles_orig")
 
-#### 4. Create randomized time series for permutation testing for windowed CRQA ####
+#### 4. Create randomized tweet/retweet time series for permutation testing for CRQA ####
 
 # set seed for reproducibility
 set.seed(123)
@@ -1107,18 +1107,18 @@ panderOptions('keep.trailing.zeros', TRUE)
 panderOptions("table.style", "rmarkdown")
 
 # build table
-pander(target_results, caption = "\\label{table-1}CRQA results for target-only data.\n. p < .10, * p < .05, ** p < .001")
+pander(target_results, caption = "\\label{table-1}CRQA results for retweets and target-only data.\n. p < .10, * p < .05, ** p < .001")
 
 ## source-target table ##
 
 # bind metrics and significance results
 source_target_results <- as.data.frame(cbind(metrics,
-                                      metrics_all_source_targ,
-                                      sig_all_source_targ,
-                                      metrics_pos_source_targ,
-                                      sig_pos_source_targ,
-                                      metrics_neg_source_targ,
-                                      sig_neg_source_targ), stringsAsFactors = FALSE)
+                                             metrics_all_source_targ,
+                                             sig_all_source_targ,
+                                             metrics_pos_source_targ,
+                                             sig_pos_source_targ,
+                                             metrics_neg_source_targ,
+                                             sig_neg_source_targ), stringsAsFactors = FALSE)
 
 # covert to numerics for rounding
 numerics <- c(2:7)
@@ -1134,9 +1134,9 @@ source_target_results <- source_target_results[,c(1,2,3,8,4,5,9,6,7,10)]
 
 # give intuitive names
 colnames(source_target_results) <- c("metric",
-                              "all events", "p", "sig.",
-                              "positive events", "p", "sig.",
-                              "negative events", "p", "sig.")
+                                     "all events", "p", "sig.",
+                                     "positive events", "p", "sig.",
+                                     "negative events", "p", "sig.")
 
 # exclude row names
 rownames(source_target_results) <- NULL
@@ -1150,7 +1150,7 @@ panderOptions('keep.trailing.zeros', TRUE)
 panderOptions("table.style", "rmarkdown")
 
 # build table
-pander(source_target_results, caption = "\\label{table-1}CRQA results for target-only data.\n. p < .10, * p < .05, ** p < .001")
+pander(source_target_results, caption = "\\label{table-1}CRQA results for retweets and target-only data.\n. p < .10, * p < .05, ** p < .001")
 
 ## originals ##
 
@@ -1231,7 +1231,7 @@ panderOptions('keep.trailing.zeros', TRUE)
 panderOptions("table.style", "rmarkdown")
 
 # build table
-pander(target_results, caption = "\\label{table-1}CRQA results for target-only data.\n. p < .10, * p < .05, ** p < .001")
+pander(target_results, caption = "\\label{table-1}CRQA results for original tweets and target-only data.\n. p < .10, * p < .05, ** p < .001")
 
 ## source-target table ##
 
@@ -1274,4 +1274,1986 @@ panderOptions('keep.trailing.zeros', TRUE)
 panderOptions("table.style", "rmarkdown")
 
 # build table
-pander(source_target_results, caption = "\\label{table-1}CRQA results for target-only data.\n. p < .10, * p < .05, ** p < .001")
+pander(source_target_results, caption = "\\label{table-1}CRQA results for original tweets and target-only data.\n. p < .10, * p < .05, ** p < .001")
+
+#### 8. Run Windowed CRQA for target-only data ####
+
+# read in data
+shuffled_windowed <- read.csv("./data/formatted/primary/shuffled_data_windowed.csv")
+
+# split shuffled data into their own dataframes
+shuffled_all_source_target <- shuffled_windowed[,c(1001:2000)]
+shuffled_pos_source_target <- shuffled_windowed[,c(2001:3000)]
+shuffled_neg_source_target <- shuffled_windowed[,c(3001:4000)]
+shuffled_all_target <- shuffled_windowed[,c(4001:5000)]
+shuffled_pos_target <- shuffled_windowed[,c(5001:6000)]
+shuffled_neg_target <- shuffled_windowed[,c(6001:7000)]
+
+### retweets ###
+
+### source and target filtered data ###
+
+## count of all events ##
+
+# calculate windowed CRQA
+windowed_all_source_target = wincrqa(ts1 = daily_counts$deciles_retweets, 
+                                     ts2 = formatted_data$all_deciles_source_target, 
+                                     windowstep = 1, 
+                                     windowsize = 14,
+                                     radius = .001,  
+                                     delay = 1,       
+                                     embed = 1, 
+                                     rescale = 0, 
+                                     normalize = 0,  
+                                     mindiagline = 2, 
+                                     minvertline = 2, 
+                                     tw = 0,
+                                     whiteline = FALSE,
+                                     trend = TRUE) 
+
+# transform into a dataframe for easier plotting 
+# wincrqa_all_df_source_target <- as.data.frame(windowed_all_source_target$crqwin)
+# colnames(wincrqa_all_df_source_target) <- c("RR", "DET", 
+#                                             "NRLINE", "maxL", "L", 
+#                                             "ENTR", "rENTR", 
+#                                             "LAM", "TT", 
+#                                             "window")
+
+## count of positive events ##
+
+# calculate windowed CRQA
+windowed_pos_source_target = wincrqa(ts1 = daily_counts$deciles_retweets, 
+                                     ts2 = formatted_data$pos_deciles_source_target, 
+                                     windowstep = 1, 
+                                     windowsize = 14,
+                                     radius = .001,  
+                                     delay = 1,        
+                                     embed = 1, 
+                                     rescale = 0, 
+                                     normalize = 0, 
+                                     mindiagline = 2,  
+                                     minvertline = 2,  
+                                     tw = 0,
+                                     whiteline = FALSE,
+                                     trend = TRUE)
+
+# transform into a dataframe for easier plotting 
+# wincrqa_pos_df_source_target <- as.data.frame(windowed_pos_source_target$crqwin)
+# colnames(wincrqa_pos_df_source_target) <- c("RR", "DET", 
+#                                             "NRLINE", "maxL", "L", 
+#                                             "ENTR", "rENTR", 
+#                                             "LAM", "TT", 
+#                                             "window")
+
+## count of negative events ##
+
+# calculate windowed CRQA
+windowed_neg_source_target = wincrqa(ts1 = daily_counts$deciles_retweets, 
+                                     ts2 = formatted_data$neg_deciles_source_target, 
+                                     windowstep = 1, 
+                                     windowsize = 14,
+                                     radius = .001, 
+                                     delay = 1, 
+                                     embed = 1, 
+                                     rescale = 0, 
+                                     normalize = 0, 
+                                     mindiagline = 2, 
+                                     minvertline = 2, 
+                                     tw = 0,
+                                     whiteline = FALSE,
+                                     trend = TRUE) 
+
+# transform into a dataframe for easier plotting 
+# wincrqa_neg_df_source_target <- as.data.frame(windowed_neg_source_target$crqwin)
+# colnames(wincrqa_neg_df_source_target) <- c("RR", "DET", 
+#                                             "NRLINE", "maxL", "L", 
+#                                             "ENTR", "rENTR", 
+#                                             "LAM", "TT", 
+#                                             "window")
+
+### target filtered data ###
+
+## count of all events ##
+
+# calculate windowed CRQA
+windowed_all_target = wincrqa(ts1 = daily_counts$deciles_retweets, 
+                              ts2 = formatted_data$all_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001,  
+                              delay = 1,       
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0,  
+                              mindiagline = 2, 
+                              minvertline = 2, 
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE) 
+
+# transform into a dataframe for easier plotting 
+# wincrqa_all_df_target <- as.data.frame(windowed_all_target$crqwin)
+# colnames(wincrqa_all_df_target) <- c("RR", "DET", 
+#                                      "NRLINE", "maxL", "L", 
+#                                      "ENTR", "rENTR", 
+#                                      "LAM", "TT", 
+#                                      "window")
+
+## count of positive events ##
+
+# calculate windowed CRQA
+windowed_pos_target = wincrqa(ts1 = daily_counts$deciles_retweets, 
+                              ts2 = formatted_data$pos_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001,  
+                              delay = 1,        
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0, 
+                              mindiagline = 2,  
+                              minvertline = 2,  
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE)
+
+# transform into a dataframe for easier plotting 
+# wincrqa_pos_df_target <- as.data.frame(windowed_pos_target$crqwin)
+# colnames(wincrqa_pos_df_target) <- c("RR", "DET", 
+#                                      "NRLINE", "maxL", "L", 
+#                                      "ENTR", "rENTR", 
+#                                      "LAM", "TT", 
+#                                      "window")
+
+## count of negative events ##
+
+# calculate windowed CRQA
+windowed_neg_target = wincrqa(ts1 = daily_counts$deciles_retweets, 
+                              ts2 = formatted_data$neg_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001, 
+                              delay = 1, 
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0, 
+                              mindiagline = 2, 
+                              minvertline = 2, 
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE) 
+
+# transform into a dataframe for easier plotting 
+# wincrqa_neg_df_target <- as.data.frame(windowed_neg_target$crqwin)
+# colnames(wincrqa_neg_df_target) <- c("RR", "DET", 
+#                                      "NRLINE", "maxL", "L", 
+#                                      "ENTR", "rENTR", 
+#                                      "LAM", "TT", 
+#                                      "window")
+
+#### Conduct permutation tests ####
+
+### source and target filtered data ###
+
+## count of all events ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_all_source_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_retweets_shuffled[,c(i)],
+                                   ts2=shuffled_all_source_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001, 
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2,
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_all_source_target <- rbind(rqa_shuffled_all_source_target, 
+                                          rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_all_source_target$DET[is.na(rqa_shuffled_all_source_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_all_source_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_all_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_all_source_target <- cbind(significance_all_source_target, temp)
+}
+
+# rename variables
+names(significance_all_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
+
+## count of positive events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_pos_source_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_retweets_shuffled[,c(i)],
+                                   ts2=shuffled_pos_source_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001,
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2,
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_pos_source_target <- rbind(rqa_shuffled_pos_source_target, 
+                                          rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_pos_source_target$DET[is.na(rqa_shuffled_pos_source_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_pos_source_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_pos_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_pos_source_target <- cbind(significance_pos_source_target, temp)
+}
+
+# rename variables
+names(significance_pos_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
+
+## count of negative events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_neg_source_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_retweets_shuffled[,c(i)],
+                                   ts2=shuffled_neg_source_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001, 
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2, 
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_neg_source_target <- rbind(rqa_shuffled_neg_source_target, 
+                                          rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_neg_source_target$DET[is.na(rqa_shuffled_neg_source_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_neg_source_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_neg_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_neg_source_target <- cbind(significance_neg_source_target, temp)
+}
+
+# rename variables
+names(significance_neg_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
+
+### target filtered data ###
+
+## count of all events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_all_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_retweets_shuffled[,c(i)],
+                                   ts2=shuffled_all_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001, 
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2,
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_all_target <- rbind(rqa_shuffled_all_target, rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_all_target$DET[is.na(rqa_shuffled_all_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_all_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_all_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_all_target <- cbind(significance_all_target, temp)
+}
+
+# rename variables
+names(significance_all_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
+
+## count of positive events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_pos_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_retweets_shuffled[,c(i)],
+                                   ts2=shuffled_pos_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001,
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2,
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_pos_target <- rbind(rqa_shuffled_pos_target, rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_pos_target$DET[is.na(rqa_shuffled_pos_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_pos_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_pos_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_pos_target <- cbind(significance_pos_target, temp)
+}
+
+# rename variables
+names(significance_pos_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
+
+## count of negative events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_neg_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_retweets_shuffled[,c(i)],
+                                   ts2=shuffled_neg_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001, 
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2, 
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_neg_target <- rbind(rqa_shuffled_neg_target, rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_neg_target$DET[is.na(rqa_shuffled_neg_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_neg_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_neg_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_neg_target <- cbind(significance_neg_target, temp)
+}
+
+# rename variables
+names(significance_neg_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
+
+#### 4. Plot the results across windows ####
+
+# set universal plotting parameters
+plot_rr_ymin = 0
+plot_rr_ymax = 28
+plot_det_ymin = 0
+plot_det_ymax = 77
+
+### source and target filtered data ###
+
+## count of all events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_all_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct and save the plot
+plot_source_target_windowed_all_RR = ggplot(data = windowed_all_source_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_all_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: All event count') +
+  ylab("RR") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_all_source_target$DET[is.na(windowed_all_source_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_all_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_all_DET = ggplot(data = windowed_all_source_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_all_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: All event count') +
+  ylab("DET") +
+  xlab("Window")
+
+## count of positive events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_pos_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_pos_RR = ggplot(data = windowed_pos_source_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_pos_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Positive event count') +
+  ylab("") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_pos_source_target$DET[is.na(windowed_pos_source_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_pos_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_pos_DET = ggplot(data = windowed_pos_source_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_pos_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Positive event count') +
+  ylab("") +
+  xlab("Window")
+
+## count of negative events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_neg_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_neg_RR = ggplot(data = windowed_neg_source_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_neg_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Negative event count') +
+  ylab("") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_neg_source_target$DET[is.na(windowed_neg_source_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_neg_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_neg_DET = ggplot(data = windowed_neg_source_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_neg_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Negative event count') +
+  ylab("") +
+  xlab("Window")
+
+### join source-target plots ###
+
+plot_source_target_windowed_all = gridExtra::grid.arrange(
+  top = textGrob(paste("Windowed cross-recurrence",
+                       "quantification analysis",
+                       "\nDaily retweets and event count data",
+                       "with source and target filtering",
+                       sep = " "),
+                 gp=gpar(fontsize=15)), 
+  plot_source_target_windowed_all_RR,
+  plot_source_target_windowed_pos_RR,
+  plot_source_target_windowed_neg_RR,
+  plot_source_target_windowed_all_DET,
+  plot_source_target_windowed_pos_DET,
+  plot_source_target_windowed_neg_DET,
+  ncol = 3
+)
+
+# save them
+ggsave(filename = "./results/primary/appendix/windowed-crqa/source_target-retweets-windowed_all.png",
+       plot = plot_source_target_windowed_all,
+       dpi = 300,
+       height = 4,
+       width = 9)
+
+### target filtered data ###
+
+## count of all events ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_all_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct and save the plot
+plot_target_windowed_all_RR = ggplot(data = windowed_all_target,
+                                     aes(y = RR,
+                                         x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_all_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_all_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_all_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: All event count') +
+  ylab("RR") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_all_target$DET[is.na(windowed_all_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_all_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_target_windowed_all_DET = ggplot(data = windowed_all_target,
+                                      aes(y = DET,
+                                          x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_all_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_all_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_all_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: All event count') +
+  ylab("DET") +
+  xlab("Window")
+
+## count of positive events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_pos_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_target_windowed_pos_RR = ggplot(data = windowed_pos_target,
+                                     aes(y = RR,
+                                         x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_pos_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_pos_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_pos_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Positive event count') +
+  ylab("") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_pos_target$DET[is.na(windowed_pos_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_pos_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_target_windowed_pos_DET = ggplot(data = windowed_pos_target,
+                                      aes(y = DET,
+                                          x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_pos_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_pos_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_pos_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Positive event count') +
+  ylab("") +
+  xlab("Window")
+
+## count of negative events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_neg_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_target_windowed_neg_RR = ggplot(data = windowed_neg_target,
+                                     aes(y = RR,
+                                         x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_neg_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_neg_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_neg_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Negative event count') +
+  ylab("") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_neg_target$DET[is.na(windowed_neg_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_neg_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_target_windowed_neg_DET = ggplot(data = windowed_neg_target,
+                                      aes(y = DET,
+                                          x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_neg_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_neg_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_neg_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Negative event count') +
+  ylab("") +
+  xlab("Window")
+
+### join source-target plots ###
+
+plot_target_windowed_all = gridExtra::grid.arrange(
+  top = textGrob(paste("Windowed cross-recurrence",
+                       "quantification analysis",
+                       "\nDaily retweets and event count data",
+                       "with target-only filtering",
+                       sep = " "),
+                 gp=gpar(fontsize=15)), 
+  plot_target_windowed_all_RR,
+  plot_target_windowed_pos_RR,
+  plot_target_windowed_neg_RR,
+  plot_target_windowed_all_DET,
+  plot_target_windowed_pos_DET,
+  plot_target_windowed_neg_DET,
+  ncol = 3
+)
+
+# save them
+ggsave(filename = "./results/primary/appendix/windowed-crqa/target-retweets-windowed_all.png",
+       plot = plot_target_windowed_all,
+       dpi = 300,
+       height = 4,
+       width = 9)
+
+### originals ###
+
+### source and target filtered data ###
+
+## count of all events ##
+
+# calculate windowed CRQA
+windowed_all_source_target = wincrqa(ts1 = daily_counts$deciles_orig, 
+                                     ts2 = formatted_data$all_deciles_source_target, 
+                                     windowstep = 1, 
+                                     windowsize = 14,
+                                     radius = .001,  
+                                     delay = 1,       
+                                     embed = 1, 
+                                     rescale = 0, 
+                                     normalize = 0,  
+                                     mindiagline = 2, 
+                                     minvertline = 2, 
+                                     tw = 0,
+                                     whiteline = FALSE,
+                                     trend = TRUE) 
+
+# transform into a dataframe for easier plotting 
+# wincrqa_all_df_source_target <- as.data.frame(windowed_all_source_target$crqwin)
+# colnames(wincrqa_all_df_source_target) <- c("RR", "DET", 
+#                                             "NRLINE", "maxL", "L", 
+#                                             "ENTR", "rENTR", 
+#                                             "LAM", "TT", 
+#                                             "window")
+
+## count of positive events ##
+
+# calculate windowed CRQA
+windowed_pos_source_target = wincrqa(ts1 = daily_counts$deciles_orig, 
+                                     ts2 = formatted_data$pos_deciles_source_target, 
+                                     windowstep = 1, 
+                                     windowsize = 14,
+                                     radius = .001,  
+                                     delay = 1,        
+                                     embed = 1, 
+                                     rescale = 0, 
+                                     normalize = 0, 
+                                     mindiagline = 2,  
+                                     minvertline = 2,  
+                                     tw = 0,
+                                     whiteline = FALSE,
+                                     trend = TRUE)
+
+# transform into a dataframe for easier plotting 
+# wincrqa_pos_df_source_target <- as.data.frame(windowed_pos_source_target$crqwin)
+# colnames(wincrqa_pos_df_source_target) <- c("RR", "DET", 
+#                                             "NRLINE", "maxL", "L", 
+#                                             "ENTR", "rENTR", 
+#                                             "LAM", "TT", 
+#                                             "window")
+
+## count of negative events ##
+
+# calculate windowed CRQA
+windowed_neg_source_target = wincrqa(ts1 = daily_counts$deciles_orig, 
+                                     ts2 = formatted_data$neg_deciles_source_target, 
+                                     windowstep = 1, 
+                                     windowsize = 14,
+                                     radius = .001, 
+                                     delay = 1, 
+                                     embed = 1, 
+                                     rescale = 0, 
+                                     normalize = 0, 
+                                     mindiagline = 2, 
+                                     minvertline = 2, 
+                                     tw = 0,
+                                     whiteline = FALSE,
+                                     trend = TRUE) 
+
+# transform into a dataframe for easier plotting 
+# wincrqa_neg_df_source_target <- as.data.frame(windowed_neg_source_target$crqwin)
+# colnames(wincrqa_neg_df_source_target) <- c("RR", "DET", 
+#                                             "NRLINE", "maxL", "L", 
+#                                             "ENTR", "rENTR", 
+#                                             "LAM", "TT", 
+#                                             "window")
+
+### target filtered data ###
+
+## count of all events ##
+
+# calculate windowed CRQA
+windowed_all_target = wincrqa(ts1 = daily_counts$deciles_orig, 
+                              ts2 = formatted_data$all_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001,  
+                              delay = 1,       
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0,  
+                              mindiagline = 2, 
+                              minvertline = 2, 
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE) 
+
+# transform into a dataframe for easier plotting 
+# wincrqa_all_df_target <- as.data.frame(windowed_all_target$crqwin)
+# colnames(wincrqa_all_df_target) <- c("RR", "DET", 
+#                                      "NRLINE", "maxL", "L", 
+#                                      "ENTR", "rENTR", 
+#                                      "LAM", "TT", 
+#                                      "window")
+
+## count of positive events ##
+
+# calculate windowed CRQA
+windowed_pos_target = wincrqa(ts1 = daily_counts$deciles_orig, 
+                              ts2 = formatted_data$pos_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001,  
+                              delay = 1,        
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0, 
+                              mindiagline = 2,  
+                              minvertline = 2,  
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE)
+
+# transform into a dataframe for easier plotting 
+# wincrqa_pos_df_target <- as.data.frame(windowed_pos_target$crqwin)
+# colnames(wincrqa_pos_df_target) <- c("RR", "DET", 
+#                                      "NRLINE", "maxL", "L", 
+#                                      "ENTR", "rENTR", 
+#                                      "LAM", "TT", 
+#                                      "window")
+
+## count of negative events ##
+
+# calculate windowed CRQA
+windowed_neg_target = wincrqa(ts1 = daily_counts$deciles_orig, 
+                              ts2 = formatted_data$neg_deciles_target, 
+                              windowstep = 1, 
+                              windowsize = 14,
+                              radius = .001, 
+                              delay = 1, 
+                              embed = 1, 
+                              rescale = 0, 
+                              normalize = 0, 
+                              mindiagline = 2, 
+                              minvertline = 2, 
+                              tw = 0,
+                              whiteline = FALSE,
+                              trend = TRUE) 
+
+# transform into a dataframe for easier plotting 
+# wincrqa_neg_df_target <- as.data.frame(windowed_neg_target$crqwin)
+# colnames(wincrqa_neg_df_target) <- c("RR", "DET", 
+#                                      "NRLINE", "maxL", "L", 
+#                                      "ENTR", "rENTR", 
+#                                      "LAM", "TT", 
+#                                      "window")
+
+#### Conduct permutation tests ####
+
+### source and target filtered data ###
+
+## count of all events ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_all_source_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_orig_shuffled[,c(i)],
+                                   ts2=shuffled_all_source_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001, 
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2,
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_all_source_target <- rbind(rqa_shuffled_all_source_target, 
+                                          rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_all_source_target$DET[is.na(rqa_shuffled_all_source_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_all_source_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_all_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_all_source_target <- cbind(significance_all_source_target, temp)
+}
+
+# rename variables
+names(significance_all_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
+
+## count of positive events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_pos_source_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_orig_shuffled[,c(i)],
+                                   ts2=shuffled_pos_source_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001,
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2,
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_pos_source_target <- rbind(rqa_shuffled_pos_source_target, 
+                                          rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_pos_source_target$DET[is.na(rqa_shuffled_pos_source_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_pos_source_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_pos_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_pos_source_target <- cbind(significance_pos_source_target, temp)
+}
+
+# rename variables
+names(significance_pos_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
+
+## count of negative events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_neg_source_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_orig_shuffled[,c(i)],
+                                   ts2=shuffled_neg_source_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001, 
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2, 
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_neg_source_target <- rbind(rqa_shuffled_neg_source_target, 
+                                          rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_neg_source_target$DET[is.na(rqa_shuffled_neg_source_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_neg_source_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_neg_source_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_neg_source_target <- cbind(significance_neg_source_target, temp)
+}
+
+# rename variables
+names(significance_neg_source_target) <- c("RR", "DET", 
+                                           "NRLINE", "maxL", "L", 
+                                           "ENTR", "rENTR", 
+                                           "LAM", "TT")
+
+### target filtered data ###
+
+## count of all events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_all_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_orig_shuffled[,c(i)],
+                                   ts2=shuffled_all_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001, 
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2,
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_all_target <- rbind(rqa_shuffled_all_target, rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_all_target$DET[is.na(rqa_shuffled_all_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_all_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_all_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_all_target <- cbind(significance_all_target, temp)
+}
+
+# rename variables
+names(significance_all_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
+
+## count of positive events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_pos_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_orig_shuffled[,c(i)],
+                                   ts2=shuffled_pos_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001,
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2,
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_pos_target <- rbind(rqa_shuffled_pos_target, rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_pos_target$DET[is.na(rqa_shuffled_pos_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_pos_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_pos_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_pos_target <- cbind(significance_pos_target, temp)
+}
+
+# rename variables
+names(significance_pos_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
+
+## count of negative events and social cohesion ##
+
+# initialize data frame for saving metrics
+rqa_shuffled_neg_target = data.frame()
+
+for (i in 1:1000) {
+  
+  # run cross recurrence
+  cross_recurrence_analysis = crqa(ts1=win_orig_shuffled[,c(i)],
+                                   ts2=shuffled_neg_target[,c(i)],
+                                   delay=0,
+                                   embed=1,
+                                   rescale=0,
+                                   radius=.001, 
+                                   normalize=0,
+                                   mindiagline=2,
+                                   minvertline=2, 
+                                   tw=0) 
+  
+  # save the crqa results
+  rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
+  
+  # bind to dataframe
+  rqa_shuffled_neg_target <- rbind(rqa_shuffled_neg_target, rqa_results)
+  
+}
+
+# fill in NA determinism values with zero
+rqa_shuffled_neg_target$DET[is.na(rqa_shuffled_neg_target$DET)] <- 0
+
+# initialize data frame for saving percentiles
+significance_neg_target <- data.frame(matrix(, nrow=1, ncol=0))
+
+# loop through all 9 crqa metrics
+for (i in 1:9){
+  
+  # calculate proportion of time shuffled metric is greater than actual metric
+  temp <- data.frame(quantile(rqa_shuffled_neg_target[,c(i)], 
+                              c(.01, .05, .95, .99), 
+                              na.rm = TRUE))
+  
+  # bind to data frame
+  significance_neg_target <- cbind(significance_neg_target, temp)
+}
+
+# rename variables
+names(significance_neg_target) <- c("RR", "DET", 
+                                    "NRLINE", "maxL", "L", 
+                                    "ENTR", "rENTR", 
+                                    "LAM", "TT")
+
+#### Plot the results across windows ####
+
+# set universal plotting parameters
+plot_rr_ymin = 0
+plot_rr_ymax = 28
+plot_det_ymin = 0
+plot_det_ymax = 77
+
+### source and target filtered data ###
+
+## count of all events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_all_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct and save the plot
+plot_source_target_windowed_all_RR = ggplot(data = windowed_all_source_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_all_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: All event count') +
+  ylab("RR") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_all_source_target$DET[is.na(windowed_all_source_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_all_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_all_DET = ggplot(data = windowed_all_source_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_all_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: All event count') +
+  ylab("DET") +
+  xlab("Window")
+
+## count of positive events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_pos_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_pos_RR = ggplot(data = windowed_pos_source_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_pos_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Positive event count') +
+  ylab("") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_pos_source_target$DET[is.na(windowed_pos_source_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_pos_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_pos_DET = ggplot(data = windowed_pos_source_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_pos_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Positive event count') +
+  ylab("") +
+  xlab("Window")
+
+## count of negative events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_neg_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_neg_RR = ggplot(data = windowed_neg_source_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_neg_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Negative event count') +
+  ylab("") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_neg_source_target$DET[is.na(windowed_neg_source_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_neg_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_neg_DET = ggplot(data = windowed_neg_source_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_neg_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Negative event count') +
+  ylab("") +
+  xlab("Window")
+
+### join source-target plots ###
+
+plot_source_target_windowed_all = gridExtra::grid.arrange(
+  top = textGrob(paste("Windowed cross-recurrence",
+                       "quantification analysis",
+                       "\nDaily original tweets and event count data",
+                       "with source and target filtering",
+                       sep = " "),
+                 gp=gpar(fontsize=15)), 
+  plot_source_target_windowed_all_RR,
+  plot_source_target_windowed_pos_RR,
+  plot_source_target_windowed_neg_RR,
+  plot_source_target_windowed_all_DET,
+  plot_source_target_windowed_pos_DET,
+  plot_source_target_windowed_neg_DET,
+  ncol = 3
+)
+
+# save them
+ggsave(filename = "./results/primary/appendix/windowed-crqa/source_target-originals-windowed_all.png",
+       plot = plot_source_target_windowed_all,
+       dpi = 300,
+       height = 4,
+       width = 9)
+
+### target filtered data ###
+
+# construct and save the plot
+plot_source_target_windowed_all_RR = ggplot(data = windowed_all_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_all_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: All event count') +
+  ylab("RR") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_all_target$DET[is.na(windowed_all_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_all_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_all_DET = ggplot(data = windowed_all_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_all_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_all_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_all_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: All event count') +
+  ylab("DET") +
+  xlab("Window")
+
+## count of positive events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_pos_source_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_pos_RR = ggplot(data = windowed_pos_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_pos_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Positive event count') +
+  ylab("") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_pos_target$DET[is.na(windowed_pos_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_pos_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_pos_DET = ggplot(data = windowed_pos_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_pos_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_pos_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_pos_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Positive event count') +
+  ylab("") +
+  xlab("Window")
+
+## count of negative events and social cohesion ##
+
+# RR plot #
+
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_neg_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_neg_RR = ggplot(data = windowed_neg_target,
+                                            aes(y = RR,
+                                                x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_source_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_neg_source_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[4,1], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_rr_ymin, plot_rr_ymax)) +
+  
+  # add labels
+  ggtitle('RR: Negative event count') +
+  ylab("") +
+  xlab("")
+
+# DET plot #
+
+# fill in NA determinism values with 0
+windowed_neg_target$DET[is.na(windowed_neg_target$DET)] <- 0
+
+# identify trend line
+fit <- lm(DET ~ win, data = windowed_neg_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
+# construct the plot
+plot_source_target_windowed_neg_DET = ggplot(data = windowed_neg_target,
+                                             aes(y = DET,
+                                                 x = win)) +
+  
+  # add both points and lines for each observation
+  geom_line() +
+  geom_point() +
+  
+  # add upper and lower 95th and 99th percentile lines for significance tests
+  geom_hline(yintercept = significance_neg_source_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_neg_source_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_neg_source_target[4,2], color = "orange") +
+  
+  # add abline
+  geom_abline(intercept = fit_intercept,
+              slope = fit_slope,
+              color="blue") +
+  
+  # make uniform boundaries
+  coord_cartesian(ylim = c(plot_det_ymin, plot_det_ymax)) +
+  
+  # add labels
+  ggtitle('DET: Negative event count') +
+  ylab("") +
+  xlab("Window")
+
+### join source-target plots ###
+
+plot_source_target_windowed_all = gridExtra::grid.arrange(
+  top = textGrob(paste("Windowed cross-recurrence",
+                       "quantification analysis",
+                       "\nDaily original tweets and event count data",
+                       "with source and target filtering",
+                       sep = " "),
+                 gp=gpar(fontsize=15)), 
+  plot_source_target_windowed_all_RR,
+  plot_source_target_windowed_pos_RR,
+  plot_source_target_windowed_neg_RR,
+  plot_source_target_windowed_all_DET,
+  plot_source_target_windowed_pos_DET,
+  plot_source_target_windowed_neg_DET,
+  ncol = 3
+)
+
+# save them
+ggsave(filename = "./results/primary/appendix/windowed-crqa/target-originals-windowed_all.png",
+       plot = plot_source_target_windowed_all,
+       dpi = 300,
+       height = 4,
+       width = 9)
