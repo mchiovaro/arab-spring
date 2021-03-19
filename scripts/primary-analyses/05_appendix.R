@@ -69,7 +69,6 @@ formatted_tweets <- raw_tweets %>%
   # sort by time of tweet
   arrange(total_seconds)
 
-
 #### 3. Get daily counts of retweets, replies, and originals ####  
 
 # identify retweets
@@ -246,7 +245,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_orig,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_all_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -258,25 +257,25 @@ rqa_shuffled_orig = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_orig_shuffled[,c(i)],
                                    ts2=shuffled_all_source_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_orig <- rbind(rqa_shuffled_orig, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -284,10 +283,10 @@ significance_all_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_orig[,c(i)] > rqa_results_all_source_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_all_source_target <- cbind(significance_all_source_target, temp)
 }
@@ -311,7 +310,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_retweets,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_all_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -323,25 +322,25 @@ rqa_shuffled_retweets = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_retweets_shuffled[,c(i)],
                                    ts2=shuffled_all_source_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_retweets <- rbind(rqa_shuffled_retweets, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -349,10 +348,10 @@ significance_all_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_retweets[,c(i)] > rqa_results_all_source_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_all_source_target <- cbind(significance_all_source_target, temp)
 }
@@ -378,7 +377,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_orig,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_pos_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -390,25 +389,25 @@ rqa_shuffled_orig = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_orig_shuffled[,c(i)],
                                    ts2=shuffled_pos_source_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_orig <- rbind(rqa_shuffled_orig, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -416,10 +415,10 @@ significance_pos_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_orig[,c(i)] > rqa_results_pos_source_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_pos_source_target <- cbind(significance_pos_source_target, temp)
 }
@@ -443,7 +442,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_retweets,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_pos_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -455,25 +454,25 @@ rqa_shuffled_retweets = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_retweets_shuffled[,c(i)],
                                    ts2=shuffled_pos_source_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_retweets <- rbind(rqa_shuffled_retweets, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -481,10 +480,10 @@ significance_pos_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_retweets[,c(i)] > rqa_results_pos_source_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_pos_source_target <- cbind(significance_pos_source_target, temp)
 }
@@ -510,7 +509,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_orig,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_neg_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -522,25 +521,25 @@ rqa_shuffled_orig = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_orig_shuffled[,c(i)],
                                    ts2=shuffled_neg_source_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_orig <- rbind(rqa_shuffled_orig, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -548,10 +547,10 @@ significance_neg_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_orig[,c(i)] > rqa_results_neg_source_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_neg_source_target <- cbind(significance_neg_source_target, temp)
 }
@@ -575,7 +574,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_retweets,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_neg_source_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -587,25 +586,25 @@ rqa_shuffled_retweets = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_retweets_shuffled[,c(i)],
                                    ts2=shuffled_neg_source_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_retweets <- rbind(rqa_shuffled_retweets, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -613,10 +612,10 @@ significance_neg_source_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_retweets[,c(i)] > rqa_results_neg_source_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_neg_source_target <- cbind(significance_neg_source_target, temp)
 }
@@ -644,7 +643,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_orig,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_all_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -656,25 +655,25 @@ rqa_shuffled_orig = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_orig_shuffled[,c(i)],
                                    ts2=shuffled_all_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_orig <- rbind(rqa_shuffled_orig, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -682,10 +681,10 @@ significance_all_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_orig[,c(i)] > rqa_results_all_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_all_target <- cbind(significance_all_target, temp)
 }
@@ -709,7 +708,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_retweets,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_all_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -721,25 +720,25 @@ rqa_shuffled_retweets = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_retweets_shuffled[,c(i)],
                                    ts2=shuffled_all_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_retweets <- rbind(rqa_shuffled_retweets, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -747,10 +746,10 @@ significance_all_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_retweets[,c(i)] > rqa_results_all_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_all_target <- cbind(significance_all_target, temp)
 }
@@ -776,7 +775,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_orig,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_pos_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -788,25 +787,25 @@ rqa_shuffled_orig = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_orig_shuffled[,c(i)],
                                    ts2=shuffled_pos_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_orig <- rbind(rqa_shuffled_orig, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -814,10 +813,10 @@ significance_pos_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_orig[,c(i)] > rqa_results_pos_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_pos_target <- cbind(significance_pos_target, temp)
 }
@@ -841,7 +840,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_retweets,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_pos_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -853,25 +852,25 @@ rqa_shuffled_retweets = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_retweets_shuffled[,c(i)],
                                    ts2=shuffled_pos_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_retweets <- rbind(rqa_shuffled_retweets, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -879,10 +878,10 @@ significance_pos_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_retweets[,c(i)] > rqa_results_pos_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_pos_target <- cbind(significance_pos_target, temp)
 }
@@ -908,7 +907,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_orig,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_neg_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -920,25 +919,25 @@ rqa_shuffled_orig = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_orig_shuffled[,c(i)],
                                    ts2=shuffled_neg_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_orig <- rbind(rqa_shuffled_orig, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -946,10 +945,10 @@ significance_neg_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_orig[,c(i)] > rqa_results_neg_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_neg_target <- cbind(significance_neg_target, temp)
 }
@@ -973,7 +972,7 @@ cross_recurrence_analysis = crqa(ts1=daily_counts$deciles_retweets,
                                  normalize=0,
                                  mindiagline=2,
                                  minvertline=2,
-                                 tw=0) 
+                                 tw=0)
 
 # save the crqa results
 rqa_results_neg_target <- data.frame(c(cross_recurrence_analysis[1:9]))
@@ -985,25 +984,25 @@ rqa_shuffled_retweets = data.frame()
 
 # calculate crqa metrics for each shuffled time series
 for (i in 1:1000) {
-  
+
   # run cross recurrence
   cross_recurrence_analysis = crqa(ts1=all_retweets_shuffled[,c(i)],
                                    ts2=shuffled_neg_target[,c(i)],
                                    delay=0,
                                    embed=1,
                                    rescale=0,
-                                   radius=.001, 
+                                   radius=.001,
                                    normalize=0,
                                    mindiagline=2,
                                    minvertline=2,
-                                   tw=0) 
-  
+                                   tw=0)
+
   # save the crqa results
   rqa_results <- data.frame(c(cross_recurrence_analysis[1:9]))
-  
+
   # bind to dataframe
   rqa_shuffled_retweets <- rbind(rqa_shuffled_retweets, rqa_results)
-  
+
 }
 
 # initialize data frame for saving significance results
@@ -1011,10 +1010,10 @@ significance_neg_target <- data.frame(matrix(, nrow=1, ncol=0))
 
 # loop through all 9 crqa metrics
 for (i in 1:9){
-  
+
   # calculate proportion of time shuffled metric is greater than actual metric
   temp <- data.frame(sum((rqa_shuffled_retweets[,c(i)] > rqa_results_neg_target[,c(i)]), na.rm=TRUE)/1000)
-  
+
   # bind to data frame
   significance_neg_target <- cbind(significance_neg_target, temp)
 }
@@ -1150,7 +1149,7 @@ panderOptions('keep.trailing.zeros', TRUE)
 panderOptions("table.style", "rmarkdown")
 
 # build table
-pander(source_target_results, caption = "\\label{table-1}CRQA results for retweets and target-only data.\n. p < .10, * p < .05, ** p < .001")
+pander(source_target_results, caption = "\\label{table-1}CRQA results for retweets and source-target data.\n. p < .10, * p < .05, ** p < .001")
 
 ## originals ##
 
@@ -1274,7 +1273,7 @@ panderOptions('keep.trailing.zeros', TRUE)
 panderOptions("table.style", "rmarkdown")
 
 # build table
-pander(source_target_results, caption = "\\label{table-1}CRQA results for original tweets and target-only data.\n. p < .10, * p < .05, ** p < .001")
+pander(source_target_results, caption = "\\label{table-1}CRQA results for original tweets and source-target data.\n. p < .10, * p < .05, ** p < .001")
 
 #### 8. Run Windowed CRQA for target-only data ####
 
@@ -2253,7 +2252,7 @@ plot_target_windowed_neg_DET = ggplot(data = windowed_neg_target,
   ylab("") +
   xlab("Window")
 
-### join source-target plots ###
+### join target plots ###
 
 plot_target_windowed_all = gridExtra::grid.arrange(
   top = textGrob(paste("Windowed cross-recurrence",
@@ -3017,8 +3016,13 @@ ggsave(filename = "./results/primary/appendix/windowed-crqa/source_target-origin
 
 ### target filtered data ###
 
+# identify trend line
+fit <- lm(RR ~ win, data = windowed_all_target)
+fit_intercept = fit$coefficients[1]
+fit_slope = fit$coefficients[2]
+
 # construct and save the plot
-plot_source_target_windowed_all_RR = ggplot(data = windowed_all_target,
+plot_target_windowed_all_RR = ggplot(data = windowed_all_target,
                                             aes(y = RR,
                                                 x = win)) +
   
@@ -3027,10 +3031,10 @@ plot_source_target_windowed_all_RR = ggplot(data = windowed_all_target,
   geom_point() +
   
   # add upper and lower 95th and 99th percentile lines for significance tests
-  geom_hline(yintercept = significance_all_source_target[1,1], color = "orange") +
-  geom_hline(yintercept = significance_all_source_target[2,1], color = "red") +
-  geom_hline(yintercept = significance_all_source_target[3,1], color = "red") +
-  geom_hline(yintercept = significance_all_source_target[4,1], color = "orange") +
+  geom_hline(yintercept = significance_all_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_all_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_all_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_all_target[4,1], color = "orange") +
   
   # add abline
   geom_abline(intercept = fit_intercept,
@@ -3056,7 +3060,7 @@ fit_intercept = fit$coefficients[1]
 fit_slope = fit$coefficients[2]
 
 # construct the plot
-plot_source_target_windowed_all_DET = ggplot(data = windowed_all_target,
+plot_target_windowed_all_DET = ggplot(data = windowed_all_target,
                                              aes(y = DET,
                                                  x = win)) +
   
@@ -3065,10 +3069,10 @@ plot_source_target_windowed_all_DET = ggplot(data = windowed_all_target,
   geom_point() +
   
   # add upper and lower 95th and 99th percentile lines for significance tests
-  geom_hline(yintercept = significance_all_source_target[1,2], color = "orange") +
-  geom_hline(yintercept = significance_all_source_target[2,2], color = "red") +
-  geom_hline(yintercept = significance_all_source_target[3,2], color = "red") +
-  geom_hline(yintercept = significance_all_source_target[4,2], color = "orange") +
+  geom_hline(yintercept = significance_all_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_all_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_all_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_all_target[4,2], color = "orange") +
   
   # add abline
   geom_abline(intercept = fit_intercept,
@@ -3088,12 +3092,12 @@ plot_source_target_windowed_all_DET = ggplot(data = windowed_all_target,
 # RR plot #
 
 # identify trend line
-fit <- lm(RR ~ win, data = windowed_pos_source_target)
+fit <- lm(RR ~ win, data = windowed_pos_target)
 fit_intercept = fit$coefficients[1]
 fit_slope = fit$coefficients[2]
 
 # construct the plot
-plot_source_target_windowed_pos_RR = ggplot(data = windowed_pos_target,
+plot_target_windowed_pos_RR = ggplot(data = windowed_pos_target,
                                             aes(y = RR,
                                                 x = win)) +
   
@@ -3102,10 +3106,10 @@ plot_source_target_windowed_pos_RR = ggplot(data = windowed_pos_target,
   geom_point() +
   
   # add upper and lower 95th and 99th percentile lines for significance tests
-  geom_hline(yintercept = significance_pos_source_target[1,1], color = "orange") +
-  geom_hline(yintercept = significance_pos_source_target[2,1], color = "red") +
-  geom_hline(yintercept = significance_pos_source_target[3,1], color = "red") +
-  geom_hline(yintercept = significance_pos_source_target[4,1], color = "orange") +
+  geom_hline(yintercept = significance_pos_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_pos_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_pos_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_pos_target[4,1], color = "orange") +
   
   # add abline
   geom_abline(intercept = fit_intercept,
@@ -3131,7 +3135,7 @@ fit_intercept = fit$coefficients[1]
 fit_slope = fit$coefficients[2]
 
 # construct the plot
-plot_source_target_windowed_pos_DET = ggplot(data = windowed_pos_target,
+plot_target_windowed_pos_DET = ggplot(data = windowed_pos_target,
                                              aes(y = DET,
                                                  x = win)) +
   
@@ -3140,10 +3144,10 @@ plot_source_target_windowed_pos_DET = ggplot(data = windowed_pos_target,
   geom_point() +
   
   # add upper and lower 95th and 99th percentile lines for significance tests
-  geom_hline(yintercept = significance_pos_source_target[1,2], color = "orange") +
-  geom_hline(yintercept = significance_pos_source_target[2,2], color = "red") +
-  geom_hline(yintercept = significance_pos_source_target[3,2], color = "red") +
-  geom_hline(yintercept = significance_pos_source_target[4,2], color = "orange") +
+  geom_hline(yintercept = significance_pos_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_pos_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_pos_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_pos_target[4,2], color = "orange") +
   
   # add abline
   geom_abline(intercept = fit_intercept,
@@ -3168,7 +3172,7 @@ fit_intercept = fit$coefficients[1]
 fit_slope = fit$coefficients[2]
 
 # construct the plot
-plot_source_target_windowed_neg_RR = ggplot(data = windowed_neg_target,
+plot_target_windowed_neg_RR = ggplot(data = windowed_neg_target,
                                             aes(y = RR,
                                                 x = win)) +
   
@@ -3177,10 +3181,10 @@ plot_source_target_windowed_neg_RR = ggplot(data = windowed_neg_target,
   geom_point() +
   
   # add upper and lower 95th and 99th percentile lines for significance tests
-  geom_hline(yintercept = significance_neg_source_target[1,1], color = "orange") +
-  geom_hline(yintercept = significance_neg_source_target[2,1], color = "red") +
-  geom_hline(yintercept = significance_neg_source_target[3,1], color = "red") +
-  geom_hline(yintercept = significance_neg_source_target[4,1], color = "orange") +
+  geom_hline(yintercept = significance_neg_target[1,1], color = "orange") +
+  geom_hline(yintercept = significance_neg_target[2,1], color = "red") +
+  geom_hline(yintercept = significance_neg_target[3,1], color = "red") +
+  geom_hline(yintercept = significance_neg_target[4,1], color = "orange") +
   
   # add abline
   geom_abline(intercept = fit_intercept,
@@ -3206,7 +3210,7 @@ fit_intercept = fit$coefficients[1]
 fit_slope = fit$coefficients[2]
 
 # construct the plot
-plot_source_target_windowed_neg_DET = ggplot(data = windowed_neg_target,
+plot_target_windowed_neg_DET = ggplot(data = windowed_neg_target,
                                              aes(y = DET,
                                                  x = win)) +
   
@@ -3215,10 +3219,10 @@ plot_source_target_windowed_neg_DET = ggplot(data = windowed_neg_target,
   geom_point() +
   
   # add upper and lower 95th and 99th percentile lines for significance tests
-  geom_hline(yintercept = significance_neg_source_target[1,2], color = "orange") +
-  geom_hline(yintercept = significance_neg_source_target[2,2], color = "red") +
-  geom_hline(yintercept = significance_neg_source_target[3,2], color = "red") +
-  geom_hline(yintercept = significance_neg_source_target[4,2], color = "orange") +
+  geom_hline(yintercept = significance_neg_target[1,2], color = "orange") +
+  geom_hline(yintercept = significance_neg_target[2,2], color = "red") +
+  geom_hline(yintercept = significance_neg_target[3,2], color = "red") +
+  geom_hline(yintercept = significance_neg_target[4,2], color = "orange") +
   
   # add abline
   geom_abline(intercept = fit_intercept,
@@ -3233,27 +3237,28 @@ plot_source_target_windowed_neg_DET = ggplot(data = windowed_neg_target,
   ylab("") +
   xlab("Window")
 
-### join source-target plots ###
+### join target plots ###
 
-plot_source_target_windowed_all = gridExtra::grid.arrange(
+plot_target_windowed_all = gridExtra::grid.arrange(
   top = textGrob(paste("Windowed cross-recurrence",
                        "quantification analysis",
                        "\nDaily original tweets and event count data",
-                       "with source and target filtering",
+                       "with target-only filtering",
                        sep = " "),
                  gp=gpar(fontsize=15)), 
-  plot_source_target_windowed_all_RR,
-  plot_source_target_windowed_pos_RR,
-  plot_source_target_windowed_neg_RR,
-  plot_source_target_windowed_all_DET,
-  plot_source_target_windowed_pos_DET,
-  plot_source_target_windowed_neg_DET,
+  plot_target_windowed_all_RR,
+  plot_target_windowed_pos_RR,
+  plot_target_windowed_neg_RR,
+  plot_target_windowed_all_DET,
+  plot_target_windowed_pos_DET,
+  plot_target_windowed_neg_DET,
   ncol = 3
 )
 
 # save them
 ggsave(filename = "./results/primary/appendix/windowed-crqa/target-originals-windowed_all.png",
-       plot = plot_source_target_windowed_all,
+       plot = plot_target_windowed_all,
        dpi = 300,
        height = 4,
        width = 9)
+
