@@ -627,7 +627,7 @@ names(significance_neg_source_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "
 write.table(significance_neg_source_target,'./results/primary/appendix/crqa/retweets/source_target-metric_signif_neg.csv',
             sep=",", row.names=FALSE)
 
-#### 6. Run CRQA for target-only data ####
+#### 7. Run CRQA for target-only data ####
 
 ### all events ###
 
@@ -1025,7 +1025,7 @@ names(significance_neg_target) <- c("RR", "DET", "NRLINE", "maxL", "L", "ENTR", 
 write.table(significance_neg_target,'./results/primary/appendix/crqa/retweets/target-metric_signif_neg.csv',
             sep=",", row.names=FALSE)
 
-#### 7. Create presentable tables ####
+#### 8. Create presentable tables ####
 
 ### retweets ###
 
@@ -1275,7 +1275,7 @@ panderOptions("table.style", "rmarkdown")
 # build table
 pander(source_target_results, caption = "\\label{table-1}CRQA results for original tweets and source-target data.\n. p < .10, * p < .05, ** p < .001")
 
-#### 8. Run Windowed CRQA for target-only data ####
+#### 9. Run Windowed CRQA for target-only data ####
 
 # read in data
 shuffled_windowed <- read.csv("./data/formatted/primary/shuffled_data_windowed.csv")
@@ -1450,7 +1450,7 @@ windowed_neg_target = wincrqa(ts1 = daily_counts$deciles_retweets,
 #                                      "LAM", "TT", 
 #                                      "window")
 
-#### Conduct permutation tests ####
+#### 10. Conduct permutation tests ####
 
 ### source and target filtered data ###
 
@@ -1765,7 +1765,7 @@ names(significance_neg_target) <- c("RR", "DET",
                                     "ENTR", "rENTR", 
                                     "LAM", "TT")
 
-#### 4. Plot the results across windows ####
+#### 11. Plot the results across windows ####
 
 # set universal plotting parameters
 plot_rr_ymin = 0
@@ -2439,7 +2439,7 @@ windowed_neg_target = wincrqa(ts1 = daily_counts$deciles_orig,
 #                                      "LAM", "TT", 
 #                                      "window")
 
-#### Conduct permutation tests ####
+#### 12. Conduct permutation tests ####
 
 ### source and target filtered data ###
 
@@ -2754,7 +2754,7 @@ names(significance_neg_target) <- c("RR", "DET",
                                     "ENTR", "rENTR", 
                                     "LAM", "TT")
 
-#### Plot the results across windows ####
+#### 13. Plot the results across windows ####
 
 # set universal plotting parameters
 plot_rr_ymin = 0
@@ -3261,4 +3261,53 @@ ggsave(filename = "./results/primary/appendix/windowed-crqa/target-originals-win
        dpi = 300,
        height = 4,
        width = 9)
+
+#### 14. Calculate correlation of the time series ####
+
+### Cohesion and original tweets ###
+
+# make ts variables
+coh <- ts(formatted_data$coh_deciles)
+orig <- ts(count_orig$deciles_orig)
+
+# ADF test for stationarity
+(adf_coh <- adf.test(coh)) # non-stationary
+(adf_orig <- adf.test(orig)) # non-stationary
+
+## Fix non-stationary time series and check again
+
+# take first difference to assure stationarity
+coh <- diff(coh, differences=1)
+orig <- diff(orig, differences=1)
+
+# retest for stationarity
+(adf_coh <- adf.test(coh)) 
+(adf_orig <- adf.test(orig)) 
+
+## Run cross-correlation and save plot
+tiff(file="./results/primary/appendix/xcorr/stats_ccf_orig_coh.tiff", width = 900, height = 900, units = "px", res = 300)
+stats::ccf(coh, orig, type = "correlation", ylab = "Cross-correlation")
+dev.off()
+
+### Cohesion and retweets ###
+
+# make ts variables
+retweets <- ts(count_retweets$deciles_retweets)
+
+# ADF test for stationarity
+(adf_retweets <- adf.test(retweets)) # non-stationary
+
+## Fix non-stationary time series and check again
+
+# take first difference to assure stationarity
+retweets <- diff(retweets, differences=1)
+
+# retest for stationarity
+(adf_coh <- adf.test(coh)) 
+(adf_retweets <- adf.test(retweets)) 
+
+## Run cross-correlation and save plot
+tiff(file="./results/primary/appendix/xcorr/stats_ccf_retweets_coh.tiff", width = 900, height = 900, units = "px", res = 300)
+stats::ccf(coh, retweets, type = "correlation", ylab = "Cross-correlation")
+dev.off()
 
