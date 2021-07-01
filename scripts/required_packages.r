@@ -22,7 +22,9 @@ required_packages = c(
   'lubridate',
   'stringi',
   'anytime',
-  'grid'
+  'grid',
+  'tseries',
+  'psych'
 )
 
 # install missing packages (adapted from <http://stackoverflow.com/a/4090208> and a-paxton/perception-memory-coordination)

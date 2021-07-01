@@ -22,7 +22,9 @@ required_packages = c(
   'lubridate',
   'stringi',
   'anytime',
-  'grid'
+  'grid',
+  'tseries',
+  'psych'
 )
 
 # load required packages
