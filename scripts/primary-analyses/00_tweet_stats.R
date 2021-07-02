@@ -13,7 +13,7 @@
 rm(list=ls())
 
 # read in the data 
-raw_tweets <- read.csv("./data/raw/syria_merge_sort.csv",
+raw_tweets <- read.csv("./data/raw/syria_tweets_sorted.csv",
                        header = TRUE,
                        sep = ',')
 coh_data <- read.csv("./data/raw/syria_coherence_sort_5.csv",

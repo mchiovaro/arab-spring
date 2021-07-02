@@ -18,7 +18,7 @@ positive_event_color = "#0072B2"
 negative_event_color = "#D55E00"
 
 # read in the data 
-raw_tweets <- read.csv("./data/raw/syria_merge_sort.csv",
+raw_tweets <- read.csv("./data/raw/syria_tweets_sorted.csv",
                        header = TRUE,
                        sep = ',')
 formatted_data <- read.csv("./data/formatted/primary/formatted_data.csv")
