@@ -13,7 +13,7 @@
 rm(list=ls())
 
 # set working directory
-setwd("./Documents/github/arab-spring/")
+#setwd("./Documents/github/arab-spring/")
 
 # read in ANEW data 
 anew <- read.csv("./data/formatted/Output_Anew_Sentiment_all_syria_merge_sort_trimmed.csv",
